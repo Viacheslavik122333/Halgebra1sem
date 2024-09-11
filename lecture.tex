@@ -14,6 +14,7 @@
 \usepackage{mathtools}
 %\usepackage{indentfirst}
 \usepackage{soulutf8}
+\usepackage{graphicx}
 
 
 \usepackage{tikz,amstext}
@@ -28,6 +29,7 @@
 \renewcommand{\phi}{\varphi}
 \renewcommand{\epsilon}{\varepsilon}
 \newcommand{\aug}{\fboxsep=-\fboxrule\!\!\!\fbox{\strut}\!\!\!}
+\newcommand\tab[1][.5cm]{\hspace*{#1}}
 
 \theoremstyle{definition}
 \newtheorem*{definition}{Определение}
@@ -64,27 +66,64 @@
     colorlinks=true
 }
 
-\title{\textbf{Алгебра. 1 семестр, О.В.Куликова}}
-\author{Вячеслав Молчанов, 108 группа}
-
 \begin{document}
-  \maketitle
-  \newpage
+  \begin{titlepage}
+    \newpage
+    
+    \begin{center}
+    \includegraphics[width=4cm]{images.png}
+    \end{center}
+    
+    \vspace{4em}
+    
+    \begin{center}
+    \Large Механико-математический факультет  
+    \end{center}
+    
+    \vspace{2em}
+    
+    \begin{center}
+    \large{\textsc{\textbf{Алгебра, 1 семестр, 2 поток}}}
+    \end{center}
+    
+    \vspace{6em}
+    
+
+    
+    \newbox{\lbox}
+    \savebox{\lbox}{\hbox{Молчанов Вячеслав Вадимович}}
+    \newlength{\maxl}
+    \setlength{\maxl}{\wd\lbox}
+    \hfill\parbox{11cm}
+    {
+    \hspace*{5cm}\hspace*{-5cm}Преподаватель:\hfill\hbox to\maxl{Куликова Ольга Викторовна\\} \\
+
+    \hspace*{5cm}\hspace*{-5cm}Студент:\hfill\hbox to\maxl{Молчанов Вячеслав\\}\\
+
+    \hspace*{5cm}\hspace*{-5cm}Группа:\hfill\hbox to\maxl{108}
+    }
+    
+    \vspace{\fill}
+    
+    \begin{center}
+    Москва \\2024 
+    \end{center}
+  \end{titlepage}
   \tableofcontents
   \fontsize{14pt}{20pt}\selectfont
   \newpage
+  \fontsize{14pt}{20pt}\selectfont
   \section{Система линейных уравнений}
   \subsection{Матрица. Основные понятия}
-
   \begin{definition}
-    Матрица $A$ размера $m\times n$ прямоугольная таблица с $m$ строками и $n$ столбцами
+    Матрица $A$ размера $m\times n$ это прямоугольная таблица с $m$ строками и $n$ столбцами
     $$ A= \begin{pmatrix}
       a_{11} && a_{12} && \dots && a_{1n}\\
       a_{21} && a_{22} && \dots && a_{2n}\\
       \vdots && \null && \null && \vdots\\
       a_{m1} && a_{m2} && \dots && a_{mn}
     \end{pmatrix}$$ \\
-    $a_{ij}$ - элемент матрицы и индыксы:
+    $a_{ij}$ - элемент матрицы и индексы:
 
     \begin{itemize}
       \item $i$ - номер строками
@@ -102,15 +141,14 @@
       a_{m1} 
     \end{pmatrix} $$
 
-    Если $A=(a_{ij})$ - крадратная, $a_{ij} = 0\ \forall i \neq j$, то $A$ называется диальнольной. \\
+    Если $A=(a_{ij})$ - крадратная, $a_{ij} = 0\ \forall i \neq j$, то $A$ называется диальнольной.
     $$ A =
     \begin{pmatrix}
       a_{11} && \null && \null && 0 \\
       \null && a_{22} && \null && \null \\
       \null && \null && \ddots && \null \\
       0 && \null && \null && a_{nn} 
-    \end{pmatrix} $$ \\
- 
+    \end{pmatrix} $$
 
     Если $A$ - диальнольная и $a_{ij}$ = 1, то $A$ называется единичной.
     $$ A =
@@ -119,7 +157,7 @@
       \null && 1 && \null && \null \\
       \null && \null && \ddots && \null \\
       0 && \null && \null && 1 
-    \end{pmatrix} $$ \\
+    \end{pmatrix} $$
 
     \newpage
 
@@ -143,13 +181,14 @@
     \end{definition}
 
     \subsection{Система линейных (алгебраческих) уравнений}
-    $(*)\begin{cases}
+    $(*)
+    \begin{cases}
       a_{11}x_1 + ... + a_{1n}x_n = b_1 \\ 
       a_{21}x_2 + ... + a_{2n}x_n = b_2 \\
       \vdots \\
       a_{n1}x_1 + ... + a_{nn}x_n = b_n
-    \end{cases}$ \\$\\$
-    где $a_{ij}, b \in \R, x_1,... ,x_n$ - неизвестные.\\
+    \end{cases}$ $\\$$\\$
+    где $a_{ij}, b \in \R, x_1,... ,x_n$ - неизвестные.
     $$A = \begin{pmatrix}
       a_{11} && \dots && a_{1n} \\
       \vdots && \null && \vdots \\
@@ -164,7 +203,7 @@
     \begin{definition}
       Расширенная матрица $\underset{m\times (n+1)}{(A|B)}$. Набор чисел $x_1^0,...,x_n^0 \in \R$ называется решением системы $(*)$, если подстановка этих чисел вместо неизвестных в $(*)$ дает тождество в каждом уравнении. $(x_i^0\longleftrightarrow x)$ 
     \end{definition}
-    Решить систему - это найит все решения системы. Любое конткретное решение называется частным.
+    Решить систему - это найти все решения системы. Любое конткретное решение называется частным.
     \begin{definition}
       Если СЛУ имеет решение, то она называется совместной, иначе несовместной. 
     \end{definition}  
@@ -188,23 +227,25 @@
       Если одна СЛУ получена из другой СЛУ с помощью конечного числа элементарных преобразований, то эти системы эквивалентны.
     \end{subtheorem}
     \begin{proof}
-      $ \\ \Longrightarrow$  
-      Достаточно доказать, что если $AX = B$  и $\tilde{A} X = \tilde{B}$ получены с помощью одного элементарного преобразования, то она эквивалентны.
-      Пусть $x_1^0,...,x_n^0$ - произвольное решение $AX = B$.
-      Докажем, что $x_1^0,...,x_n^0$ является решением системы $\tilde{A} X = \tilde{B}$.
-      Для 2 пункта очевидно. Для 3: предположим, что 
-      $$a_{i1}x_1 +...+ a_{in} = b_{i} \text{ в } AX = B$$
-      $$ (\mu a_{i1})x_1 +...+(\mu a_{in})=x_{1}n = \mu b_i \text{ в } \tilde{A} X = \tilde{B} $$ 
-      Если $a_{i1}x_1 +...+ a_{in} = b_{i}$, то $ (\mu a_{i1})x_1 +...+(\mu a_{in})=x_{1}n = \mu b_i$ \\
-      Остальные уравнения такие жн $\mu (a_{i1}x_1 +...+ a_{in}) = (\mu)b_i$ \\ 
-      1 пункт: Д/З \\
-      Т.о. множество решений $AX = B$ включено в множество решений $\tilde{A} X = \tilde{B}$. \\
+      $ \\ \Longrightarrow$ (Не Куликова) 
+      $AX = B$ - сходная система, $\tilde{A} X = \tilde{B}$ преобразованная система. \\
+      Пусть ${z_1,...,z_n}$ некотороое решение $AX = B$. Будем рассматривать $\tilde{A} X = \tilde{B}$, в ней ЭП $II$ типа умножают строку на $\mu$, имеем:
+      $$a_{i1}x_1 +...+ a_{in}x_n = b_{i} \text{ в } AX = B$$
+      $$\mu a_{i1}x_1 +...+\mu a_{in}x_n = \mu b_i \text{ в } \tilde{A} X = \tilde{B}$$ 
+      Выносим $\mu$ из второго уравнения:
+      $$\mu (a_{i1}x_1 +...+ a_{in}x_n) = \mu b_i$$
+      Получаем, что ${z_1,...,z_n}$ решение для $\tilde{A} X = \tilde{B}$. Для $III$ типа ЭП очевидно. Теперь рассмотрим $I$ тип, будем к i-ой строчке прибавлять j-ую к коэфициентом $\lambda$, получаем:
+      \begin{multline*}
+      (a_{i1}+\lambda a_{j1})x_1 +...+(a_{in}+\lambda a_{jn})x_n = \\ = a_{i1}x_1+\lambda a_{j1}x_1 +...+a_{in}x_n+\lambda a_{jn}x_n = \tab[3cm] \\ = a_{i1}x_1 + ... + a_{in}x_n + \lambda (a_{j1}x_1 +...+ a_{jn}x_n) = b_i + \lambda b_j
+      \end{multline*}
+      Таким образом, любое решение старой СЛУ - это и решение новой, то есть множество
+      решений не уменьшилось. (со столбами все тоже самое) \\
       $\Longleftarrow$ В обратную сторону аналогично (для доказательства эквивалентности), используя обратимость элементарных преобразований.
     \end{proof}
     Мораль в том, что мы можем работать с расширенной матрицей $(A|B)$.
     \newpage
     \subsection{Элементарные преобразования над матрицами}
-    \textbf{Элементарные преобразования над строками:} \\
+    \textbf{Элементарные преобразования над строками:} 
     $$A =\begin{pmatrix}
       \overline{a_1} \\
       \overline{a_2} \\
@@ -269,14 +310,13 @@
     \vdots \\
     a_{m1}x_1 + ... + a_{mn}x_n = b_m
   \end{cases}$ \\$\\$
-
   Элементарные преобразования над $AX=B$ $\Longleftrightarrow$ элементарные преобразования над $(A|B)$. 
 
-  СЛУ $AX=B$ ступенчатая $\Longrightarrow $ $(A|B)$ имеет ступенчатый вид. \\ 
+  СЛУ $AX=B$ ступенчатая $\Longrightarrow $ $(A|B)$ имеет ступенчатый вид. 
   \newpage
 
   \begin{subtheorem}
-    Решение СЛУ ступенчаного вида. \\
+    Решение СЛУ ступенчаного вида.
   \end{subtheorem}  
   Пусть $AX=B$ - ступенчатая
   $$(A|B)=\begin{pmatrix}
@@ -301,7 +341,7 @@
   \begin{itemize}
     \item[1 случай:]
     $\widetilde{s} \neq s \ (\widetilde{s}=s+1)$ \\ 
-    Рассмотрим последнюю ненулевую строку: \\
+    Рассмотрим последнюю ненулевую строку:
     $$\begin{pmatrix}
       a_{11} & \null & \null & \null & \vline & b_1 \\
       \null & a_{22} & \null & \null & \vline & \vdots \\
@@ -313,7 +353,7 @@
     $\Longrightarrow$ решение у этого уравнения нет 
     $\Longrightarrow$ СЛУ не имеет решения, т.е. несовместнаю. \\
     Далее $\widetilde{s}=s$\\
-    Заметим, что $\widetilde{s}=s\leq n$ (n-колличество столбов)
+    Заметим, что $\widetilde{s}=s\leq n$ (n-количество столбов)
     \item[2 случай:] $\widetilde{s}=s=n$  
     $$\left\{ \begin{aligned}
       a_{11} x_1 + a_{12} x_2+ \dots + a_{1n} x_n = b_1 \\
@@ -326,7 +366,7 @@
     Такая СЛУ называются строго треугольной
 
     Из n-го уравнения однозначно находится $x_n = \frac{b_n}{a_{nn}}$
-    Подставляем во все оставшиеся уравнения $x_n = \frac{b_n}{a_{nn}}$ $\Longrightarrow$ исключаем $x_n$. Получаем строго треугольную систему с меньшим колличество неизвестных.  \\
+    Подставляем во все оставшиеся уравнения $x_n = \frac{b_n}{a_{nn}}$ $\Longrightarrow$ исключаем $x_n$. Получаем строго треугольную систему с меньшим количество неизвестных.  \\
     Далее из (n-1)-го уравнения  находим $x_{n-1}$ и т.д. $\Longrightarrow$ СЛУ имеет единственное решение т.е. является определенной.
 
     \item[3 случай:] $\widetilde{s}<n$ 
@@ -341,15 +381,15 @@
   Оставшиеся неизвестные назовем свободными. \\
   Перекинем в правую часть СЛУ слагаемые, соответствующие свободным неизвестным 
   $\Longrightarrow$ получаем относительно главных неизвестных строго треугольную СЛУ. \\
-  Как в случае 2 однозначно выражается главнае неизвестные через свободные
-  $\Longrightarrow$ с точностью до нумерации получаем: \\
+  Как в случае 2 однозначно выражается главные неизвестные через свободные
+  $\Longrightarrow$ с точностью до нумерации получаем:
   $$\begin{cases}
     x_1 = c_{1,s+1}x_{s+1} + \dots + c_{1n}x_n+d_1 \\
     \vdots \\
     x_s = c_{s,s+1}x_{s+1} + \dots + c_{sn}x_n+d_s
   \end{cases}$$   
   
-  Это выражение называется общим решение системы. Подставляя вместо свободных неизвестных конткретное число из $\R$, получаем значение для главных. \\
+  Это выражение называется общим решением системы. Подставляя вместо свободных неизвестных конкретное число из $\R$, получаем значение для главных. \\
   $\Longrightarrow$ получаем все решения СЛУ\\
   Если СЛУ имеет > 1 решения - такое СЛУ называется неопределенным. 
   \end{itemize}
@@ -362,11 +402,12 @@
     \null && \null && \null && \widetilde{s} = s = n \null && \widetilde{s} = s \leq n \\
     \null && \null && \null && \text{определенна} \null && \text{неопределенна}
   \end{matrix}$$
-  \\
   \begin{algorithm}
     $AX=B \longmapsto (A|B) \thicksim (A_{c}|B_{c})\longmapsto A_cX=B_c$
-  \end{algorithm} 
+  \end{algorithm}
+
   \newpage
+
   \begin{definition} 
     Матрица $A$ имеет улучшенный ступенчатый вид, если выполнены следующие условия:
     \begin{enumerate}
@@ -416,8 +457,8 @@
       \item (x+y)+z = x+(y+z) (ассоциативность)
       \item $\exists 0 \in V: \forall x \in V: x+0 = 0+x = x$ (нейтральный элемент относильно сложения)
       \item $\forall x \in V: \exists x^{\prime}: x + x^{\prime} = 0$ (противоположный элемент)
-      \item $\forall \lambda \in \R, \forall x,y \in V: \lambda (x+y) = \lambda x + \lambda y$ (дистрибутивность сложения отностильно умножения)
-      \item $\forall \lambda, \mu \in \R, \forall x \in V: (\lambda+\mu)x = \lambda x + \mu x $ (дистрибутивность умножения отностильно сложения)
+      \item $\forall \lambda \in \R, \forall x,y \in V: \lambda (x+y) = \lambda x + \lambda y$ (дистрибутивность умножения отностильно сложения)
+      \item $\forall \lambda, \mu \in \R, \forall x \in V: (\lambda+\mu)x = \lambda x + \mu x $ (дистрибутивность сложения отностильно умножения)
       \item $\forall \lambda, \mu \in \R, \forall x \in V: \lambda(\mu x) = (\lambda \mu) x $ (ассоциативность умножения)
       \item $\forall x \in V: 1 \cdot x = x$ (нейтральный элемент относильно умножения)
     \end{enumerate}
@@ -429,13 +470,13 @@
 
   \textbf{Примеры векторных пространств:} 
     \begin{enumerate} 
-      \item $V^2$ Геометрические векторы на плоскости
+      \item $V^2$ - Геометрические векторы на плоскости
       \item $\R^n$ = $\{ {(a_1,...,a_n) | a_i \in \R} \}$ - арифметические векторы 
     \end{enumerate}
     "$+$": $(a_1,...,a_n)$ + $(b_1,...,b_n)$ = $(a_1+b_1,...,a_n+b_n)$ \\
     "$\times$": $(a_1,...,a_n) \times \lambda$ = $(a_1\lambda,...,a_n\lambda)$ 
   \begin{lalala}
-    Проверьте, что $\R^n$ (арифметическое пространство строк) с этими операцияими является векторным пространством. 
+    Проверьте, что $\R^n$ (арифметическое пространство строк) с этими операциями является векторным пространством. 
   \end{lalala}   
 
 \end{document}
