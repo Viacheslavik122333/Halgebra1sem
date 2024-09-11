@@ -1,0 +1,443 @@
+
+\documentclass[a4paper, 12pt]{article}
+%\usepackage{mathtext}
+\usepackage{cmap}
+\usepackage[english, russian]{babel}
+\usepackage[T2A]{fontenc}
+\usepackage[utf8]{inputenc}
+\usepackage[left=2cm, right=1.5cm, top=2cm, bottom=2cm]{geometry}
+\usepackage{amsmath}
+\usepackage{amssymb}
+\usepackage{etoolbox}
+\usepackage{amsthm}
+\usepackage{amsfonts}
+\usepackage{mathtools}
+%\usepackage{indentfirst}
+\usepackage{soulutf8}
+
+
+\usepackage{tikz,amstext}
+\newlength{\tempheight}
+\newcommand{\Let}[0]{%
+\mathbin{\text{\settoheight{\tempheight}{\mathstrut}\raisebox{0.5\pgflinewidth}{%
+\tikz[baseline,line cap=round,line join=round] \draw (0,0) --++ (0.4em,0) --++ (0,1.5ex) --++ (-0.4em,0);%
+}}}}
+
+\newcommand{\R}{\mathbb R}
+\newcommand{\Q}{\mathbb Q}
+\renewcommand{\phi}{\varphi}
+\renewcommand{\epsilon}{\varepsilon}
+\newcommand{\aug}{\fboxsep=-\fboxrule\!\!\!\fbox{\strut}\!\!\!}
+
+\theoremstyle{definition}
+\newtheorem*{definition}{Определение}
+\newtheorem*{theorem}{Теорема}%[section]cle
+\newtheorem*{consequense}{Следствие}%[theorem]
+\newtheorem*{lemma}{Лемма}
+\newtheorem*{subtheorem}{Утверждение}
+\newtheorem*{remark}{Замечание}
+\newtheorem*{example}{Примеры}
+\newtheorem*{lalala}{Упражнение}
+\newtheorem*{algorithm}{Алгоритм}
+
+
+\usepackage[russian]{babel}
+\addto\captionsenglish{% Replace "english" with the language you use
+  \renewcommand{\contentsname}%
+    {Содержание}%
+}
+
+\usepackage{titlesec}
+\titleformat{\section}{\LARGE \bfseries}{\thesection}{1em}{}
+\titleformat{\subsection}{\Large\bfseries}{\thesubsection}{1em}{}
+\titleformat{\subsubsection}{\large\bfseries}{\thesubsubsection}{1em}{}
+
+\usepackage{hyperref}
+\usepackage{xcolor}
+% Цвета для гиперссылок
+\definecolor{linkcolor}{HTML}{225ae2} % цвет ссылок
+\definecolor{urlcolor}{HTML}{225ae2} % цвет гиперссылок
+\hypersetup{
+    pdfstartview=FitH, 
+    linkcolor=linkcolor,
+    urlcolor=urlcolor,
+    colorlinks=true
+}
+
+\title{\textbf{Алгебра. 1 семестр, О.В.Куликова}}
+\author{Вячеслав Молчанов, 108 группа}
+
+\begin{document}
+  \maketitle
+  \newpage
+  \tableofcontents
+  \fontsize{14pt}{20pt}\selectfont
+  \newpage
+  \section{Система линейных уравнений}
+  \subsection{Матрица. Основные понятия}
+
+  \begin{definition}
+    Матрица $A$ размера $m\times n$ прямоугольная таблица с $m$ строками и $n$ столбцами
+    $$ A= \begin{pmatrix}
+      a_{11} && a_{12} && \dots && a_{1n}\\
+      a_{21} && a_{22} && \dots && a_{2n}\\
+      \vdots && \null && \null && \vdots\\
+      a_{m1} && a_{m2} && \dots && a_{mn}
+    \end{pmatrix}$$ \\
+    $a_{ij}$ - элемент матрицы и индыксы:
+
+    \begin{itemize}
+      \item $i$ - номер строками
+      \item $j$ - номер столбца
+    \end{itemize}
+    
+    $M_{m\times n}(\R)$ - Множество всех матриц размера $m\times n$ с элементами из $\R$
+    \end{definition}
+    Матрица $m\times 1$ называется столбцом:
+    $$ A= 
+    \begin{pmatrix}
+      a_{11} \\
+      a_{21} \\
+      \vdots \\
+      a_{m1} 
+    \end{pmatrix} $$
+
+    Если $A=(a_{ij})$ - крадратная, $a_{ij} = 0\ \forall i \neq j$, то $A$ называется диальнольной. \\
+    $$ A =
+    \begin{pmatrix}
+      a_{11} && \null && \null && 0 \\
+      \null && a_{22} && \null && \null \\
+      \null && \null && \ddots && \null \\
+      0 && \null && \null && a_{nn} 
+    \end{pmatrix} $$ \\
+ 
+
+    Если $A$ - диальнольная и $a_{ij}$ = 1, то $A$ называется единичной.
+    $$ A =
+    \begin{pmatrix}
+      1 && \null && \null && 0 \\
+      \null && 1 && \null && \null \\
+      \null && \null && \ddots && \null \\
+      0 && \null && \null && 1 
+    \end{pmatrix} $$ \\
+
+    \newpage
+
+    Если $A$ - квадратная, то
+    \begin{itemize}
+      \item $ A =\begin{pmatrix}
+        a_{11} && \null && \null \\
+        \null && \ddots && \null \\
+        \null && \null && a_{nn} 
+      \end{pmatrix} $ главная диагональ
+      \item $ A =
+      \begin{pmatrix}
+        \null && \null && a_{n1} \\
+        \null && \dots && \null \\
+        a_{n1}  && \null && \null
+      \end{pmatrix} $ побочная диагональ
+    \end{itemize}
+    
+    \begin{definition}
+      Если $A$ - размера $m\times n$, $a_{ij} = 0\ \forall i,j$, то $A$ называется нулевой.
+    \end{definition}
+
+    \subsection{Система линейных (алгебраческих) уравнений}
+    $(*)\begin{cases}
+      a_{11}x_1 + ... + a_{1n}x_n = b_1 \\ 
+      a_{21}x_2 + ... + a_{2n}x_n = b_2 \\
+      \vdots \\
+      a_{n1}x_1 + ... + a_{nn}x_n = b_n
+    \end{cases}$ \\$\\$
+    где $a_{ij}, b \in \R, x_1,... ,x_n$ - неизвестные.\\
+    $$A = \begin{pmatrix}
+      a_{11} && \dots && a_{1n} \\
+      \vdots && \null && \vdots \\
+      a_{n1} && \dots && a_{nn} 
+    \end{pmatrix} \hspace{30pt} B = \begin{pmatrix}
+      a_{11} \\
+      \vdots \\
+      b_{n}
+    \end{pmatrix}$$
+    $A$ - матрица коэфициентов, $a_{ij}$ называется коэфициентом СЛУ.\\
+    $B$ - столбец свобоных членов, $b_{j}$ - свободный член.
+    \begin{definition}
+      Расширенная матрица $\underset{m\times (n+1)}{(A|B)}$. Набор чисел $x_1^0,...,x_n^0 \in \R$ называется решением системы $(*)$, если подстановка этих чисел вместо неизвестных в $(*)$ дает тождество в каждом уравнении. $(x_i^0\longleftrightarrow x)$ 
+    \end{definition}
+    Решить систему - это найит все решения системы. Любое конткретное решение называется частным.
+    \begin{definition}
+      Если СЛУ имеет решение, то она называется совместной, иначе несовместной. 
+    \end{definition}  
+    \begin{definition}
+      Совместная система, имеющая одно решение, называется определенной, иначе неопределенной (более одного решения).
+    \end{definition}  
+    \newpage
+    \subsection{Элементарные преобразования над СЛУ}
+    \begin{enumerate}
+      \item Прибавить к одному уравнению другое уравнение, умноженное на число $\lambda \in \R$
+      \item Поменять местами два уравнения
+      \item Умножить уравнение на ненулевое число $\mu \in \R$
+    \end{enumerate}
+    \begin{subtheorem}
+      Эти преобразования обратимы.
+    \end{subtheorem}
+    \begin{definition}
+      Две системы линеных уравнений называются эквивалентными, если их множества решений совпадают.
+    \end{definition}
+    \begin{subtheorem}
+      Если одна СЛУ получена из другой СЛУ с помощью конечного числа элементарных преобразований, то эти системы эквивалентны.
+    \end{subtheorem}
+    \begin{proof}
+      $ \\ \Longrightarrow$  
+      Достаточно доказать, что если $AX = B$  и $\tilde{A} X = \tilde{B}$ получены с помощью одного элементарного преобразования, то она эквивалентны.
+      Пусть $x_1^0,...,x_n^0$ - произвольное решение $AX = B$.
+      Докажем, что $x_1^0,...,x_n^0$ является решением системы $\tilde{A} X = \tilde{B}$.
+      Для 2 пункта очевидно. Для 3: предположим, что 
+      $$a_{i1}x_1 +...+ a_{in} = b_{i} \text{ в } AX = B$$
+      $$ (\mu a_{i1})x_1 +...+(\mu a_{in})=x_{1}n = \mu b_i \text{ в } \tilde{A} X = \tilde{B} $$ 
+      Если $a_{i1}x_1 +...+ a_{in} = b_{i}$, то $ (\mu a_{i1})x_1 +...+(\mu a_{in})=x_{1}n = \mu b_i$ \\
+      Остальные уравнения такие жн $\mu (a_{i1}x_1 +...+ a_{in}) = (\mu)b_i$ \\ 
+      1 пункт: Д/З \\
+      Т.о. множество решений $AX = B$ включено в множество решений $\tilde{A} X = \tilde{B}$. \\
+      $\Longleftarrow$ В обратную сторону аналогично (для доказательства эквивалентности), используя обратимость элементарных преобразований.
+    \end{proof}
+    Мораль в том, что мы можем работать с расширенной матрицей $(A|B)$.
+    \newpage
+    \subsection{Элементарные преобразования над матрицами}
+    \textbf{Элементарные преобразования над строками:} \\
+    $$A =\begin{pmatrix}
+      \overline{a_1} \\
+      \overline{a_2} \\
+      \vdots \\
+      \overline{a_i}
+    \end{pmatrix}, \text{ где } \overline{a_i} - \text{строка}$$
+    \begin{itemize}
+      \item ЭП1: $\overline{a_i} \to \overline{a_i} + \lambda \overline{a_i}$
+      \item ЭП2: $\overline{a_i} \longleftrightarrow   \overline{a_j}$
+      \item ЭП3: $\overline{a_i} \to \mu \overline{a_i},\ \mu \neq 0$
+  \end{itemize}
+  \begin{definition}
+    Лидер строки (ведущий элемент) - это 1-й ненулевой элемент слева. \\
+    \textbf{Пример:} $(0, 0, \underbrace{3}_{\text{лидер}}, 4, 5, 0, 0, 7)$
+  \end{definition}
+  \begin{definition}
+    Матрица $A$ размера $m\times n$ называется ступенчатой, если 
+    \begin{enumerate}
+      \item Номера лидеров ненулевых строк строго возрастают с увеличением номера строки.
+      \item Все нулевые строки стоят внизу (в конце).
+    \end{enumerate}
+  \end{definition}
+  \begin{theorem}
+    Любую матрица $A$ размера $m\times n$ за конечное число элементарных преобразований над строками можно привести к ступенчатому виду.
+  \end{theorem}
+  \begin{proof} Индукция по $n$: \\
+    Если $A$ - нелувая, то $A$ - ступенчатого вида. Если $A \neq 0$ : найдем первый ненулевой столбец (начиная слева). Пусть $j$ - номер первого ненулевого столбца. Пусть $a_{ij} \neq 0$: 
+    $$A =\begin{pmatrix}
+      0 && 0 && \null && \null  \\
+      \vdots && \vdots && \null  \\
+      \null && \null && a_{ij} && \null \\
+      \vdots && \vdots && \null  \\
+      0 && 0 && \null && \null  \\
+    \end{pmatrix}$$ 
+    \newpage
+    Меняем 1-ю и $i$-ю строку местами и получаем, что $a_{ij}$ стал лидером первой строки. Считаем, что сразу $a_{1j} \neq 0$:
+    $$A = \begin{pmatrix}
+      0 && 0 && a_{ij} && * \\
+      \vdots && \vdots && * && *  \\
+      \null && \null && \vdots && \null \\
+      \vdots && \vdots && \vdots && \null  \\
+      0 && 0 && \vdots && \null  \\  
+    \end{pmatrix} $$ \\
+    Вычитаем из кажкой $k$-й строки, начиная со 2-ой, 1-ю строку, умноженную на число $\frac{a_{kj}}{a_{1j}}$. Получает вид: 
+    $$\tilde{A} =\begin{pmatrix}
+      0 && 0 && \vline && * && \null \\
+      \vdots && \vdots && \vline && * && * \\
+      \null && \null && \vline && \vdots && \null \\
+      \vdots && \vdots && \vline && \vdots && \null  \\
+      0 && 0 && \vline && \vdots && \null  \\
+    \end{pmatrix}$$ \\
+    К правой части матрицы применяем индукцию и проводим матрицу к ступенчатому виду.
+  \end{proof}
+  \begin{remark}
+    Этот метод называется  методом Гауса.
+  \end{remark}
+
+  \subsection{Решение СЛУ методом Гауса}
+  $\begin{cases}
+    a_{11}x_1 + ... + a_{1n}x_n = b_1 \\ 
+    a_{21}x_2 + ... + a_{2n}x_n = b_2 \\
+    \vdots \\
+    a_{m1}x_1 + ... + a_{mn}x_n = b_m
+  \end{cases}$ \\$\\$
+
+  Элементарные преобразования над $AX=B$ $\Longleftrightarrow$ элементарные преобразования над $(A|B)$. 
+
+  СЛУ $AX=B$ ступенчатая $\Longrightarrow $ $(A|B)$ имеет ступенчатый вид. \\ 
+  \newpage
+
+  \begin{subtheorem}
+    Решение СЛУ ступенчаного вида. \\
+  \end{subtheorem}  
+  Пусть $AX=B$ - ступенчатая
+  $$(A|B)=\begin{pmatrix}
+    a_{11} & \null & \null & \null & \vline & b_1 \\
+    \null & a_{22} & \null & \null & \vline & \vdots \\
+    \null & \null & \ddots & \null & \vline & \vdots \\
+    \null & \null & \null & a_{sn} & \vline & b_s \\
+    \null & \null & \null & \vdots & \vline & \vdots \\
+    0 & \cdots & \cdots & 0 & \vline & b_{\widetilde{s}}
+  \end{pmatrix}$$ \\
+  $\widetilde{s}$ - ненулевые строки расширенной матрицы \\
+  s - число ненулевых строк 
+
+  $\widetilde{s}=\left[
+    \begin{gathered}
+      s \\
+      s+1
+    \end{gathered}
+  \right.$
+
+
+  \begin{itemize}
+    \item[1 случай:]
+    $\widetilde{s} \neq s \ (\widetilde{s}=s+1)$ \\ 
+    Рассмотрим последнюю ненулевую строку: \\
+    $$\begin{pmatrix}
+      a_{11} & \null & \null & \null & \vline & b_1 \\
+      \null & a_{22} & \null & \null & \vline & \vdots \\
+      \null & \null & \ddots & \null & \vline & \vdots \\
+      \null & \null & \null & a_{sn} & \vline & b_s \\
+      0 & \cdots & \cdots & 0 & \vline & b_{s+1}
+    \end{pmatrix}$$ \\
+    $0x_1+...+0x_n=b_s+1$ 
+    $\Longrightarrow$ решение у этого уравнения нет 
+    $\Longrightarrow$ СЛУ не имеет решения, т.е. несовместнаю. \\
+    Далее $\widetilde{s}=s$\\
+    Заметим, что $\widetilde{s}=s\leq n$ (n-колличество столбов)
+    \item[2 случай:] $\widetilde{s}=s=n$  
+    $$\left\{ \begin{aligned}
+      a_{11} x_1 + a_{12} x_2+ \dots + a_{1n} x_n = b_1 \\
+      a_{22} x_2 + \dots + a_{1n} x_n = b_2 \\ 
+      \ddots \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \vdots \ \\
+      a_{nn} x_n = b_n
+    \end{aligned}
+    \right.$$
+
+    Такая СЛУ называются строго треугольной
+
+    Из n-го уравнения однозначно находится $x_n = \frac{b_n}{a_{nn}}$
+    Подставляем во все оставшиеся уравнения $x_n = \frac{b_n}{a_{nn}}$ $\Longrightarrow$ исключаем $x_n$. Получаем строго треугольную систему с меньшим колличество неизвестных.  \\
+    Далее из (n-1)-го уравнения  находим $x_{n-1}$ и т.д. $\Longrightarrow$ СЛУ имеет единственное решение т.е. является определенной.
+
+    \item[3 случай:] $\widetilde{s}<n$ 
+  $$\begin{pmatrix}
+    0 & \null & 0 & |\underline{a_{1k_1}} & \ast & \cdots & \cdots & \ast & \vline & \ast  \\
+    0 & \null & 0 & 0 & |\underline{a_{2k_2}} & \ast & \cdots & \ast & \vline & \ast \\
+    \null & \null & \null & \null & \null & \ddots & \null & \null & \vline & \vdots
+  \end{pmatrix}$$ 
+
+  $a_{1k_{1}},...,a_{sk_{s}}$  - лидеры; \\
+  $x_{k_{1}},...,x_{k_{s}}$ - главные неизвестные (неизвестные соответствуют лидерам) \\
+  Оставшиеся неизвестные назовем свободными. \\
+  Перекинем в правую часть СЛУ слагаемые, соответствующие свободным неизвестным 
+  $\Longrightarrow$ получаем относительно главных неизвестных строго треугольную СЛУ. \\
+  Как в случае 2 однозначно выражается главнае неизвестные через свободные
+  $\Longrightarrow$ с точностью до нумерации получаем: \\
+  $$\begin{cases}
+    x_1 = c_{1,s+1}x_{s+1} + \dots + c_{1n}x_n+d_1 \\
+    \vdots \\
+    x_s = c_{s,s+1}x_{s+1} + \dots + c_{sn}x_n+d_s
+  \end{cases}$$   
+  
+  Это выражение называется общим решение системы. Подставляя вместо свободных неизвестных конткретное число из $\R$, получаем значение для главных. \\
+  $\Longrightarrow$ получаем все решения СЛУ\\
+  Если СЛУ имеет > 1 решения - такое СЛУ называется неопределенным. 
+  \end{itemize}
+  $$\begin{matrix}
+    \null &&& \null && \ \ \text{\ \ \ \ СЛУ} \\
+    \null && \null && \swarrow && \searrow \\
+    &&& \widetilde{s} \neq s && \null &&\widetilde{s} = s\\
+    \null &&& \text{несовместна} && \null && \text{совместна} \\
+    \null && \null && \null && \swarrow \null && \searrow \\
+    \null && \null && \null && \widetilde{s} = s = n \null && \widetilde{s} = s \leq n \\
+    \null && \null && \null && \text{определенна} \null && \text{неопределенна}
+  \end{matrix}$$
+  \\
+  \begin{algorithm}
+    $AX=B \longmapsto (A|B) \thicksim (A_{c}|B_{c})\longmapsto A_cX=B_c$
+  \end{algorithm} 
+  \newpage
+  \begin{definition} 
+    Матрица $A$ имеет улучшенный ступенчатый вид, если выполнены следующие условия:
+    \begin{enumerate}
+      \item $A$ - ступенчатого вида
+      \item Все лидеры равны 1
+      \item В каждом столбце, где есть лидер $\neq 0$ , все элементы равны 0 
+    \end{enumerate}
+  \end{definition}  
+
+  \begin{subtheorem}
+    Любую матрицу $A$  можно привести к улучшенному ступенчатому виду с помощью элементарных преобразований 
+  \end{subtheorem} 
+  \begin{proof}
+    Т.к. любую матрицу можно привести к ступенчатому виду $\Longrightarrow$ будем считать, что $A$ - ступенчатая. \\
+    Рассмотрим последний лидер $a_{sk_s}$. Если $a_{sk_s} \neq 1$, то s-ю строку делим на $a_{sk_s}$ и получаем, что $\widetilde{a_{sk_s}}=1$. \\ Далее из всех строк вычитаем первую, умноженную на $a_{ik_s} \Longrightarrow \widetilde{a_{ik_s}}  =0$ и т.д. 
+  \end{proof} 
+
+  \begin{definition}
+    СЛУ $AX=B$ называется однородной, если $B=0$, т.е. все свободные члены ненулевые.  
+  \end{definition} 
+  \begin{subtheorem}
+    Однородная система всегда совместна.
+  \end{subtheorem} 
+  \begin{proof}
+    $AX=0$ всегда имеет решение $x_1=0,...,x_n=0$ (тривиальное решение)
+  \end{proof} 
+  \begin{consequense}
+    Однородная СЛУ, в которой число уравнений $<$ числа неизвестных, имеет нетривиальное решение.  
+  \end{consequense} 
+  \begin{proof}
+    (в обозначениях из метода Гаусса)\\
+    Т.к. система совместна (т.к. $B=0$), то $s=\widetilde{s}$ \\
+    С другой стороны $s=\overline{s} \leq$ число исходных уравнений $<$ n $\Longrightarrow s=\widetilde{s} < n \Longrightarrow$ СЛУ неопределенна $\Longrightarrow \exists$ более одного решения $\Longrightarrow \exists$ нетривиальное решение.     
+  \end{proof} 
+  \newpage
+  \section{Векторные пространства}
+  Мы рассматриваем векторные пространства над полем $\R$.
+  \begin{definition}
+    Векторным пространством над $\R$ называют множество элементов $V$, на котором введены операции сложения и умножения на числа из $\R$:
+    \begin{enumerate}
+      \item $ \forall x,y \in V \Longrightarrow x+y=z \in V$
+      \item $\forall \lambda \in \R, \forall x \in V \Longrightarrow \lambda x = w \in V$ 
+    \end{enumerate}
+    Удовлетворяет следующими свойствами:
+    \begin{enumerate}
+      \item x+y = y+x (коммутативность)
+      \item (x+y)+z = x+(y+z) (ассоциативность)
+      \item $\exists 0 \in V: \forall x \in V: x+0 = 0+x = x$ (нейтральный элемент относильно сложения)
+      \item $\forall x \in V: \exists x^{\prime}: x + x^{\prime} = 0$ (противоположный элемент)
+      \item $\forall \lambda \in \R, \forall x,y \in V: \lambda (x+y) = \lambda x + \lambda y$ (дистрибутивность сложения отностильно умножения)
+      \item $\forall \lambda, \mu \in \R, \forall x \in V: (\lambda+\mu)x = \lambda x + \mu x $ (дистрибутивность умножения отностильно сложения)
+      \item $\forall \lambda, \mu \in \R, \forall x \in V: \lambda(\mu x) = (\lambda \mu) x $ (ассоциативность умножения)
+      \item $\forall x \in V: 1 \cdot x = x$ (нейтральный элемент относильно умножения)
+    \end{enumerate}
+  \end{definition} 
+
+  \begin{definition}
+    Любой элемент векторного пространства называется вектором
+  \end{definition} 
+
+  \textbf{Примеры векторных пространств:} 
+    \begin{enumerate} 
+      \item $V^2$ Геометрические векторы на плоскости
+      \item $\R^n$ = $\{ {(a_1,...,a_n) | a_i \in \R} \}$ - арифметические векторы 
+    \end{enumerate}
+    "$+$": $(a_1,...,a_n)$ + $(b_1,...,b_n)$ = $(a_1+b_1,...,a_n+b_n)$ \\
+    "$\times$": $(a_1,...,a_n) \times \lambda$ = $(a_1\lambda,...,a_n\lambda)$ 
+  \begin{lalala}
+    Проверьте, что $\R^n$ (арифметическое пространство строк) с этими операцияими является векторным пространством. 
+  \end{lalala}   
+
+\end{document}
+
+
