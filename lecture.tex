@@ -26,6 +26,9 @@
 
 \newcommand{\R}{\mathbb R}
 \newcommand{\Q}{\mathbb Q}
+\newcommand{\Z}{\mathbb Z}
+\newcommand{\N}{\mathbb N}
+%\newcommand{\C}{\mathbb C}
 \renewcommand{\phi}{\varphi}
 \renewcommand{\epsilon}{\varepsilon}
 \newcommand{\aug}{\fboxsep=-\fboxrule\!\!\!\fbox{\strut}\!\!\!}
@@ -140,7 +143,6 @@
       \vdots \\
       a_{m1} 
     \end{pmatrix} $$
-
     Если $A=(a_{ij})$ - крадратная, $a_{ij} = 0\ \forall i \neq j$, то $A$ называется диальнольной.
     $$ A =
     \begin{pmatrix}
@@ -444,6 +446,7 @@
   \end{proof} 
   \newpage
   \section{Векторные пространства}
+  \subsection{Аксиомы элементов векторного простанства}
   Мы рассматриваем векторные пространства над полем $\R$.
   \begin{definition}
     Векторным пространством над $\R$ называют множество элементов $V$, на котором введены операции сложения и умножения на числа из $\R$:
@@ -471,14 +474,110 @@
   \textbf{Примеры векторных пространств:} 
     \begin{enumerate} 
       \item $V^2$ - Геометрические векторы на плоскости
+      \item $V^3$ - Геометрические векторы в пространстве
       \item $\R^n$ = $\{ {(a_1,...,a_n) | a_i \in \R} \}$ - арифметические векторы 
     \end{enumerate}
     "$+$": $(a_1,...,a_n)$ + $(b_1,...,b_n)$ = $(a_1+b_1,...,a_n+b_n)$ \\
     "$\times$": $(a_1,...,a_n) \times \lambda$ = $(a_1\lambda,...,a_n\lambda)$ 
   \begin{lalala}
     Проверьте, что $\R^n$ (арифметическое пространство строк) с этими операциями является векторным пространством. 
-  \end{lalala}   
-
+  \end{lalala}  
+  \subsection{Следствия}
+  \begin{enumerate}
+    \item нулевой вектор единственный
+    \begin{proof}
+      Пусть существует два $0_1,0_2 \in V$, тогда: $$0_2 = 0_1 + 0_2 = 0_2 + 0_1 = 0_1$$   
+    \end{proof} 
+    \item $\forall x \in V$ противоположный вектор единственный
+    \begin{proof}
+      Пусть существует два $x_1,x_2$ - различные противоположные к вектору $x$, тогда:
+      $$0 + x_2 = (x_1 + x) + x_2 = x_1 + (x + x_2) = x_1 + 0$$    
+    \end{proof} 
+    \item $\forall \lambda \in \R: \lambda \cdot \overline{0} = \overline{0}$ 
+      \begin{proof}
+      $$\lambda \cdot \overline{0} = \lambda \cdot (\overline{0}+\overline{0}) = \lambda \cdot \overline{0} + \lambda \cdot \overline{0}$$ Прибавим к $\lambda \cdot \overline{0} = \lambda \cdot \overline{0} + \lambda \cdot \overline{0}$  противоположный к $\lambda \cdot \overline{0}$ $$\lambda \cdot \overline{0} + (\lambda + \overline{0}+\lambda \cdot \overline{0}) + (-\lambda \cdot \overline{0}) = \lambda \cdot \overline{0} + (\lambda \cdot \overline{0} + (-\lambda \cdot \overline{0})) = \lambda \cdot \overline{0} + \overline{0} = \lambda \cdot \overline{0}$$ 
+      \end{proof} 
+    \item $\lambda (-x) = -\lambda$ x
+    \item $\lambda (x-y) = \lambda x - \lambda y$ 
+    \item $\lambda \cdot \overline{0} = \overline{0}$
+    \item $(-1)x = -x$
+    \item $(\lambda - \mu)x\cdot x = \lambda x - \mu x$  
+  \end{enumerate}
+  \begin{definition}
+    Подмножество $U\subseteq V$ над векторным подпространством, если:
+    \begin{enumerate}
+      \item $ x, y \in U \Longrightarrow  x + y \in U$ 
+      \item $\forall \lambda \in \R \forall x \in U \Longrightarrow \lambda x \in U$ 
+      \item $U \neq \varnothing$ 
+    \end{enumerate}
+  \end{definition} 
+  \begin{remark}
+    3 условие заменить на условие: $0 \in  U \Longleftarrow$ очевидно
+    $\Longrightarrow$ если $U \neq \varnothing$, то $\exists x \in U \Longrightarrow$, по $2: (-1) \cdot x \in U \Longrightarrow -x \in U \Longrightarrow x + (-x) \in U \Longrightarrow 0 \in U$     
+  \end{remark} 
+  \begin{subtheorem}
+    Любой вектор подпространства векторного простанства $V$ само является векторным пространством относител но операций векторного пространства 
+  \end{subtheorem} 
+  \begin{proof}
+    Надо проверить определение. 1 и 2 свойства из операций векторного простанства означают, что в $U$ заданы операции сложения и умножения на вещественное число. Проверка аксиом векторного простанства: 1,2,5,6,7,8 выполнены для всех векторов из $V$, а значит и для всех векторов из $U$ . 3,4 доказательство как в замечании. 
+    $$\forall x \in U \ \exists -x = (-1) \cdot x \in U \\ \overline{0} \in U, \text{т.к. } U \neq \varnothing $$   
+  \end{proof} 
+  \begin{example}
+    \begin{enumerate}
+      \item $V^3, U$ - множество всех векторов из $V^3$, параллельные фиксированной плоскости.
+      \item $\R^n, U={(a_1,..., a_n) | a_{2i} = 0}$ - векторное подпространство \\ $\widetilde{U} = {(a_1,..., a_n) | a_{2i} = 1}$ - не векторное подпространство, т.к. множество не замкнуто относительно сложения и умножения.
+      \item В любом векторном простанстве $V$ есть такие подпространства, состоящие только из нулевого вектора. (тривиальное или несобственное подпространство) (Остальное называется собственными)
+    \end{enumerate}
+  \end{example}
+  \subsection{Линейная зависимость системы векторов}
+  $V$ - векторное простанство над полем $\R$
+  \begin{definition}
+    Линейной комбинацией векторов $v_1,...,v_n \in V$ с коэфициентами $\lambda_1,...,\lambda_n \in \R$ назавается выражение вида: $$\lambda_1 x_1 + \cdots + \lambda_n x_n$$ Говорят, что вектора $w \in V$ линейно выражается через $(v_1,...,v_n)$, если $\exists \lambda_1,...,\lambda_n \in \R: w = \lambda_1 x_1 + \cdots + \lambda_n x_n$   
+  \end{definition}   
+  \begin{definition}
+    Линейной комбинацией $\lambda_1 x_1 + \cdots + \lambda_n x_n$ назавается тривиальной, если $\lambda_1 = 0,...,\lambda_n = 0$ Иначе нетривиальной.
+  \end{definition} 
+  \begin{definition}
+    Систиема векторов $v_1,...,v_n$ назавается линейно зависимой (ЛЗ), если $\exists$ нетривиальная линейная комбинация равная 0, т.е. $\exists \lambda_1,...,\lambda_n \in \R$ не все равные 0. такие что $\lambda_1 x_1 + \cdots + \lambda_n x_n = 0$. Иначе система называется линейно независимой (ЛНЗ), т.е. из любого такого равенства $\lambda_1 x_1 + \cdots + \lambda_n x_n = 0 \\ \Longrightarrow (\lambda_1,...,\lambda_n) = 0$  
+  \end{definition} 
+  \begin{example}
+    $V^2, v_1 = i + j, v_2 = 2i, v_3 = 3i$ -линейно зависимая система, т.к. $$1 (i + j) + (- \frac{1}{2}) \cdot (-\frac{1}{3}) \cdot (3i) = 0$$ $$1 v_1 + (-\frac{1}{2}) \cdot v_2 + (\\frac{1}{3}) \cdot v_3 = 0$$  
+  \end{example}  
+  Свойства: 
+  \begin{enumerate}
+    \item Система из одного вектора $V_1$ ЛЗ $\Longleftrightarrow V_1 = 0$  
+    \item Система из 2-х векторов $v_1 \text{и} v_2$ ЛЗ $\Longleftrightarrow$ противоположные, т.е. $v_1 = \lambda v_2 \\ v_2 = \mu v_1$. 
+  \end{enumerate}
+  \begin{example}
+    $\R^n$ \\
+    Система $\underbrace{(1,0,0,...,0)}_{e_1} , \underbrace{(0,1,0,...,0)}_{e_2},...,\underbrace{(0,0,0,...,1)}_{e_n}$ линейно независимая \\
+    $\lambda_1 e_1 + \cdots + \lambda_n e_n = (0,...,0) \Longleftrightarrow (\lambda_1,...,\lambda_n) = 0 \Longleftrightarrow $ ЛНЗ 
+  \end{example}
+  \begin{lemma}
+    (Критерий линейной зависимости)
+    Система векторов $v_1,...,v_n \in V n>1$ - линейно зависимы $\Longleftrightarrow $ хотя бы один вектор линейно выражается через оставшиеся.  
+  \end{lemma} 
+  \begin{proof}
+    $\Longrightarrow $ По определению ЛЗ $\exists \lambda_1,...,\lambda_n \in \R$ не все нулевые: $\lambda_1 v_1 + \cdots + \lambda_n v_n = \varnothing$. Без ограничения общности можем счаитать, что $\lambda_1 \neq 0$, тогда $v_1 = \frac{1}{v_1}(-\lambda_2 v_2 - \cdots - \lambda_n v_n)$  \\
+    $\Longleftarrow$ Пусть один из этих векторов выражается через оставшиеся. Без ограничения общности можем счаитать, что $v_1$ выражается через оставшиеся \\ $v_1 = \mu_2 v_2 + \cdots + \mu_n v_n$ \\ $1 \cdot v_1 -\mu v_2 - \cdots - \mu_n v_n = 0$ - нетривиальная линейнвая комбинация,т.к. $\mu_1 (\text{коэф. перед }v_1) \neq = 0 \Longrightarrow {v_1,...,v_n}$ - линейно зависима.  
+  \end{proof} 
+  \begin{remark}
+    В лемме 1 нельзя "хотя бы один" заменить на "любой", т.к. \\
+    Пусть $v_1 \neq 0, v_2 = 0$ и $v_1, v_2$ - ЛЗ, т.к. $0 \cdot v_1 + 1 \cdot v_2 = 0$
+  \end{remark} 
+  \begin{lemma}
+    Пусть $v_1,...,v_n \in V$ - ЛНЗ, тогда $w \in V$ линейно выражается через $v_1,...,v_n \Longleftrightarrow (w,v_1,...,v_n)$ - ЛЗ.   
+  \end{lemma} 
+  \begin{proof}
+    \begin{itemize}
+      \item[$\Longrightarrow$] $\exists \mu_1,...,\mu_n \in \R: w = \mu_1 v_1 + \cdots +\mu_n v_n \Longrightarrow$ по критерию ЛЗ система $\{w,v_1,...,v_n\}$ - ЛЗ.
+      \item[$\Longleftarrow$] Пусть система ЛЗ $\Longrightarrow \exists \lambda_0,...,\lambda_n \in \R$ - не все нули, так что  $\lambda_0 w + \lambda_1 v_1 + \cdots + \lambda_n v_n = 0$, тогда 
+      \begin{enumerate}
+        \item $ \lambda_0$, то $\lambda_1 v_1 + \cdots + \lambda_n v_n = 0$ - нетривиальная линейная комбинация
+        \item $\lambda_0 \neq 0 \Longrightarrow w = (-\frac{\lambda_1}{\lambda_0})v_1 + \cdots + (-\frac{\lambda_n}{\lambda_0})v_n$
+      \end{enumerate} 
+    \end{itemize}
+  \end{proof} 
 \end{document}
 
 
