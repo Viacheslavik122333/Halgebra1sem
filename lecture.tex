@@ -497,12 +497,13 @@
       \begin{proof}
       $$\lambda \cdot \overline{0} = \lambda \cdot (\overline{0}+\overline{0}) = \lambda \cdot \overline{0} + \lambda \cdot \overline{0}$$ Прибавим к $\lambda \cdot \overline{0} = \lambda \cdot \overline{0} + \lambda \cdot \overline{0}$  противоположный к $\lambda \cdot \overline{0}$ $$\lambda \cdot \overline{0} + (\lambda + \overline{0}+\lambda \cdot \overline{0}) + (-\lambda \cdot \overline{0}) = \lambda \cdot \overline{0} + (\lambda \cdot \overline{0} + (-\lambda \cdot \overline{0})) = \lambda \cdot \overline{0} + \overline{0} = \lambda \cdot \overline{0}$$ 
       \end{proof} 
-    \item $\lambda (-x) = -\lambda$ x
-    \item $\lambda (x-y) = \lambda x - \lambda y$ 
+    \item $\lambda \cdot (-x) = -\lambda \cdot x$
+    \item $\lambda \cdot (x-y) = \lambda x - \lambda y$ 
     \item $\lambda \cdot \overline{0} = \overline{0}$
-    \item $(-1)x = -x$
-    \item $(\lambda - \mu)x\cdot x = \lambda x - \mu x$  
+    \item $(-1) \cdot x = -x$
+    \item $(\lambda - \mu)\cdot x = \lambda x - \mu x$  
   \end{enumerate}
+  \subsection{Векторные подпространства}
   \begin{definition}
     Подмножество $U\subseteq V$ над векторным подпространством, если:
     \begin{enumerate}
@@ -512,36 +513,39 @@
     \end{enumerate}
   \end{definition} 
   \begin{remark}
-    3 условие заменить на условие: $0 \in  U \Longleftarrow$ очевидно
-    $\Longrightarrow$ если $U \neq \varnothing$, то $\exists x \in U \Longrightarrow$, по $2: (-1) \cdot x \in U \Longrightarrow -x \in U \Longrightarrow x + (-x) \in U \Longrightarrow 0 \in U$     
+    3 условие заменить на условие: $0 \in  U \Longleftarrow$ очевидно. \\
+    $\Longrightarrow$ если $U \neq \varnothing$, то $\exists x \in U \Longrightarrow$, по $2: (-1) \cdot x \in U \Longrightarrow -x \in U \\ \Longrightarrow x + (-x) \in U \Longrightarrow 0 \in U$     
   \end{remark} 
   \begin{subtheorem}
     Любой вектор подпространства векторного простанства $V$ само является векторным пространством относител но операций векторного пространства 
   \end{subtheorem} 
   \begin{proof}
     Надо проверить определение. 1 и 2 свойства из операций векторного простанства означают, что в $U$ заданы операции сложения и умножения на вещественное число. Проверка аксиом векторного простанства: 1,2,5,6,7,8 выполнены для всех векторов из $V$, а значит и для всех векторов из $U$ . 3,4 доказательство как в замечании. 
-    $$\forall x \in U \ \exists -x = (-1) \cdot x \in U \\ \overline{0} \in U, \text{т.к. } U \neq \varnothing $$   
+    $$\forall x \in U \ \exists -x = (-1) \cdot x \in U,  \overline{0} \in U, \text{ т.к. } U \neq \varnothing $$   
   \end{proof} 
   \begin{example}
     \begin{enumerate}
       \item $V^3, U$ - множество всех векторов из $V^3$, параллельные фиксированной плоскости.
-      \item $\R^n, U={(a_1,..., a_n) | a_{2i} = 0}$ - векторное подпространство \\ $\widetilde{U} = {(a_1,..., a_n) | a_{2i} = 1}$ - не векторное подпространство, т.к. множество не замкнуто относительно сложения и умножения.
+      \item $\R^n, U=\{(a_1,..., a_n) | a_{2i} = 0\}$ - векторное подпространство \\ $\widetilde{U} = \{(a_1,..., a_n) | a_{2i} = 1\}$ - не векторное подпространство, т.к. множество не замкнуто относительно сложения и умножения.
       \item В любом векторном простанстве $V$ есть такие подпространства, состоящие только из нулевого вектора. (тривиальное или несобственное подпространство) (Остальное называется собственными)
     \end{enumerate}
   \end{example}
+  \newpage
   \subsection{Линейная зависимость системы векторов}
   $V$ - векторное простанство над полем $\R$
   \begin{definition}
-    Линейной комбинацией векторов $v_1,...,v_n \in V$ с коэфициентами $\lambda_1,...,\lambda_n \in \R$ назавается выражение вида: $$\lambda_1 x_1 + \cdots + \lambda_n x_n$$ Говорят, что вектора $w \in V$ линейно выражается через $(v_1,...,v_n)$, если $\exists \lambda_1,...,\lambda_n \in \R: w = \lambda_1 x_1 + \cdots + \lambda_n x_n$   
+    Линейной комбинацией векторов $v_1,...,v_n \in V$ с коэфициентами $\lambda_1,...,\lambda_n \in \R$ назавается выражение вида: 
+    $$\lambda_1 x_1 + \cdots + \lambda_n x_n$$ 
+    Говорят, что вектора $w \in V$ линейно выражается через $(v_1,...,v_n)$, \\ если $\exists \lambda_1,...,\lambda_n \in \R: w = \lambda_1 x_1 + \cdots + \lambda_n x_n$   
   \end{definition}   
   \begin{definition}
     Линейной комбинацией $\lambda_1 x_1 + \cdots + \lambda_n x_n$ назавается тривиальной, если $\lambda_1 = 0,...,\lambda_n = 0$ Иначе нетривиальной.
   \end{definition} 
   \begin{definition}
-    Систиема векторов $v_1,...,v_n$ назавается линейно зависимой (ЛЗ), если $\exists$ нетривиальная линейная комбинация равная 0, т.е. $\exists \lambda_1,...,\lambda_n \in \R$ не все равные 0. такие что $\lambda_1 x_1 + \cdots + \lambda_n x_n = 0$. Иначе система называется линейно независимой (ЛНЗ), т.е. из любого такого равенства $\lambda_1 x_1 + \cdots + \lambda_n x_n = 0 \\ \Longrightarrow (\lambda_1,...,\lambda_n) = 0$  
-  \end{definition} 
+    Систиема векторов $v_1,...,v_n$ называется линейно зависимой (ЛЗ), если $\exists$ нетривиальная линейная комбинация равная 0, (т.е. $\exists \lambda_1,...,\lambda_n \in \R$ не все равные 0) такая что $\lambda_1 x_1 + \cdots + \lambda_n x_n = 0$. Иначе система называется линейно независимой (ЛНЗ), т.е. из любого такого равенства $\lambda_1 x_1 + \cdots + \lambda_n x_n = 0 \\ \Longrightarrow (\lambda_1,...,\lambda_n) = 0$.
+  \end{definition}
   \begin{example}
-    $V^2, v_1 = i + j, v_2 = 2i, v_3 = 3i$ -линейно зависимая система, т.к. $$1 (i + j) + (- \frac{1}{2}) \cdot (-\frac{1}{3}) \cdot (3i) = 0$$ $$1 v_1 + (-\frac{1}{2}) \cdot v_2 + (\\frac{1}{3}) \cdot v_3 = 0$$  
+    $V^2, v_1 = i + j, v_2 = 2i, v_3 = 3i$ -линейно зависимая система, т.к. $$1 \cdot (i + j) + (- \frac{1}{2}) \cdot (-\frac{1}{3}) \cdot (3i) = 0$$ $$1 \cdot v_1 + (-\frac{1}{2}) \cdot v_2 + (-\frac{1}{3}) \cdot v_3 = 0$$  
   \end{example}  
   Свойства: 
   \begin{enumerate}
@@ -558,8 +562,8 @@
     Система векторов $v_1,...,v_n \in V n>1$ - линейно зависимы $\Longleftrightarrow $ хотя бы один вектор линейно выражается через оставшиеся.  
   \end{lemma} 
   \begin{proof}
-    $\Longrightarrow $ По определению ЛЗ $\exists \lambda_1,...,\lambda_n \in \R$ не все нулевые: $\lambda_1 v_1 + \cdots + \lambda_n v_n = \varnothing$. Без ограничения общности можем счаитать, что $\lambda_1 \neq 0$, тогда $v_1 = \frac{1}{v_1}(-\lambda_2 v_2 - \cdots - \lambda_n v_n)$  \\
-    $\Longleftarrow$ Пусть один из этих векторов выражается через оставшиеся. Без ограничения общности можем счаитать, что $v_1$ выражается через оставшиеся \\ $v_1 = \mu_2 v_2 + \cdots + \mu_n v_n$ \\ $1 \cdot v_1 -\mu v_2 - \cdots - \mu_n v_n = 0$ - нетривиальная линейнвая комбинация,т.к. $\mu_1 (\text{коэф. перед }v_1) \neq = 0 \Longrightarrow {v_1,...,v_n}$ - линейно зависима.  
+    $\Longrightarrow $ По определению ЛЗ $\exists \lambda_1,...,\lambda_n \in \R$ не все нулевые: $\lambda_1 v_1 + \cdots + \lambda_n v_n = \varnothing$. Без ограничения общности можем считать, что $\lambda_1 \neq 0$, тогда $v_1 = \frac{1}{v_1}(-\lambda_2 v_2 - \cdots - \lambda_n v_n)$  \\
+    $\Longleftarrow$ Пусть один из этих векторов выражается через оставшиеся. Без ограничения общности можем считать, что $v_1$ выражается через оставшиеся \\ $v_1 = \mu_2 v_2 + \cdots + \mu_n v_n$ \\ $1 \cdot v_1 -\mu v_2 - \cdots - \mu_n v_n = 0$ - нетривиальная линейнвая комбинация, \\ т.к. $\mu_1 (\text{коэф. перед }v_1) \neq = 0 \Longrightarrow {v_1,...,v_n}$ - линейно зависима.  
   \end{proof} 
   \begin{remark}
     В лемме 1 нельзя "хотя бы один" заменить на "любой", т.к. \\
