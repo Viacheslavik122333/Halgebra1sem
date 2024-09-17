@@ -573,15 +573,16 @@
   \begin{lemma}
     Пусть $v_1,...,v_n \in V$ - ЛНЗ, тогда $w \in V$ линейно выражается через $v_1,...,v_n \Longleftrightarrow (w,v_1,...,v_n)$ - ЛЗ.   
   \end{lemma} 
-  \begin{proof} \end{proof}
+  \begin{proof} $\tab$  
     \begin{itemize}
       \item[$\underline{\Longrightarrow}$] $\exists \tab[0.1cm] \mu_1,...,\mu_n \in \R: w = \mu_1 v_1 + \cdots +\mu_n v_n \Longrightarrow$ по критерию ЛЗ система $\{w,v_1,...,v_n\}$ - ЛЗ.
-      \item[$\underline{\Longleftarrow}$] Пусть система ЛЗ $\Longrightarrow \exists \tab[0.1cm] \lambda_0,...,\lambda_n \in \R$ - не все нули, так что  $\lambda_0 w + \lambda_1 v_1 + \cdots + \lambda_n v_n = 0$, тогда 
+      \item[$\underline{\Longleftarrow}$] Пусть система ЛЗ $\Longrightarrow \exists \tab[0.1cm] \lambda_0,...,\lambda_n \in \R$ - не все нули, так что  $\lambda_0 w + \lambda_1 v_1 + \cdots + \lambda_n v_n = 0$, тогда: 
       \begin{enumerate}
         \item $ \lambda_0$, то $\lambda_1 v_1 + \cdots + \lambda_n v_n = 0$ - нетривиальная линейная комбинация
         \item $\lambda_0 \neq 0 \Longrightarrow w = (-\frac{\lambda_1}{\lambda_0})v_1 + \cdots + (-\frac{\lambda_n}{\lambda_0})v_n$
       \end{enumerate} 
     \end{itemize} 
+  \end{proof}
   %%
 \end{document}
 
