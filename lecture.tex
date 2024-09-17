@@ -163,7 +163,7 @@
     \end{pmatrix} $$
 
     \newpage
-
+    %%%%%%%%
     Если $A$ - квадратная, то
     \begin{itemize}
       \item $ A =\begin{pmatrix}
@@ -213,7 +213,9 @@
     \begin{definition}
       Совместная система, имеющая одно решение, называется определенной, иначе неопределенной (более одного решения).
     \end{definition}  
+
     \newpage
+    %%%%%%%%
     \subsection{Элементарные преобразования над СЛУ}
     \begin{enumerate}
       \item Прибавить к одному уравнению другое уравнение, умноженное на число $\lambda \in \R$
@@ -246,7 +248,9 @@
       $\Longleftarrow$ В обратную сторону аналогично (для доказательства эквивалентности), используя обратимость элементарных преобразований.
     \end{proof}
     Мораль в том, что мы можем работать с расширенной матрицей $(A|B)$.
+
     \newpage
+    %%%%%%%%
     \subsection{Элементарные преобразования над матрицами}
     \textbf{Элементарные преобразования над строками:} 
     $$A =\begin{pmatrix}
@@ -283,7 +287,9 @@
       \vdots && \vdots && \null  \\
       0 && 0 && \null && \null  \\
     \end{pmatrix}$$ 
+
     \newpage
+    %%%%%%%%
     Меняем 1-ю и $i$-ю строку местами и получаем, что $a_{ij}$ стал лидером первой строки. Считаем, что сразу $a_{1j} \neq 0$:
     $$A = \begin{pmatrix}
       0 && 0 && a_{ij} && * \\
@@ -315,9 +321,10 @@
   \end{cases}$ \\$\\$
   Элементарные преобразования над $AX=B$ $\Longleftrightarrow$ элементарные преобразования над $(A|B)$. 
 
-  СЛУ $AX=B$ ступенчатая $\Longrightarrow $ $(A|B)$ имеет ступенчатый вид. 
-  \newpage
+  СЛУ $AX=B$ ступенчатая $\Longrightarrow $ $(A|B)$ имеет ступенчатый вид.
 
+  \newpage
+  %%%%%%%%
   \begin{subtheorem}
     Решение СЛУ ступенчаного вида.
   \end{subtheorem}  
@@ -410,7 +417,7 @@
   \end{algorithm}
 
   \newpage
-
+  %%%%%%%%
   \begin{definition} 
     Матрица $A$ имеет улучшенный ступенчатый вид, если выполнены следующие условия:
     \begin{enumerate}
@@ -445,7 +452,9 @@
     Т.к. система совместна (т.к. $B=0$), то $s=\widetilde{s}$ \\
     С другой стороны $s=\overline{s} \leq$ число исходных уравнений $<$ n $\Longrightarrow s=\widetilde{s} < n \Longrightarrow$ СЛУ неопределенна $\Longrightarrow \exists$ более одного решения $\Longrightarrow \exists$ нетривиальное решение.     
   \end{proof} 
+
   \newpage
+  %%%%%%%%
   \section{Векторные пространства}
   \subsection{Аксиомы элементов векторного простанства}
   Мы рассматриваем векторные пространства над полем $\R$.
@@ -514,15 +523,18 @@
     \end{enumerate}
   \end{definition} 
   \begin{remark}
-    3 условие заменить на условие: $0 \in  U \ \underline{\Longleftarrow }$ очевидно. \\
-    $\underline{\Longrightarrow }$ если $U \neq \varnothing$, то $\exists \tab[0.1cm] x \in U \Longrightarrow$ по $2: (-1) \cdot x \in U \Longrightarrow -x \in U \\ \Longrightarrow x + (-x) \in U \Longrightarrow 0 \in U$     
+    3 условие заменить на условие: $0 \in  U$
+    \begin{itemize}
+      \item [$\underline{\Longleftarrow}$] очевидно.
+      \item [$\underline{\Longrightarrow}$] если $U \neq \varnothing$, то $\exists \tab[0.1cm] x \in U \Longrightarrow$ по $2.: (-1) \cdot x \in U \Longrightarrow -x \in U  \Longrightarrow \\ x + (-x) \in U \Longrightarrow 0 \in U$ 
+    \end{itemize}
   \end{remark} 
   \begin{subtheorem}
     Любой вектор подпространства векторного простанства $V$ сам является векторным пространством относительно операций векторного пространства 
   \end{subtheorem} 
   \begin{proof}
     Надо проверить определение. 1 и 2 свойство из операций векторного простанства означают, что в $U$ заданы операции сложения и умножения на вещественное число. Проверка аксиом векторного простанства: 1,2,5,6,7,8 выполнены для всех векторов из $V$, а значит и для всех векторов из $U$. \\ 3,4 доказательство как в замечании. 
-    $$\forall x \in U, \ \exists (-x) = (-1) \cdot x \in U, \ \overline{0} \in U, \text{ т.к. } U \neq \varnothing $$   
+    $$\forall x \in U, \ \exists \tab[0.1cm](-x) = (-1) \cdot x \in U, \ \overline{0} \in U, \text{ т.к. } U \neq \varnothing $$   
   \end{proof} 
   \begin{example} \end{example}
     \begin{enumerate} 
@@ -532,6 +544,7 @@
     \end{enumerate}
   
   \newpage
+  %%%%%%%%
   \subsection{Линейная зависимость системы векторов}
   $V$ - векторное пространство над полем $\R$
   \begin{definition}
@@ -562,9 +575,15 @@
     (Критерий линейной зависимости)
     Система векторов $v_1,...,v_n \in V, \\ n>1$ - линейно зависимы $\Longleftrightarrow $ хотя бы один вектор линейно выражается через оставшиеся.  
   \end{lemma} 
-  \begin{proof} $\\$ 
-    $\underline{\Longrightarrow }$ По определению ЛЗ $\exists \tab[0.1cm] \lambda_1,...,\lambda_n \in \R$ не все нулевые: $\lambda_1 v_1 + \cdots + \lambda_n v_n = \varnothing$. Без ограничения общности можем считать, что $\lambda_1 \neq 0$, тогда $v_1 = \frac{1}{\lambda_1}(-\lambda_2 v_2 - \cdots - \lambda_n v_n)$  \\
-    $\underline{\Longleftarrow}$ Пусть один из этих векторов выражается через оставшиеся. Без ограничения общности можем считать, что $v_1$ выражается через оставшиеся \\ $v_1 = \mu_2 v_2 + \cdots + \mu_n v_n$ \\ $1 \cdot v_1 -\mu v_2 - \cdots - \mu_n v_n = 0$ - нетривиальная линейнвая комбинация, \\ т.к. $\mu_1 (\text{коэф. перед }v_1) \neq 0 \Longrightarrow {v_1,...,v_n}$ - линейно зависима.  
+
+  \newpage
+  %%%%%%%%
+  \begin{proof} $\tab$  
+    \begin{itemize}
+      \item[$\underline{\Longrightarrow}$]
+      По определению ЛЗ $\exists \tab[0.1cm] \lambda_1,...,\lambda_n \in \R$ не все нулевые: $\lambda_1 v_1 + \cdots + \lambda_n v_n = \varnothing$. Без ограничения общности можем считать, что $\lambda_1 \neq 0$, тогда $v_1 = \frac{1}{\lambda_1}(-\lambda_2 v_2 - \cdots - \lambda_n v_n)$
+      \item[$\underline{\Longleftarrow }$] Пусть один из этих векторов выражается через оставшиеся. Без ограничения общности можем считать, что $v_1$ выражается через оставшиеся \\ $v_1 = \mu_2 v_2 + \cdots + \mu_n v_n$ \\ $1 \cdot v_1 -\mu v_2 - \cdots - \mu_n v_n = 0$ - нетривиальная линейнвая комбинация, \\ т.к. $\mu_1 (\text{коэф. перед }v_1) \neq 0 \Longrightarrow {v_1,...,v_n}$ - линейно зависима.
+    \end{itemize}  
   \end{proof} 
   \begin{remark}
     В лемме 1 нельзя <<хотя бы один>> заменить на <<любой>>! \\
