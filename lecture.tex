@@ -600,10 +600,134 @@
         \item $ \lambda_0 = 0$, то $\lambda_1 v_1 + \cdots + \lambda_n v_n = 0$ - нетривиальная линейная комбинация
         \item $\lambda_0 \neq 0 \Longrightarrow w = (-\frac{\lambda_1}{\lambda_0})v_1 + \cdots + (-\frac{\lambda_n}{\lambda_0})v_n$
       \end{enumerate} 
-    \end{itemize} 
+    \end{itemize} s
   \end{proof}
   %%
+  \begin{lemma}
+    Пусть вектор $w$ линейно выражается через $v_1,..,v_k$. Тогда это выражение единственное.   
+  \end{lemma} 
+  \begin{proof} $\tab$ 
+    \begin{itemize}
+      \item[$\underline{\Longrightarrow}$] Пусть выражается единственно. Допустим, $v_1,..,v_k$ - ЛЗ $\Longrightarrow \exists\{\lambda_1,..,\lambda_k\}$ не все нулевые, т.ч. $\lambda_1v_1 + \cdots + \lambda_kv_k=0$ \\
+      Тогда если $w=\mu_1v_1 + \cdots + \mu_kv_k$, то $w + 0 = (\mu_1+\lambda_1)v_1 + \cdots + (\mu_k + \lambda_k)v_k$ другое разложение, противоречие.  
+      \item[$\underline{\Longleftarrow}$] Пусть $v_1,..,v_k$ - ЛНЗ. Допустим, что существует два разложения: $$w = \mu_1v_1 + \cdots + \mu_kv_k$$  $$w = \widetilde{\lambda_1}v_1 + \cdots + \widetilde{\mu_k}v_k$$ 
+      $\Longrightarrow  \{v_1,..,v_k\}$ - ЛЗ $\Longrightarrow $ противоречие.
+    \end{itemize}
+  \end{proof}
+  \begin{lemma} $\tab$
+    \begin{enumerate}
+      \item Если какая-то подсистема векторов ЛЗ, то вся система ЛЗ.
+      \item Если система векторов ЛНЗ, то любая подсистема ЛНЗ.
+    \end{enumerate}
+  \end{lemma}  
+  \begin{proof} $\tab$ 
+    \begin{enumerate}
+      \item Пусть подсистема $v_1,..,v_k$ системы $v_1,..,v_k,...,v_m$ - ЛЗ $\Longrightarrow \exists \lambda_1,...,\lambda_k$ не все равные нулю, т.ч. $\lambda_1v_1 + \cdots _+ \lambda_kv_k=0$ Положим $\lambda_{k+1}=0,...,\lambda_m=0$ 
+      Тогда $\lambda_1v_1,..,\lambda_kv_k,...,\lambda_mv_m=0$ - нетривиальная ЛК $\Longrightarrow \{v_1,...,v_k,v_{k+1},...,v_m\}$ - ЛЗ. 
+      \item Следует из 1.
+    \end{enumerate}
+  \end{proof} 
+  \begin{lemma} (ОЛЛЗ) \\
+    Пусть $v_1,...,v_k \in V, w_1,...,w_m \in V$, причем каждый $w_i$ линейно выражается через $v_1,...,v_k$, тогда, если $m>k$, то $\{w_1,...,w_m\}$ - ЛЗ.  
+  \end{lemma} 
+  \begin{proof}
+    Пусть $w_1 = c_{11}v_1+\cdots+c_{1k}v_k, w_2 = c_{21}v_1+\cdots+c_{2k}v_k$,...,$w_m = c_{m1}v_1+\cdots+c_{mk}v_k$, где $c_{ij} \in \R$ \\
+    Докажем, что $\exists$ нетривиальное ЛК $w_1,...,w_m=0$ \\
+    Для произвольных $\lambda_1,...,\lambda_m$ рассмотрим выражение: $$\lambda_1w_1 +\cdots+\lambda_mw_m = \lambda_1(c_{11}v_1+\cdots+c_{1k}v_k) + \cdots + \lambda_m(c_{m1}v_1+\cdots+c_{mk}v_k) = (\lambda_1c_{11}+\cdots+\lambda_mc_{m1})v_1+\cdots+(\lambda_1c_{1k}+\cdots+\lambda_mc_{mk})v_k$$   
+    Рассмотрим СЛУ с неизвестными $\lambda_1,...,\lambda_m$ из $k$ уравнений:
+    $$\begin{cases}
+      c_{11}\lambda_1+\cdots+c_{m1}\lambda_m=0 \\
+      \vdots \\
+      c_{1k}\lambda_1+\cdots+c_{mk}\lambda_m=0
+    \end{cases}$$ 
+    Т.к. $m>k$ и это ОСЛУ в которой число уравнений $<$числа неизвестных, то эта система имеет нетривиальное решение: \\
+    $\lambda_1,...,\lambda_m \Longrightarrow \lambda_1w_1+\cdots+\lambda_mw_m = 0$ - это нетривиальная ЛК $\Longrightarrow w_1,...,w_m$- ЛЗ. 
+  \end{proof} 
+  \subsubsection{Линейная оболочка множества S}
+  $V$ - векторное простанство над $\R$ \\
+  $S \subseteq V, S \neq \varnothing $  \\
+  \begin{subtheorem}
+    Множество всех ЛК $\lambda_1s_1+\cdots+\lambda_ks_k, \lambda_i \in \R, s_i \in S$ образует векторное подпространство в пространстве $V$. 
+  \end{subtheorem}  
+  \begin{proof}
+    Д/з. 
+  \end{proof}
+  \begin{definition}
+    Это векторное подпространство называется линейная оболочка множества $S$, обозначается $\langle S \rangle$.
+  \end{definition} 
+  \begin{example} $\tab$ 
+    \begin{enumerate}
+      \item $\R^3, S = \{(1,0,0),(0,1,0)\};$ \tab[0.5cm]
+      $\langle S \rangle = \{(\lambda,\mu,0)|\lambda,\mu \in \R\}$ 
+      \item $V^3, S =\{i,j,i+j\}$ РИСУНОК
+    \end{enumerate}
+  \end{example}
+  \begin{definition}
+    Если $V=\langle S \rangle$, то $S$ называется порождающим множеством векторного простанства $V$. Говорят векторное пространство $V$ порождается множеством $S$. 
+  \end{definition} 
+  \begin{definition}
+    Если $\exists$ конечное множество $S$, т.ч. $V=\langle S \rangle$, то $V$ называется конечномерным (конечнопорожденным), иначе бесконечномерным.
+  \end{definition} 
+  \begin{example1}
+    $\R^n = \langle (1,0,...,0),...,(0,...,0,1) \rangle$ 
+  \end{example1}
+\begin{lemma} (Переформулировка ОЛЛЗ)
+  Пусть векторного пространства $V$ пораждается $k$ векторами. Тогда любые $m>k$ векторов из $V$ - ЛЗ.
+\end{lemma} 
+\subsection{Базис}
+$V$- конечномерное векторное простанство над $\R$ 
+\begin{definition}
+  Система векторов $\{e_1,...,e_n\}\subseteq V$ называется бизисом векторного пространства $V$, если:
+  \begin{enumerate}
+    \item $\{e_1,...,e_n\}$ - ЛНЗ
+    \item $V = \langle e_1,...,e_n \rangle$, т.е. $\forall x \in V \tab[0.1cm] \exists x_1,...,x_n \in \R: x = x_1e_1+\cdots + x_ne_n$  
+  \end{enumerate}
+  Эти числа $x_1,...,x_n$ - называются координатами вектора $x$ в базисе $\{e_1,...,e_n\}$ 
+\end{definition} 
+\begin{definition}
+  Система векторов $\{e_1,...,e_n\} \subseteq V$ называется базисом векторного простанства $V$, если любой вектор $x \in V$ выражается через $\{e_1,...,e_n\}$ единственным образом.
+\end{definition} 
+  \begin{subtheorem}
+    (Опр1) $\Longleftrightarrow $ (Опр2)
+  \end{subtheorem} 
+  \begin{proof}
+    По лемме 3.
+  \end{proof}
+  \begin{theorem}
+    Всякое конечномерное векторное пространство над $\R$ обладает базисом. Более того, из любого конечного порожденного множества можно выбрать базис.
+  \end{theorem} 
+  \begin{proof}
+    Пусть $S$- какое-то порожденное множество векторного пространства $V$. \\
+    Если $S$ - ЛНЗ, то $S$ - базис \\
+    Если $S$ - ЛЗ, то по критерию о ЛЗ один из векторов $s1$ множества $S$ линейно выражается через остальные \\
+    Тогда $s1$ = $S\setminus\{s1\}$ - конечное пораждащее множество. ч.т.д. \\
+    Т.к. $S$ - конечное, это процесс прервется и мы получим ЛНЗ порожденную систему.
+  \end{proof} 
+  \begin{theorem}
+    В любом базисе конечномерном векторном пространстве $V$ над $\R$ ожно и тоже число векторов.
+  \end{theorem} 
+  \begin{proof}
+    Пусть есть два базиса $\{e_1,...,e_m\}$ и $\{f_1,...,f_m\}$ векторного пространства $V$. 
+    Тогда каждый вектор $f_i$ выражается через $e_1,...,e_m$. \\
+    По ОЛЛЗ $\{f_1,...,f_m\}$ - ЛЗ $\Longrightarrow \{f_1,...,f_m\}$ - не базис $\Longrightarrow $ противоречие.  
+  \end{proof} 
+  \begin{definition}
+    Число векторов в базисе конечномерного векторного пространства $V$, называется размерностью векторного простанства и обозначается: $dimV$ 
+  \end{definition} 
+  \begin{example} $\tab$ 
+    \begin{enumerate}
+      \item $dimV^2 = 2$
+      \item $dim \R^n = n$   
+    \end{enumerate}
+  \end{example}
+  \begin{remark}
+    Если $V={0}$, то $dimV = 0$ (базис систоит из $\varnothing$ ) 
+  \end{remark} 
+   Пусть $V$- векторное пространство над $\R$, $dimV=n, S\subseteq V$ Любые $m>n$ векторов в $S$- ЛЗ. (из ОЛЛЗ) \\
+   $\Longrightarrow $ в $S \ \exists $ максимальный ЛНЗ подсистему (т.е. ничего нельзя добавить к этой подсистеме без нарушения ЛНЗ) 
 
+   \section{Мораль в том, что я не успел....}
+   
 \end{document}
 
 
