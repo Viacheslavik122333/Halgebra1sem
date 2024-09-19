@@ -33,7 +33,12 @@
 \renewcommand{\epsilon}{\varepsilon}
 \newcommand{\aug}{\fboxsep=-\fboxrule\!\!\!\fbox{\strut}\!\!\!}
 \newcommand\tab[1][.5cm]{\hspace*{#1}}
+\newcommand\undermat[2]{\makebox[0pt][l]{$\smash{\underbrace
+{\phantom{\begin{matrix}#2\end{matrix}}}_{\text{$#1$}}}$}#2}
+\newcommand\overmat[2]{\makebox[0pt][l]{$\smash{\overbrace
+{\phantom{\begin{matrix}#2\end{matrix}}}^{\text{$#1$}}}$}#2}
 
+\newcounter{lemcount}
 \theoremstyle{definition}
 \newtheorem*{definition}{Определение}
 \newtheorem*{theorem}{Теорема}%[section]cle
@@ -46,6 +51,7 @@
 \newtheorem*{lalala}{Упражнение}
 \newtheorem*{algorithm}{Алгоритм}
 \newtheorem*{properties}{Свойства}
+\newtheorem{lemmanum}[lemcount]{Лемма}
 
 \usepackage[russian]{babel}
 \addto\captionsenglish{% Replace "english" with the language you use
@@ -571,10 +577,10 @@
     Система $\underbrace{(1,0,0,...,0)}_{e_1} , \underbrace{(0,1,0,...,0)}_{e_2},...,\underbrace{(0,0,0,...,1)}_{e_n}$ линейно независимая \\
     $\lambda_1 e_1 + \cdots + \lambda_n e_n = (0,...,0) \Longleftrightarrow (\lambda_1,...,\lambda_n) = 0 \Longleftrightarrow $ ЛНЗ 
   \end{example1}
-  \begin{lemma}
+  \begin{lemmanum}
     (Критерий линейной зависимости)
     Система векторов $v_1,...,v_n \in V, \\ n>1$ - линейно зависимы $\Longleftrightarrow $ хотя бы один вектор линейно выражается через оставшиеся.  
-  \end{lemma} 
+  \end{lemmanum} 
 
   \newpage
   %%%%%%%%
@@ -589,9 +595,9 @@
     В лемме 1 нельзя <<хотя бы один>> заменить на <<любой>>! \\
     Пусть $v_1 \neq 0, v_2 = 0$ и $v_1, v_2$ - ЛЗ, т.к. $0 \cdot v_1 + 1 \cdot v_2 = 0$
   \end{remark} 
-  \begin{lemma}
+  \begin{lemmanum} \label{lem2}
     Пусть $v_1,...,v_n \in V$ - ЛНЗ, тогда $w \in V$ линейно выражается через $v_1,...,v_n \Longleftrightarrow (w,v_1,...,v_n)$ - ЛЗ.   
-  \end{lemma} 
+  \end{lemmanum} 
   \begin{proof} $\tab$  
     \begin{itemize}
       \item[$\underline{\Longrightarrow}$] $\exists \tab[0.1cm] \mu_1,...,\mu_n \in \R: w = \mu_1 v_1 + \cdots +\mu_n v_n \Longrightarrow$ по критерию ЛЗ система $\{w,v_1,...,v_n\}$ - ЛЗ.
@@ -600,12 +606,12 @@
         \item $ \lambda_0 = 0$, то $\lambda_1 v_1 + \cdots + \lambda_n v_n = 0$ - нетривиальная линейная комбинация
         \item $\lambda_0 \neq 0 \Longrightarrow w = (-\frac{\lambda_1}{\lambda_0})v_1 + \cdots + (-\frac{\lambda_n}{\lambda_0})v_n$
       \end{enumerate} 
-    \end{itemize} s
+    \end{itemize}
   \end{proof}
   %%
-  \begin{lemma}
+  \begin{lemmanum} \label{lem3}
     Пусть вектор $w$ линейно выражается через $v_1,..,v_k$. Тогда это выражение единственное.   
-  \end{lemma} 
+  \end{lemmanum} 
   \begin{proof} $\tab$ 
     \begin{itemize}
       \item[$\underline{\Longrightarrow}$] Пусть выражается единственно. Допустим, $v_1,..,v_k$ - ЛЗ $\Longrightarrow \exists\{\lambda_1,..,\lambda_k\}$ не все нулевые, т.ч. $\lambda_1v_1 + \cdots + \lambda_kv_k=0$ \\
@@ -614,12 +620,12 @@
       $\Longrightarrow  \{v_1,..,v_k\}$ - ЛЗ $\Longrightarrow $ противоречие.
     \end{itemize}
   \end{proof}
-  \begin{lemma} $\tab$
+  \begin{lemmanum} $\tab$
     \begin{enumerate}
       \item Если какая-то подсистема векторов ЛЗ, то вся система ЛЗ.
       \item Если система векторов ЛНЗ, то любая подсистема ЛНЗ.
     \end{enumerate}
-  \end{lemma}  
+  \end{lemmanum}  
   \begin{proof} $\tab$ 
     \begin{enumerate}
       \item Пусть подсистема $v_1,..,v_k$ системы $v_1,..,v_k,...,v_m$ - ЛЗ $\Longrightarrow \exists \lambda_1,...,\lambda_k$ не все равные нулю, т.ч. $\lambda_1v_1 + \cdots _+ \lambda_kv_k=0$ Положим $\lambda_{k+1}=0,...,\lambda_m=0$ 
@@ -627,39 +633,50 @@
       \item Следует из 1.
     \end{enumerate}
   \end{proof} 
-  \begin{lemma} (ОЛЛЗ) \\
+  \begin{lemmanum} (ОЛЛЗ) \\
     Пусть $v_1,...,v_k \in V, w_1,...,w_m \in V$, причем каждый $w_i$ линейно выражается через $v_1,...,v_k$, тогда, если $m>k$, то $\{w_1,...,w_m\}$ - ЛЗ.  
-  \end{lemma} 
+  \end{lemmanum} 
   \begin{proof}
-    Пусть $w_1 = c_{11}v_1+\cdots+c_{1k}v_k, w_2 = c_{21}v_1+\cdots+c_{2k}v_k$,...,$w_m = c_{m1}v_1+\cdots+c_{mk}v_k$, где $c_{ij} \in \R$ \\
-    Докажем, что $\exists$ нетривиальное ЛК $w_1,...,w_m=0$ \\
-    Для произвольных $\lambda_1,...,\lambda_m$ рассмотрим выражение: $$\lambda_1w_1 +\cdots+\lambda_mw_m = \lambda_1(c_{11}v_1+\cdots+c_{1k}v_k) + \cdots + \lambda_m(c_{m1}v_1+\cdots+c_{mk}v_k) = (\lambda_1c_{11}+\cdots+\lambda_mc_{m1})v_1+\cdots+(\lambda_1c_{1k}+\cdots+\lambda_mc_{mk})v_k$$   
+    Пусть 
+    $$\begin{cases}
+      w_1 = c_{11}v_1+\cdots+c_{1k}v_k \\
+      w_2 = c_{21}v_1+\cdots+c_{2k}v_k \\
+      \vdots \\
+      w_m = c_{m1}v_1+\cdots+c_{mk}v_k
+    \end{cases}
+    \text{где } c_{ij} \in \R
+    $$
+    Докажем, что $\exists$ нетривиальная ЛК $w_1,...,w_m=0$ \\
+    Для произвольных $\lambda_1,...,\lambda_m$ рассмотрим выражение: 
+    \begin{multline*}
+      \lambda_1w_1 +\cdots+\lambda_mw_m = \\ = \lambda_1(c_{11}v_1+\cdots+c_{1k}v_k) + \cdots + \lambda_m(c_{m1}v_1+\cdots+c_{mk}v_k) = \\ = (\lambda_1c_{11}+\cdots+\lambda_mc_{m1})v_1+\cdots+(\lambda_1c_{1k}+\cdots+\lambda_mc_{mk})v_k 
+    \end{multline*}
     Рассмотрим СЛУ с неизвестными $\lambda_1,...,\lambda_m$ из $k$ уравнений:
     $$\begin{cases}
       c_{11}\lambda_1+\cdots+c_{m1}\lambda_m=0 \\
       \vdots \\
       c_{1k}\lambda_1+\cdots+c_{mk}\lambda_m=0
     \end{cases}$$ 
-    Т.к. $m>k$ и это ОСЛУ в которой число уравнений $<$числа неизвестных, то эта система имеет нетривиальное решение: \\
-    $\lambda_1,...,\lambda_m \Longrightarrow \lambda_1w_1+\cdots+\lambda_mw_m = 0$ - это нетривиальная ЛК $\Longrightarrow w_1,...,w_m$- ЛЗ. 
+    Т.к. $m>k$ и это ОСЛУ в которой число уравнений $<$ числа неизвестных, то эта система имеет нетривиальное решение \\
+    $\lambda_1,...,\lambda_m \Longrightarrow \lambda_1w_1+\cdots+\lambda_mw_m = 0$ - это нетривиальная ЛК \\ $\Longrightarrow w_1,...,w_m$ - ЛЗ. 
   \end{proof} 
-  \subsubsection{Линейная оболочка множества S}
+  \subsection{Линейная оболочка множества S}
   $V$ - векторное простанство над $\R$ \\
-  $S \subseteq V, S \neq \varnothing $  \\
+  $S \subseteq V, S \neq \varnothing $ 
   \begin{subtheorem}
-    Множество всех ЛК $\lambda_1s_1+\cdots+\lambda_ks_k, \lambda_i \in \R, s_i \in S$ образует векторное подпространство в пространстве $V$. 
+    Множество всех ЛК $\lambda_1s_1+\cdots+\lambda_ks_k,\tab[0.1cm] \lambda_i \in \R,\tab[0.1cm] s_i \in S$ образует векторное подпространство в пространстве $V$. 
   \end{subtheorem}  
   \begin{proof}
     Д/з. 
   \end{proof}
   \begin{definition}
-    Это векторное подпространство называется линейная оболочка множества $S$, обозначается $\langle S \rangle$.
+    Такое векторное подпространство называется линейная оболочка множества $S$, обозначается $\langle S \rangle$.
   \end{definition} 
   \begin{example} $\tab$ 
     \begin{enumerate}
-      \item $\R^3, S = \{(1,0,0),(0,1,0)\};$ \tab[0.5cm]
-      $\langle S \rangle = \{(\lambda,\mu,0)|\lambda,\mu \in \R\}$ 
-      \item $V^3, S =\{i,j,i+j\}$ РИСУНОК
+      \item $\R^3,\tab[0.1cm] S = \{(1,0,0),(0,1,0)\};$ \tab[0.5cm]
+      $\langle S \rangle = \{(\lambda,\mu,0)\tab[0.1cm]|\tab[0.1cm]\lambda,\mu \in \R\}$ 
+      \item $V^3,\tab[0.1cm] S =\{i,j,i+j\}$ \\ РИСУНОК
     \end{enumerate}
   \end{example}
   \begin{definition}
@@ -672,26 +689,26 @@
     $\R^n = \langle (1,0,...,0),...,(0,...,0,1) \rangle$ 
   \end{example1}
 \begin{lemma} (Переформулировка ОЛЛЗ)
-  Пусть векторного пространства $V$ пораждается $k$ векторами. Тогда любые $m>k$ векторов из $V$ - ЛЗ.
+  Пусть векторное пространство $V$ пораждается $k$ векторами. Тогда любые $m>k$ векторов из $V$ - ЛЗ.
 \end{lemma} 
 \subsection{Базис}
 $V$- конечномерное векторное простанство над $\R$ 
-\begin{definition}
+\begin{definition}\tab[-0.1cm]\textbf{1} 
   Система векторов $\{e_1,...,e_n\}\subseteq V$ называется бизисом векторного пространства $V$, если:
   \begin{enumerate}
     \item $\{e_1,...,e_n\}$ - ЛНЗ
-    \item $V = \langle e_1,...,e_n \rangle$, т.е. $\forall x \in V \tab[0.1cm] \exists x_1,...,x_n \in \R: x = x_1e_1+\cdots + x_ne_n$  
+    \item $V = \langle e_1,...,e_n \rangle$, т.е. $\forall x \in V, \tab[0.1cm] \exists \tab[0.1cm] x_1,...,x_n \in \R: x = x_1e_1+\cdots + x_ne_n$  
   \end{enumerate}
   Эти числа $x_1,...,x_n$ - называются координатами вектора $x$ в базисе $\{e_1,...,e_n\}$ 
 \end{definition} 
-\begin{definition}
+\begin{definition}\tab[-0.1cm]\textbf{2} 
   Система векторов $\{e_1,...,e_n\} \subseteq V$ называется базисом векторного простанства $V$, если любой вектор $x \in V$ выражается через $\{e_1,...,e_n\}$ единственным образом.
 \end{definition} 
   \begin{subtheorem}
-    (Опр1) $\Longleftrightarrow $ (Опр2)
+    (\textbf{Опр 1}) $\Longleftrightarrow $ (\textbf{Опр 2})
   \end{subtheorem} 
   \begin{proof}
-    По лемме 3.
+    По лемме \eqref{lem3}.
   \end{proof}
   \begin{theorem}
     Всякое конечномерное векторное пространство над $\R$ обладает базисом. Более того, из любого конечного порожденного множества можно выбрать базис.
@@ -699,18 +716,19 @@ $V$- конечномерное векторное простанство над
   \begin{proof}
     Пусть $S$- какое-то порожденное множество векторного пространства $V$. \\
     Если $S$ - ЛНЗ, то $S$ - базис \\
-    Если $S$ - ЛЗ, то по критерию о ЛЗ один из векторов $s1$ множества $S$ линейно выражается через остальные \\
-    Тогда $s1$ = $S\setminus\{s1\}$ - конечное пораждащее множество. ч.т.д. \\
+    Если $S$ - ЛЗ, то по критерию о ЛЗ один из векторов $S_1$ множества $S$ линейно выражается через остальные. \\
+    Тогда $S_1$ = $S\setminus\{s_1\}$ - конечное пораждащее множество. ч.т.д. \\
     Т.к. $S$ - конечное, это процесс прервется и мы получим ЛНЗ порожденную систему.
   \end{proof} 
   \begin{theorem}
-    В любом базисе конечномерном векторном пространстве $V$ над $\R$ ожно и тоже число векторов.
+    В любом базисе конечномерного векторного пространства $V$ над $\R$ одно и тоже число векторов.
   \end{theorem} 
   \begin{proof}
     Пусть есть два базиса $\{e_1,...,e_m\}$ и $\{f_1,...,f_m\}$ векторного пространства $V$. 
     Тогда каждый вектор $f_i$ выражается через $e_1,...,e_m$. \\
-    По ОЛЛЗ $\{f_1,...,f_m\}$ - ЛЗ $\Longrightarrow \{f_1,...,f_m\}$ - не базис $\Longrightarrow $ противоречие.  
+    По ОЛЛЗ: $\{f_1,...,f_m\}$ - ЛЗ $\Longrightarrow \{f_1,...,f_m\}$ - не базис $\Longrightarrow $ противоречие.  
   \end{proof} 
+  \newpage
   \begin{definition}
     Число векторов в базисе конечномерного векторного пространства $V$, называется размерностью векторного простанства и обозначается: $dimV$ 
   \end{definition} 
@@ -723,10 +741,60 @@ $V$- конечномерное векторное простанство над
   \begin{remark}
     Если $V={0}$, то $dimV = 0$ (базис систоит из $\varnothing$ ) 
   \end{remark} 
-   Пусть $V$- векторное пространство над $\R$, $dimV=n, S\subseteq V$ Любые $m>n$ векторов в $S$- ЛЗ. (из ОЛЛЗ) \\
-   $\Longrightarrow $ в $S \ \exists $ максимальный ЛНЗ подсистему (т.е. ничего нельзя добавить к этой подсистеме без нарушения ЛНЗ) 
+   Пусть $V$- векторное пространство над $\R$, $dimV=n,\tab[0.1cm] S\subseteq V$ Любые $m>n$ векторов в $S$ - ЛЗ. (из ОЛЛЗ) \\
+   $\Longrightarrow $ в $S \ \exists $ максимальная ЛНЗ подсистема (т.е. ничего нельзя добавить к этой подсистеме без нарушения ЛНЗ) 
+  \begin{lemmanum} \label{lem6}
+    Пусть $V$ - n-мерное векторное пространство над $\R,\tab[0.1cm] S\subseteq V$. Тогда максимальная ЛНЗ система векторов из $S$ образует базис в лин. оболочке $\langle S \rangle$  
+  \end{lemmanum} 
+  \begin{proof}
+    Пусть $\{s_1,...,s_k\}$ максимальная (по включению) ЛНЗ система в $S$ $\Longrightarrow \forall s \in S \setminus \{s_1,...,s_k\}\Longrightarrow \{s,s_1,...,s_k\} - \text{ЛЗ.} $ \\
+    По Лемме \eqref{lem2}. $\Longrightarrow s=\lambda_1s_1+\cdots+\lambda_ks_k$ \\
+    Докажем, что $\{s_1,...,s_k\}$ базис в $\langle S \rangle$. 
+    \begin{enumerate}
+      \item ЛНЗ (очевидно)
+      \item $\forall x \in \langle S \rangle\tab[-0.1cm]: x = x_1s_1+\cdots+x_ks_k$ 
+    \end{enumerate}
+    По определению линейной оболочки $x$ линейно выражается через вектора из $S$ \\
+    А каждый вектор из $S$ линейно выражается через $\{s_1,...,s_k\}$ 
+  \end{proof}
+  \begin{theorem}
+    Пусть $V$ конечномерное векторное пространство над $\R$, тогда:
+    \begin{enumerate}
+      \item Любая максимальная ЛНЗ система векторов из $V$ - базис $V$.
+      \item Любую ЛНЗ систему векторов из $V$ можно дополнить до базиса векторного пространства $V$. 
+    \end{enumerate}
+  \end{theorem}  
+  \begin{proof} $\tab$ 
+    \begin{enumerate}
+      \item По лемме \eqref{lem6}. $S=V$ 
+      \item Пусть $S$ - ЛНЗ система векторов из $V$ 
+    \end{enumerate}
+    Если $V=\langle S \rangle$, тогда $S$- базис. \\
+    Если $V \neq \langle S \rangle$ , то $\exists s_1 \in V \setminus \langle S \rangle$ \\
+    $\Longrightarrow s_1$ линейно невыражается через $S$ $\Longrightarrow \text{(По лемме \ref{lem2}.) } S_1=S \cup \{s_1\}$ - ЛНЗ. \\
+    $\Longrightarrow $ Если $V = \langle S \rangle$, то $S_1$ базис, иначе $\exists S_2 \in V \setminus \langle S_1 \rangle$, и т.д. \\
+    Этот процесс прервется на конечном шаге, т.к. пространство $V$- конечное. (Если $dimV \neq n, \text{то} \not\exists$ ЛНЗ системы с числом векторов $> n$) 
+  \end{proof} 
+  \begin{consequense} 
+    Пусть $V$ конечномерное векторное пространство над $\R$ 
+    \begin{enumerate}
+      \item Любой ненулевой вектор можно дополнить до базиса.
+      \item Любые $n$ ЛНЗ вектора в $n$-мерном пространстве $V$ образуют базис.
+    \end{enumerate}
+  \end{consequense} 
+  
+  \section{Ранг}
+  \begin{definition}
+    Рангом системы векторного простанства $S\subseteq V$ называется $dim \langle S \rangle$  
+  \end{definition} 
+  $A$ - матрица $m \times n$ \\ 
+  РИСУНОК
+  \begin{definition}
+    Рангом матрицы $A$ называется ранг системы ее строк, т.е. максимальное число ЛНЗ строк матрицы.
+  \end{definition} 
 
-   \section{Мораль в том, что я не успел....}
+
+  \section{Мораль в том, что я не успел....}
    
 \end{document}
 
