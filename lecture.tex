@@ -39,10 +39,11 @@
 {\phantom{\begin{matrix}#2\end{matrix}}}^{\text{$#1$}}}$}#2}
 
 \newcounter{lemcount}
+\newcounter{thcount}
 \theoremstyle{definition}
 \newtheorem*{definition}{Определение}
-\newtheorem*{theorem}{Теорема}%[section]cle
-\newtheorem*{consequense}{Следствие}%[theorem]
+\newtheorem*{theorem}{Теорема}
+\newtheorem*{consequense}{Следствие}
 \newtheorem*{lemma}{Лемма}
 \newtheorem*{subtheorem}{Утверждение}
 \newtheorem*{remark}{Замечание}
@@ -52,6 +53,7 @@
 \newtheorem*{algorithm}{Алгоритм}
 \newtheorem*{properties}{Свойства}
 \newtheorem{lemmanum}[lemcount]{Лемма}
+\newtheorem{theoremnum}[thcount]{Теорема}
 
 \usepackage[russian]{babel}
 \addto\captionsenglish{% Replace "english" with the language you use
@@ -784,6 +786,7 @@ $V$- конечномерное векторное простанство над
   \end{consequense} 
   
   \section{Ранг}
+  \subsection{Рангом системы векторного простанства}
   \begin{definition}
     Рангом системы векторного простанства $S\subseteq V$ называется $dim \langle S \rangle$  
   \end{definition} 
@@ -792,9 +795,217 @@ $V$- конечномерное векторное простанство над
   \begin{definition}
     Рангом матрицы $A$ называется ранг системы ее строк, т.е. максимальное число ЛНЗ строк матрицы.
   \end{definition} 
-
-
-  \section{Мораль в том, что я не успел....}
+  \subsection{Ранг матрицы}
+  \begin{definition}
+    Ранг системы $\{s_1,...,s_n\}$ - векторов называется $dim \langle s_1,...,s_n \rangle$ 
+  \end{definition} 
+  \begin{definition}
+    Рангом матрица $A \ m\times n$ называется ранг системы её строк $A$ = РИСУНОК 
+  \end{definition} 
+  \begin{definition}
+    Две системы векторов $\{v_1,...,v_n\}$ $\{w_1,...,w_n\}$ называются эквивалентными, если каждый вектор $v_i$ линейно выражается через $\{w_1,...,w_n\}$, а $w_i$ через $\{v_1,...,v_n\}$ \\
+    Это условная эквивалентность: $\langle v_1,...,v_n \rangle = \langle w_1,....,w_n \rangle$ 
+  \end{definition} 
+  \begin{subtheorem}
+    При элементарных преобразованиях над строками, ранг матрицы $A$  не изменяется.
+  \end{subtheorem} 
+  \begin{proof}
+    $$A = $$ РИСУНОК \\
+    $\langle A_1,...,A_m \rangle = \langle \widetilde{A_1},...,\widetilde{A_m} \rangle$ \\
+    т.е. система строк $A$ эквивалентна системы строк $\widetilde{A}$ $\Longrightarrow rkA = rk \widetilde{A}$  
+  \end{proof} 
+  \begin{subtheorem}
+    При элементарных преобразованиях над столбцами, ранг матрицы $A$  не изменяется.
+  \end{subtheorem} 
+  \textbf{Предложение 1.} \\
+   Ранг матрицы $A$ равен числу ненулевых строк матрицы струпенчатого вида, к которому можно привести матрицу $A$ с помощью элементарных преобразований строк.
+  \begin{proof}
+    $A \overset{\text{ЭП строк}}{\longrightarrow } A_{\text{ст}} \Longrightarrow  rkA = rkA_{\text{ст}}$ \\
+    РИСУНОК\\
+    $a_{i_11},...,a_{i_ss}$ - лидеры строк в $A_{\text{ст}} \Longrightarrow a_{i_11} \neq 0,...,a_{i_ss} \neq 0$ \\
+    Очевидно, что $rkA_{\text{ст}}\leq s$. Достаточно доказать, что ненулевые строки ЛНЗ. Рассмотрим ЛК: \\
+    $\lambda_1(0,...,0,a_{i_11},\ast,...,\ast) + \lambda_2(0,...,0,a_{i_22},\ast,...,\ast) + \cdots + \lambda_s(0,...,0,a_{i_ss},\ast,...,\ast) = (0,...,0)$ \\
+    $(0,...,0,\lambda_1 a_{i_11},...,\lambda_1a_{i_21} + \lambda_2a_{i_22},...) = (0,...,0) \Longrightarrow \lambda_1 \underbrace {a_{i_11}}_{\text{лидер}}= 0 \Longrightarrow \lambda_1 = 0$ \\
+    $\lambda_1a_{i_21} + \lambda_2\underbrace {a_{i_22}}_{\text{лидер}} = 0 \Longrightarrow \lambda_2 = 0$ и т.д. \\
+    Получаем, что $\lambda_1 = 0,...,\lambda_s = 0 \Longrightarrow$ это ЛК - ЛНЗ. 
+  \end{proof} 
+  \textbf{Предложение 2.} 
+  Ранг системы столбцов не изменяется про элементарных преобразованиях над строками. 
+  \begin{proof}
+    $A \overset{\text{ЭП строк}}{\longrightarrow } \widetilde{A}$. Пусть $A = (a_{ij}) = (\underbrace{A_1,...,A_n}_{\text{столбцы }A})$ \\
+    $\widetilde{A} = (\widetilde{a_{ij}}) = (\widetilde{A_1},...,\widetilde{A_n})$ \\
+    Докажем, что для некоторого числа $\lambda_1,...,\lambda_n \in \R$ выполнено $\lambda_1A_1 + \cdots + \lambda_nA_n = 0$, то для этих же чисел  $\lambda_1 \widetilde{A_1} + \cdots + \lambda_n \widetilde{A_n} = 0$ (Верно и обратное, т.к. ЭП обратимы, т.е. если для каких-то чисел $\lambda_i \in \R: \sum \lambda_i \widetilde{A_1} = 0$, то $\sum \lambda_i \widetilde{A_i} = 0$) \\
+    Дано: $\lambda_1A_1 + \cdots + \lambda_nA_n = \begin{pmatrix}
+      0\\
+      \vdots\\
+      0\\
+    \end{pmatrix}\Longrightarrow$ \\
+    $ \begin{cases}
+      \lambda_1a_{11} + \lambda_2a_{12} + \cdots + \lambda_na_{1n} = 0 \\
+      \vdots \\
+      \lambda_1a_{m1} + \lambda_2a_{m2} + \cdots + \lambda_na_{mn} = 0
+    \end{cases} 
+    $ $\Longrightarrow \lambda_1,...,\lambda_m - \text{решение ОСЛУ } AX=0 $ 
+    Т.к. при ЭП над уравнениями множество решений не меняется, поэтому $\lambda_1,...,\lambda_n$ - это решение ОСЛУ $\widetilde{A}X=0$
+    $\Longrightarrow \lambda_1 \widetilde{A_1} + \cdots + \lambda_n \widetilde{A_n} = 0$ \\
+    Отсюда получаем, что если $A_{i_1},...,A_{i_s}$ - максимальная ЛНЗ система столбцов в $A$, то $\widetilde{A_{i_1}},...,\widetilde{A_{i_s}}$ - максимальная ЛНЗ система столбцов в $\widetilde{A}$ $\Longrightarrow rk\{\widetilde{A_1},...,\widetilde{A_n}\}$ 
+  \end{proof} 
+  \begin{definition}
+    Пусть $A = (a_{ij})$ - матрица $m\times n $, тогда $B = (b_{ij}) \text{ матрица } n\times m$ называется транспонированной к матрице $A$, если $b_{ij} = a_{ji}$, где $i = \overline{1,m}; j = \overline{1,n}$ \\
+    Обозначаем $B = A^T$  
+  \end{definition} 
+  \begin{example1}
+    $$\begin{pmatrix}
+      1&2&3\\
+      4&5&6
+    \end{pmatrix}^T
+    = \begin{pmatrix}
+      1&2\\
+      3&4\\
+      5&6
+    \end{pmatrix}$$ 
+  \end{example1}
+  \begin{consequense} 
+    Ранг системы строк матрицы $A$ (=ранг матрицы $A$) не изменяется при элементарных преобразованиях над столбцами. 
+  \end{consequense} 
+  \begin{proof}
+    Предложение 2 применяем к $A^T$ 
+  \end{proof} 
+  \begin{theoremnum} 
+    Ранг системы строк матрицы $A$ совпадает с рангом системы столбов матрицы $A$.
+  \end{theoremnum} 
+  \begin{proof}
+    Было доказанно, что ранг системы строк (столбцов) матрицы не изменяется при ЭП над строками и над столбцами. Приведем матрицу $A$к ступенчатому виду с помощью ЭП над строками. 
+    $$A_{\text{ст}} = \text{РИСУНОК} 
+    a_{i_11} \neq 0,...,a_{1_ss} \neq 0$$
+    Используем $i_1$-столбец, вычитая этот столбец из оставшихся с подхлодящими коэфициентами, получаем:
+    $$\text{РИСУНОК}$$ 
+    Далее используем $i_2$-столбец, обнуляем все элементы правее $a_{i_22}$. В итоге получаем: $$\begin{pmatrix}
+      a_{i_1,1} && \null && 0\\
+      \null && \ddots && \null\\
+      0 && \null && a_{i_ss}
+    \end{pmatrix}$$
+    Очев, что у такой матрицы ранг системы строк = рангу системы столбцов.
+  \end{proof} 
+  \textbf{Возвращаемся к системе линейных уравнений} \\ $\\$ 
+  $\begin{cases}
+    a_{11}x_1 + ... + a_{1n}x_n = b_1 \\ 
+    a_{21}x_2 + ... + a_{2n}x_n = b_2 \\
+    \vdots \\
+    a_{m1}x_1 + ... + a_{mn}x_n = b_m
+  \end{cases} (AX = B)$
+  \begin{theorem} (Кронекера-Копелли)
+    \begin{enumerate}
+      \item (Критерий совместимости СЛУ) \\ CЛУ $AX = B$ совместна $\Longleftrightarrow rk(A|B) = rkA$ 
+      \item (Критерий определенности СЛУ) \\ Совместная СЛУ $AX =B$ - определенна $\Longleftrightarrow rk(A|B) = rkA = n$ 
+      \item (Критерий существования нетривиального решения у однородной СЛУ) \\ ОСЛУ $AX = 0$ имеет нетривиальное решение $\Longleftrightarrow rkA<n$ 
+    \end{enumerate}
+  \end{theorem}
+  \textbf{Однородная СЛУ} \\ $\\$  
+  $\begin{cases}
+    a_{11}x_1 + ... + a_{1n}x_n = 0 \\ 
+    a_{21}x_2 + ... + a_{2n}x_n = 0 \\
+    \vdots \\
+    a_{m1}x_1 + ... + a_{mn}x_n = 0
+  \end{cases} (AX = 0)$
+  \begin{subtheorem}
+    ОСЛУ всегда совместна, т.к. есть тривиальное решение.
+  \end{subtheorem} 
+  \begin{properties} $\tab$ 
+    \begin{enumerate}
+      \item Если $X^0$ = $\begin{pmatrix}
+        x_1^0\\
+        \vdots\\
+        x_n^0 
+      \end{pmatrix}$; \tab[0.3cm] $\widetilde{X^0}$ = $\begin{pmatrix}
+        \widetilde{x_1^0}\\
+        \vdots\\
+        \widetilde{x_n^0} 
+      \end{pmatrix}$ - решение ОСЛУ, \\ \tab[9cm] тогда $X^0 + \widetilde{X^0}$ = $\begin{pmatrix}
+        X_1^0 + \widetilde{X_1^0} \\
+        \vdots\\
+        X_n^0 + \widetilde{X_n^0}
+      \end{pmatrix}$
+      \item Если $X^0$ = $\begin{pmatrix}
+        x_1^0\\
+        \vdots\\
+        x_n^0 
+      \end{pmatrix}$ - решение ОСЛУ $AX = 0$, то $\lambda X^0$ = $\begin{pmatrix}
+        \lambda x_1^0\\
+        \vdots\\
+        \lambda x_n^0 
+      \end{pmatrix}$ - решение.
+    \end{enumerate}
+  \end{properties}
+  \begin{proof}
+    Д/з
+  \end{proof} 
+  \begin{consequense}
+    Множество всех решений ОСЛУ является векторным \\ подпространством в $\R^n$. Будем говорить, что это пространство над ОСЛУ.
+  \end{consequense} 
+  \begin{remark}
+    Если $\exists$ решение ОСЛУ над $\R$, то $\exists$ бесконечно много решений.
+  \end{remark} 
+  \begin{theoremnum}
+    Пространство решений ОСЛУ $AX = 0$ имеет базис из $n-r$ векторов, где $n$ - число неизвестных, а $r=rkA$.
+  \end{theoremnum} 
+  \begin{definition}
+    Любой базис пространства решений ОСЛУ называется \\ Фундаментальной Системой Решений (ФСР) ОСЛУ.
+  \end{definition} 
+  \begin{proof}
+    (Теоремы 2.) \\ Решение СЛУ методом Гаусса: приводим её к ступенчатому виду (число ступенек $r=rkA$), главные неизвестные выражаем через свободные. 
+    $$\begin{cases}
+      x_1=c_{1,1}x_{r+1} + \cdots + c_{1,n-r}x_n \\
+      \vdots\\
+      x_r=c_{r,1}x_{r+1} + \cdots + c_{r,n-r}x_n
+    \end{cases}$$ 
+    Определим $n-r$ частных решений приравнивая одно из $x_1,...,x_n$ к 1, а остальные к 0. 
+    $$F_1 = \begin{pmatrix}
+      c_{11}\\
+      \vdots\\
+      c_{r1}\\
+      \hline
+      1\\
+      0\\
+      \vdots\\
+      0
+    \end{pmatrix}, \ \ F_2 = \begin{pmatrix}
+      c_{12}\\
+      \vdots\\
+      c_{r2}\\
+      \hline
+      0\\
+      1\\
+      \vdots\\
+      0
+    \end{pmatrix} \ ,..., \ F_{n-r} = \begin{pmatrix}
+      c_{1,{n-r}}\\
+      \vdots\\
+      c_{r,{n-r}}\\
+      \hline
+      0\\
+      0\\
+      \vdots\\
+      1
+    \end{pmatrix}$$  
+    Докажем, что $F_1,...,F_{n-r}$ - базис пространства ренений ОСЛУ 
+    \begin{enumerate}
+      \item $F_1,...,F_{n-r}$ - ЛНЗ?
+      Рассмотрим ЛК $\lambda_1F_1 + \cdots + \lambda_{n-r}F_{n-r} = \begin{pmatrix}
+        0 \\ \vdots \\ 0
+      \end{pmatrix} \\ \Longrightarrow \begin{pmatrix}
+        \ast \\ \vdots \\ \ast \\ \hline \lambda_1 \\ \vdots \\ \lambda_{n-r}
+      \end{pmatrix} = \begin{pmatrix}
+        0 \\ \vdots \\ 0
+      \end{pmatrix} \Longrightarrow \lambda_1 = 0,...,\lambda_{n-r}=0$ 
+      \item Надо доказать, что любое решение выражено через $F_1,...,F_{n-r}$ \\ $\\$ 
+      $X^0 = \begin{pmatrix}
+        c_{11} \\ \vdots \\ c_{r1} \\ \hline \mu_{r+1} \\ \vdots \\ \mu_n
+      \end{pmatrix} = \mu_{r+1}F_1 + \cdots + \mu_nF_{n-r}$ 
+    \end{enumerate}
+    
+  \end{proof} 
+  % \subsubsection{Мораль в том, что я не успел....}
    
 \end{document}
 
