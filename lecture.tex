@@ -52,6 +52,7 @@
 \newtheorem*{lalala}{Упражнение}
 \newtheorem*{algorithm}{Алгоритм}
 \newtheorem*{properties}{Свойства}
+\newtheorem*{properties1}{Свойство}
 \newtheorem{lemmanum}[lemcount]{Лемма}
 \newtheorem{theoremnum}[thcount]{Теорема}
 
@@ -241,7 +242,7 @@
     \end{subtheorem}
     \begin{proof}
       $ \\ \Longrightarrow$ (Не Куликова) 
-      $AX = B$ - сходная система, $\tilde{A} X = \tilde{B}$ преобразованная система. \\
+      $AX = B$ - исходная система, $\tilde{A} X = \tilde{B}$ преобразованная система. \\
       Пусть ${z_1,...,z_n}$ некотороое решение $AX = B$. Будем рассматривать $\tilde{A} X = \tilde{B}$, в ней ЭП $II$ типа умножают строку на $\mu$, имеем:
       $$a_{i1}x_1 +...+ a_{in}x_n = b_{i} \text{ в } AX = B$$
       $$\mu a_{i1}x_1 +...+\mu a_{in}x_n = \mu b_i \text{ в } \tilde{A} X = \tilde{B}$$ 
@@ -252,7 +253,7 @@
       (a_{i1}+\lambda a_{j1})x_1 +...+(a_{in}+\lambda a_{jn})x_n = \\ = a_{i1}x_1+\lambda a_{j1}x_1 +...+a_{in}x_n+\lambda a_{jn}x_n = \tab[3cm] \\ = a_{i1}x_1 + ... + a_{in}x_n + \lambda (a_{j1}x_1 +...+ a_{jn}x_n) = b_i + \lambda b_j
       \end{multline*}
       Таким образом, любое решение старой СЛУ - это и решение новой, то есть множество
-      решений не уменьшилось. (со столбами все тоже самое) \\
+      решений не уменьшилось. (со столбцами все тоже самое) \\
       $\Longleftarrow$ В обратную сторону аналогично (для доказательства эквивалентности), используя обратимость элементарных преобразований.
     \end{proof}
     Мораль в том, что мы можем работать с расширенной матрицей $(A|B)$.
@@ -371,7 +372,7 @@
     $\Longrightarrow$ решение у этого уравнения нет 
     $\Longrightarrow$ СЛУ не имеет решения, т.е. несовместнаю. \\
     Далее $\widetilde{s}=s$\\
-    Заметим, что $\widetilde{s}=s\leq n$ (n-количество столбов)
+    Заметим, что $\widetilde{s}=s\leq n$ (n-количество столбцов)
     \item[2 случай:] $\widetilde{s}=s=n$  
     $$\left\{ \begin{aligned}
       a_{11} x_1 + a_{12} x_2+ \dots + a_{1n} x_n = b_1 \\
@@ -474,8 +475,8 @@
     \end{enumerate}
     Удовлетворяет следующими свойствами:
     \begin{enumerate}
-      \item x+y = y+x (коммутативность)
-      \item (x+y)+z = x+(y+z) (ассоциативность)
+      \item $x+y = y+x$ (коммутативность)
+      \item $(x+y)+z = x+(y+z)$ (ассоциативность)
       \item $\exists \tab[0.1cm] 0 \in V: \forall x \in V: x+0 = 0+x = x$ (нейтральный элемент относильно сложения)
       \item $\forall x \in V: \exists \tab[0.1cm] x^{\prime}: x + x^{\prime} = 0$ (противоположный элемент)
       \item $\forall \lambda \in \R, \forall x,y \in V: \lambda (x+y) = \lambda x + \lambda y$ (дистрибутивность умножения отностильно сложения)
@@ -517,13 +518,12 @@
       \end{proof} 
     \item $\lambda \cdot (-x) = -\lambda \cdot x$
     \item $\lambda \cdot (x-y) = \lambda x - \lambda y$ 
-    \item $\lambda \cdot \overline{0} = \overline{0}$
     \item $(-1) \cdot x = -x$
     \item $(\lambda - \mu)\cdot x = \lambda x - \mu x$  
   \end{enumerate}
   \subsection{Векторные подпространства}
   \begin{definition}
-    Подмножество $U\subseteq V$ над векторным подпространством, если:
+    Подмножество $U\subseteq V$ называется векторным подпространством, если:
     \begin{enumerate}
       \item $ x, y \in U \Longrightarrow  x + y \in U$ 
       \item $\forall \lambda \in \R, \forall x \in U \Longrightarrow \lambda \cdot x \in U$ 
@@ -558,10 +558,10 @@
   \begin{definition}
     Линейной комбинацией векторов $v_1,...,v_n \in V$ с коэфициентами $\lambda_1,...,\lambda_n \in \R$ называется выражение вида: 
     $$\lambda_1 x_1 + \cdots + \lambda_n x_n$$ 
-    Говорят, что вектора $w \in V$ линейно выражается через $(v_1,...,v_n)$, \\ если $\exists\tab[0.1cm]\lambda_1,...,\lambda_n \in \R: w = \lambda_1 x_1 + \cdots + \lambda_n x_n$   
+    Говорят, что вектора $w \in V$ линейно выражаются через $(v_1,...,v_n)$, \\ если $\exists\tab[0.1cm]\lambda_1,...,\lambda_n \in \R: w = \lambda_1 x_1 + \cdots + \lambda_n x_n$   
   \end{definition}   
   \begin{definition}
-    Линейной комбинацией $\lambda_1 x_1 + \cdots + \lambda_n x_n$ назавается тривиальной, если $\lambda_1 = 0,...,\lambda_n = 0$. Иначе нетривиальной.
+    Линейная комбинация $\lambda_1 x_1 + \cdots + \lambda_n x_n$ назавается тривиальной, если $\lambda_1 = 0,...,\lambda_n = 0$. Иначе нетривиальной.
   \end{definition}
   \begin{definition}
     Система векторов $v_1,...,v_n$ называется линейно зависимой (ЛЗ), если $\exists$ нетривиальная линейная комбинация равная 0, (т.е. $\exists \tab[0.1cm]\lambda_1,...,\lambda_n \in \R$ не все равные 0) такая что $\lambda_1 x_1 + \cdots + \lambda_n x_n = 0$. Иначе система называется линейно независимой (ЛНЗ), т.е. из любого такого равенства $\lambda_1 x_1 + \cdots + \lambda_n x_n = 0 \\ \Longrightarrow (\lambda_1,...,\lambda_n) = 0$.
@@ -572,7 +572,7 @@
   \begin{properties} \end{properties} 
     \begin{enumerate}
       \item Система из одного вектора $V_1$ ЛЗ $\Longleftrightarrow V_1 = 0$  
-      \item Система из 2-х векторов $v_1 \text{и} v_2$ ЛЗ $\Longleftrightarrow$ противоположные, т.е. $v_1 = \lambda v_2 \\ v_2 = \mu v_1$. 
+      \item Система из 2-х векторов $v_1 \text{и } v_2$ ЛЗ $\Longleftrightarrow$ противоположные, т.е. $v_1 = \lambda v_2 \\ v_2 = \mu v_1$. 
     \end{enumerate}
   \begin{example1}
     $\R^n$ \\
@@ -615,12 +615,12 @@
     Пусть вектор $w$ линейно выражается через $v_1,..,v_k$. Тогда это выражение единственное.   
   \end{lemmanum} 
   \begin{proof} $\tab$ 
-    \begin{itemize}
-      \item[$\underline{\Longrightarrow}$] Пусть выражается единственно. Допустим, $v_1,..,v_k$ - ЛЗ $\Longrightarrow \exists\{\lambda_1,..,\lambda_k\}$ не все нулевые, т.ч. $\lambda_1v_1 + \cdots + \lambda_kv_k=0$ \\
+    \begin{enumerate}
+      \item Пусть выражается единственно. Допустим, $v_1,..,v_k$ - ЛЗ $\Longrightarrow \exists\{\lambda_1,..,\lambda_k\}$ не все нулевые, т.ч. $\lambda_1v_1 + \cdots + \lambda_kv_k=0$ \\
       Тогда если $w=\mu_1v_1 + \cdots + \mu_kv_k$, то $w + 0 = (\mu_1+\lambda_1)v_1 + \cdots + (\mu_k + \lambda_k)v_k$ другое разложение, противоречие.  
-      \item[$\underline{\Longleftarrow}$] Пусть $v_1,..,v_k$ - ЛНЗ. Допустим, что существует два разложения: $$w = \mu_1v_1 + \cdots + \mu_kv_k$$  $$w = \widetilde{\lambda_1}v_1 + \cdots + \widetilde{\mu_k}v_k$$ 
+      \item Пусть $v_1,..,v_k$ - ЛНЗ. Допустим, что существует два разложения: $$w = \mu_1v_1 + \cdots + \mu_kv_k$$  $$w = \widetilde{\lambda_1}v_1 + \cdots + \widetilde{\mu_k}v_k$$ 
       $\Longrightarrow  \{v_1,..,v_k\}$ - ЛЗ $\Longrightarrow $ противоречие.
-    \end{itemize}
+    \end{enumerate}
   \end{proof}
   \begin{lemmanum} $\tab$
     \begin{enumerate}
@@ -887,7 +887,7 @@ $V$- конечномерное векторное простанство над
     \end{pmatrix}$$
     Очев, что у такой матрицы ранг системы строк = рангу системы столбцов.
   \end{proof} 
-  \textbf{Возвращаемся к системе линейных уравнений} \\ $\\$ 
+  \section{Возвращаемся к системе линейных уравнений}
   $\begin{cases}
     a_{11}x_1 + ... + a_{1n}x_n = b_1 \\ 
     a_{21}x_2 + ... + a_{2n}x_n = b_2 \\
@@ -949,6 +949,7 @@ $V$- конечномерное векторное простанство над
   \begin{theoremnum}
     Пространство решений ОСЛУ $AX = 0$ имеет базис из $n-r$ векторов, где $n$ - число неизвестных, а $r=rkA$.
   \end{theoremnum} 
+  \subsection{Фундаментальная система решений}
   \begin{definition}
     Любой базис пространства решений ОСЛУ называется \\ Фундаментальной Системой Решений (ФСР) ОСЛУ.
   \end{definition} 
@@ -1003,8 +1004,199 @@ $V$- конечномерное векторное простанство над
         c_{11} \\ \vdots \\ c_{r1} \\ \hline \mu_{r+1} \\ \vdots \\ \mu_n
       \end{pmatrix} = \mu_{r+1}F_1 + \cdots + \mu_nF_{n-r}$ 
     \end{enumerate}
+  \end{proof}
+  \newpage
+  \begin{example1} Найти ФСР ОСЛУ \end{example1} 
+  $\begin{cases}
+    x_1 + x_2 + 3x_3+5x_4-x_5 = 0\\
+    x_1 + 2x_2 + x_3 + x_4 + x_5 = 0
+  \end{cases}$ 
+  $$\begin{pmatrix}
+    1 & 1 & 3 & 5 & -1 \\
+    1 & 2 & 1 & 1 & 1
+  \end{pmatrix}\rightarrow 
+  \begin{pmatrix}
+    1 & 1 & 3 & 5 & -1 \\
+    0 & 1 & -2 & -4 & 2 
+  \end{pmatrix} \rightarrow
+  \begin{pmatrix}
+    1 & 0 & 5 & 9 & -3 \\
+    0 & 1 & -2 & -4 & 2
+  \end{pmatrix}$$
+  где $x_1, x_2$ - главные, $x_3, x_4, x_5$ - свободные \\ $\\$ 
+  $\begin{cases}
+    x_1 = -5x_3 - 9x_4 +3x_5 \\
+    x_2 = 2x_3+4x_4-2x_5
+  \end{cases}$ $x_3, x_4, x_5 \in \R$ - произвольные 
+  $$F_1 = \begin{pmatrix}
+    -5 \\ 2 \\ \hline 1 \\ 0 \\ 0
+  \end{pmatrix}, \tab[0.5cm] F_2 = \begin{pmatrix}
+    -9 \\ 4 \\ \hline 0 \\ 1 \\ 0
+  \end{pmatrix}, \tab[0.5cm] F_3 = \begin{pmatrix}
+    3 \\ -3 \\ \hline 0 \\ 0 \\ 1
+  \end{pmatrix} \tab[0.1cm] \text{ - три частных решения ОСЛУ}$$ 
+  Проверим, что $\{F_1,F_2, F_3\}$- базис пространства решений ОСЛУ \\ $\\$ 
+  $\begin{pmatrix}
+    * \\ * \\ \hline \lambda_1 \\ \lambda_2 \\ \lambda_3
+  \end{pmatrix} = 
+  \lambda_1F_1 + \lambda_2F_2 + \lambda_3F_3 = \begin{pmatrix}
+    0 \\ 0 \\ 0 \\ 0 \\ 0
+  \end{pmatrix} \Longrightarrow \lambda_{1,2,3} = 0 \Longrightarrow F_1, F_2, F_3$ - ЛНЗ. \\ $\\$ 
+  Проверим, что $\{F_1,F_2, F_3\}$ порождает пространство решений. Возьмем произвольные числа $\mu_3, \mu_4, \mu_5$ и приравняем $x_3 = \mu_3, x_4 = \mu_4, x_5 = \mu_5$  
+  $$\begin{pmatrix}
+    x_1 \\ x_2 \\ \hline x_3 \\ x_4 \\ x_5
+  \end{pmatrix} = \begin{pmatrix}
+    -5\mu_3-9\mu_4+3\mu_5 \\ 2\mu_3 + 4\mu_4-2\mu_5 \\ \hline \mu_3 \\ \mu_4 \\ \mu_5
+  \end{pmatrix} = \mu_3 \begin{pmatrix}
+    -5 \\ 2 \\ \hline 1 \\ 0 \\ 0
+  \end{pmatrix} + \mu_4 \begin{pmatrix}
+    -9 \\ 4 \\ \hline 0 \\ 1 \\ 0
+  \end{pmatrix} + \mu_5 \begin{pmatrix}
+    3 \\ -2 \\ \hline 0 \\ 1 \\ 1 
+  \end{pmatrix}$$ 
+  Такой базис называется нормальный ФСР. 
+  \subsection{Неоднородная СЛУ}
+  $\begin{cases}
+    a_{11}x_1 + ... + a_{1n}x_n = b_1 \\ 
+    a_{21}x_2 + ... + a_{2n}x_n = b_2 \\
+    \vdots \\
+    a_{m1}x_1 + ... + a_{mn}x_n = b_m
+  \end{cases} (AX=B)$ \\ $\\$ 
+  Рассмотрим соответствующую ОСЛУ \\ $\\$ 
+  $\begin{cases}
+    a_{11}x_1 + ... + a_{1n}x_n = 0 \\ 
+    a_{21}x_2 + ... + a_{2n}x_n = 0 \\
+    \vdots \\
+    a_{m1}x_1 + ... + a_{mn}x_n = 0
+  \end{cases} (AX=0)$ 
+  \begin{theorem}
+    Пусть СЛУ $AX=B$ - совместна. $X_0$ - произвольное частное решение. Тогда множество $M$ всех решений неоднородной СЛУ: $AX=B$ равно сумме частного решения $X_0$ и множество $M_{\text{одн}}$ всех решений соответствующей осднородной СЛУ: $AX=0$ 
+    $$M = X_0 + M_{\text{одн}} = \{X_0 + Y | Y \in M_{\text{одн}}\}$$ 
+  \end{theorem}
+  \begin{proof}
+    $X_0 + M_{\text{одн}} \subseteq M$ \\
+    Рассмотрим произвольное решение ОСЛУ. $Y \in M_{\text{одн}}$ \\ $\\$ 
+    Пусть $X_0 = \begin{pmatrix}
+      x_1^0 \\ \vdots \\ x_n^0
+    \end{pmatrix}, \tab[0.2cm] Y = \begin{pmatrix}
+      y_1 \\ \vdots \\ y_n
+    \end{pmatrix}$ \\
+    \tab[1.8cm]Докажем, что $X_0 + Y = \begin{pmatrix}
+      x_1^0 + y_1 \\ \vdots \\ x_n^0 + y_n
+    \end{pmatrix}$ - решение СЛУ, т.е. $X_0 + Y \in M$ 
+    $$AX=B a_{i1}x_1 + \cdots + a_{in} = b_i$$
+    $$AX=0 a_{i1}x_1 + \cdots + a_{in} = 0$$
+    где $i = \overline{1,n}$. \\
+    Проверим, что $X_0 + Y \in M$ 
+    $$a_{i1}(x_1^0 + y_1) + \cdots + a_{in}(x_{in} + y_n) = b_i$$
+    $$(\underbrace{a_{i1}x_1^0 + \cdots + a_{in}x_{in}}_{b_i (\text{т.к. } X_0 \in M)}) + (\underbrace{a_{i1}y_1 + \cdots + a_{in}y_n}_{0 (\text{т.к. } Y \in M_{\text{одн}})}) = b_i$$  
+    Обратное утверждение:
+    $M \subseteq X_0 + M_{\text{одн}}$ \\
+    Рассмотрим произвольное решение $Z = \begin{pmatrix}
+      z_1 \\ \vdots \\ z_n 
+    \end{pmatrix}$ - неоднородная СЛУ. \\
+    Докажем, что $Z - X_0 = \begin{pmatrix}
+      z_1 - x_1^0 \\ \vdots \\ z_n - x_n^0
+    \end{pmatrix}
+    $ - решение однородной СЛУ. \\
+    Проверяем
+    $$a_{i1}(z_1 - x_1^0) + \cdots + a_{in}(z_n - x_n^0) = 0$$ 
+    $$(\underbrace{a_{i1}z_1 + \cdots + a_{in}z_n}_{b_i (\text{т.к. } Z \in M)}) - (\underbrace{a_{i1}x_1^0 + \cdots + a_{in}x_n^0}_{b_i (\text{т.к. } X_0 \in M)}) = 0$$ 
+  \end{proof}  
+  \begin{remark} $\\$ 
+    Общее решение ОСЛУ имеет вид вид: $$X = \mu_1F_1 + \cdots + \mu_sF_s$$где $F_1,...,F_s$ - ФСР ОСЛУ, $s = n - rkA$  \\
+    Общее решение неоднородной СЛУ: $$X = X_0 + \mu_1F_1 + \cdots + \mu_sF_s$$ $X_0$ - частное решение неоднородной СЛУ
+  \end{remark} 
+  \section{Операции над матрицами}
+  $Mat_{m \times n}(\R)$ - множество всех матриц размера $m \times n$ с коэфициентами из $\R$ \\
+  $A, B \in Mat_{m \times n}(\R), A=(a_{ij}), B=(b_{ij})$ 
+  \begin{enumerate}
+    \item Сложение матриц \\
+    Суммой матриц $A$ и $B$ называется матрица $C=(c_{ij})$ размера $m \times n$, у которой $c_{ij} = a_{ij} + b_{ij}$. Обозначается: $C = A + B$
+    \item Умножение матриц на число $\lambda \in \R$ \\ Произведение матрицы $A=(a_{ij})$ на $\lambda$ называется матрица $C=(c_{ij})$ размера $m \times n$, у которой $c_{ij} = \lambda a_{ij}$. Обозначается: $C = \lambda A$
+    \begin{subtheorem}
+      Множество матриц размера $m \times n Mat_{m \times n}(\R)$ относительно этих операций сложения и умножения на число, образует векторное пространство над $\R$ 
+    \end{subtheorem} 
+    \begin{proof}
+      $A,\tab [0.2cm]B \in Mat_{m \times n}(\R) \Longrightarrow A+B, \tab [0.2cm]\lambda A \in Mat_{m \times n}(\R)$ \\
+      Надо проверить 8 аксиом
+      \begin{itemize}
+        \item[1)] коммутативность \\
+        $C = A + B \tab[0.5cm] c_{ij} = a_{ij} + b_{ij}$ \\
+        $\widetilde{C} = B + A \tab[0.5cm] \widetilde{c_{ij}} = b_{ij} + a_{ij}$ \\
+        т.к. сложение вещественных чисел из $\R$ - коммутативно, то $c_{ij} = \widetilde{c_{ij}} \Longrightarrow C = \widetilde{C}$ \\
+        $\Longrightarrow A + B = B + A$
+        \begin{lalala} Аналогично доказать 2), 5)-8)\end{lalala}
+        \item[3)] $\exists 0 \in Mat_{m \times n}(\R)$
+        $\forall A \in Mat_{m \times n}(\R): 0 + A = A$ \\
+        В качестве 0 берем ненулевую матрицу размера $m \times n$
+        \item[4)] $\forall A \in Mat_{m \times n}(\R) \exists B \in Mat_{m \times n}(\R): A+B=0$ \\В качестве $B$ берем $b_{ij} = -a_{ij}$ 
+      \end{itemize}
+    \end{proof} 
+    \begin{lalala}
+      $dimM_{m \times n} = m \cdot n$ 
+    \end{lalala}
+    \begin{proof}
+      Достаточно указать базис \\ 
+      $\{E_{st}\}$, $s = \overline{1,m}, \ t = \overline{1,n}$ \\
+      $E_{st} = (a_{ij})$, $a_{ij} = \begin{cases}
+        1, \ i=s, \ j=t \\ 0 \text{, иначе}
+      \end{cases}$
+      \begin{lalala}
+        Проверить, что это базис.
+      \end{lalala}  
+    \end{proof} 
+    \begin{definition}
+      Матрица $E_{st}$ называется матричной единицей. Базис из всех матричных единиц называется стандартным базисом в пространстве $Mat_{m \times n}(\R)$. $A = \sum a_{st} E_{st}$ 
+    \end{definition} 
+    \item Умножение матриц \\
+    $A \in Mat_{m \times k}(\R), \tab[0.2cm]B \in Mat_{k \times n}(\R)$ \\
+    Произведение матрицы $A$ на матрицу $B$ назавается матрица $C$ размера $m \times n$, у которой $c_{ij} = \sum \limits_{s=1}^{k}a_{is}b_{sj}$. Обозначаем $C = AB$.
+    \begin{properties1}
+      Произведение матриц не коммутативно.
+    \end{properties1}
+    \begin{example1}
+      $$A = \begin{pmatrix}
+        1 & 0 \\ 0 & 0
+      \end{pmatrix}, \tab[0.3cm] B = \begin{pmatrix}
+        0 & 1 \\ 0 & 0
+      \end{pmatrix}$$
+      $$AB = \begin{pmatrix}
+        0 & 1 \\ 0 & 0
+      \end{pmatrix}, \tab[0.3cm] BA = \begin{pmatrix}
+        0 & 0 \\ 0 & 0
+      \end{pmatrix} \Longrightarrow AB \neq BA$$ 
+    \end{example1}
+    \begin{remark} $\\ \\$
+      $\begin{cases}
+        a_{11}x_1 + \cdots + a_{1n}x_n = b_1 \\
+        \vdots \\
+        a_{m1}x_1 + \cdots + a_{mn}x_n = b_n
+      \end{cases} \Longleftrightarrow \begin{pmatrix}
+        a_{11} & \cdots & a_{1n} \\
+        \vdots & \null & \vdots \\
+        a_{m1} & \cdots & a_{mn}
+      \end{pmatrix} \begin{pmatrix}
+        x_1 \\ \vdots \\ x_n
+      \end{pmatrix} = \begin{pmatrix}
+        b_1 \\ \vdots \\ b_m
+      \end{pmatrix}$
+    \end{remark} 
+  \end{enumerate}
+  \begin{example}\end{example}
+    \begin{enumerate}
+      \item Проекция \\
+      $\phi: V^3 \to V^2, \phi: x_1i+x_2j+x_3k \to x_1i+x_2j$ РИСУНОК
+      \item Поворот\\
+      $\phi: V^2 \to V^2$ Поворот на угол $\alpha$ вокруг точки $O$ РИСУНОК
+    \end{enumerate}
     
-  \end{proof} 
+  
+
+  
+  
+    
+  
   % \subsubsection{Мораль в том, что я не успел....}
    
 \end{document}
