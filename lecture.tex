@@ -1191,13 +1191,165 @@ $V$- конечномерное векторное простанство над
       $\phi: V^2 \to V^2$ Поворот на угол $\alpha$ вокруг точки $O$ РИСУНОК
     \end{enumerate}
     
+  \section{Изоморфизм векторных простанств}
+  \subsection{Изоморфизм}
   
+  $V, W$- векторные пространства над $\R$ 
+  \begin{definition}
+    Отображение $\phi: V \to W$ называется изоморфизмом векторных пространств, если:
+    \begin{enumerate}
+      \item $\forall a, b \in V \phi(a+b) = \phi(a) + \phi(b)$
+      \item $\forall \lambda \in \R \forall a \in \R \phi(\lambda a) = \lambda \phi(a)$
+      \item $\phi$ является биекцией    
+    \end{enumerate}
+    При этом $V, W$ называется изоморфизными. Обозначается $V \cong W$ 
+  \end{definition} 
+  \begin{subtheorem}
+    Любое векторное  пространство над $\R$ размерности $n$ изоморфно $\R^n$. 
+  \end{subtheorem} 
+  \begin{proof}
+    Фиксируем базис $\{e_1,...,e_n\}$ - в $V$.
+    \begin{enumerate}
+      \item $\forall x \in V$ однозначно раскладывается по базису $x = \sum \limits_{i=1}^{n} x_ie_i$. 
+    Зададим отображение  $\phi: V \to \R^n$ по правилу:
+    $$\phi: x = x_1e_1 + \cdots + x_ne_n \to (x_1,...,x_n)$$
+    Т.к. координаты вектора определены однозначно, то $\phi$ инъективноб, сюрьективность очевидна $\Longrightarrow $ $\phi$ - биекция.
+    \item $\forall x,y \in V$
+    $$x = \sum \limits_{i=1}^{n} x_ie_i \tab[0.5cm] y = \sum \limits_{i=1}^{n} y_ie_i \tab[0.5cm]
+    x + y = \sum \limits_{i=1}^{n} (x_i + y_i)e_i$$ 
+    $$\phi(x+y) = (x_1 + y_1,...,x_n+y_n) = (x_1,...,x_n) + (y_1,...,y_n) = \phi(x) + \phi(y)$$ 
+    \item $\forall \lambda \in \R \tab[0.1cm] \forall x \in V$
+    $$\phi(\lambda x) = \phi(\sum \limits_{i=1}^{n} \lambda x_ie_i) = (\lambda x_1,....,\lambda x_n) = \lambda (x_1,...,x_n) = \lambda \phi(x)$$  
+    \end{enumerate}
+  \end{proof} 
 
-  
-  
+  \begin{example}\end{example}
+  \begin{enumerate}
+    \item $V^2 \cong \R^2 \\ V^3 \cong \R^3$ 
+    \item $M_{m \times n}(\R) \cong \R^{mn}$
+  \end{enumerate}
+  \begin{lalala}
+    $V \cong W \Longleftrightarrow dimV = dimW; \tab[0.2cm] V,W - $ конечномерные пространства над $\R$.  
+  \end{lalala}
+  \subsection{Линейные отображение и матрицы}
+  \begin{definition}
+    Отображение $\phi: V \to W$ назавается линейным, если
+    \begin{enumerate}
+      \item $\forall a,b \in V \tab[0.3cm] \phi(a+b) = \phi(a) + \phi(b)$
+      \item $\forall \lambda \in \R, \forall a \in V \tab[0.3cm] \phi(\lambda a) = \lambda \phi(a)$  
+    \end{enumerate}
     
-  
-  % \subsubsection{Мораль в том, что я не успел....}
+  \end{definition} 
+  \begin{subtheorem}
+    $V,W$- векторные пространства над $\R$. \\
+      Если $\{e_1,...,e_n\}$ - базис $V$, ($w_1,...,w_n$) - произвольный вектор из $W$. \\Тогда $\exists$! линейное отображение $\phi: V \to W$, которое $\phi: e_i \to w_i \tab[0.3cm]\forall i = \overline{1,n}$.
+  \end{subtheorem} 
+
+  \begin{proof} \tab
+    \begin{enumerate}
+      \item Пусть $\phi: V \to W$ - линейное отображение такое, что \\$\phi(e_i) = w_i \tab[0.2cm] \forall i = \overline{1,n}$. Тогда образ вектора $x$ определяется однозначно по формуле: $$\phi(x) = \phi(x_1e_1 + \cdots + x_ne_n) = x_1 \phi(e_1) + \cdots + x_n \phi(e_n) = x_1 w_1 + \cdots + x_n w_n$$ где $x=x_1e_1 + \cdots x_ne_n$ \\
+      $\Longrightarrow$ линейное отображение определяется однозначно.
+      \item Докажем, что $\exists$ линейное отображение, которое переводит $e_i$ в $w_i$. Отображение зададим формулой: $$\phi: x = x_1e_1 + \cdots + x_ne_n \to x_1w_1 + \cdots + x_nw_n$$
+      $$\phi(a+b) = \phi((a_1+b_1)e_1 + \cdots + (a_n + b_n)e_n) = (a_1+b_1)w_1 + \cdots + (a_n + b_n)w_n$$
+      $$\phi(a) + \phi(b) = \phi(a_1e_1 + \cdots a_ne_n) + \phi(b_1e_1 + \cdots b_ne_n) = $$ $$= a_1w_1 + \cdots + a_nw_n + b_1w_1 + \cdots + b_nw_n = w_1(a_1 + b_1) + \cdots + w_n(a_n + b_n)$$
+      $\Longrightarrow \phi(a+b) = \phi(a) + \phi(b)$\\
+      Проверить, что $\phi(\lambda a) = \lambda \phi(a)$ - ДЗ
+    \end{enumerate}
+  \end{proof} 
+  Пусть $\phi: V \to W$ - линейное отображение $V$- $n$-мерное, $W - m$-мерное пространство.  \\
+  Фиксируем базис 
+  $\mathcal{E}  = \{e_1,...,e_n\}$ - базис в $V$; $\mathcal{F}  = \{f_1,...,f_n\}$ - базис в $W$
+  $$\phi(e_1) = w_1 = a_{11}f_1 + \cdots + a_{m1}f_m$$ $$\vdots$$
+  $$\phi(e_n) = w_n = a_{1n}f_1 + \cdots + a_{mn}f_m$$
+
+  \begin{definition}
+    Матрица $A$ размера $m \times n$,  составленая из столбцов координат образов векторов $e_i$ в образе $\mathcal{F}$, называется линейным отображением в базисах $\mathcal{E} $ и $\mathcal{F} $  
+  \end{definition} 
+  $$A = \begin{pmatrix}
+    a_{11} & \cdots & a_{1n} \\
+    \vdots & \null & \vdots \\
+    \undermat{\phi(e_1)}{a_{m1}}  & \cdots & \undermat{\phi(e_n)}{a_{mn}} 
+  \end{pmatrix}$$ 
+  \begin{example1} Не успел \end{example1}
+  \begin{subtheorem}
+    Пусть $\mathcal{E}  = \{e_1,...,e_n\}$ - базис в $V$ над $\R$ ; $\mathcal{F}  = \{f_1,...,f_n\}$ - базис в $W$ над $\R$. Тогда:
+    \begin{itemize}
+      \item Каждому линейному отображению $\phi: V \to W$ однозначно соответствуют матрица размера $m \times n$ этого линейного отображения в базисах $\mathcal{E}, \mathcal{F}$
+      \item Любой матрицы $A$ размера $m \times n$ однозначно соответствует линейное отображение $\phi: V \to W$, для которого $A$ - матрица этого линейного отображения в $\mathcal{E}, \mathcal{F}$.
+    \end{itemize}
+  \end{subtheorem} 
+
+  \subsection{Операции над линейными отображениями}
+  Пусть $V,W$ - векторные пространства над $\R$
+  \begin{itemize}
+    \item[1)] Сложение линейных отображений. $$\phi_1:V \to W \tab[0.4cm] \phi_2:V \to W \text{ - два линейных отображения}$$  
+    Зададим отображение по правилу $$(\phi_1 + \phi_2)(x) = \phi_1(x) + \phi_2(x) \tab[0.3cm] \forall x \in V$$ 
+    \begin{subtheorem}
+      Отображение $\phi_1 + \phi_2: V \to W$ является линейным отображением.
+      \begin{proof}
+        $\forall a,b \in V$: $$(\phi_1 + \phi_2)(a+b) = \phi_1(a+b) + \phi_2(a+b) = $$ 
+        $$ = \phi_1(a) + \phi_1(b) + \phi_2(a) + \phi_2(b) = (\phi_1 + \phi_2)(a) + (\phi_1 + \phi_2)(b)$$ 
+        Аналогично для $(\phi_1 + \phi_2)(\lambda a) = \lambda (\phi_1 + \phi_2)(a)$ 
+      \end{proof} 
+    \end{subtheorem} 
+
+    Фиксируем базисы $\mathcal{E}  = \{e_1,...,e_n\}$ - в $V$ и $\mathcal{F}  = \{f_1,...,f_n\}$ - в $W$
+
+    $A_1$ - матрица линейного отображения $\phi_1$ относильно $\mathcal{E}$ и $\mathcal{F}$. \\
+    $A_2$ - матрица линейного отображения $\phi_2$ относильно $\mathcal{E}$ и $\mathcal{F}$. \\
+    $B$ - матрица линейного отображения $\phi_1+\phi_2$ относильно $\mathcal{E}$ и $\mathcal{F}$.
+    \begin{subtheorem}
+      $B=A_1 + A_2$ 
+    \end{subtheorem} 
+    \begin{proof}
+      Размеры совпадают
+      $$\phi_1(e_i) = a_{1i}f_1 + \cdots + a_{mi}f_m$$
+      РИСУНОК 
+      $$\phi_2(e_i) = \widetilde{a_{1i}} f_1 + \cdots + \widetilde{a_{mi}} f_m$$ 
+      РИСУНОК 
+      $$(\phi_1 + \phi_2)(e_i) = b_{1i}f_1 + \cdots + b_{mi}f_m$$ РИСУНОК 
+      $$(\phi_1 + \phi_2)(e_i) = \phi_1(e_i) + \phi_2(e_i) = (a_{1i}f_1 + \cdots + a_{mi}f_m) + (\widetilde{a_{1i}} f_1 + \cdots + \widetilde{a_{mi}} f_m) =$$ $$= (a_{1i} + \widetilde{a_{1i}})f_1 + \cdots + (a_{mi} + \widetilde{a_{mi}})f_m$$
+      Т.к. разложение по базису единственное, то
+      $$b_{1i} = a_{1i} + \widetilde{a_{1i}} ,..., b_{mi} = a_{mi} + \widetilde{a_{mi}} \Longrightarrow b_{ij} = a_{ij} + \widetilde{a_{ij}} \Longrightarrow B = A_1 + A_2$$ 
+    \end{proof} 
+    \item[2)] Умножение линейного отображение на число. \\
+    $\phi: V \to W$ - линейное отображение, $\mu \in \R$ - произвольное число. \\
+    Зададим отображение по правилу: $(\mu \phi)(x) = \mu \phi(x)$ $\tab[0.2cm] \forall x \in V$ 
+    \begin{subtheorem}
+      Отображение $\mu \phi: V \to W$ является линейным (Упражнение) 
+    \end{subtheorem}
+    \begin{proof}
+      Аналогично.
+    \end{proof} 
+    Пусть $\mathcal{E}  = \{e_1,...,e_n\}$ - базис в $V$ и $\mathcal{F}  = \{f_1,...,f_n\}$ - базис в $W$. \\
+    $A$ - матрица линейного отображения $\phi$ относильно $\mathcal{E}$ и $\mathcal{F}$. \\
+    $B$ - матрица линейного отображения $\mu\phi$ относильно $\mathcal{E}$ и $\mathcal{F}$.
+    \begin{subtheorem}
+      $B=\mu A$ 
+    \end{subtheorem} 
+    \begin{proof}
+      Видимо дз(
+    \end{proof} 
+    \item[3)] Композиция (произведение) линейных отображений. \\
+    Пусть $V, W, U$ - векторные простанства над $\R$
+    $$\phi: V \to W \tab[0.5cm] \psi: W \to U$$
+    РИСУНОК \\
+    Зададим отображение по правилу: 
+    $$(\psi \circ \phi)(x) = \psi(\phi(x)) \tab[0.3cm] \forall x \in V$$   
+    \begin{subtheorem}
+      Отображение $\psi \circ \phi: V \to U$ является линейным.
+    \end{subtheorem} 
+    \begin{proof}
+      $\forall a, b \in V$
+      \begin{enumerate}
+        \item $(\psi \circ \phi)(a+b) = \psi(\phi(a+b)) = \psi(\phi(a)+\phi(b)) = \psi(\phi(a))+\psi(\phi(b))$ 
+        \item Аналогично для $(\psi \circ \phi)(\lambda a) = \lambda(\psi \circ \phi)(a)$ 
+      \end{enumerate}
+    \end{proof} 
+
+  \end{itemize}
+
+  \subsubsection{Мораль в том, что я не успел....}
    
 \end{document}
 
