@@ -1186,9 +1186,11 @@ $V$- конечномерное векторное простанство над
   \begin{example}\end{example}
     \begin{enumerate}
       \item Проекция \\
-      $\phi: V^3 \to V^2, \phi: x_1i+x_2j+x_3k \to x_1i+x_2j$ РИСУНОК
+      $\phi: V^3 \to V^2, \phi: x_1i+x_2j+x_3k \to x_1i+x_2j$ 
+      $$\includegraphics[width=6cm]{.image/projection.pdf}$$
       \item Поворот\\
-      $\phi: V^2 \to V^2$ Поворот на угол $\alpha$ вокруг точки $O$ РИСУНОК
+      $\phi: V^2 \to V^2$ Поворот на угол $\alpha$ вокруг точки $O$ 
+      $$\includegraphics[width=3.5cm]{.image/turn.pdf}$$
     \end{enumerate}
     
   \section{Изоморфизм векторных простанств}
@@ -1304,10 +1306,8 @@ $V$- конечномерное векторное простанство над
     \begin{proof}
       Размеры совпадают
       $$\phi_1(e_i) = a_{1i}f_1 + \cdots + a_{mi}f_m$$
-      РИСУНОК 
       $$\phi_2(e_i) = \widetilde{a_{1i}} f_1 + \cdots + \widetilde{a_{mi}} f_m$$ 
-      РИСУНОК 
-      $$(\phi_1 + \phi_2)(e_i) = b_{1i}f_1 + \cdots + b_{mi}f_m$$ РИСУНОК 
+      $$(\phi_1 + \phi_2)(e_i) = b_{1i}f_1 + \cdots + b_{mi}f_m$$ 
       $$(\phi_1 + \phi_2)(e_i) = \phi_1(e_i) + \phi_2(e_i) = (a_{1i}f_1 + \cdots + a_{mi}f_m) + (\widetilde{a_{1i}} f_1 + \cdots + \widetilde{a_{mi}} f_m) =$$ $$= (a_{1i} + \widetilde{a_{1i}})f_1 + \cdots + (a_{mi} + \widetilde{a_{mi}})f_m$$
       Т.к. разложение по базису единственное, то
       $$b_{1i} = a_{1i} + \widetilde{a_{1i}} ,..., b_{mi} = a_{mi} + \widetilde{a_{mi}} \Longrightarrow b_{ij} = a_{ij} + \widetilde{a_{ij}} \Longrightarrow B = A_1 + A_2$$ 
@@ -1333,7 +1333,7 @@ $V$- конечномерное векторное простанство над
     \item[3)] Композиция (произведение) линейных отображений. \\
     Пусть $V, W, U$ - векторные простанства над $\R$
     $$\phi: V \to W \tab[0.5cm] \psi: W \to U$$
-    РИСУНОК \\
+    $$\includegraphics[width=5.5cm]{.image/composition.pdf}$$
     Зададим отображение по правилу: 
     $$(\psi \circ \phi)(x) = \psi(\phi(x)) \tab[0.3cm] \forall x \in V$$   
     \begin{subtheorem}
@@ -1347,9 +1347,43 @@ $V$- конечномерное векторное простанство над
       \end{enumerate}
     \end{proof} 
 
+    Фиксируем базис: \tab[0.3cm]$\mathcal{E} = \{e_1,...,e_n\}$ - базис в $V$ \\
+    \tab[4.3cm]$\mathcal{F} = \{f_1,...,f_m\}$ - базис в $W$ \\
+    \tab[4.3cm]$\mathcal{G} = \{g_1,...,g_k\}$ - базис в $U$ \\
+    $\underset{m \times n}{A}$ - матрица линейного отображения $\phi$ относительно $\mathcal{E}, \mathcal{F}$. \\
+    $\underset{k \times m}{B}$ - матрица линейного отображения $\psi$ относительно $\mathcal{F}, \mathcal{G}$. \\
+    $\underset{k \times n}{C}$ - матрица линейного отображения $\phi$ относительно $\mathcal{E}, \mathcal{G}$.
+    \begin{subtheorem}
+      $C = B \cdot A$ 
+    \end{subtheorem} 
+    \begin{proof}
+      $$\phi(e_i) = \sum \limits_{s=1}^ka_{si}f_s; \tab[1cm]\psi(f_s) = \sum \limits_{t=1}^kb_{ts}g_t$$
+      По определению матрицы линейного отображения:
+      $$(\psi \circ \phi)(e_i) = \sum \limits_{l=1}^kc_{li}g_l \tab[0.3cm](\ast)$$ 
+      По опрделению композиции:
+      $$(\psi \circ \phi)(e_i) = \psi(\phi(e_i)) = \psi(\sum \limits_{s=1}^ma_{si}f_s) = \sum \limits_{s=1}^ma_{si}\psi(f_s) =\tab[4cm]$$ $$\tab[7cm]= \sum \limits_{s=1}^ma_{si}(\sum \limits_{t=1}^kb_{ts}g_t) = \sum \limits_{t=1}^k(\sum \limits_{s=1}^mb_{ts}a_{si})g_m \tab[0.3cm](\star)$$
+      $\Longrightarrow $$(\ast) = (\star)$.\\
+      Т.к. координаты определены однозначно $\Rightarrow c_t = \sum \limits_{s=1}^mb_{ts}a_{si} \Rightarrow C =B \cdot C$  
+    \end{proof} 
   \end{itemize}
+  \subsection{Свойства операций над матрицами}
+  $M_{m \times n}(\R)$ - векторное пространство над $\R$
+  \begin{enumerate}
+    \item Ассоциативность  $A(BC) = (AB)C$ 
+    \begin{proof} $\\$ 
+      1сп: непосредственно\\
+      2сп: использовать то, что композиция отображений ассоциативна. 
+      \begin{itemize}
+        \item[1)] $a_{ij}:= [A]_{ij}$ \\
+        $[A(BC)]_{ij}$
+      \end{itemize}
+      
+    \end{proof} 
+  \end{enumerate}
 
-  \subsubsection{Мораль в том, что я не успел....}
+  
+  
+  %\textbf{Мораль в том, что я не успел....}
    
 \end{document}
 
