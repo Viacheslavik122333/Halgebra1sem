@@ -830,7 +830,7 @@ $V$- конечномерное векторное простанство над
     Получаем, что $\lambda_1 = 0,...,\lambda_s = 0 \Longrightarrow$ это ЛК - ЛНЗ. 
   \end{proof} 
   \textbf{Предложение 2.} 
-  Ранг системы столбцов не изменяется про элементарных преобразованиях над строками. 
+  Ранг системы столбцов не изменяется при элементарных преобразованиях над строками. 
   \begin{proof}  
     $A \overset{\text{ЭП строк}}{\longrightarrow } \widetilde{A}$. Пусть $A = (a_{ij}) = (\underbrace{A_1,...,A_n}_{\text{столбцы }A})$ 
     $\widetilde{A} = (\widetilde{a_{ij}}) = (\widetilde{A_1},...,\widetilde{A_n})$. 
@@ -848,7 +848,7 @@ $V$- конечномерное векторное простанство над
     $\Longrightarrow \lambda_1,...,\lambda_m - \text{решение ОСЛУ } AX=0$. \\ $\\$ 
     Т.к. при ЭП над уравнениями множество решений не меняется, поэтому $\lambda_1,...,\lambda_n$ - это решение ОСЛУ $\widetilde{A}X=0$
     $\Longrightarrow \lambda_1 \widetilde{A_1} + \cdots + \lambda_n \widetilde{A_n} = 0$ \\
-    Отсюда получаем, что если $A_{i_1},...,A_{i_s}$ - максимальная ЛНЗ система столбцов в $A$, то $\widetilde{A_{i_1}},...,\widetilde{A_{i_s}}$ - максимальная ЛНЗ система столбцов в $\widetilde{A}$ $\Longrightarrow rk\{\widetilde{A_1},...,\widetilde{A_n}\}$ 
+    Отсюда получаем, что если $A_{i_1},...,A_{i_s}$ - максимальная ЛНЗ система столбцов в $A$, то $\widetilde{A_{i_1}},...,\widetilde{A_{i_s}}$ - максимальная ЛНЗ система столбцов в $\widetilde{A}$ $\Longrightarrow rk\{\widetilde{A_1},...,\widetilde{A_n}\} = rk\{A_1,...,A_n\}.$ 
   \end{proof} 
   \begin{definition}
     Пусть $A = (a_{ij})$ - матрица $m\times n $, тогда $B = (b_{ij}) \text{ матрица } n\times m$ называется транспонированной к матрице $A$, если $b_{ij} = a_{ji}$, где $i = \overline{1,m}; j = \overline{1,n}$ \\
@@ -872,13 +872,13 @@ $V$- конечномерное векторное простанство над
     Предложение 2 применяем к $A^T$ 
   \end{proof} 
   \begin{theoremnum} 
-    Ранг системы строк матрицы $A$ совпадает с рангом системы столбов матрицы $A$.
+    Ранг системы строк матрицы $A$ совпадает с рангом системы столбцов матрицы $A$.
   \end{theoremnum} 
   \begin{proof}
     Было доказанно, что ранг системы строк (столбцов) матрицы не изменяется при ЭП над строками и над столбцами. Приведем матрицу $A$ к ступенчатому виду с помощью ЭП над строками. $A_\text{ст}$ имеет вид:
     $$\includegraphics[width=4cm]{.image/matr4.png}$$
-    $$a_{i_11} \neq 0,...,a_{1_ss} \neq 0$$ 
-    Используем $i_1$-столбец, вычитая этот столбец из оставшихся с подхлодящими коэфициентами, получаем:
+    $$a_{i_11} \neq 0,...,a_{i_ss} \neq 0$$ 
+    Используем $i_1$-столбец, вычитая этот столбец из оставшихся с подходящими коэфициентами, получаем:
     $$\includegraphics[width=4cm]{.image/matr3.png}$$ 
     Далее используем $i_2$-столбец, обнуляем все элементы правее $a_{i_22}$. В итоге получаем: $$\begin{pmatrix}
       a_{i_1,1} && \null && 0\\
@@ -951,7 +951,7 @@ $V$- конечномерное векторное простанство над
   \end{theoremnum} 
   \subsection{Фундаментальная система решений}
   \begin{definition}
-    Любой базис пространства решений ОСЛУ называется \\ Фундаментальной Системой Решений (ФСР) ОСЛУ.
+    Любой базис пространства решений ОСЛУ называется \\ Фундаментальной Системой Решений ОСЛУ (ФСР).
   \end{definition} 
   \begin{proof}
     (Теоремы 2.) \\ Решение СЛУ методом Гаусса: приводим её к ступенчатому виду (число ступенек $r=rkA$), главные неизвестные выражаем через свободные. 
@@ -1115,7 +1115,7 @@ $V$- конечномерное векторное простанство над
     Суммой матриц $A$ и $B$ называется матрица $C=(c_{ij})$ размера $m \times n$, у которой $c_{ij} = a_{ij} + b_{ij}$. Обозначается: $C = A + B$
     \item Умножение матриц на число $\lambda \in \R$ \\ Произведение матрицы $A=(a_{ij})$ на $\lambda$ называется матрица $C=(c_{ij})$ размера $m \times n$, у которой $c_{ij} = \lambda a_{ij}$. Обозначается: $C = \lambda A$
     \begin{subtheorem}
-      Множество матриц размера $m \times n Mat_{m \times n}(\R)$ относительно этих операций сложения и умножения на число, образует векторное пространство над $\R$ 
+      Множество $Mat_{m \times n}(\R)$ относительно этих операций сложения и умножения на число, образует векторное пространство над $\R$. 
     \end{subtheorem} 
     \begin{proof}
       $A,\tab [0.2cm]B \in Mat_{m \times n}(\R) \Longrightarrow A+B, \tab [0.2cm]\lambda A \in Mat_{m \times n}(\R)$ \\
@@ -1129,8 +1129,8 @@ $V$- конечномерное векторное простанство над
         \begin{lalala} Аналогично доказать 2), 5)-8)\end{lalala}
         \item[3)] $\exists 0 \in Mat_{m \times n}(\R)$
         $\forall A \in Mat_{m \times n}(\R): 0 + A = A$ \\
-        В качестве 0 берем ненулевую матрицу размера $m \times n$
-        \item[4)] $\forall A \in Mat_{m \times n}(\R) \exists B \in Mat_{m \times n}(\R): A+B=0$ \\В качестве $B$ берем $b_{ij} = -a_{ij}$ 
+        В качестве 0 берем нулевую матрицу размера $m \times n$
+        \item[4)] $\forall A \in Mat_{m \times n}(\R) \ \exists B \in Mat_{m \times n}(\R): A+B=0$ \\В качестве $B$ берем $b_{ij} = -a_{ij}$ 
       \end{itemize}
     \end{proof} 
     \begin{lalala}
@@ -1200,9 +1200,9 @@ $V$- конечномерное векторное простанство над
   \begin{definition}
     Отображение $\phi: V \to W$ называется изоморфизмом векторных пространств, если:
     \begin{enumerate}
-      \item $\forall a, b \in V \phi(a+b) = \phi(a) + \phi(b)$
-      \item $\forall \lambda \in \R \forall a \in \R \phi(\lambda a) = \lambda \phi(a)$
-      \item $\phi$ является биекцией    
+      \item $\forall a, b \in V: \ \phi(a+b) = \phi(a) + \phi(b)$
+      \item $\forall \lambda \in \R \ \forall a \in \R: \ \phi(\lambda a) = \lambda \phi(a)$
+      \item $\phi$ является биекцией. 
     \end{enumerate}
     При этом $V, W$ называется изоморфизными. Обозначается $V \cong W$ 
   \end{definition} 
@@ -1215,7 +1215,7 @@ $V$- конечномерное векторное простанство над
       \item $\forall x \in V$ однозначно раскладывается по базису $x = \sum \limits_{i=1}^{n} x_ie_i$. 
     Зададим отображение  $\phi: V \to \R^n$ по правилу:
     $$\phi: x = x_1e_1 + \cdots + x_ne_n \to (x_1,...,x_n)$$
-    Т.к. координаты вектора определены однозначно, то $\phi$ инъективноб, сюрьективность очевидна $\Longrightarrow $ $\phi$ - биекция.
+    Т.к. координаты вектора определены однозначно, то $\phi$ инъективно, сюрьективность очевидна $\Longrightarrow $ $\phi$ - биекция.
     \item $\forall x,y \in V$
     $$x = \sum \limits_{i=1}^{n} x_ie_i \tab[0.5cm] y = \sum \limits_{i=1}^{n} y_ie_i \tab[0.5cm]
     x + y = \sum \limits_{i=1}^{n} (x_i + y_i)e_i$$ 
@@ -1249,7 +1249,7 @@ $V$- конечномерное векторное простанство над
 
   \begin{proof} \tab
     \begin{enumerate}
-      \item Пусть $\phi: V \to W$ - линейное отображение такое, что \\$\phi(e_i) = w_i \tab[0.2cm] \forall i = \overline{1,n}$. Тогда образ вектора $x$ определяется однозначно по формуле: $$\phi(x) = \phi(x_1e_1 + \cdots + x_ne_n) = x_1 \phi(e_1) + \cdots + x_n \phi(e_n) = x_1 w_1 + \cdots + x_n w_n$$ где $x=x_1e_1 + \cdots x_ne_n$ \\
+      \item Пусть $\phi: V \to W$ - линейное отображение такое, что \\$\phi(e_i) = w_i \tab[0.2cm] \forall i = \overline{1,n}$. Тогда образ вектора $x$ определяется однозначно по формуле: $$\phi(x) = \phi(x_1e_1 + \cdots + x_ne_n) = x_1 \phi(e_1) + \cdots + x_n \phi(e_n) = x_1 w_1 + \cdots + x_n w_n$$ где $x=x_1e_1 + \cdots + x_ne_n$ \\
       $\Longrightarrow$ линейное отображение определяется однозначно.
       \item Докажем, что $\exists$ линейное отображение, которое переводит $e_i$ в $w_i$. Отображение зададим формулой: $$\phi: x = x_1e_1 + \cdots + x_ne_n \to x_1w_1 + \cdots + x_nw_n$$
       $$\phi(a+b) = \phi((a_1+b_1)e_1 + \cdots + (a_n + b_n)e_n) = (a_1+b_1)w_1 + \cdots + (a_n + b_n)w_n$$
@@ -1265,14 +1265,14 @@ $V$- конечномерное векторное простанство над
   $$\phi(e_n) = w_n = a_{1n}f_1 + \cdots + a_{mn}f_m$$
 
   \begin{definition}
-    Матрица $A$ размера $m \times n$,  составленая из столбцов координат образов векторов $e_i$ в образе $\mathcal{F}$, называется линейным отображением в базисах $\mathcal{E} $ и $\mathcal{F} $  
+    Матрица $A$ размера $m \times n$,  составленая из столбцов координат образов векторов $e_i$ в образе $\mathcal{F}$, называется матрицей линейного отображения в базисах $\mathcal{E} $ и $\mathcal{F}$  
   \end{definition} 
   $$A = \begin{pmatrix}
     a_{11} & \cdots & a_{1n} \\
     \vdots & \null & \vdots \\
     \undermat{\phi(e_1)}{a_{m1}}  & \cdots & \undermat{\phi(e_n)}{a_{mn}} 
-  \end{pmatrix}$$ 
-  \begin{example1} Не успел \end{example1}
+  \end{pmatrix}$$  
+  \vspace{0.3cm}
   \begin{subtheorem}
     Пусть $\mathcal{E}  = \{e_1,...,e_n\}$ - базис в $V$ над $\R$ ; $\mathcal{F}  = \{f_1,...,f_n\}$ - базис в $W$ над $\R$. Тогда:
     \begin{itemize}
@@ -1360,7 +1360,7 @@ $V$- конечномерное векторное простанство над
       $$\phi(e_i) = \sum \limits_{s=1}^ka_{si}f_s; \tab[1cm]\psi(f_s) = \sum \limits_{t=1}^kb_{ts}g_t$$
       По определению матрицы линейного отображения:
       $$(\psi \circ \phi)(e_i) = \sum \limits_{l=1}^kc_{li}g_l \tab[0.3cm](\ast)$$ 
-      По опрделению композиции:
+      По определению композиции:
       $$(\psi \circ \phi)(e_i) = \psi(\phi(e_i)) = \psi(\sum \limits_{s=1}^ma_{si}f_s) = \sum \limits_{s=1}^ma_{si}\psi(f_s) =\tab[4cm]$$ $$\tab[7cm]= \sum \limits_{s=1}^ma_{si}(\sum \limits_{t=1}^kb_{ts}g_t) = \sum \limits_{t=1}^k(\sum \limits_{s=1}^mb_{ts}a_{si})g_m \tab[0.3cm](\star)$$
       $\Longrightarrow $$(\ast) = (\star)$.\\
       Т.к. координаты определены однозначно $\Rightarrow c_t = \sum \limits_{s=1}^mb_{ts}a_{si} \Rightarrow C =B \cdot C$  
