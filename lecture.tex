@@ -1367,22 +1367,142 @@ $V$- конечномерное векторное простанство над
     \end{proof} 
   \end{itemize}
   \subsection{Свойства операций над матрицами}
-  $M_{m \times n}(\R)$ - векторное пространство над $\R$
+  Предположим, что все размеры матриц согласованы. 
   \begin{enumerate}
+    \item $M_{m \times n}(\R)$ - векторное пространство над $\R$
     \item Ассоциативность  $A(BC) = (AB)C$ 
-    \begin{proof} $\\$ 
-      1сп: непосредственно\\
-      2сп: использовать то, что композиция отображений ассоциативна. 
-      \begin{itemize}
-        \item[1)] $a_{ij}:= [A]_{ij}$ \\
-        $[A(BC)]_{ij}$
-      \end{itemize}
-      
+    \begin{proof}
+    $\underset{m \times k}{A} , \tab[0.1cm]\underset{k \times n}{B} , \tab[0.1cm]\underset{n \times l}{C}$ $\vspace{0.1cm}$
+
+    Пусть $\underset{m \times l}{D} = A(BC), \tab[0.1cm]\underset{m \times l}{\widetilde{D}} = (AB)C$. 
+    Надо проверить, что $\forall i,j: [D]_{ij} = [\widetilde{D}]_{ij}$. 
+    $$[D]_{ij} = [A(BC)]_{ij} = \sum \limits_{s=1}^k[A]_{is} \cdot [BC]_{si} = \sum \limits_{s=1}^k[A]_{is}(\sum \limits_{t=1}^n[B]_{st} \cdot [C]_{ti}) = $$ $$  = \sum \limits_{s=1}^k \sum \limits_{t=1}^n[A]_{ij}([B]_{st} \cdot [C]_{ti})$$ 
+    $$[\widetilde{D}]_{ij} = [(AB)C]_{ij} = \sum \limits_{t=1}^n[AB]_{it}[C]_{tj} = \sum \limits_{s=1}^n (\sum \limits_{s=1}^k[A]_{is} \cdot [B]_{st})[C]_{tj} = $$
+    $$ = \sum \limits_{s=1}^n \sum \limits_{s=1}^k ([A]_{is} \cdot [B]_{st}) \cdot [C]_{tj}$$  
+    По свойствам операций над $\R$, результаты преобразований равны.
+    \end{proof} 
+    \item $A(B+C) = AB + BC$
+    \item $(B + C)A = BA + CA$  
+    \item $\lambda(BC) = (\lambda A) B = A(\lambda B); \tab[0.3cm]\forall \lambda \in \R$ 
+    \item $\forall A \in M_{m \times n}(\R)$, единичная матрица $E \in M_{m \times m}(\R)$ : 
+    $EA = A$  
+    \item $\forall A \in M_{m \times n}(\R)$ : $0 \cdot A = 0$ 
+    \item Нет коммутативности: $AB \neq BA$ даже если размеры согласованы 
+    \begin{proof}
+      Свойства 3. - 7. упражнение)
     \end{proof} 
   \end{enumerate}
+  \subsection{Свойства операции транспонирования}
+  \begin{enumerate}
+    \item $(A^T)^T = A$
+    \item $(\lambda A)^T = \lambda A^T$
+    \item $(A+B)^T + A^T + B^T$
+    \item $(AB)^T = B^TA^T$   
+    \begin{proof}
+      4. $\underset{m \times k}{A}, \underset{k \times n}{B} \Longrightarrow \underset{n \times k}{B^T}, \underset{k \times m}{A^T}$ (размеры совпадают) \\
+      Проверим $D = (AB)^T \text{ и } \widetilde{D} = B^TA^T$ равны.
+      $$[D]_{ij} = [(AB)^T]_{ij} = [(AB)]_{ji} = \sum \limits_{s=1}^k[A]_{js}[B]_{si}$$ 
+      $$[\widetilde{D}]_{ij} = B^TA^T = \sum \limits_{s=1}^k[B]_{is}[A]_{sj} = \sum \limits_{s=1}^k[A]_{js}[B]_{si}$$ 
+    \end{proof} 
+  \end{enumerate}
+  \subsection{О ранге и операциях над матрицами}
+  \begin{theorem} \tab
+    \begin{enumerate}
+      \item $rkA^T = rkA$
+      \item $rk(\lambda A) = \begin{cases}
+        rkA, \ \text{если } \lambda \neq 0 \\
+        0, \ \text{если } \lambda = 0
+      \end{cases}
+      $ 
+      \item $rk(A+B) \leq rkA + rkB$ 
+      \item $rk(AB) \leq \min\{rkA, rkB\}$ 
+    \end{enumerate}
+  \end{theorem}   
+  \begin{proof}
+    \begin{enumerate}
+      \item Следует из того, что ранг системы строк = рангу системы столбцов, и из определения ранга матрицы.
+      \item Очев. 
+      \item Пусть $\overline{a_1},...,\overline{a_m}$ - строки матрицы $A$. $\overline{b_1},..,\overline{b_m}$  - строки матрицы $B$. \\
+      $\overline{a_1} + \overline{b_1} ,..., \overline{a_m} + \overline{b_m}$ - строки матрицы $A+B$. 
+      $$rkA = dim \langle \overline{a_1},...,\overline{a_m} \rangle, \ rkB = dim \langle \overline{b_1},...,\overline{b_m} \rangle$$   
+      $$rk(A+B) = dim \langle \overline{a_1} + \overline{b_1} ,..., \overline{a_m} + \overline{b_m} \rangle$$ 
+      Заметим, что $(\langle \overline{a_1} + \overline{b_1} ,..., \overline{a_m} + \overline{b_m} \rangle) \subseteq (\langle \overline{a_1},...,\overline{a_m}, \overline{b_1},...,\overline{b_m} \rangle)$   
+      \begin{lemma}
+        Пусть $V$ векторное пространсво над $\R$ $dimV = n$  \\
+        $U$ -  произвольное подпространство в $V$. Тогда $dimU\leq n$ \\
+        Более того, если $U \neq V$, то $dimU<n$.
+      \end{lemma} 
+      \begin{proof} 
+        Пусть $\{e_1,...,e_m\}$ - базис $U \subseteq V$, т.е. $dimU = m$ \\
+        ЛНЗ система $\{e_1,...,e_m\}$ можно дополнить до базиса в $V$ $\Longrightarrow m\leq n$  \\
+        Если $m = n$, то $\{e_1,...,e_m\}$ - базис $V \Longrightarrow V=U$
+      \end{proof} 
+      Применяем лемму и получаем, что 
+      $$dim\langle \overline{a_1} + \overline{b_1} ,..., \overline{a_m} + \overline{b_m} \rangle \leq dim\langle \overline{a_1},...,\overline{a_m}, \overline{b_1},...,\overline{b_m} \rangle$$ 
+      Т.к. объединение базисов линейной оболочки $\overline{a_1},...,\overline{a_m}$ и $\overline{b_1},..,\overline{b_m}$ является конечной порождающей системой линейной оболочки $\langle \overline{a_1},...,\overline{a_m}, \overline{b_1},...,\overline{b_m} \rangle$, а из любой конечной порождающей системы можно выбрать базис, значит: $$dim\langle \overline{a_1} + \overline{b_1} ,..., \overline{a_m} + \overline{b_m} \rangle \leq \langle \overline{a_1},...,\overline{a_m} \rangle + \langle \overline{b_1},...,\overline{b_m} \rangle \Longrightarrow  rk(A+B) \leq rkA + rkB$$
+      \item Докажем, что $rkAB \leq rkA$. Пусть $C =AB$, $\underset{m \times k}{A}, \underset{k \times n}{B}$ \\
+      $A_1,...,A_n$ - столбцы матрицы $A$ \\
+      $B_1,...,B_n$ - столбцы матрицы $B$ \\
+      $C_1,...,C_n$ - столбцы матрицы $C$
+      $$C_1 = AB_1 = A_1b_{11} + \cdots + A_kb_{k1}$$ 
+      $$C_2 = AB_2 = A_1b_{12} + \cdots + A_kb_{k2}$$
+      $$\vdots$$
+      $$C_n = AB_n = A_1b_{1n} + \cdots + A_kb_{kn}$$
+      $\Longrightarrow \langle C_1,...,C_n \rangle \subseteq \langle A_1,...,A_k \rangle \Longrightarrow dim\langle C_1,...,C_n \rangle \leq dim\langle A_1,...,A_k \rangle \Longrightarrow rkC\leq rkA$. \\
+      Докажем, что $rkAB \leq rkB$.
+      $$rk(AB) = rk(AB)^T = rk(B^TA^T) \leq rkB^T = rkB$$ 
+    \end{enumerate}
+  \end{proof} 
+  \section{Перестановки}
+  \begin{definition}
+    Упорядоченная последовательность $(k_1,...,k_n)$ чисел $1,2,...,n$ расположенных в некотором порядке называется перестановкой из $n $ элементов. 
+  \end{definition} 
+  \begin{example1}
+    $(3,1,2)$ перестановка из 3-х элементов. 
+  \end{example1}
+  \begin{definition}
+    Перестановка $(1,2,...,n)$ назавается тривиальной.
+  \end{definition} 
+  \begin{definition}
+    Говорят, что пара элементов $k_i \text{ и } k_j$ образуют инверсию, если $i<j$, то $k_i>k_j$.
+  \end{definition} 
+  \begin{definition}
+    Перестановка назавается четной (нечетной), если число инверсий в ней четное (нечетное).\\
+    Знак переставки $sgn(k_1,...,k_n) = (-1)^s$, где $s$ - число инверсий в перестановке. 
+  \end{definition} 
+  \begin{definition}
+    Перемена двух элементов в перестановке назавается транспозицией этих элементов.
+  \end{definition} 
+  \begin{subtheorem}
+    При транспозиции любых двух элементов четность меняется на противоположную.
+  \end{subtheorem} 
+  \begin{proof} $\tab$ 
+    \begin{enumerate} 
+      \item Транспозиция двух соседних элементов. \\
+      При этом изменяется расположение только этих элементов относительно других $\Longrightarrow $ количество инверсий изменился на 1 $\Longrightarrow $ четность поменяется. 
+      \item Общий случай: 
+      $$(...,k_i,...,k_j,...) \to (...,k_j,...,k_i,...)$$ 
+      Пусть между $k_i \text{ и } k_j$ (s) элементов. \\
+      Перемену $k_i \text{ и } k_j$ произведем за $2s+1$ транспозиций соседних элементов. \\
+      Сначала $k_i$ переставим последовательно с каждым из элементов, стоящих между $k_i \text{ и } k_j$ (это $s$ транспозиций), потом $k_i$ переставим с $k_j$, затем $k_j$ поставим на $i$ позицию (это еще $s$ транспозиций). \\
+      Т.к. транспозиция соседних элементов меняет четность, то за $2s+1$ транспозиций четность изменится.
+    \end{enumerate}
+  \end{proof} 
+  \begin{consequense}
+    Пусть $n>1$. Тогда число четных перестановок из $n$ элементов равно числе нечетных. 
+  \end{consequense} 
+  \begin{proof}
+    Перечислим все четные перестановки и в каждой поменяем местами первые 2 элемента. При этом получим различные нечетные перестановки $\Longrightarrow $ число четных перестановок $\leq$ числа нечетных. Аналогично в обратную сторону. \\
+    $\Longrightarrow $ число четных = число нечетных. 
+  \end{proof} 
+  \begin{subtheorem}
+    Число перестановок из $n$ элементов равно $n!$ 
+  \end{subtheorem} 
+  \begin{proof}
+    $(k_1,...,k_n)$ для $k_1$ вариантов - $n$  \\
+    Пусть выбрали $k_1 \Longrightarrow$ для  $k_2$ вариантов - $n-1$ и т.д. Получаем всего вариантов: $n\cdot(n-1)\cdot ... \cdot 1 = n! $ 
+  \end{proof} 
 
-  
-  
   %\textbf{Мораль в том, что я не успел....}
    
 \end{document}
