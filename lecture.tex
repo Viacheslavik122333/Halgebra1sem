@@ -1201,10 +1201,10 @@ $V$- конечномерное векторное простанство над
     Отображение $\phi: V \to W$ называется изоморфизмом векторных пространств, если:
     \begin{enumerate}
       \item $\forall a, b \in V: \ \phi(a+b) = \phi(a) + \phi(b)$
-      \item $\forall \lambda \in \R \ \forall a \in \R: \ \phi(\lambda a) = \lambda \phi(a)$
+      \item $\forall \lambda \in \R \ \forall a \in V: \ \phi(\lambda a) = \lambda \phi(a)$
       \item $\phi$ является биекцией. 
     \end{enumerate}
-    При этом $V, W$ называется изоморфизными. Обозначается $V \cong W$ 
+    При этом $V, W$ называется изоморфными. Обозначается $V \cong W$ 
   \end{definition} 
   \begin{subtheorem}
     Любое векторное  пространство над $\R$ размерности $n$ изоморфно $\R^n$. 
@@ -1244,7 +1244,7 @@ $V$- конечномерное векторное простанство над
   \end{definition} 
   \begin{subtheorem}
     $V,W$- векторные пространства над $\R$. \\
-      Если $\{e_1,...,e_n\}$ - базис $V$, ($w_1,...,w_n$) - произвольный вектор из $W$. \\Тогда $\exists$! линейное отображение $\phi: V \to W$, которое $\phi: e_i \to w_i \tab[0.3cm]\forall i = \overline{1,n}$.
+      Если $\{e_1,...,e_n\}$ - базис $V$, ($w_1,...,w_n$) - набор векторов из $W$. \\Тогда $\exists$! линейное отображение $\phi: V \to W$, которое $\phi: e_i \to w_i \tab[0.3cm]\forall i = \overline{1,n}$.
   \end{subtheorem} 
 
   \begin{proof} \tab
@@ -1260,7 +1260,7 @@ $V$- конечномерное векторное простанство над
   \end{proof} 
   Пусть $\phi: V \to W$ - линейное отображение $V$- $n$-мерное, $W - m$-мерное пространство.  \\
   Фиксируем базис 
-  $\mathcal{E}  = \{e_1,...,e_n\}$ - базис в $V$; $\mathcal{F}  = \{f_1,...,f_n\}$ - базис в $W$
+  $\mathcal{E}  = \{e_1,...,e_n\}$ - базис в $V$; $\mathcal{F}  = \{f_1,...,f_m\}$ - базис в $W$
   $$\phi(e_1) = w_1 = a_{11}f_1 + \cdots + a_{m1}f_m$$ $$\vdots$$
   $$\phi(e_n) = w_n = a_{1n}f_1 + \cdots + a_{mn}f_m$$
 
@@ -1377,14 +1377,14 @@ $V$- конечномерное векторное простанство над
     Пусть $\underset{m \times l}{D} = A(BC), \tab[0.1cm]\underset{m \times l}{\widetilde{D}} = (AB)C$. 
     Надо проверить, что $\forall i,j: [D]_{ij} = [\widetilde{D}]_{ij}$. 
     $$[D]_{ij} = [A(BC)]_{ij} = \sum \limits_{s=1}^k[A]_{is} \cdot [BC]_{si} = \sum \limits_{s=1}^k[A]_{is}(\sum \limits_{t=1}^n[B]_{st} \cdot [C]_{ti}) = $$ $$  = \sum \limits_{s=1}^k \sum \limits_{t=1}^n[A]_{ij}([B]_{st} \cdot [C]_{ti})$$ 
-    $$[\widetilde{D}]_{ij} = [(AB)C]_{ij} = \sum \limits_{t=1}^n[AB]_{it}[C]_{tj} = \sum \limits_{s=1}^n (\sum \limits_{s=1}^k[A]_{is} \cdot [B]_{st})[C]_{tj} = $$
-    $$ = \sum \limits_{s=1}^n \sum \limits_{s=1}^k ([A]_{is} \cdot [B]_{st}) \cdot [C]_{tj}$$  
+    $$[\widetilde{D}]_{ij} = [(AB)C]_{ij} = \sum \limits_{t=1}^n[AB]_{it}[C]_{tj} = \sum \limits_{t=1}^n (\sum \limits_{s=1}^k[A]_{is} \cdot [B]_{st})[C]_{tj} = $$
+    $$ = \sum \limits_{t=1}^n \sum \limits_{s=1}^k ([A]_{is} \cdot [B]_{st}) \cdot [C]_{tj}$$  
     По свойствам операций над $\R$, результаты преобразований равны.
     \end{proof} 
-    \item $A(B+C) = AB + BC$
+    \item $A(B+C) = AB + AC$
     \item $(B + C)A = BA + CA$  
-    \item $\lambda(BC) = (\lambda A) B = A(\lambda B); \tab[0.3cm]\forall \lambda \in \R$ 
-    \item $\forall A \in M_{m \times n}(\R)$, единичная матрица $E \in M_{m \times m}(\R)$ : 
+    \item $\lambda(AB) = (\lambda A) B = A(\lambda B); \tab[0.3cm]\forall \lambda \in \R$ 
+    \item $\forall A \in M_{m \times m}(\R)$, $\exists$  единичная матрица $E \in M_{m \times m}(\R)$ : 
     $EA = A$  
     \item $\forall A \in M_{m \times n}(\R)$ : $0 \cdot A = 0$ 
     \item Нет коммутативности: $AB \neq BA$ даже если размеры согласованы 
@@ -1503,6 +1503,127 @@ $V$- конечномерное векторное простанство над
     Пусть выбрали $k_1 \Longrightarrow$ для  $k_2$ вариантов - $n-1$ и т.д. Получаем всего вариантов: $n\cdot(n-1)\cdot ... \cdot 1 = n! $ 
   \end{proof} 
 
+  \section{Определители n-го порядка}
+  \begin{definition}
+    Определителем квадратной матрицы $\underset{n \times n}{A}=(a_{ij})$ порядка $n$ называется число, которое вычисляется по формуле:
+    $$|A|=\det{A}=\sum\limits_{(k_1,\dots,k_n)}sgn(k_1,\dots,k_n)a_{1k_1}a_{2k_2}\dots a_{1n_n}$$
+    Где $\sum\limits_{(k_1,\dots,k_n)}$ - сумма по всем перестановкам из $n$ элементов. Эта формула называется формулой полного разложения или полного развертывания определителя.
+  \end{definition}
+  \begin{example1}
+    $$\begin{vmatrix}
+      a_{11} & a_{12}\\
+      a_{21} & a_{22}  
+    \end{vmatrix} = sgn(1,2)a_{11}a_{22}+sgn(2,1)a_{12}a_{21}=a_{11}a_{22}-a_{12}a_{21}$$
+  \end{example1}
+  $$\underset{n \times n}{A}=\begin{pmatrix}
+    \tab & \overline{a_1} & \tab\\
+    \null & \overline{a_2} & \null\\
+    \null & \vdots & \null\\
+    \null & \overline{a_n} & \null
+  \end{pmatrix}$$
+  Пусть $\overline{a_1}, \overline{a_2}, \dots \overline{a_n}$ - строки матрицы $A$. Тогда определитель можно рассматривать как функцию от строк $\det{A}=\det{(\overline{a_1},\overline{a_2},\dots \overline{a_n})}$
+  \begin{definition}
+    Функция $f(v_1,\dots, v_n)$, которая векторам $v_1,\dots, v_n$ в вектроном простанстве $V$ над $\R$ ставит в соответствие число из $\R$, то есть $f:V\times\dots\times V\to \R$
+    называется полилинейной, если она линейна по каждому аргументу, т.е. для каждого $i=\overline{1,n}$ выполнено:
+    \begin{enumerate}
+      \item $f(v_1,\dots, v_i+\widetilde{v_i},\dots, v_n)=f(v_1,\dots, v_i,\dots, v_n)+f(v_1,\dots, \widetilde{v_i},\dots, v_n),\\ \forall v_i, \widetilde{v_i}\in V$.
+      \item $f(v_1,\dots, \lambda v_i,\dots, v_n)=\lambda f(v_1,\dots, v_i,\dots, v_n),\ \forall \lambda\in \R,\ \forall v_i\in V$.
+    \end{enumerate}
+  \end{definition}
+  \begin{definition}
+      Полилинейная функция $f:V\times\dots\times V\to \R$ называется кососимметричной, если при перестановке любых двух аргументов значение функции умножается на $(-1)$. Кососимметричная функция с двумя одинаковыми аргументами равна нулю.
+  \end{definition}
+  \begin{example1}
+    Если $f$ - кососимметричная функция и $v_1=v_2$, то\\
+    $f(v_1,v_2,v_3,\dots, v_n)=-f(v_2,v_1,v_3,\dots, v_n)=a \Longrightarrow a=-a \Longrightarrow a=0$.
+  \end{example1}
+  \subsection{Свойства определителей}
+  \begin{theorem}
+    Определитель $n$-го порядка является кососимметричной полилинейной функцией от строк матрицы.    
+  \end{theorem} 
+  \begin{proof}
+    $$A=\begin{pmatrix}
+      \tab & \overline{a_1} & \tab\\
+      \null & \overline{a_2} & \null\\
+      \null & \vdots & \null\\
+      \null & \overline{a_n} & \null
+    \end{pmatrix}=(a_{ij}),\ \overline{a_i}=(a_{i1},\dots, a_{in})$$
+    $$\det{A}=\det{(\overline{a_1},\dots \overline{a_n})}=\sum\limits_{(k_1,\dots k_n)}sgn(k_1,\dots k_n)a_{1k_1}\dots a_{nk_n}$$
+    Докажем, что $\det{A}$ линеен по $i$-му аргументу.
+    $$\det{A}=\sum\limits_{k=1}^na_{ik}u_k$$
+    где $u_k$ - число не зависящее от элементов строки $\overline{a_i}$
+    \begin{multline*}
+      1.\ \det(\overline{a_1},\dots,\overline{a_i}+{\overline{a_i}}^{\prime},\dots, \overline{a_n})=\sum\limits_{k=1}^n(a_{ik}+a_{ik}^{\prime})u_k=\sum\limits_{k=1}^na_{ik}u_k+\sum\limits_{k=1}^na_{ik}^{\prime}u_k=\\=\det{(\overline{a_1},\dots,\overline{a_i},\dots, \overline{a_n})}+\det{(\overline{a_1},\dots,\overline{a_i}^{\prime},\dots, \overline{a_n})}
+    \end{multline*}
+    $$2.\ \det{(\overline{a_1},\dots,\lambda\overline{a_i},\dots, \overline{a_n})}=\sum\limits_{k=1}^n(\lambda a_{ik})u_k=\lambda\sum\limits_{k=1}^na_{ik}u_k=\lambda\det{(\overline{a_1},\dots,\overline{a_i},\dots, \overline{a_n})}$$
+    Теперь докажем кососимметричность:
+    \begin{multline*}
+    \det{(\overline{a_1},\dots,\underset{(a_i)}{\overline{a_j}},\dots,\underset{(a_j)}{\overline{a_i}},\dots,\overline{a_n})}=\\ \tab[-2.8cm]=\sum\limits_{(k_1\dots k_i\dots k_j\dots k_n)}sgn(k_1,\dots k_n)a_{1k_1}\dots a_{jk_i}\dots a_{ik_j}\dots a_{nk_n}=\\=\sum\limits_{(k_1\dots k_i\dots k_j\dots k_n)}sgn(k_1,\dots k_n)a_{1k_1}\dots a_{ik_j}\dots a_{jk_i}\dots a_{nk_n}=\\=-\sum\limits_{(k_1\dots k_i\dots k_j\dots k_n)}sgn(k_1,\dots k_n)a_{1k_1}\dots a_{ik_i}\dots a_{jk_j}\dots a_{nk_n}=\tab[-2.8cm]\\=-\det{(\overline{a_1},\dots,\overline{a_i},\dots,\overline{a_j},\dots,\overline{a_n})}
+    \end{multline*}
+  \end{proof} 
+  \begin{theorem}
+    Пусть $f(A)=f(\overline{a_1},\dots,\overline{a_n})$ - функция от строк, $A\in M_n(\R)$ такие, что:
+    \begin{enumerate}
+      \item $f(E)=1$
+      \item $f$ - Полилинейная
+      \item $f$ - кососимметричная
+    \end{enumerate}
+      тогда $f(A)=\det{A}$.
+  \end{theorem}
+  \begin{proof}
+    $\overline{e_1} = (1,0,...,0),...,\overline{e_n}=(0,...,0,1)$ - строки единичной матрицы $E = \begin{pmatrix}
+      1 & \null & 0\\
+      \null & \ddots & \null \\
+      0 & \null & 1
+    \end{pmatrix} \Longrightarrow  \{\overline{e_1},...,\overline{e_n}\}$ - базис в векторном пространстве $\R^n$ 
+    $$\Longrightarrow \overline{e_i} = (a_{i1},...,a_{in}) = a_{i1}\overline{e_1} + \cdots + a_{in}\overline{e_n}$$
+    $$\Longrightarrow f(A) = f(\overline{a_1},...,\overline{a_n}) = f(\sum \limits_{k=1}^na_{1k_1}\overline{e_{k_1}}+ \cdots + a_{nk_n}\overline{e_{k_n}}) = $$
+    $$= \sum \limits_{k_1=1}^n ... \sum \limits_{k_n=1}^n a_{1k_1}\cdot ... \cdot a_{nk_n}\cdot f(\overline{e_{k_1}},...,\overline{e_{k_n}}) =$$
+    $$\sum \limits_{(k_1,...,k_n)}f(\overline{e_{k_1}},...,\overline{e_{k_n}})\cdot a_{1k_1}\cdot ... \cdot a_{nk_n}$$ 
+    Осталось доказать, что $f(\overline{e_{k_1}},...,\overline{e_{k_n}}) = sgn(k_1,...,k_n)$. \\
+    Т.к. $f(E) =1$, то $f(A) = f(\overline{e_1},\overline{e_2},...,\overline{e_n}) = sgn(1,2,...,n) (*)$   \\
+    Меняя любые два аргумента местами, $f$ меняет знак, т.к. $f$ кососимметрична. С другой стороны, меняя два любые числа перестановки местами, знак перестановки $sgn$ тоже меняет знак. \\
+    Любую перестановку можно получить из тривиальной за конечное число транспозиций. \\
+    Т.к. $(*)$ верно, то, делая последовательно транспозицию в перестановке, и такую же перемену аргументов у функции $f$, получим $f(\overline{e_{k_1}},...,\overline{e_{k_n}}) = sgn(k_1,...,k_n)$. 
+  \end{proof} 
+  \begin{consequense} \tab
+    \begin{enumerate}
+      \item Если в крадратной матрице $A$ одна из строк равна линейной комбинации остальных, то $detA = 0$
+      \item Если к строке квадратной матрицы $A$ применить ЭП1 (т.е. к строке прибавить другую, умноженную на число), то определитель не изменится. 
+    \end{enumerate}
+  \end{consequense} 
+  \begin{proof} \tab
+    \begin{multline*}
+      2) \ det(\overline{a_1},...,\overline{a_i}+\lambda \overline{a_j},...,\overline{a_n}) = \\ = det(\overline{a_1},...,\overline{a_i},...,\overline{a_j},...,\overline{a_n}) + \lambda det(\overline{a_1},...,\overline{a_j},...,\overline{a_j},...,\overline{a_n}) = \\ = det(\overline{a_1},...,\overline{a_i},...,\overline{a_j},...,\overline{a_n})
+    \end{multline*}
+  \end{proof} 
+  \begin{definition}
+    Квадратная матрица $A = (a_{ij})$ называется (верхней) треугольной матрицей, если $a_{ij} = 0$ при $i>j$. 
+    \begin{example1}
+      $\begin{pmatrix}
+        1 & 2 & 3 \\ 0 & 4 & 2 \\ 0 & 0& 0
+      \end{pmatrix}$
+    \end{example1}  
+  \end{definition} 
+  Модно проследить, как влияют ЭП на определитель:
+  \begin{itemize}
+    \item ЭП1 = $\overline{a_i} \to \overline{a_i} + \lambda \overline{a_j}$ \tab[0.3cm] $det$ не изменится. 
+    \item ЭП2 $\overline{a_i} \to \overline{a_j}$ \tab[2.15cm] $det$ не изменится. 
+    \item ЭП3 $\overline{a_i} \to \mu \overline{a_i}, \mu \not = 0$ \tab[0.45cm] $det$ умножится на $\mu$. 
+  \end{itemize}
+  \begin{subtheorem}
+    Определитель верхней треугольной матрицы равен произведению её диальнольных элементов.
+  \end{subtheorem} 
+  \begin{proof}
+    $\begin{vmatrix}
+      a_{11} & a_{12} & \cdots & a_{1n} \\
+      0 & a_{22} & \cdots & a_{2n} \\
+      \null & \null & \ddots & \null \\
+      0 & 0 & \cdots & a_{nn} 
+    \end{vmatrix} = a_{11}\cdot a_{22}\cdot...\cdot a_{nn}$ \\
+    Рассмотрим любую не тождественную перестановку $(k_1,...,k_n)$, где $k_i \not = i$. Тогда найдется такой множитель $(i>j) \ a_{ij} = 0,  \Longrightarrow $ это слагаемое обнулится. $\Longrightarrow $ Во всей сумме останется только тождественная перестановка. 
+    
+  \end{proof} 
   %\textbf{Мораль в том, что я не успел....}
    
 \end{document}
