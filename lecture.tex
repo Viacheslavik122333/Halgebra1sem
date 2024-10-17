@@ -55,6 +55,7 @@
 \newtheorem*{properties1}{Свойство}
 \newtheorem{lemmanum}[lemcount]{Лемма}
 \newtheorem{theoremnum}[thcount]{Теорема}
+\newtheorem{theoremL}{Теорема}[section]
 
 \usepackage[russian]{babel}
 \addto\captionsenglish{% Replace "english" with the language you use
@@ -84,7 +85,7 @@
     \newpage
     
     \begin{center}
-    \includegraphics[width=4cm]{.image/image.png}
+    \includegraphics[width=4cm]{image/image.png}
     \end{center}
     
     \vspace{4em}
@@ -540,7 +541,7 @@
     \end{itemize}
   \end{remark} 
   \begin{subtheorem}
-    Любой вектор подпространства векторного пространства $V$ сам является векторным пространством относительно операций векторного пространства 
+    Любое векторное подпространство векторного пространства $V$ само является векторным пространством относительно операций векторного пространства $V$. 
   \end{subtheorem} 
   \begin{proof}
     Надо проверить определение. 1 и 2 свойство из операций \\ векторного пространства означают, что в $U$ заданы операции сложения и \\ умножения на вещественное число. Проверка аксиом векторного пространства: 1,2,5,6,7,8 - выполнены для всех векторов из $V$, а значит и для всех векторов из $U$. \\ 3,4 доказательство как в замечании: 
@@ -574,7 +575,7 @@
   \begin{properties} \end{properties} 
     \begin{enumerate}
       \item Система из одного вектора $V_1$ ЛЗ $\Longleftrightarrow V_1 = 0$  
-      \item Система из 2-х векторов $v_1 \text{и } v_2$ ЛЗ $\Longleftrightarrow$ противоположные, т.е. $v_1 = \lambda v_2 \\ v_2 = \mu v_1$. 
+      \item Система из 2-х векторов $v_1 \text{и } v_2$ ЛЗ $\Longleftrightarrow$ они пропорциональные, т.е. $v_1 = \lambda v_2 \\ v_2 = \mu v_1$. 
     \end{enumerate}
   \begin{example1}
     $\R^n$ \\
@@ -614,7 +615,7 @@
   \end{proof}
   %%
   \begin{lemmanum} \label{lem3}
-    Пусть вектор $w$ линейно выражается через $v_1,..,v_k$. Тогда это выражение единственное.   
+    Пусть вектор $w$ линейно выражается через $v_1,...,v_k$. Тогда это выражение единственное.   
   \end{lemmanum} 
   \begin{proof} $\tab$ 
     \begin{enumerate}
@@ -632,7 +633,7 @@
   \end{lemmanum}  
   \begin{proof} $\tab$ 
     \begin{enumerate}
-      \item Пусть подсистема $v_1,..,v_k$ системы $v_1,..,v_k,...,v_m$ - ЛЗ $\Longrightarrow \exists \lambda_1,...,\lambda_k$ не все равные нулю, т.ч. $\lambda_1v_1 + \cdots _+ \lambda_kv_k=0$ Положим $\lambda_{k+1}=0,...,\lambda_m=0$ 
+      \item Пусть подсистема $v_1,..,v_k$ системы $v_1,..,v_k,...,v_m$ - ЛЗ $\Longrightarrow \exists \lambda_1,...,\lambda_k$ не все равные нулю, т.ч. $\lambda_1v_1 + \cdots + \lambda_kv_k=0$ Положим $\lambda_{k+1}=0,...,\lambda_m=0$ 
       Тогда $\lambda_1v_1,..,\lambda_kv_k,...,\lambda_mv_m=0$ - нетривиальная ЛК $\Longrightarrow \{v_1,...,v_k,v_{k+1},...,v_m\}$ - ЛЗ. 
       \item Следует из 1.
     \end{enumerate}
@@ -681,7 +682,7 @@
       \item $\R^3,\tab[0.1cm] S = \{(1,0,0),(0,1,0)\};$ \tab[0.5cm]
       $\langle S \rangle = \{(\lambda,\mu,0)\tab[0.1cm]|\tab[0.1cm]\lambda,\mu \in \R\}$ 
       \item $V^3,\tab[0.1cm] S =\{i,j,i+j\}$ \\ $\\$  
-      \includegraphics[width=6cm]{.image/v3.pdf} $\widetilde{s} = \{i+j\}$ 
+      \includegraphics[width=6cm]{image/v3.pdf} $\widetilde{s} = \{i+j\}$ 
     \end{enumerate}
   \end{example}
   \begin{definition}
@@ -793,7 +794,7 @@ $V$- конечномерное векторное простанство над
     Рангом системы векторного простанства $S\subseteq V$ называется $dim \langle S \rangle$  
   \end{definition} 
   $A$ - матрица $m \times n$ \\ $\\$
-  \includegraphics[width=15cm]{.image/matr.pdf}
+  \includegraphics[width=15cm]{image/matr.pdf}
   \begin{definition}
     Рангом матрицы $A$ называется ранг системы ее строк, т.е. максимальное число ЛНЗ строк матрицы.
   \end{definition} 
@@ -802,7 +803,7 @@ $V$- конечномерное векторное простанство над
     Ранг системы $\{s_1,...,s_n\}$ - векторов называется $dim \langle s_1,...,s_n \rangle$.
   \end{definition} 
   \begin{definition}
-    Рангом матрица $A \ m\times n$ называется ранг системы её строк. $$\includegraphics[width=4cm]{.image/matr5.png}$$
+    Рангом матрица $A \ m\times n$ называется ранг системы её строк. $$\includegraphics[width=4cm]{image/matr5.png}$$
   \end{definition} 
   \begin{definition}
     Две системы векторов $\{v_1,...,v_n\}$ $\{w_1,...,w_n\}$ называются эквивалентными, если каждый вектор $v_i$ линейно выражается через $\{w_1,...,w_n\}$, а $w_i$ через $\{v_1,...,v_n\}$. \\
@@ -812,7 +813,7 @@ $V$- конечномерное векторное простанство над
     При элементарных преобразованиях над строками, ранг матрицы $A$  не изменяется.
   \end{subtheorem} 
   \begin{proof} 
-    $$\includegraphics[width=12cm]{.image/matr1.png}$$
+    $$\includegraphics[width=12cm]{image/matr1.png}$$
     $$\langle A_1,...,A_m \rangle = \langle \widetilde{A_1},...,\widetilde{A_m} \rangle$$ \\
     т.е. система строк $A$ эквивалентна системы строк $\widetilde{A}$ $\Longrightarrow rkA = rk \widetilde{A}$. 
   \end{proof} 
@@ -823,7 +824,7 @@ $V$- конечномерное векторное простанство над
    Ранг матрицы $A$ равен числу ненулевых строк матрицы струпенчатого вида, к которому можно привести матрицу $A$ с помощью элементарных преобразований строк.
   \begin{proof}
     $A \overset{\text{ЭП строк}}{\longrightarrow } A_{\text{ст}} \Longrightarrow  rkA = rkA_{\text{ст}}$ \\
-    \includegraphics[width=5cm]{.image/matr2.png}
+    \includegraphics[width=5cm]{image/matr2.png}
     $a_{i_11},...,a_{i_ss}$ - лидеры строк в $A_{\text{ст}} \Longrightarrow a_{i_11} \neq 0,...,a_{i_ss} \neq 0$ \\
     Очевидно, что $rkA_{\text{ст}}\leq s$. Достаточно доказать, что ненулевые строки ЛНЗ. Рассмотрим ЛК: \\
     $\lambda_1(0,...,0,a_{i_11},\ast,...,\ast) + \lambda_2(0,...,0,a_{i_22},\ast,...,\ast) + \cdots + \lambda_s(0,...,0,a_{i_ss},\ast,...,\ast) = (0,...,0)$ \\
@@ -878,10 +879,10 @@ $V$- конечномерное векторное простанство над
   \end{theoremnum} 
   \begin{proof}
     Было доказанно, что ранг системы строк (столбцов) матрицы не изменяется при ЭП над строками и над столбцами. Приведем матрицу $A$ к ступенчатому виду с помощью ЭП над строками. $A_\text{ст}$ имеет вид:
-    $$\includegraphics[width=4cm]{.image/matr4.png}$$
+    $$\includegraphics[width=4cm]{image/matr4.png}$$
     $$a_{i_11} \neq 0,...,a_{i_ss} \neq 0$$ 
     Используем $i_1$-столбец, вычитая этот столбец из оставшихся с подходящими коэфициентами, получаем:
-    $$\includegraphics[width=4cm]{.image/matr3.png}$$ 
+    $$\includegraphics[width=4cm]{image/matr3.png}$$ 
     Далее используем $i_2$-столбец, обнуляем все элементы правее $a_{i_22}$. В итоге получаем: $$\begin{pmatrix}
       a_{i_1,1} && \null && 0\\
       \null && \ddots && \null\\
@@ -1189,10 +1190,10 @@ $V$- конечномерное векторное простанство над
     \begin{enumerate}
       \item Проекция \\
       $\phi: V^3 \to V^2, \phi: x_1i+x_2j+x_3k \to x_1i+x_2j$ 
-      $$\includegraphics[width=6cm]{.image/projection.pdf}$$
+      $$\includegraphics[width=6cm]{image/projection.pdf}$$
       \item Поворот\\
       $\phi: V^2 \to V^2$ Поворот на угол $\alpha$ вокруг точки $O$ 
-      $$\includegraphics[width=3.5cm]{.image/turn.pdf}$$
+      $$\includegraphics[width=3.5cm]{image/turn.pdf}$$
     \end{enumerate}
     
   \section{Линейные отображения}
@@ -1335,7 +1336,7 @@ $V$- конечномерное векторное простанство над
     \item[3)] Композиция (произведение) линейных отображений. \\
     Пусть $V, W, U$ - векторные простанства над $\R$
     $$\phi: V \to W \tab[0.5cm] \psi: W \to U$$
-    $$\includegraphics[width=5.5cm]{.image/composition.pdf}$$
+    $$\includegraphics[width=5.5cm]{image/composition1.pdf}$$
     Зададим отображение по правилу: 
     $$(\psi \circ \phi)(x) = \psi(\phi(x)) \tab[0.3cm] \forall x \in V$$   
     \begin{subtheorem}
@@ -1540,9 +1541,12 @@ $V$- конечномерное векторное простанство над
     $f(v_1,v_2,v_3,\dots, v_n)=-f(v_2,v_1,v_3,\dots, v_n)=a \Longrightarrow a=-a \Longrightarrow a=0$.
   \end{example1}
   \subsection{Свойства определителей}
-  \begin{theorem}
+
+  \setcounter{thcount}{0}
+
+  \begin{theoremnum}
     Определитель $n$-го порядка является кососимметричной полилинейной функцией от строк матрицы.    
-  \end{theorem} 
+  \end{theoremnum} 
   \begin{proof}
     $$A=\begin{pmatrix}
       \tab & \overline{a_1} & \tab\\
@@ -1563,7 +1567,7 @@ $V$- конечномерное векторное простанство над
     \det{(\overline{a_1},\dots,\underset{(a_i)}{\overline{a_j}},\dots,\underset{(a_j)}{\overline{a_i}},\dots,\overline{a_n})}=\\ \tab[-2.8cm]=\sum\limits_{(k_1\dots k_i\dots k_j\dots k_n)}sgn(k_1,\dots k_n)a_{1k_1}\dots a_{jk_i}\dots a_{ik_j}\dots a_{nk_n}=\\=\sum\limits_{(k_1\dots k_i\dots k_j\dots k_n)}sgn(k_1,\dots k_n)a_{1k_1}\dots a_{ik_j}\dots a_{jk_i}\dots a_{nk_n}=\\=-\sum\limits_{(k_1\dots k_i\dots k_j\dots k_n)}sgn(k_1,\dots k_n)a_{1k_1}\dots a_{ik_i}\dots a_{jk_j}\dots a_{nk_n}=\tab[-2.8cm]\\=-\det{(\overline{a_1},\dots,\overline{a_i},\dots,\overline{a_j},\dots,\overline{a_n})}
     \end{multline*}
   \end{proof} 
-  \begin{theorem}
+  \begin{theoremnum}
     Пусть $f(A)=f(\overline{a_1},\dots,\overline{a_n})$ - функция от строк, $A\in M_n(\R)$ такие, что:
     \begin{enumerate}
       \item $f(E)=1$
@@ -1571,7 +1575,7 @@ $V$- конечномерное векторное простанство над
       \item $f$ - кососимметричная
     \end{enumerate}
       тогда $f(A)=\det{A}$.
-  \end{theorem}
+  \end{theoremnum}
   \begin{proof}
     $\overline{e_1} = (1,0,...,0),...,\overline{e_n}=(0,...,0,1)$ - строки единичной матрицы $E = \begin{pmatrix}
       1 & \null & 0\\
@@ -1624,9 +1628,175 @@ $V$- конечномерное векторное простанство над
       0 & 0 & \cdots & a_{nn} 
     \end{vmatrix} = a_{11}\cdot a_{22}\cdot...\cdot a_{nn}$ \\
     Рассмотрим любую не тождественную перестановку $(k_1,...,k_n)$, где $k_i \not = i$. Тогда найдется такой множитель $(i>j) \ a_{ij} = 0,  \Longrightarrow $ это слагаемое обнулится. $\Longrightarrow $ Во всей сумме останется только тождественная перестановка. 
-    
   \end{proof} 
-  %\textbf{Мораль в том, что я не успел....}
+
+  \begin{theoremnum}
+    Определитель при транспонировании не изменяется: $detA = detA^T$
+  \end{theoremnum} 
+
+  \begin{proof}
+    Пусть $B = A^T, \ a=(a_{ij}), \ B=(b_{ij})$ \\
+    $detA = \sum \limits_{(l_1,...,l_n)}sgn(l_1,...,l_n)a_{1l_1},...,b_{nl_n}$
+    \begin{multline*}
+      detA^T = detB = \sum \limits_{(k_1,...,k_n)}sgn(k_1,...,k_n)b_{1k_1},...,b_{nk_n} = \\
+      = \sum \limits_{(k_1,...,k_n)}sgn(k_1,...,k_n)a_{k_11},...,a_{k_nn} = \tab[0.8cm]\\ 
+      = \sum \limits_{(k_1,...,k_n)}sgn(k_1,...,k_n) sgn(1,2,...,n)a_{k_11},...,a_{k_nn} = (*)
+    \end{multline*} 
+    Переставим $a_{ij}$, переупорядочив номера строк, т.е. первые индексы по возрастанию последовательно, меняя два множителя местами: $$a_{k_11},...,\underbrace{a_{k_ii},...,a_{k_jj}}_{\text{меняем}},...,a_{k_nn}$$ 
+    При этом перемене двух множителей местами меняется местами и первые индексы и вторые. При этом: 
+    \begin{multline*}
+      sgn(k_1,...,k_i,...,k_j,...,k_n) \cdot sgn(1,...,i,...,j,...,n) = \\ = (-1)^2 sgn(k_1,...,k_j,...,k_i,...,k_n)\cdot sgn(1,...,i,...,j,...,n)
+    \end{multline*}
+    $(*) = \sum \limits_{(l_1,...,l_n)} sgn(1,2,...,n) sgn(l_1,...,l_n) a_{1l_1},...,a_{nl_n} = detA$
+  \end{proof} 
+  \begin{consequense}
+    Определитель матрицы есть кососимметричная и полилинейная функция столбцов матрицы. \\
+    Все свойства определителя, которые верны для строк матрицы, верны и для столбцов.
+  \end{consequense} 
+
+  \subsection{Элементарные матрицы}
+  \begin{definition}
+    Матрица, полученная из единичной матрицы $E$, с помощью одного элементарного преобразования над строками или столбцами, называется элементарной матрицей. \\
+    ЭП1: \ $\overline{a_i} \to \overline{a_i} + \lambda \overline{a_j}, \ \ i \not = j$
+    $$\includegraphics[width=12cm]{image/image8.2.1.pdf}$$
+    ЭП2: $\overline{a_i} \leftrightarrow  \overline{a_j}, \ \ i \not = j$ \tab[2.5cm] ЭП3: $\overline{a_i} \leftrightarrow \mu \overline{a_i}, \ \ \mu \not = 0$ \\
+    \includegraphics[width=7cm]{image/image8.2.2.pdf}
+    \includegraphics[width=5.6cm]{image/image8.2.3.pdf}
+  \end{definition} 
+  \setcounter{lemcount}{0}
+  \begin{lemmanum} \label{lem8.1}\tab 
+    \begin{itemize}
+      \item[\textbf{1.1}] Любые ЭП над строками матрицы $A$ равносильно умножению матрицы $A$ слева на элементарную матрицу, т.е. \\
+      $A \leadsto  \widetilde{A} \Longleftrightarrow \widetilde{A} = T \cdot A$ где $T$ - элементарная матрица, такая что $E \leadsto  T$
+      \item[\textbf{1.2}] Любые ЭП над столбцами матрицы $A$ равносильно умножению матрицы $A$ справа на элементарную матрицу.
+    \end{itemize}
+  \end{lemmanum} 
+  \begin{proof}
+    Непосредственная проверка
+  \end{proof}
+  \begin{lemmanum} \label{lem8.2}
+    Пусть $A$ - квадратная матрица порядка $n$, тогда:
+    \begin{enumerate}
+      \item Если $detA \not = 0$, то с помощью ЭП над строками, $A$ привести к $E$. 
+      \item Если $detA = 0$, то с помощью ЭП над строками, в $A$ можно получить нулевую строку
+    \end{enumerate}
+  \end{lemmanum} 
+  \begin{proof}
+    Методом Гаусса любую матрицу можно привести к ступенчатому виду. Ступенчатый вид для квадратной матрицы является верхнетреугольной, т.е.:
+    $$A \leadsto \widetilde{A} = \begin{pmatrix}
+      \widetilde{a_{11}} & \null & * \\
+      \null & \ddots & \null \\
+      0 & \null & \widetilde{a_{nn}}
+    \end{pmatrix}$$  
+    $\Longrightarrow detA = \xi \cdot det \widetilde{A}$, где $\xi \not = 0$, \ $det \widetilde{A} = \widetilde{a_{11}} \cdot ... \cdot \widetilde{a_{nn}}$\\
+    Итак, 
+    $$detA =0 \Longleftrightarrow  det \widetilde{A} = 0 \Longleftrightarrow \widetilde{a_{11}} \cdot ... \cdot \widetilde{a_{nn}} =0$$ 
+    \begin{enumerate}
+      \item Если $detA \not = 0$, то $a_{11} \not = 0,...,a_{nn} \not = 0$ - лидеры матрицы $A$ \\ $\Longrightarrow \widetilde{A}$  приводится к улучшенному ступенчатому виду обратными ходом Гаусса и этот улучшенный ступенчатый вид совпадает с $E$
+      \item Если $detA = 0$, то $a_{11} \cdot...\cdot a_{nn} = 0$ $\Longrightarrow  \exists k: a_{kk} = 0$. По определению ступенчатого вида $\forall i > k: \widetilde{a_{ii}} = 0 \Longrightarrow \widetilde{a_{nn}} = 0 \Longrightarrow$ последня строка в $\widetilde{A}$ нулевая.  
+    \end{enumerate}
+  \end{proof} 
+  \begin{theoremnum}
+    Пусть $A, B$ - квадратные матрицы порядка $n$, тогда: $$detAB = detA \cdot detB$$ 
+  \end{theoremnum} 
+  \begin{proof}
+    Из ассоциативности умножения $T(AB) = (TA)B$, где $T$ элементарная матрица, получаем, что элементраное преобразование над строками матрицы $A$ соответствует элементарному преобразованию строк матрицы $AB$.  
+    \begin{itemize}
+      \item[1 случай.] $detA = 0$ (по лемме\eqref{lem8.1}, пункт 2)$\Longrightarrow A\leadsto \widetilde{A}$( с нулевой строкой) \\
+      $\Longrightarrow \widetilde{A} = \cdot(T_1 \cdot ... \cdot T_k)\cdot A, \ $ где $T_i$ - матрицы элементарных преобразований. \\
+      $\Longrightarrow (T_1 \cdot ... \cdot T_k)(AB) = ((T_1 \cdot ... \cdot T_k)A)B = \widetilde{A}B$ $\Longrightarrow det AB =0$, т.к. $AB \leadsto \widetilde{A}B$ 
+      \item[2 случай.] $detA \not =$ 0 (по лемме\eqref{lem8.1}, пункт 1) $\Longrightarrow A\leadsto E \Longrightarrow E=(T_1 \cdot ... \cdot T_k)A$, \ где $T_i$ - матрицы элементарных преобразований. \\
+      $(T_1 \cdot ... \cdot T_k)(AB) = ((T_1 \cdot ... \cdot T_k)A)B = EB = B$ \\
+      $\Longrightarrow detAB = c \cdot det((T_1 \cdot ... \cdot T_k)AB) = c \cdot detB$  \\
+      Рассмотрим отношение: $$\frac{detAB}{detA} = (*) $$ 
+      $\\$ Произведем над матрицей $A$ ЭП, которые приведут матрицу $A \leadsto E$, одновременно производим такие же ЭП над $AB$. 
+       $$ (*) = \frac{detEB}{detE} = detB$$ 
+    \end{itemize}
+  \end{proof} 
+  \begin{theoremnum}
+    (Об определителе с углом нулей) \\ Пусть $A$ - квадратная матрица порядка $k$ \\
+    \tab[1.45cm]$B$ - квадратная матрица порядка $m$ \\
+    \tab[1.45cm]$C$ - матрица размера $k \times m$. \\
+    Тогда:
+    $$det \begin{pmatrix}
+      A & \vline & C \\
+      \hline
+      0 & \vline & B
+    \end{pmatrix}(*) = detA \cdot detB$$ 
+  \end{theoremnum} 
+
+  \begin{proof} \tab
+    \begin{itemize}
+      \item[1 случай.] $detB = 0$ \\
+      (По лемме \eqref{lem8.2}, пункт 2) $B\leadsto \widetilde{B}$ 
+      Производя точно такие же ЭП над последними $m$ строками матрицы $(*)$ , получаем нулевую строку $$\Longrightarrow det \begin{pmatrix}
+        A & \vline & C \\
+        \hline
+        0 & \vline & B
+      \end{pmatrix} = detA \cdot detB = 0$$  
+      \item[2 случай.] $detA = 0$ Аналогично как в 1 случае, только ЭП над столбцами. 
+      \item[3 случай.] $detA \not = 0, detB \not = 0$ \\
+      Рассмотрим отношение:
+      $$\frac{det \begin{pmatrix}
+        A & \vline & C \\
+        \hline
+        0 & \vline & B
+      \end{pmatrix} = detA \cdot detB}{detA \cdot detB}$$\\ (По лемме \eqref{lem8.2}, пункт 1) $A\leadsto E$, $B\leadsto E$ \\
+      Преобразуем матрицу $A$ с помощью ЭП над стролбцами, которые приводят $A \leadsto E$, преобразуем $B$ с помощью ЭП над строками, которые приводят $B \leadsto E$. Одновременно преобразуем матрицу $(*)$ с помощью таких же ЭП над строками и столбцами, отношение при этом не изменится. \\
+      Тогда: 
+      $$\frac{det \begin{pmatrix}
+        A & \vline & C \\
+        \hline
+        0 & \vline & B
+      \end{pmatrix}}{detA \cdot detB} =
+      \frac{det \begin{pmatrix}
+        E & \vline & C \\
+        \hline
+        0 & \vline & E
+      \end{pmatrix}}{detE \cdot detE} = 1$$    
+    \end{itemize}
+  \end{proof} 
+
+  \subsection{Разложение определителя по строке}
+
+  $A$ - матрица размера $m \times n$. \\ 
+  $i_1,...,i_k$ - номера некоторого разложения строк в $A$. \\ $j_1,...,j_t$ - номера некоторого разложения столбцов в $A$.
+  \begin{definition}
+    Матрица, состоящая из элементов матрицы $A$, стоящих на пересечении строк с номерами $i_1,...,i_k$ и столбцов с номерами $j_1,...,j_t$, называется подматрицей матрицы $A$\\
+    Обозначение: 
+    $A \begin{matrix}
+      i_1 & \cdots & i_s \\
+      \vdots & \null & \vdots \\
+      j_1 & \cdots & j_t
+    \end{matrix}$ 
+  \end{definition}  
+  \begin{definition}
+    Минорами $k-$ого порядка матрицы $A$ называется определитель квадратной подматрицы порядка $k$. 
+  \end{definition} 
+  \begin{example1}
+    \includegraphics[width=3cm]{image/image8.3.1.pdf} $\Longrightarrow \text{Минор}= \begin{vmatrix}
+      6 & 8 \\ 7 & 7
+    \end{vmatrix}$ 
+  \end{example1}
+  Пусть $A$ квадратная матрица порядка $n$ 
+  \begin{definition}
+    Минор порядка $(n-1)$ квадратной матрицы $A$, полученный вычеркиванием $i-$ой строки и $j-$ого столбца, называется дополнительным минором к элементу $a_{ij}$.  \\
+    Обозначается: $M_{ij}$ 
+  \end{definition}
+  \begin{example1}
+    \includegraphics[width=3cm]{image/image8.3.2.pdf}$\Longrightarrow M_{12}= \begin{vmatrix}
+      2 && 3 \\ 8 && 9
+    \end{vmatrix} = -6$ 
+  \end{example1}
+  
+  \begin{definition}
+    Алгебраческое дополнение к элементу $a_{ij}$ - это число: $$A_{ij} = (-1)^{i+j} \cdot M_{ij}$$ 
+  \end{definition} 
+  \begin{example1}
+    (к прошлому примеру) $A_{21} = (-1)^{2+1}(-6) = 6$  
+  \end{example1}
+
+  % \textbf{Мораль в том, что я не успел....}
    
 \end{document}
 
