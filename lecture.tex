@@ -165,7 +165,7 @@
       0 && \null && \null && a_{nn} 
     \end{pmatrix} $$
 
-    Если $A$ - диальнольная и $a_{ij}$ = 1, то $A$ называется единичной.
+    Если $A$ - диальнольная и $a_{ii}$ = 1, то $A$ называется единичной.
     $$ A =
     \begin{pmatrix}
       1 && \null && \null && 0 \\
@@ -185,7 +185,7 @@
       \end{pmatrix} $ главная диагональ
       \item $ A =
       \begin{pmatrix}
-        \null && \null && a_{n1} \\
+        \null && \null && a_{1n} \\
         \null && \dots && \null \\
         a_{n1}  && \null && \null
       \end{pmatrix} $ побочная диагональ
@@ -615,13 +615,15 @@
   \end{proof}
   %%
   \begin{lemmanum} \label{lem3}
-    Пусть вектор $w$ линейно выражается через $v_1,...,v_k$. Тогда это выражение единственное.   
+    Пусть $v_1,...,v_k$ - ЛНЗ и вектор $w$ линейно выражается через $v_1,...,v_k$. Тогда это выражение единственное.   
   \end{lemmanum} 
   \begin{proof} $\tab$ 
     \begin{enumerate}
       \item Пусть выражается единственно. Допустим, $v_1,..,v_k$ - ЛЗ $\Longrightarrow \exists\{\lambda_1,..,\lambda_k\}$ не все нулевые, т.ч. $\lambda_1v_1 + \cdots + \lambda_kv_k=0$ \\
       Тогда если $w=\mu_1v_1 + \cdots + \mu_kv_k$, то $w + 0 = (\mu_1+\lambda_1)v_1 + \cdots + (\mu_k + \lambda_k)v_k$ другое разложение, противоречие.  
-      \item Пусть $v_1,..,v_k$ - ЛНЗ. Допустим, что существует два разложения: $$w = \mu_1v_1 + \cdots + \mu_kv_k$$  $$w = \widetilde{\lambda_1}v_1 + \cdots + \widetilde{\mu_k}v_k$$ 
+      \item Пусть $v_1,..,v_k$ - ЛНЗ. Допустим, что существует два разложения: $$w = \mu_1v_1 + \cdots + \mu_kv_k$$  $$w = \widetilde{\mu_1}v_1 + \cdots + \widetilde{\mu_k}v_k$$ 
+      $$\mu_1v_1 + \cdots + \mu_kv_k = \widetilde{\mu_1}v_1 + \cdots + \widetilde{\mu_k}v_k$$
+      $$v_1(\mu_1 - \widetilde{\mu_1}) + \cdots + v_n(\mu_n - \widetilde{\mu_n}) = 0$$  
       $\Longrightarrow  \{v_1,..,v_k\}$ - ЛЗ $\Longrightarrow $ противоречие.
     \end{enumerate}
   \end{proof}
@@ -662,8 +664,8 @@
       \vdots \\
       c_{1k}\lambda_1+\cdots+c_{mk}\lambda_m=0
     \end{cases}$$ 
-    Т.к. $m>k$ и это ОСЛУ в которой число уравнений $<$ числа неизвестных, то эта система имеет нетривиальное решение \\
-    $\lambda_1,...,\lambda_m \Longrightarrow \lambda_1w_1+\cdots+\lambda_mw_m = 0$ - это нетривиальная ЛК \\ $\Longrightarrow w_1,...,w_m$ - ЛЗ. 
+    Т.к. $m>k$ и это ОСЛУ в которой число уравнений $<$ числа неизвестных, то эта система имеет нетривиальное решение 
+    $\lambda_1,...,\lambda_m \\ \Longrightarrow \lambda_1w_1+\cdots+\lambda_mw_m = 0$ - это нетривиальная ЛК \\ $\Longrightarrow w_1,...,w_m$ - ЛЗ. 
   \end{proof} 
   \subsection{Линейная оболочка множества S}
   $V$ - векторное простанство над $\R$ \\
@@ -730,7 +732,7 @@ $V$- конечномерное векторное простанство над
     В любом базисе конечномерного векторного пространства $V$ над $\R$ одно и тоже число векторов.
   \end{theorem} 
   \begin{proof}
-    Пусть есть два базиса $\{e_1,...,e_m\}$ и $\{f_1,...,f_m\}$ векторного пространства $V$. 
+    Пусть есть два базиса $\{e_1,...,e_n\}$ и $\{f_1,...,f_m\}$ векторного пространства $V$. 
     Тогда каждый вектор $f_i$ выражается через $e_1,...,e_m$. \\
     По ОЛЛЗ: $\{f_1,...,f_m\}$ - ЛЗ $\Longrightarrow \{f_1,...,f_m\}$ - не базис $\Longrightarrow $ противоречие.  
   \end{proof} 
@@ -947,7 +949,7 @@ $V$- конечномерное векторное простанство над
     Множество всех решений ОСЛУ является векторным \\ подпространством в $\R^n$. Будем говорить, что это пространство над ОСЛУ.
   \end{consequense} 
   \begin{remark}
-    Если $\exists$ решение ОСЛУ над $\R$, то $\exists$ бесконечно много решений.
+    Если $\exists$ нетривиальное решение ОСЛУ над $\R$, то $\exists$ бесконечно много решений.
   \end{remark} 
   \begin{theoremnum}
     Пространство решений ОСЛУ $AX = 0$ имеет базис из $n-r$ векторов, где $n$ - число неизвестных, а $r=rkA$.
@@ -1087,12 +1089,12 @@ $V$- конечномерное векторное простанство над
     \tab[1.8cm]Докажем, что $X_0 + Y = \begin{pmatrix}
       x_1^0 + y_1 \\ \vdots \\ x_n^0 + y_n
     \end{pmatrix}$ - решение СЛУ, т.е. $X_0 + Y \in M$ 
-    $$AX=B a_{i1}x_1 + \cdots + a_{in} = b_i$$
-    $$AX=0 a_{i1}x_1 + \cdots + a_{in} = 0$$
+    $$AX=B: \  a_{i1}x_1^0 + \cdots + a_{in}x_n^0 = b_i$$
+    $$AX=0: \ a_{i1}y_1 + \cdots + a_{in}y_n = 0$$
     где $i = \overline{1,n}$. \\
     Проверим, что $X_0 + Y \in M$ 
     $$a_{i1}(x_1^0 + y_1) + \cdots + a_{in}(x_{in} + y_n) = b_i$$
-    $$(\underbrace{a_{i1}x_1^0 + \cdots + a_{in}x_{in}}_{b_i (\text{т.к. } X_0 \in M)}) + (\underbrace{a_{i1}y_1 + \cdots + a_{in}y_n}_{0 (\text{т.к. } Y \in M_{\text{одн}})}) = b_i$$  
+    $$(\underbrace{a_{i1}x_1^0 + \cdots + a_{in}x_{in}}_{b_i \text{ (т.к. } X_0 \in M)}) + (\underbrace{a_{i1}y_1 + \cdots + a_{in}y_n}_{0 \text{ (т.к. } Y \in M_{\text{одн}})}) = b_i$$  
     Обратное утверждение:
     $M \subseteq X_0 + M_{\text{одн}}$ \\
     Рассмотрим произвольное решение $Z = \begin{pmatrix}
@@ -1355,12 +1357,12 @@ $V$- конечномерное векторное простанство над
     \tab[4.3cm]$\mathcal{G} = \{g_1,...,g_k\}$ - базис в $U$ \\
     $\underset{m \times n}{A}$ - матрица линейного отображения $\phi$ относительно $\mathcal{E}, \mathcal{F}$. \\
     $\underset{k \times m}{B}$ - матрица линейного отображения $\psi$ относительно $\mathcal{F}, \mathcal{G}$. \\
-    $\underset{k \times n}{C}$ - матрица линейного отображения $\phi$ относительно $\mathcal{E}, \mathcal{G}$.
+    $\underset{k \times n}{C}$ - матрица линейного отображения $\psi \circ \phi$ относительно $\mathcal{E}, \mathcal{G}$.
     \begin{subtheorem}
       $C = B \cdot A$ 
     \end{subtheorem} 
     \begin{proof}
-      $$\phi(e_i) = \sum \limits_{s=1}^ka_{si}f_s; \tab[1cm]\psi(f_s) = \sum \limits_{t=1}^kb_{ts}g_t$$
+      $$\phi(e_i) = \sum \limits_{s=1}^ma_{si}f_s; \tab[1cm]\psi(f_s) = \sum \limits_{t=1}^kb_{ts}g_t$$
       По определению матрицы линейного отображения:
       $$(\psi \circ \phi)(e_i) = \sum \limits_{l=1}^kc_{li}g_l \tab[0.3cm](\ast)$$ 
       По определению композиции:
@@ -1540,6 +1542,7 @@ $V$- конечномерное векторное простанство над
     Если $f$ - кососимметричная функция и $v_1=v_2$, то\\
     $f(v_1,v_2,v_3,\dots, v_n)=-f(v_2,v_1,v_3,\dots, v_n)=a \Longrightarrow a=-a \Longrightarrow a=0$.
   \end{example1}
+
   \subsection{Свойства определителей}
 
   \setcounter{thcount}{0}
@@ -1582,7 +1585,7 @@ $V$- конечномерное векторное простанство над
       \null & \ddots & \null \\
       0 & \null & 1
     \end{pmatrix} \Longrightarrow  \{\overline{e_1},...,\overline{e_n}\}$ - базис в векторном пространстве $\R^n$ 
-    $$\Longrightarrow \overline{e_i} = (a_{i1},...,a_{in}) = a_{i1}\overline{e_1} + \cdots + a_{in}\overline{e_n}$$
+    $$\Longrightarrow \overline{a_i} = (a_{i1},...,a_{in}) = a_{i1}\overline{e_1} + \cdots + a_{in}\overline{e_n}$$
     $$\Longrightarrow f(A) = f(\overline{a_1},...,\overline{a_n}) = f(\sum \limits_{k=1}^na_{1k_1}\overline{e_{k_1}}+ \cdots + a_{nk_n}\overline{e_{k_n}}) = $$
     $$= \sum \limits_{k_1=1}^n ... \sum \limits_{k_n=1}^n a_{1k_1}\cdot ... \cdot a_{nk_n}\cdot f(\overline{e_{k_1}},...,\overline{e_{k_n}}) =$$
     $$\sum \limits_{(k_1,...,k_n)}f(\overline{e_{k_1}},...,\overline{e_{k_n}})\cdot a_{1k_1}\cdot ... \cdot a_{nk_n}$$ 
@@ -1804,8 +1807,225 @@ $V$- конечномерное векторное простанство над
     (к прошлому примеру) $A_{21} = (-1)^{2+1}(-6) = 6$  
   \end{example1}
 
-  % \textbf{Мораль в том, что я не успел....}
-   
+  \begin{lemma}
+    Матрица $\overline{A}$ , полученная из $A$ заменной $i-$ой строки на \\$(0,...,0,a_{ij},0,...,0)$:
+    $$det \overline{A} = det \begin{pmatrix}
+      \null & \null & \vdots & \null & \null \\
+      0 & \cdots & a_{ij} & \cdots & 0 \\
+      \null & \null & \vdots & \null & \null \end{pmatrix} = a_{ij} \cdot A_{ij}$$  
+  \end{lemma} 
+  \begin{proof}
+    $$\begin{vmatrix}
+      a_{11} & ... & ... & ... & a_{1n} \\
+      \vdots & \null & \null & \null & \vdots & \\
+      0 & ... & a_{ij} & ... & 0 \\
+      \vdots & \null & \null & \null & \vdots & \\
+      a_{n1} &  ... & ... & ... & a_{nn}
+    \end{vmatrix} = (-1)^{i-1} \cdot (-1)^{j-1} \cdot \begin{vmatrix}
+      a_{ij} \vline &  0 \\
+      \hline 
+      * \ \ \vline & B
+    \end{vmatrix} = $$ $$ =(-1)^{i+j} \cdot a_{ij}\cdot detB = (-1)^{i+j} \cdot a_{ij} \cdot M_{ij} = a_{ij}\cdot A_{ij}$$
+    где $B$ - подматрица $A$, из которой вычеркнули $i-$ую строку и $j-$ый столбец.
+  \end{proof} 
+  \begin{theoremnum}
+    \begin{enumerate} \tab
+      \item $detA = \sum \limits_{j=1}^na_{ij}A_{ij}$ - формула разложения по $i$-ой строке.
+      \item $detA = \sum \limits_{i=1}^na_{ij}A_{ij}$ - формула разложения по $j$-ому столбцу.
+    \end{enumerate}
+  \end{theoremnum} 
+  \begin{proof}
+    $$detA = \begin{vmatrix}
+      a_{11} & ... & ... & ... & a_{1n} \\
+      \vdots & \null & \null & \null & \vdots & \\
+      a_{i1} & ... & ... & ... & a_{in} \\
+      \vdots & \null & \null & \null & \vdots & \\
+      a_{n1} &  ... & ... & ... & a_{nn}
+    \end{vmatrix} \overset{\text{В силу линейности}}{=} $$ 
+    $$ = \begin{vmatrix}
+      a_{11} & ... & ... & ... & a_{1n} \\
+      \vdots & \null & \null & \null & \vdots & \\
+      a_{i1} & 0 & ... & ... & 0 \\
+      \vdots & \null & \null & \null & \vdots & \\
+      a_{n1} &  ... & ... & ... & a_{nn}
+    \end{vmatrix} + ... + \begin{vmatrix}
+      a_{11} & ... & ... & ... & a_{1n} \\
+      \vdots & \null & \null & \null & \vdots & \\
+      0 & ... & ... & 0 & a_{in} \\
+      \vdots & \null & \null & \null & \vdots & \\
+      a_{n1} &  ... & ... & ... & a_{nn}
+    \end{vmatrix} = $$ 
+    $$ = a_{i1}A_{i1} + ... + a_{in}A_{in} = \sum \limits_{j=1}^na_{ij}A_{ij}$$ 
+  \end{proof} 
+  \subsection{Определитель Вандермонда}
+  \begin{definition}
+    $V(x_1,...,x_n$) - определитель Вандермонда.
+    $$V(x_1,...,x_n) = \begin{vmatrix}
+      1 & 1 & 1 & ... & 1 \\
+      x_1 & x_2 & x_3 & ... & x_n \\
+      x_1^2 & x_2^2 & x_3^2 & ... & x_n^2 \\
+      \vdots & \vdots & \vdots & ... & \vdots \\
+      x_1^{n-1} & x_2^{n-1} & x_3^{n-1} & ... & x_n^{n-1}
+    \end{vmatrix} = \prod\limits_{1\leq i \leq j \leq n} (x_i - x_j)$$  
+  \end{definition}
+  
+
+  Вычисление индукции по $n$ \\ 
+  База: $n=2: \begin{vmatrix}
+    1 & 1\\ x_1 & x_2 \end{vmatrix} = x_2 - x_1$ \\
+  Пусть верно для $(n-1)$, тогда вычислим для $n$: 
+  \begin{multline*}
+    V(x_1,...,x_n) \overset{(1)}{=} \\ 
+    \overset{(1)}{=} \begin{vmatrix}
+      1 & 1 & 1 & ... & 1 \\
+      0 & x_2-x_1 & x_3 & ... & x_n - x_1 \\
+      0 & x_2^2 -x_1x_2 & x_3^2-x_1x_3 & ... & x_n^2-x_1x_n \\
+      \vdots & \vdots & \vdots & ... & \vdots \\
+      0 & x_2^{n-1}-x_1x_2^{n-2} & x_3^{n-1}-x_1x_3^{n-2} & ... & x_n^{n-1}-x_1x_n^{n-2}
+    \end{vmatrix} \overset{(2)}{=} \tab[3cm]\\ 
+    \overset{(2)}{=} \begin{vmatrix}
+      x_2-x_1 & x_3 & ... & x_n - x_1 \\
+      x_2^2 -x_1x_2 & x_3^2-x_1x_3 & ... & x_n^2-x_1x_n \\
+      \vdots & \vdots & ... & \vdots \\
+      x_2^{n-1}-x_1x_2^{n-2} & x_3^{n-1}-x_1x_3^{n-2} & ... & x_n^{n-1}-x_1x_n^{n-2}
+    \end{vmatrix} \overset{(3)}{=} \tab[-0.2cm]\\
+    \overset{(3)}{=} \begin{vmatrix}
+    x_2-x_1 & x_3 & ... & x_n - x_1 \\
+    x_2(x_2-x_1) & x_3(x_3-x_1) & ... & x_n(x_n-x_1) \\
+    \vdots & \vdots & ... & \vdots \\
+    x_2^{n-2}(x_2-x_1) & x_3^{n-2}(x_3-x_1) & ... & x_n^{n-2}(x_n-x_1)
+    \end{vmatrix} =
+  \end{multline*}
+  \begin{multline*}
+    = \prod\limits_{j=2}^{n}(x_j - x_i) \begin{vmatrix}
+      1 & 1 & ... & 1\\
+      x_2 & x_3 & ... & x_n\\
+      \vdots & \vdots & ... & \vdots \\
+      x_2^{n-2} & x_3^{n-2} & ... & x_n^{n-2}
+      \end{vmatrix} = \\
+      = \prod\limits_{j=2}^{n}(x_j - x_1)\prod\limits_{2\leq i \leq j \leq n} (x_i - x_j) = \prod\limits_{1\leq i \leq j \leq n} (x_i - x_j)
+  \end{multline*}
+  (1) Из каждой строки, начиная с последней, вычитаем предыдущую умноженную на $x_1$ \\
+  (2) По теореме об определителе нулей \\
+  (3) Выносим $(x_i - x_1)$ 
+  \begin{consequense}
+    (О фальшивом разложение определителя) \\
+    Пусть $A = (a_{ij})$ - крадратная матрица порядка $n$, тогда:
+    $$\sum \limits_{j=1}^n a_{ij}A_{kj} = 0 \text{ (при }i \not = k) (*)$$ 
+    $$\sum \limits_{i=1}^n a_{ij}A_{ik} = 0 \text{ (при }j \not = k)$$ 
+    $(*)$ - Т.е. алгебраическое дополнение берем из другой строки
+  \end{consequense} 
+  \begin{proof}
+    Для сторок (для столбцов аналогично) 
+    $$A = \begin{pmatrix}
+      \null && \overline{a_1} && \null \\
+      \null && \overline{a_2} && \null \\
+      \null && \vdots && \null \\
+      \null && \overline{a_n} && \null 
+    \end{pmatrix}$$ 
+    Рассмотрим матрицу $B$, где вместо $k$-ой строки стоит $i$-ая. 
+    $$detB = \begin{vmatrix}
+      \null && \overline{a_1} && \null \\
+      \null && \vdots && \null \\
+      \null && \overline{a_i} && \null \\
+      \null && \vdots && \null \\
+      \null && \overline{a_i} && \null \\
+      \null && \vdots && \null \\
+      \null && \overline{a_n} && \null  
+    \end{vmatrix}
+    =0 \text{ (т.к совпадающие строки)}$$ 
+    С другой стороны, разложим $detB$ по $k$-ой строке: 
+    $$B = (b_{ij}), \ detB = \sum \limits_{j=1}^nb_{kj}B_{kj} = \sum \limits_{j=1}^na_{ij}A_{kj}$$ 
+  \end{proof} 
+  \subsection{О ранге}
+  \subsubsection{}
+  \begin{definition}
+    Квадратная матрица $A$ порядка $n$ называется невырожденной, если $rkA = n$ (т.е. её сторки ЛНЗ, как и все столбцы)
+  \end{definition}
+  \begin{theoremnum}
+    Квадратная матрица $A$ является невырожденной $\Longleftrightarrow detA \not = 0$ 
+  \end{theoremnum}  
+  \begin{proof}
+    Пусть $A = (a_{ij})$ - крадратная матрица порядка $n$ \\
+    Надо доказать, что $rkA=n \Longleftrightarrow detA \not = 0$ 
+    \begin{itemize}
+      \item[$\underline{\Longleftarrow} $] $detA \not = 0 \Longrightarrow $ (по лемме \eqref{lem8.2}, пункт 1) $A \sim E \Longrightarrow rkA = rkE = n$
+      \item[$\underline{\Longrightarrow} $] $rk = n$. Допустим, что $detA = 0 \Longrightarrow $ (по лемме \eqref{lem8.2}, пункт 2) $A \sim \widetilde{A}$, где $\widetilde{A}$ матрица с нулевой строкой $\Longrightarrow rkA = rk \widetilde{A} < n$. Противоречие $\Longrightarrow detA \not = 0$        
+    \end{itemize}
+  \end{proof} 
+  \begin{consequense} \tab
+    \begin{itemize}
+      \item Все строки квадратной матрицы $A$ ЛНЗ $\Longleftrightarrow detA \not = 0$
+      \item Все столбцы квадратной матрицы $A$ ЛНЗ $\Longleftrightarrow detA \not = 0$
+    \end{itemize}
+  \end{consequense} 
+  \begin{theorem}
+    (О ранге матрицы) \\
+    Ранг матрицы $A$ совпадает с максимальным порядком отличного от нуля минора.
+  \end{theorem}  
+  \begin{proof}
+    Пусть $rkA = r$ 
+    \begin{itemize}
+      \item Докажем, что все миноры порядка $s$, где $s>r$ равны нулю. \\
+      Рассмотрим произвольный минор $M$ порядка $s$: $$M = det\begin{matrix}
+        i_1 & \cdots & i_s \\
+        \vdots & \null & \vdots \\
+        j_1 & \cdots & j_s
+      \end{matrix}$$ 
+      т.к. $s>r$, то строки матрицы $A$ с номерами $i_1,...,i_s$ ЛЗ $\Longrightarrow $ строки, образующие минор ЛЗ $\Longrightarrow M=0$ 
+      \item Докажем, что $\exists$ хотя бы один ненулевой минор $\widetilde{M}$ порядка $r$. \\
+      Т.к. $rkA = r$, то $\exists \ r$ ЛНЗ строк $\Longrightarrow rkB = r \Longrightarrow $ в $B \ \exists \ r $ ЛНЗ столбцов. Сформируем матрицу $C$ из этих столбцов $\Longrightarrow detC \not = 0$ \\
+      $detC$ это и есть искомый минор $\widetilde{M}$     
+    \end{itemize}
+  \end{proof} 
+  \begin{definition}
+     Пусть $M = detA \ \begin{matrix}
+      i_1 & \cdots & i_s \\
+      \vdots & \null & \vdots \\
+      j_1 & \cdots & j_s
+    \end{matrix}$ - минор порядка $s$ \\
+    $i \not \in \{i_1,..,i_s\}, \ j \not \in \{j_1,..,j_s\}$ \vspace{0.3cm}\\
+    $\widetilde{M} = detA \ \begin{matrix}
+      i_1 & \cdots & i_s & i \\
+      \vdots & \null & \null & \vdots \\
+      j_1 & \cdots & j_s & j
+    \end{matrix}$ - минор порядка  $s+1$ \\
+    $\widetilde{M}$ - окаймляющий минор.  
+  \end{definition} 
+  \begin{example1}
+    $$A = \begin{pmatrix}
+      1 & 2 & 3 & 4 \\
+      5 & 6 & 7 & 8 \\
+      9 & 1 & 3 & 5 \\
+      1 & -1 & 0 & 7
+    \end{pmatrix}$$ 
+    $M = detA \ \begin{matrix}
+      1 & 3 \\ 2 & 4
+    \end{matrix} = \begin{vmatrix}
+      1 & 3 \\ 2 & 4
+    \end{vmatrix} = 6$ \vspace{0.3cm}\\
+    $\widetilde{M} = detA \ \begin{matrix}
+      1 & 2 & 3 \\ 2 & 3 & 4
+    \end{matrix} = \begin{vmatrix}
+      1 & 2 & 3 \\ 6 & 7 & 8 \\ 2 & 3 & 4
+    \end{vmatrix} = 7$  
+  \end{example1}
+  
+  Метод окаймляющих миноров: \vspace{0.2cm}\\
+  \tab[7cm]$\exists \ M_1 \not = 0 ?$ \vspace{0.15cm}\\
+  \tab[5.5cm] да $\swarrow \tab[2.8cm] \searrow $ нет \vspace{0.15cm}\\
+  \tab[4.6cm]$\exists \ M_2 \not = 0 ?$ \tab[2.6cm] $rkA =0$ \vspace{0.15cm}\\ 
+  \tab[3.3cm] да $\swarrow \tab[2cm] \searrow $ нет \vspace{0.15cm} \\
+  \tab[2.3cm]$\exists \ M_3 \not = 0 ?$ \tab[2cm] $rkA = 1$ \vspace{0.15cm}\\
+  \tab[1cm] да $\swarrow \tab[2.8cm] \searrow $ нет \vspace{0.15cm}\\
+  \tab[1.3cm]$...$ \tab[4cm] $...$
+  \begin{subtheorem}
+    Пусть $A = (a_{ij})$ матрица размера $m \times n$, $\ exists \ $ минор $M$ порядка $r$, отличный от нуля и все миноры, окаймляющие его, равны нулю. \\
+    Тогда $rkA = r$   
+  \end{subtheorem} 
+  
+
+% \textbf{Мораль в том, что я не успел....}
 \end{document}
 
 
