@@ -156,7 +156,7 @@
       \vdots \\
       a_{m1} 
     \end{pmatrix} $$
-    Если $A=(a_{ij})$ - крадратная, $a_{ij} = 0\ \forall i \neq j$, то $A$ называется диальнольной.
+    Если $A=(a_{ij})$ - квадратная, $a_{ij} = 0\ \forall i \neq j$, то $A$ называется диагональной.
     $$ A =
     \begin{pmatrix}
       a_{11} && \null && \null && 0 \\
@@ -165,7 +165,7 @@
       0 && \null && \null && a_{nn} 
     \end{pmatrix} $$
 
-    Если $A$ - диальнольная и $a_{ii}$ = 1, то $A$ называется единичной.
+    Если $A$ - диагональноая и $a_{ii}$ = 1, то $A$ называется единичной.
     $$ A =
     \begin{pmatrix}
       1 && \null && \null && 0 \\
@@ -312,13 +312,12 @@
     \end{pmatrix} $$ \\
     Вычитаем из кажкой $k$-й строки, начиная со 2-ой, 1-ю строку, умноженную на число $\frac{a_{kj}}{a_{1j}}$. Получает вид: 
     $$\tilde{A} =\begin{pmatrix}
-      0 && 0 && \vline && * && \null \\
-      \vdots && \vdots && \vline && * && * \\
-      \null && \null && \vline && \vdots && \null \\
-      \vdots && \vdots && \vline && \vdots && \null  \\
-      0 && 0 && \vline && \vdots && \null  \\
-    \end{pmatrix}$$ \\
-    К правой части матрицы применяем индукцию и проводим матрицу к ступенчатому виду.
+      a_{ij}  && * && \cdots && * \\ \hline
+      0 \ \vline&& * && \cdots && *\\
+      \vdots \tab[0.27cm] \vline&& * && \cdots && * \\
+      0 \ \vline&& * && \cdots && *  \\
+    \end{pmatrix}$$
+    К правой части матрицы (без 1 столбца и 1 строки) применяем индукцию и проводим матрицу к ступенчатому виду.
   \end{proof}
   \begin{remark}
     Этот метод называется  методом Гауса.
@@ -850,7 +849,7 @@ $V$- конечномерное векторное простанство над
       \vdots \\
       \lambda_1a_{m1} + \lambda_2a_{m2} + \cdots + \lambda_na_{mn} = 0
     \end{cases}$ 
-    $\Longrightarrow \lambda_1,...,\lambda_m - \text{решение ОСЛУ } AX=0$. \\ $\\$ 
+    $\Longrightarrow \lambda_1,...,\lambda_n - \text{решение ОСЛУ } AX=0$. \\ $\\$ 
     Т.к. при ЭП над уравнениями множество решений не меняется, поэтому $\lambda_1,...,\lambda_n$ - это решение ОСЛУ $\widetilde{A}X=0$
     $\Longrightarrow \lambda_1 \widetilde{A_1} + \cdots + \lambda_n \widetilde{A_n} = 0$ \\
     Отсюда получаем, что если $A_{i_1},...,A_{i_s}$ - максимальная ЛНЗ система столбцов в $A$, то $\widetilde{A_{i_1}},...,\widetilde{A_{i_s}}$ - максимальная ЛНЗ система столбцов в $\widetilde{A}$ $\Longrightarrow rk\{\widetilde{A_1},...,\widetilde{A_n}\} = rk\{A_1,...,A_n\}.$ 
@@ -899,7 +898,7 @@ $V$- конечномерное векторное простанство над
     \vdots \\
     a_{m1}x_1 + ... + a_{mn}x_n = b_m
   \end{cases} (AX = B)$
-  \begin{theorem} (Кронекера-Копелли)
+  \begin{theorem} (Кронекера-Капелли)
     \begin{enumerate}
       \item (Критерий совместимости СЛУ) \\ CЛУ $AX = B$ совместна $\Longleftrightarrow rk(A|B) = rkA$ 
       \item (Критерий определенности СЛУ) \\ Совместная СЛУ $AX =B$ - определенна $\Longleftrightarrow rk(A|B) = rkA = n$ 
@@ -1621,7 +1620,7 @@ $V$- конечномерное векторное простанство над
     \item ЭП3 $\overline{a_i} \to \mu \overline{a_i}, \mu \not = 0$ \tab[0.45cm] $det$ умножится на $\mu$. 
   \end{itemize}
   \begin{subtheorem}
-    Определитель верхней треугольной матрицы равен произведению её диальнольных элементов.
+    Определитель верхней треугольной матрицы равен произведению диагональных элементов.
   \end{subtheorem} 
   \begin{proof}
     $\begin{vmatrix}
@@ -1907,7 +1906,7 @@ $V$- конечномерное векторное простанство над
   \end{multline*}
   (1) Из каждой строки, начиная с последней, вычитаем предыдущую умноженную на $x_1$ \\
   (2) По теореме об определителе нулей \\
-  (3) Выносим $(x_i - x_1)$ 
+  (3) Выносим $(x_j - x_1)$ 
   \begin{consequense}
     (О фальшивом разложение определителя) \\
     Пусть $A = (a_{ij})$ - крадратная матрица порядка $n$, тогда:
@@ -2023,7 +2022,20 @@ $V$- конечномерное векторное простанство над
     Пусть $A = (a_{ij})$ матрица размера $m \times n$, $\ exists \ $ минор $M$ порядка $r$, отличный от нуля и все миноры, окаймляющие его, равны нулю. \\
     Тогда $rkA = r$   
   \end{subtheorem} 
-  
+  \begin{proof}
+    Пусть $M = detA \ \begin{matrix}
+      i_1 & \cdots & i_r \\
+      \vdots & \null & \vdots \\
+      j_1 & \cdots & j_r
+    \end{matrix}$. \vspace{0.3cm} Т.к. $M \not = 0$, то строки матрицы $A$ с номерами $i_1,...,i_r$ ЛНЗ $\Longrightarrow rkA \geq r$ \\
+    Предположим, что $rkA \geq r+1$. Т.е. $\ \exists \ $ ЛНЗ строка (или больше). Рассмотрим строки $\overline{a_{i_1}},...,\overline{a_{i_r}}$, которые формируют минор $M$. Они ЛНЗ. \\
+    Т.к. $rkA \geq z+1$, то $\ \exists \ i \not \in \{i_1,...,i_r\}: $ не выражаются линейно через \\ $\overline{a_{i_1}},...,\overline{a_{i_r}} \Longrightarrow \overline{a_{i_1}},...,\overline{a_{i_r}}$ - ЛНЗ. \\
+    Образуем из этих строк матрицы $B \Longrightarrow rkB = r+1 \Longrightarrow \ \exists \ r+1$ ЛНЗ столбец. \\
+    Столбцы с номерами $j_1,...,j_r$ ЛНЗ, т.к. $M \not = 0$ \\
+    Т.к. $rkB = r+1$, то $\ \exists \ j \not \in \{j_1,...,j_r\}$: столбец с номером $j$ не выражается через столбцы с номерами $j_1,...,j_r$ \\
+    Расмотрим подматрицу $C$ матрицы $B$, составленную из столбцов с номерами $j_1,...,j_r,j \Longrightarrow C-$ квадратная матрица порядка $r+1$ из ЛНЗ столбцов $\Longrightarrow detC \not = 0$\\
+    $\Longrightarrow $ т.к. $det C $ является окаймляющим минора $M$, то получаем противоречие условию $\Longrightarrow rkA = r$.    
+  \end{proof} 
 
 % \textbf{Мораль в том, что я не успел....}
 \end{document}
