@@ -721,7 +721,7 @@ $V$- конечномерное векторное простанство над
     Всякое конечномерное векторное пространство над $\R$ обладает базисом. Более того, из любого конечного порожденного множества можно выбрать базис.
   \end{theorem} 
   \begin{proof}
-    Пусть $S$- какое-то порожденное множество векторного пространства $V$. \\
+    Пусть $S$ - какое-то порождающее множество векторного пространства $V$. \\
     Если $S$ - ЛНЗ, то $S$ - базис \\
     Если $S$ - ЛЗ, то по критерию о ЛЗ один из векторов $S_1$ множества $S$ линейно выражается через остальные. \\
     Тогда $S_1$ = $S\setminus\{s_1\}$ - конечное пораждащее множество. ч.т.д. \\
@@ -732,7 +732,7 @@ $V$- конечномерное векторное простанство над
   \end{theorem} 
   \begin{proof}
     Пусть есть два базиса $\{e_1,...,e_n\}$ и $\{f_1,...,f_m\}$ векторного пространства $V$. 
-    Тогда каждый вектор $f_i$ выражается через $e_1,...,e_m$. \\
+    Тогда каждый вектор $f_i$ выражается через $e_1,...,e_n$. \\
     По ОЛЛЗ: $\{f_1,...,f_m\}$ - ЛЗ $\Longrightarrow \{f_1,...,f_m\}$ - не базис $\Longrightarrow $ противоречие.  
   \end{proof} 
   \begin{definition}
@@ -778,7 +778,7 @@ $V$- конечномерное векторное простанство над
     Если $V=\langle S \rangle$, тогда $S$- базис. \\
     Если $V \neq \langle S \rangle$ , то $\exists s_1 \in V \setminus \langle S \rangle$ \\
     $\Longrightarrow s_1$ линейно невыражается через $S$ $\Longrightarrow \text{(По лемме \ref{lem2}.) } S_1=S \cup \{s_1\}$ - ЛНЗ. \\
-    $\Longrightarrow $ Если $V = \langle S \rangle$, то $S_1$ базис, иначе $\exists S_2 \in V \setminus \langle S_1 \rangle$, и т.д. \\
+    $\Longrightarrow $ Если $V = \langle S_1 \rangle$, то $S_1$ базис, иначе $\exists S_2 \in V \setminus \langle S_1 \rangle$, и т.д. \\
     Этот процесс прервется на конечном шаге, т.к. пространство $V$- конечное. (Если $dimV \neq n, \text{то} \not\exists$ ЛНЗ системы с числом векторов $> n$) 
   \end{proof} 
   \begin{consequense} 
@@ -825,31 +825,33 @@ $V$- конечномерное векторное простанство над
    Ранг матрицы $A$ равен числу ненулевых строк матрицы струпенчатого вида, к которому можно привести матрицу $A$ с помощью элементарных преобразований строк.
   \begin{proof}
     $A \overset{\text{ЭП строк}}{\longrightarrow } A_{\text{ст}} \Longrightarrow  rkA = rkA_{\text{ст}}$ \\
-    \includegraphics[width=5cm]{image/matr2.png}
-    $a_{i_11},...,a_{i_ss}$ - лидеры строк в $A_{\text{ст}} \Longrightarrow a_{i_11} \neq 0,...,a_{i_ss} \neq 0$ \\
+    \includegraphics[width=5cm]{image/matr2.pdf}
+    $a_{1i_1},...,a_{si_s}$ - лидеры строк в $A_{\text{ст}} \Longrightarrow a_{1i_1} \neq 0,...,a_{si_s} \neq 0$ \\
     Очевидно, что $rkA_{\text{ст}}\leq s$. Достаточно доказать, что ненулевые строки ЛНЗ. Рассмотрим ЛК: \\
-    $\lambda_1(0,...,0,a_{i_11},\ast,...,\ast) + \lambda_2(0,...,0,a_{i_22},\ast,...,\ast) + \cdots + \lambda_s(0,...,0,a_{i_ss},\ast,...,\ast) = (0,...,0)$ \\
-    $(0,...,0,\lambda_1 a_{i_11},...,\lambda_1a_{i_21} + \lambda_2a_{i_22},...) = (0,...,0) \Longrightarrow \lambda_1 \underbrace {a_{i_11}}_{\text{лидер}}= 0 \Longrightarrow \lambda_1 = 0$ \\
-    $\lambda_1a_{i_21} + \lambda_2\underbrace {a_{i_22}}_{\text{лидер}} = 0 \Longrightarrow \lambda_2 = 0$ и т.д. \\
+    $\lambda_1(0,...,0,a_{1i_1},\ast,...,\ast) + \lambda_2(0,...,0,a_{2i_2},\ast,...,\ast) + \cdots + \lambda_s(0,...,0,a_{si_s},\ast,...,\ast) = (0,...,0)$ \\
+    $(0,...,0,\lambda_1 a_{1i_1},...,\lambda_1a_{i_21} + \lambda_2a_{2i_2},...) = (0,...,0) \Longrightarrow \lambda_1 \underbrace {a_{1i_1}}_{\text{лидер}}= 0 \Longrightarrow \lambda_1 = 0$ \\
+    $\lambda_1a_{i_21} + \lambda_2\underbrace {a_{2i_2}}_{\text{лидер}} = 0 \Longrightarrow \lambda_2 = 0$ и т.д. \\
     Получаем, что $\lambda_1 = 0,...,\lambda_s = 0 \Longrightarrow$ это ЛК - ЛНЗ. 
   \end{proof} 
   \textbf{Предложение 2.} 
   Ранг системы столбцов не изменяется при элементарных преобразованиях над строками. 
-  \begin{proof}  
-    $A \overset{\text{ЭП строк}}{\longrightarrow } \widetilde{A}$. Пусть $A = (a_{ij}) = (\underbrace{A_1,...,A_n}_{\text{столбцы }A})$ 
-    $\widetilde{A} = (\widetilde{a_{ij}}) = (\widetilde{A_1},...,\widetilde{A_n})$. 
-    Докажем, что если для некоторого числа $\lambda_1,...,\lambda_n \in \R$ выполнено: $\lambda_{1}A_1 + \cdots + \lambda_nA_n = 0$, то для этих же чисел  $\lambda_1 \widetilde{A_1} + \cdots + \lambda_n \widetilde{A_n} = 0$ (Верно и обратное, т.к. ЭП обратимы, т.е. если для каких-то чисел $\lambda_i \in \R: \sum \lambda_i \widetilde{A_1} = 0$, то $\sum \lambda_i A_i = 0$). \\
+  
+  \begin{proof} 
+    $$A \overset{\text{ЭП строк}}{\longmapsto}\widetilde{A}$$
+    Пусть $A = (a_{ij}) = (\underbrace{A_1,...,A_n}_{\text{столбцы }A})$, $\widetilde{A} = (\widetilde{a_{ij}}) = (\underbrace{\widetilde{A_1},...,\widetilde{A_n}}_{\text{столбцы }\widetilde{A}})$. \vspace{0.3cm} \\
+    Докажем, что если для некоторого числа $\lambda_1,...,\lambda_n \in \R$ выполнено:\\ $\lambda_{1}A_1 + \cdots + \lambda_nA_n = 0$, то для этих же чисел  $\lambda_1 \widetilde{A_1} + \cdots + \lambda_n \widetilde{A_n} = 0$ 
+    (Верно и обратное, т.к. ЭП обратимы, т.е. если для каких-то чисел $\lambda_i \in \R: \sum \lambda_i \widetilde{A_1} = 0$, то $\sum \lambda_i A_i = 0$). \\
     Дано: $\lambda_1A_1 + \cdots + \lambda_nA_n = \begin{pmatrix}
       0\\
       \vdots\\
-      0\\
-    \end{pmatrix}\Longrightarrow$ \\
-    $ \begin{cases}
+      0
+    \end{pmatrix}\Longrightarrow$ 
+    $\begin{cases}
       \lambda_1a_{11} + \lambda_2a_{12} + \cdots + \lambda_na_{1n} = 0 \\
       \vdots \\
       \lambda_1a_{m1} + \lambda_2a_{m2} + \cdots + \lambda_na_{mn} = 0
     \end{cases}$ 
-    $\Longrightarrow \lambda_1,...,\lambda_n - \text{решение ОСЛУ } AX=0$. \\ $\\$ 
+    $\Longrightarrow \vspace{0.3cm} \\  \lambda_1,...,\lambda_n - \text{решение ОСЛУ } AX=0$. 
     Т.к. при ЭП над уравнениями множество решений не меняется, поэтому $\lambda_1,...,\lambda_n$ - это решение ОСЛУ $\widetilde{A}X=0$
     $\Longrightarrow \lambda_1 \widetilde{A_1} + \cdots + \lambda_n \widetilde{A_n} = 0$ \\
     Отсюда получаем, что если $A_{i_1},...,A_{i_s}$ - максимальная ЛНЗ система столбцов в $A$, то $\widetilde{A_{i_1}},...,\widetilde{A_{i_s}}$ - максимальная ЛНЗ система столбцов в $\widetilde{A}$ $\Longrightarrow rk\{\widetilde{A_1},...,\widetilde{A_n}\} = rk\{A_1,...,A_n\}.$ 
@@ -880,14 +882,14 @@ $V$- конечномерное векторное простанство над
   \end{theoremnum} 
   \begin{proof}
     Было доказанно, что ранг системы строк (столбцов) матрицы не изменяется при ЭП над строками и над столбцами. Приведем матрицу $A$ к ступенчатому виду с помощью ЭП над строками. $A_\text{ст}$ имеет вид:
-    $$\includegraphics[width=4cm]{image/matr4.png}$$
-    $$a_{i_11} \neq 0,...,a_{i_ss} \neq 0$$ 
+    $$\includegraphics[width=5cm]{image/matr4.pdf}$$
+    $$a_{1i_1} \neq 0,...,a_{si_s} \neq 0$$ 
     Используем $i_1$-столбец, вычитая этот столбец из оставшихся с подходящими коэфициентами, получаем:
-    $$\includegraphics[width=4cm]{image/matr3.png}$$ 
+    $$\includegraphics[width=5cm]{image/matr3.pdf}$$ 
     Далее используем $i_2$-столбец, обнуляем все элементы правее $a_{i_22}$. В итоге получаем: $$\begin{pmatrix}
-      a_{i_1,1} && \null && 0\\
+      a_{1i_1} && \null && 0\\
       \null && \ddots && \null\\
-      0 && \null && a_{i_ss}
+      0 && \null && a_{si_s}
     \end{pmatrix}$$
     Очев, что у такой матрицы ранг системы строк = рангу системы столбцов.
   \end{proof} 
@@ -1579,20 +1581,20 @@ $V$- конечномерное векторное простанство над
       тогда $f(A)=\det{A}$.
   \end{theoremnum}
   \begin{proof}
-    $\overline{e_1} = (1,0,...,0),...,\overline{e_n}=(0,...,0,1)$ - строки единичной матрицы $E = \begin{pmatrix}
+    $e_1 = (1,0,...,0),...,e_n=(0,...,0,1)$ - строки единичной матрицы $E = \begin{pmatrix}
       1 & \null & 0\\
       \null & \ddots & \null \\
       0 & \null & 1
-    \end{pmatrix} \Longrightarrow  \{\overline{e_1},...,\overline{e_n}\}$ - базис в векторном пространстве $\R^n$ 
-    $$\Longrightarrow \overline{a_i} = (a_{i1},...,a_{in}) = a_{i1}\overline{e_1} + \cdots + a_{in}\overline{e_n}$$
-    $$\Longrightarrow f(A) = f(\overline{a_1},...,\overline{a_n}) = f(\sum \limits_{k=1}^na_{1k_1}\overline{e_{k_1}}+ \cdots + a_{nk_n}\overline{e_{k_n}}) = $$
-    $$= \sum \limits_{k_1=1}^n ... \sum \limits_{k_n=1}^n a_{1k_1}\cdot ... \cdot a_{nk_n}\cdot f(\overline{e_{k_1}},...,\overline{e_{k_n}}) =$$
-    $$\sum \limits_{(k_1,...,k_n)}f(\overline{e_{k_1}},...,\overline{e_{k_n}})\cdot a_{1k_1}\cdot ... \cdot a_{nk_n}$$ 
-    Осталось доказать, что $f(\overline{e_{k_1}},...,\overline{e_{k_n}}) = sgn(k_1,...,k_n)$. \\
-    Т.к. $f(E) =1$, то $f(A) = f(\overline{e_1},\overline{e_2},...,\overline{e_n}) = sgn(1,2,...,n) (*)$   \\
+    \end{pmatrix} \Longrightarrow  \{e_1,...,e_n\}$ - базис в векторном пространстве $\R^n$ 
+    $$\Longrightarrow \overline{a_i} = (a_{i1},...,a_{in}) = a_{i1}e_1 + \cdots + a_{in}e_n$$
+    $$\Longrightarrow f(A) = f(\overline{a_1},...,\overline{a_n}) = f(\sum \limits_{k_1=1}^na_{1k_1}e_{k_1}+ \cdots + \sum \limits_{k_n=1}^na_{nk_n}e_{k_n}) = $$
+    $$= \sum \limits_{k_1=1}^n ... \sum \limits_{k_n=1}^n a_{1k_1}\cdot ... \cdot a_{nk_n}\cdot f(e_{k_1},...,e_{k_n}) =$$
+    $$= \sum \limits_{(k_1,...,k_n)}f(e_{k_1},...,e_{k_n})\cdot a_{1k_1}\cdot ... \cdot a_{nk_n}$$ 
+    Осталось доказать, что $f(e_{k_1},...,e_{k_n}) = sgn(k_1,...,k_n)$. \\
+    Т.к. $f(E) =1$, то $f(A) = f(e_1,e_2,...,e_n) = sgn(1,2,...,n) (*)$   \\
     Меняя любые два аргумента местами, $f$ меняет знак, т.к. $f$ кососимметрична. С другой стороны, меняя два любые числа перестановки местами, знак перестановки $sgn$ тоже меняет знак. \\
     Любую перестановку можно получить из тривиальной за конечное число транспозиций. \\
-    Т.к. $(*)$ верно, то, делая последовательно транспозицию в перестановке, и такую же перемену аргументов у функции $f$, получим $f(\overline{e_{k_1}},...,\overline{e_{k_n}}) = sgn(k_1,...,k_n)$. 
+    Т.к. $(*)$ верно, то, делая последовательно транспозицию в перестановке, и такую же перемену аргументов у функции $f$, получим $f(e_{k_1},...,e_{k_n}) = sgn(k_1,...,k_n)$. 
   \end{proof} 
   \begin{consequense} \tab
     \begin{enumerate}
