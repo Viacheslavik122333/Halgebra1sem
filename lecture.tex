@@ -39,6 +39,7 @@
 {\phantom{\begin{matrix}#2\end{matrix}}}^{\text{$#1$}}}$}#2}
 
 \newcounter{lemcount}
+\newcounter{lemcount2}
 \newcounter{thcount}
 \theoremstyle{definition}
 \newtheorem*{definition}{Определение}
@@ -54,8 +55,9 @@
 \newtheorem*{properties}{Свойства}
 \newtheorem*{properties1}{Свойство}
 \newtheorem{lemmanum}[lemcount]{Лемма}
+\newtheorem{lemmanum2}[lemcount2]{Лемма}
 \newtheorem{theoremnum}[thcount]{Теорема}
-\newtheorem{theoremL}{Теорема}[section]
+% \newtheorem{theoremL}{Теорема}[section]
 
 \usepackage[russian]{babel}
 \addto\captionsenglish{% Replace "english" with the language you use
@@ -1011,7 +1013,6 @@ $V$- конечномерное векторное простанство над
       \end{pmatrix} = \mu_{r+1}F_1 + \cdots + \mu_nF_{n-r}$ 
     \end{enumerate}
   \end{proof}
-  \newpage
   \begin{example1} Найти ФСР ОСЛУ \end{example1} 
   $\begin{cases}
     x_1 + x_2 + 3x_3+5x_4-x_5 = 0\\
@@ -1092,10 +1093,10 @@ $V$- конечномерное векторное простанство над
     \end{pmatrix}$ - решение СЛУ, т.е. $X_0 + Y \in M$ 
     $$AX=B: \  a_{i1}x_1^0 + \cdots + a_{in}x_n^0 = b_i$$
     $$AX=0: \ a_{i1}y_1 + \cdots + a_{in}y_n = 0$$
-    где $i = \overline{1,n}$. \\
+    где $i = \overline{1,m}$. \\
     Проверим, что $X_0 + Y \in M$ 
-    $$a_{i1}(x_1^0 + y_1) + \cdots + a_{in}(x_{in} + y_n) = b_i$$
-    $$(\underbrace{a_{i1}x_1^0 + \cdots + a_{in}x_{in}}_{b_i \text{ (т.к. } X_0 \in M)}) + (\underbrace{a_{i1}y_1 + \cdots + a_{in}y_n}_{0 \text{ (т.к. } Y \in M_{\text{одн}})}) = b_i$$  
+    $$a_{i1}(x_1^0 + y_1) + \cdots + a_{in}(x_n^0 + y_n) = b_i$$
+    $$(\underbrace{a_{i1}x_1^0 + \cdots + a_{in}x_n^0}_{b_i \text{ (т.к. } X_0 \in M)}) + (\underbrace{a_{i1}y_1 + \cdots + a_{in}y_n}_{0 \text{ (т.к. } Y \in M_{\text{одн}})}) = b_i$$  
     Обратное утверждение:
     $M \subseteq X_0 + M_{\text{одн}}$ \\
     Рассмотрим произвольное решение $Z = \begin{pmatrix}
@@ -1280,9 +1281,9 @@ $V$- конечномерное векторное простанство над
   \end{pmatrix}$$  
   \vspace{0.3cm}
   \begin{subtheorem}
-    Пусть $\mathcal{E}  = \{e_1,...,e_n\}$ - базис в $V$ над $\R$ ; $\mathcal{F}  = \{f_1,...,f_n\}$ - базис в $W$ над $\R$. Тогда:
+    Пусть $\mathcal{E}  = \{e_1,...,e_n\}$ - базис в $V$ над $\R$ ; $\mathcal{F}  = \{f_1,...,f_m\}$ - базис в $W$ над $\R$. Тогда:
     \begin{itemize}
-      \item Каждому линейному отображению $\phi: V \to W$ однозначно соответствуют матрица размера $m \times n$ этого линейного отображения в базисах $\mathcal{E}, \mathcal{F}$
+      \item Каждому линейному отображению $\phi: V \to W$ однозначно соответствуют матрица размера $m \times n$ этого линейного отображения в базисах $\mathcal{E} \text{ и } \mathcal{F}$.
       \item Любой матрицы $A$ размера $m \times n$ однозначно соответствует линейное отображение $\phi: V \to W$, для которого $A$ - матрица этого линейного отображения в $\mathcal{E}, \mathcal{F}$.
     \end{itemize}
   \end{subtheorem} 
@@ -1402,7 +1403,7 @@ $V$- конечномерное векторное простанство над
   \begin{enumerate}
     \item $(A^T)^T = A$
     \item $(\lambda A)^T = \lambda A^T$
-    \item $(A+B)^T + A^T + B^T$
+    \item $(A+B)^T = A^T + B^T$
     \item $(AB)^T = B^TA^T$   
     \begin{proof}
       4. $\underset{m \times k}{A}, \underset{k \times n}{B} \Longrightarrow \underset{n \times k}{B^T}, \underset{k \times m}{A^T}$ (размеры совпадают) \\
@@ -1587,7 +1588,7 @@ $V$- конечномерное векторное простанство над
       0 & \null & 1
     \end{pmatrix} \Longrightarrow  \{e_1,...,e_n\}$ - базис в векторном пространстве $\R^n$ 
     $$\Longrightarrow \overline{a_i} = (a_{i1},...,a_{in}) = a_{i1}e_1 + \cdots + a_{in}e_n$$
-    $$\Longrightarrow f(A) = f(\overline{a_1},...,\overline{a_n}) = f(\sum \limits_{k_1=1}^na_{1k_1}e_{k_1}+ \cdots + \sum \limits_{k_n=1}^na_{nk_n}e_{k_n}) = $$
+    $$\Longrightarrow f(A) = f(\overline{a_1},...,\overline{a_n}) = f(\sum \limits_{k_1=1}^na_{1k_1}e_{k_1}, ..., \sum \limits_{k_n=1}^na_{nk_n}e_{k_n}) = $$
     $$= \sum \limits_{k_1=1}^n ... \sum \limits_{k_n=1}^n a_{1k_1}\cdot ... \cdot a_{nk_n}\cdot f(e_{k_1},...,e_{k_n}) =$$
     $$= \sum \limits_{(k_1,...,k_n)}f(e_{k_1},...,e_{k_n})\cdot a_{1k_1}\cdot ... \cdot a_{nk_n}$$ 
     Осталось доказать, что $f(e_{k_1},...,e_{k_n}) = sgn(k_1,...,k_n)$. \\
@@ -1598,7 +1599,7 @@ $V$- конечномерное векторное простанство над
   \end{proof} 
   \begin{consequense} \tab
     \begin{enumerate}
-      \item Если в крадратной матрице $A$ одна из строк равна линейной комбинации остальных, то $detA = 0$
+      \item Если в квадратной матрице $A$ одна из строк равна линейной комбинации остальных, то $detA = 0$
       \item Если к строке квадратной матрицы $A$ применить ЭП1 (т.е. к строке прибавить другую, умноженную на число), то определитель не изменится. 
     \end{enumerate}
   \end{consequense} 
@@ -1615,7 +1616,7 @@ $V$- конечномерное векторное простанство над
       \end{pmatrix}$
     \end{example1}  
   \end{definition} 
-  Модно проследить, как влияют ЭП на определитель:
+  Можно проследить, как влияют ЭП на определитель:
   \begin{itemize}
     \item ЭП1 = $\overline{a_i} \to \overline{a_i} + \lambda \overline{a_j}$ \tab[0.3cm] $det$ не изменится. 
     \item ЭП2 $\overline{a_i} \to \overline{a_j}$ \tab[2.15cm] $det$ не изменится. 
@@ -1667,24 +1668,24 @@ $V$- конечномерное векторное простанство над
     \includegraphics[width=7cm]{image/image8.2.2.pdf}
     \includegraphics[width=5.6cm]{image/image8.2.3.pdf}
   \end{definition} 
-  \setcounter{lemcount}{0}
-  \begin{lemmanum} \label{lem8.1}\tab 
+  % \setcounter{lemcount}{0}
+  \begin{lemmanum2}  \label{lemma1} \tab 
     \begin{itemize}
       \item[\textbf{1.1}] Любые ЭП над строками матрицы $A$ равносильно умножению матрицы $A$ слева на элементарную матрицу, т.е. \\
       $A \leadsto  \widetilde{A} \Longleftrightarrow \widetilde{A} = T \cdot A$ где $T$ - элементарная матрица, такая что $E \leadsto  T$
       \item[\textbf{1.2}] Любые ЭП над столбцами матрицы $A$ равносильно умножению матрицы $A$ справа на элементарную матрицу.
     \end{itemize}
-  \end{lemmanum} 
+  \end{lemmanum2} 
   \begin{proof}
     Непосредственная проверка
   \end{proof}
-  \begin{lemmanum} \label{lem8.2}
+  \begin{lemmanum2} \label{lemma2}
     Пусть $A$ - квадратная матрица порядка $n$, тогда:
     \begin{enumerate}
-      \item Если $detA \not = 0$, то с помощью ЭП над строками, $A$ привести к $E$. 
+      \item Если $detA \not = 0$, то с помощью ЭП над строками, $A$ можно привести к $E$. 
       \item Если $detA = 0$, то с помощью ЭП над строками, в $A$ можно получить нулевую строку
     \end{enumerate}
-  \end{lemmanum} 
+  \end{lemmanum2} 
   \begin{proof}
     Методом Гаусса любую матрицу можно привести к ступенчатому виду. Ступенчатый вид для квадратной матрицы является верхнетреугольной, т.е.:
     $$A \leadsto \widetilde{A} = \begin{pmatrix}
@@ -1706,10 +1707,10 @@ $V$- конечномерное векторное простанство над
   \begin{proof}
     Из ассоциативности умножения $T(AB) = (TA)B$, где $T$ элементарная матрица, получаем, что элементраное преобразование над строками матрицы $A$ соответствует элементарному преобразованию строк матрицы $AB$.  
     \begin{itemize}
-      \item[1 случай.] $detA = 0$ (по лемме\eqref{lem8.1}, пункт 2)$\Longrightarrow A\leadsto \widetilde{A}$( с нулевой строкой) \\
+      \item[1 случай.] $detA = 0$ (по лемме \eqref{lemma1}, пункт 2)$\Longrightarrow A\leadsto \widetilde{A}$( с нулевой строкой) \\
       $\Longrightarrow \widetilde{A} = \cdot(T_1 \cdot ... \cdot T_k)\cdot A, \ $ где $T_i$ - матрицы элементарных преобразований. \\
       $\Longrightarrow (T_1 \cdot ... \cdot T_k)(AB) = ((T_1 \cdot ... \cdot T_k)A)B = \widetilde{A}B$ $\Longrightarrow det AB =0$, т.к. $AB \leadsto \widetilde{A}B$ 
-      \item[2 случай.] $detA \not =$ 0 (по лемме\eqref{lem8.1}, пункт 1) $\Longrightarrow A\leadsto E \Longrightarrow E=(T_1 \cdot ... \cdot T_k)A$, \ где $T_i$ - матрицы элементарных преобразований. \\
+      \item[2 случай.] $detA \not =$ 0 (по лемме \eqref{lemma1}, пункт 1) $\Longrightarrow A\leadsto E \Longrightarrow E=(T_1 \cdot ... \cdot T_k)A$, \ где $T_i$ - матрицы элементарных преобразований. \\
       $(T_1 \cdot ... \cdot T_k)(AB) = ((T_1 \cdot ... \cdot T_k)A)B = EB = B$ \\
       $\Longrightarrow detAB = c \cdot det((T_1 \cdot ... \cdot T_k)AB) = c \cdot detB$  \\
       Рассмотрим отношение: $$\frac{detAB}{detA} = (*) $$ 
@@ -1732,7 +1733,7 @@ $V$- конечномерное векторное простанство над
   \begin{proof} \tab
     \begin{itemize}
       \item[1 случай.] $detB = 0$ \\
-      (По лемме \eqref{lem8.2}, пункт 2) $B\leadsto \widetilde{B}$ 
+      (По лемме \eqref{lemma2}, пункт 2) $B\leadsto \widetilde{B}$ 
       Производя точно такие же ЭП над последними $m$ строками матрицы $(*)$ , получаем нулевую строку $$\Longrightarrow det \begin{pmatrix}
         A & \vline & C \\
         \hline
@@ -1745,7 +1746,7 @@ $V$- конечномерное векторное простанство над
         A & \vline & C \\
         \hline
         0 & \vline & B
-      \end{pmatrix} = detA \cdot detB}{detA \cdot detB}$$\\ (По лемме \eqref{lem8.2}, пункт 1) $A\leadsto E$, $B\leadsto E$ \\
+      \end{pmatrix}}{detA \cdot detB}$$\\ (По лемме \eqref{lemma2}, пункт 1) $A\leadsto E$, $B\leadsto E$ \\
       Преобразуем матрицу $A$ с помощью ЭП над стролбцами, которые приводят $A \leadsto E$, преобразуем $B$ с помощью ЭП над строками, которые приводят $B \leadsto E$. Одновременно преобразуем матрицу $(*)$ с помощью таких же ЭП над строками и столбцами, отношение при этом не изменится. \\
       Тогда: 
       $$\frac{det \begin{pmatrix}
@@ -1879,26 +1880,26 @@ $V$- конечномерное векторное простанство над
     V(x_1,...,x_n) \overset{(1)}{=} \\ 
     \overset{(1)}{=} \begin{vmatrix}
       1 & 1 & 1 & ... & 1 \\
-      0 & x_2-x_1 & x_3 & ... & x_n - x_1 \\
+      0 & x_2-x_1 & x_3-x_1 & ... & x_n - x_1 \\
       0 & x_2^2 -x_1x_2 & x_3^2-x_1x_3 & ... & x_n^2-x_1x_n \\
       \vdots & \vdots & \vdots & ... & \vdots \\
       0 & x_2^{n-1}-x_1x_2^{n-2} & x_3^{n-1}-x_1x_3^{n-2} & ... & x_n^{n-1}-x_1x_n^{n-2}
     \end{vmatrix} \overset{(2)}{=} \tab[3cm]\\ 
     \overset{(2)}{=} \begin{vmatrix}
-      x_2-x_1 & x_3 & ... & x_n - x_1 \\
+      x_2-x_1 & x_3-x_1 & ... & x_n - x_1 \\
       x_2^2 -x_1x_2 & x_3^2-x_1x_3 & ... & x_n^2-x_1x_n \\
       \vdots & \vdots & ... & \vdots \\
       x_2^{n-1}-x_1x_2^{n-2} & x_3^{n-1}-x_1x_3^{n-2} & ... & x_n^{n-1}-x_1x_n^{n-2}
     \end{vmatrix} \overset{(3)}{=} \tab[-0.2cm]\\
     \overset{(3)}{=} \begin{vmatrix}
-    x_2-x_1 & x_3 & ... & x_n - x_1 \\
+    x_2-x_1 & x_3-x_1 & ... & x_n - x_1 \\
     x_2(x_2-x_1) & x_3(x_3-x_1) & ... & x_n(x_n-x_1) \\
     \vdots & \vdots & ... & \vdots \\
     x_2^{n-2}(x_2-x_1) & x_3^{n-2}(x_3-x_1) & ... & x_n^{n-2}(x_n-x_1)
     \end{vmatrix} =
   \end{multline*}
   \begin{multline*}
-    = \prod\limits_{j=2}^{n}(x_j - x_i) \begin{vmatrix}
+    = \prod\limits_{j=2}^{n}(x_j - x_1) \begin{vmatrix}
       1 & 1 & ... & 1\\
       x_2 & x_3 & ... & x_n\\
       \vdots & \vdots & ... & \vdots \\
@@ -1911,7 +1912,7 @@ $V$- конечномерное векторное простанство над
   (3) Выносим $(x_j - x_1)$ 
   \begin{consequense}
     (О фальшивом разложение определителя) \\
-    Пусть $A = (a_{ij})$ - крадратная матрица порядка $n$, тогда:
+    Пусть $A = (a_{ij})$ - квадратная матрица порядка $n$, тогда:
     $$\sum \limits_{j=1}^n a_{ij}A_{kj} = 0 \text{ (при }i \not = k) (*)$$ 
     $$\sum \limits_{i=1}^n a_{ij}A_{ik} = 0 \text{ (при }j \not = k)$$ 
     $(*)$ - Т.е. алгебраическое дополнение берем из другой строки
@@ -1941,17 +1942,17 @@ $V$- конечномерное векторное простанство над
   \subsection{О ранге}
   \subsubsection{}
   \begin{definition}
-    Квадратная матрица $A$ порядка $n$ называется невырожденной, если $rkA = n$ (т.е. её сторки ЛНЗ, как и все столбцы)
+    Квадратная матрица $A$ порядка $n$ называется невырожденной, если $rkA = n$ (т.е. её строки ЛНЗ, как и все столбцы)
   \end{definition}
   \begin{theoremnum}
     Квадратная матрица $A$ является невырожденной $\Longleftrightarrow detA \not = 0$ 
   \end{theoremnum}  
   \begin{proof}
-    Пусть $A = (a_{ij})$ - крадратная матрица порядка $n$ \\
+    Пусть $A = (a_{ij})$ - квадратная матрица порядка $n$ \\
     Надо доказать, что $rkA=n \Longleftrightarrow detA \not = 0$ 
     \begin{itemize}
-      \item[$\underline{\Longleftarrow} $] $detA \not = 0 \Longrightarrow $ (по лемме \eqref{lem8.2}, пункт 1) $A \sim E \Longrightarrow rkA = rkE = n$
-      \item[$\underline{\Longrightarrow} $] $rk = n$. Допустим, что $detA = 0 \Longrightarrow $ (по лемме \eqref{lem8.2}, пункт 2) $A \sim \widetilde{A}$, где $\widetilde{A}$ матрица с нулевой строкой $\Longrightarrow rkA = rk \widetilde{A} < n$. Противоречие $\Longrightarrow detA \not = 0$        
+      \item[$\underline{\Longleftarrow} $] $detA \not = 0 \Longrightarrow $ (по лемме \eqref{lemma2}, пункт 1) $A \sim E \Longrightarrow rkA = rkE = n$
+      \item[$\underline{\Longrightarrow} $] $rk = n$. Допустим, что $detA = 0 \Longrightarrow $ (по лемме \eqref{lemma2}, пункт 2) $A \sim \widetilde{A}$, где $\widetilde{A}$ матрица с нулевой строкой $\Longrightarrow rkA = rk \widetilde{A} < n$. Противоречие $\Longrightarrow detA \not = 0$        
     \end{itemize}
   \end{proof} 
   \begin{consequense} \tab
@@ -2003,13 +2004,13 @@ $V$- конечномерное векторное простанство над
     $M = detA \ \begin{matrix}
       1 & 3 \\ 2 & 4
     \end{matrix} = \begin{vmatrix}
-      1 & 3 \\ 2 & 4
+      2 & 4 \\ 1 & 5
     \end{vmatrix} = 6$ \vspace{0.3cm}\\
     $\widetilde{M} = detA \ \begin{matrix}
       1 & 2 & 3 \\ 2 & 3 & 4
     \end{matrix} = \begin{vmatrix}
-      1 & 2 & 3 \\ 6 & 7 & 8 \\ 2 & 3 & 4
-    \end{vmatrix} = 7$  
+      2 & 3 & 4 \\ 6 & 7 & 8 \\ 1 & 3 & 5
+    \end{vmatrix} = 0$  
   \end{example1}
   
   Метод окаймляющих миноров: \vspace{0.2cm}\\
@@ -2021,7 +2022,7 @@ $V$- конечномерное векторное простанство над
   \tab[1cm] да $\swarrow \tab[2.8cm] \searrow $ нет \vspace{0.15cm}\\
   \tab[1.3cm]$...$ \tab[4cm] $...$
   \begin{subtheorem}
-    Пусть $A = (a_{ij})$ матрица размера $m \times n$, $\ exists \ $ минор $M$ порядка $r$, отличный от нуля и все миноры, окаймляющие его, равны нулю. \\
+    Пусть $A = (a_{ij})$ матрица размера $m \times n$, $\ \exists \ $ минор $M$ порядка $r$, отличный от нуля и все миноры, окаймляющие его, равны нулю. \\
     Тогда $rkA = r$   
   \end{subtheorem} 
   \begin{proof}
@@ -2031,8 +2032,8 @@ $V$- конечномерное векторное простанство над
       j_1 & \cdots & j_r
     \end{matrix}$. \vspace{0.3cm} Т.к. $M \not = 0$, то строки матрицы $A$ с номерами $i_1,...,i_r$ ЛНЗ $\Longrightarrow rkA \geq r$ \\
     Предположим, что $rkA \geq r+1$. Т.е. $\ \exists \ $ ЛНЗ строка (или больше). Рассмотрим строки $\overline{a_{i_1}},...,\overline{a_{i_r}}$, которые формируют минор $M$. Они ЛНЗ. \\
-    Т.к. $rkA \geq z+1$, то $\ \exists \ i \not \in \{i_1,...,i_r\}: $ не выражаются линейно через \\ $\overline{a_{i_1}},...,\overline{a_{i_r}} \Longrightarrow \overline{a_{i_1}},...,\overline{a_{i_r}}$ - ЛНЗ. \\
-    Образуем из этих строк матрицы $B \Longrightarrow rkB = r+1 \Longrightarrow \ \exists \ r+1$ ЛНЗ столбец. \\
+    Т.к. $rkA \geq r+1$, то $\ \exists \ i \not \in \{i_1,...,i_r\}: $ не выражаются линейно через \\ $\overline{a_{i_1}},...,\overline{a_{i_r}} \Longrightarrow \overline{a_{i_1}},...,\overline{a_{i_r}}$ - ЛНЗ. \\
+    Образуем из этих строк матрицу $B \Longrightarrow rkB = r+1 \Longrightarrow \ \exists \ r+1$ ЛНЗ столбец. \\
     Столбцы с номерами $j_1,...,j_r$ ЛНЗ, т.к. $M \not = 0$ \\
     Т.к. $rkB = r+1$, то $\ \exists \ j \not \in \{j_1,...,j_r\}$: столбец с номером $j$ не выражается через столбцы с номерами $j_1,...,j_r$ \\
     Расмотрим подматрицу $C$ матрицы $B$, составленную из столбцов с номерами $j_1,...,j_r,j \Longrightarrow C-$ квадратная матрица порядка $r+1$ из ЛНЗ столбцов $\Longrightarrow detC \not = 0$\\
