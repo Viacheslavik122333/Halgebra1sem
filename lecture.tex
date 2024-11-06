@@ -579,7 +579,7 @@
   \begin{properties} \end{properties} 
     \begin{enumerate}
       \item Система из одного вектора $V_1$ ЛЗ $\Longleftrightarrow V_1 = 0$  
-      \item Система из 2-х векторов $v_1 \text{и } v_2$ ЛЗ $\Longleftrightarrow$ они пропорциональные, т.е. $v_1 = \lambda v_2 \\ v_2 = \mu v_1$. 
+      \item Система из 2-х векторов $v_1 \text{и } v_2$ ЛЗ $\Longleftrightarrow$ они пропорциональные, т.е. \\$v_1 = \lambda v_2, \  v_2 = \mu v_1$. 
     \end{enumerate}
   \begin{example1}
     $\R^n$ \\
@@ -821,7 +821,7 @@ $V$- конечномерное векторное простанство над
   \begin{proof} 
     $$\includegraphics[width=12cm]{image/matr1.png}$$
     $$\langle A_1,...,A_m \rangle = \langle \widetilde{A_1},...,\widetilde{A_m} \rangle$$ \\
-    т.е. система строк $A$ эквивалентна системы строк $\widetilde{A}$ $\Longrightarrow rkA = rk \widetilde{A}$. 
+    т.е. система строк $A$ эквивалентна системе строк $\widetilde{A}$ $\Longrightarrow rkA = rk \widetilde{A}$. 
   \end{proof} 
   \begin{subtheorem}
     При элементарных преобразованиях над столбцами, ранг матрицы $A$  не изменяется.
@@ -1063,7 +1063,7 @@ $V$- конечномерное векторное простанство над
   \end{pmatrix} + \mu_4 \begin{pmatrix}
     -9 \\ 4 \\ \hline 0 \\ 1 \\ 0
   \end{pmatrix} + \mu_5 \begin{pmatrix}
-    3 \\ -2 \\ \hline 0 \\ 1 \\ 1 
+    3 \\ -2 \\ \hline 0 \\ 0 \\ 1 
   \end{pmatrix}$$ 
   Такой базис называется нормальный ФСР. 
   \subsection{Неоднородная СЛУ}
@@ -1073,7 +1073,7 @@ $V$- конечномерное векторное простанство над
     \vdots \\
     a_{m1}x_1 + ... + a_{mn}x_n = b_m
   \end{cases} (AX=B)$ \\ $\\$ 
-  Рассмотрим соответствующую ОСЛУ \\ $\\$ 
+  Рассмотрим соответствующую (ассоциированную) к ней ОСЛУ \\ $\\$ 
   $\begin{cases}
     a_{11}x_1 + ... + a_{1n}x_n = 0 \\ 
     a_{21}x_2 + ... + a_{2n}x_n = 0 \\
@@ -1081,7 +1081,7 @@ $V$- конечномерное векторное простанство над
     a_{m1}x_1 + ... + a_{mn}x_n = 0
   \end{cases} (AX=0)$ 
   \begin{theorem}
-    Пусть СЛУ $AX=B$ - совместна. $X_0$ - произвольное частное решение. Тогда множество $M$ всех решений неоднородной СЛУ: $AX=B$ равно сумме частного решения $X_0$ и множество $M_{\text{одн}}$ всех решений соответствующей осднородной СЛУ: $AX=0$ 
+    Пусть СЛУ $AX=B$ - совместна. $X_0$ - произвольное частное решение. Тогда множество $M$ всех решений неоднородной СЛУ: $AX=B$ равно сумме частного решения $X_0$ и множеству $M_{\text{одн}}$ всех решений соответствующей однородной СЛУ: $AX=0$ 
     $$M = X_0 + M_{\text{одн}} = \{X_0 + Y | Y \in M_{\text{одн}}\}$$ 
   \end{theorem}
   \begin{proof}
@@ -1144,9 +1144,9 @@ $V$- конечномерное векторное простанство над
         \item[4)] $\forall A \in Mat_{m \times n}(\R) \ \exists B \in Mat_{m \times n}(\R): A+B=0$ \\В качестве $B$ берем $b_{ij} = -a_{ij}$ 
       \end{itemize}
     \end{proof} 
-    \begin{lalala}
-      $dimM_{m \times n} = m \cdot n$ 
-    \end{lalala}
+    \begin{subtheorem}
+      $dimM_{m \times n} = m \cdot n$
+    \end{subtheorem} 
     \begin{proof}
       Достаточно указать базис \\ 
       $\{E_{st}\}$, $s = \overline{1,m}, \ t = \overline{1,n}$ \\
@@ -1372,9 +1372,9 @@ $V$- конечномерное векторное простанство над
       По определению матрицы линейного отображения:
       $$(\psi \circ \phi)(e_i) = \sum \limits_{l=1}^kc_{li}g_l \tab[0.3cm](\ast)$$ 
       По определению композиции:
-      $$(\psi \circ \phi)(e_i) = \psi(\phi(e_i)) = \psi(\sum \limits_{s=1}^ma_{si}f_s) = \sum \limits_{s=1}^ma_{si}\psi(f_s) =\tab[4cm]$$ $$\tab[7cm]= \sum \limits_{s=1}^ma_{si}(\sum \limits_{t=1}^kb_{ts}g_t) = \sum \limits_{t=1}^k(\sum \limits_{s=1}^mb_{ts}a_{si})g_m \tab[0.3cm](\star)$$
+      $$(\psi \circ \phi)(e_i) = \psi(\phi(e_i)) = \psi(\sum \limits_{s=1}^ma_{si}f_s) = \sum \limits_{s=1}^ma_{si}\psi(f_s) =\tab[4cm]$$ $$\tab[7cm]= \sum \limits_{s=1}^ma_{si}(\sum \limits_{t=1}^kb_{ts}g_t) = \sum \limits_{t=1}^k(\sum \limits_{s=1}^mb_{ts}a_{si})g_t \tab[0.3cm](\star)$$
       $\Longrightarrow $$(\ast) = (\star)$.\\
-      Т.к. координаты определены однозначно $\Rightarrow c_t = \sum \limits_{s=1}^mb_{ts}a_{si} \Rightarrow C =B \cdot C$  
+      Т.к. координаты определены однозначно $\Rightarrow c_{it} = \sum \limits_{s=1}^mb_{ts}a_{si} \Rightarrow C =B \cdot C$  
     \end{proof} 
   \end{itemize}
   \subsection{Свойства операций над матрицами}
@@ -1411,7 +1411,7 @@ $V$- конечномерное векторное простанство над
     \item $(AB)^T = B^TA^T$   
     \begin{proof}
       4. $\underset{m \times k}{A}, \underset{k \times n}{B} \Longrightarrow \underset{n \times k}{B^T}, \underset{k \times m}{A^T}$ (размеры совпадают) \\
-      Проверим $D = (AB)^T \text{ и } \widetilde{D} = B^TA^T$ равны.
+      Проверим равенство $D = (AB)^T \text{ и } \widetilde{D} = B^TA^T$.
       $$[D]_{ij} = [(AB)^T]_{ij} = [(AB)]_{ji} = \sum \limits_{s=1}^k[A]_{js}[B]_{si}$$ 
       $$[\widetilde{D}]_{ij} = B^TA^T = \sum \limits_{s=1}^k[B]_{is}[A]_{sj} = \sum \limits_{s=1}^k[A]_{js}[B]_{si}$$ 
     \end{proof} 
@@ -1518,7 +1518,7 @@ $V$- конечномерное векторное простанство над
   \section{Определители n-го порядка}
   \begin{definition}
     Определителем квадратной матрицы $\underset{n \times n}{A}=(a_{ij})$ порядка $n$ называется число, которое вычисляется по формуле:
-    $$|A|=\det{A}=\sum\limits_{(k_1,\dots,k_n)}sgn(k_1,\dots,k_n)a_{1k_1}a_{2k_2}\dots a_{1n_n}$$
+    $$|A|=\det{A}=\sum\limits_{(k_1,\dots,k_n)}sgn(k_1,\dots,k_n)a_{1k_1}a_{2k_2}\dots a_{1k_n}$$
     Где $\sum\limits_{(k_1,\dots,k_n)}$ - сумма по всем перестановкам из $n$ элементов. Эта формула называется формулой полного разложения или полного развертывания определителя.
   \end{definition}
   \begin{example1}
@@ -1582,7 +1582,7 @@ $V$- конечномерное векторное простанство над
     \begin{enumerate}
       \item $f(E)=1$
       \item $f$ - Полилинейная
-      \item $f$ - кососимметричная
+      \item $f$ - Кососимметричная
     \end{enumerate}
       тогда $f(A)=\det{A}$.
   \end{theoremnum}
@@ -1795,7 +1795,7 @@ $V$- конечномерное векторное простанство над
   \end{example1}
   Пусть $A$ квадратная матрица порядка $n$ 
   \begin{definition}
-    Минор порядка $(n-1)$ квадратной матрицы $A$, полученный вычеркиванием $i-$ой строки и $j-$ого столбца, называется дополнительным минором к элементу $a_{ij}$.  \\
+    Минор порядка $(n-1)$ квадратной матрицы $A$, порядка $n$, полученный вычеркиванием $i-$ой строки и $j-$ого столбца, называется дополнительным минором к элементу $a_{ij}$.  \\
     Обозначается: $M_{ij}$ 
   \end{definition}
   \begin{example1} 
@@ -1904,13 +1904,13 @@ $V$- конечномерное векторное простанство над
     \end{vmatrix} =
   \end{multline*}
   \begin{multline*}
-    = \prod\limits_{j=2}^{n}(x_j - x_1) \begin{vmatrix}
+    = \prod\limits_{i=2}^{n}(x_i - x_1) \begin{vmatrix}
       1 & 1 & ... & 1\\
       x_2 & x_3 & ... & x_n\\
       \vdots & \vdots & ... & \vdots \\
       x_2^{n-2} & x_3^{n-2} & ... & x_n^{n-2}
       \end{vmatrix} = \\
-      = \prod\limits_{j=2}^{n}(x_j - x_1)\prod\limits_{2\leq i \leq j \leq n} (x_i - x_j) = \prod\limits_{1\leq i \leq j \leq n} (x_i - x_j)
+      = \prod\limits_{i=2}^{n}(x_i - x_1)\prod\limits_{2\leq i \leq j \leq n} (x_i - x_j) = \prod\limits_{1\leq i \leq j \leq n} (x_i - x_j)
   \end{multline*}
   (1) Из каждой строки, начиная с последней, вычитаем предыдущую умноженную на $x_1$ \\
   (2) По теореме об определителе нулей \\
@@ -1945,7 +1945,6 @@ $V$- конечномерное векторное простанство над
     $$B = (b_{ij}), \ detB = \sum \limits_{j=1}^nb_{kj}B_{kj} = \sum \limits_{j=1}^na_{ij}A_{kj}$$ 
   \end{proof} 
   \subsection{О ранге}
-  \subsubsection{}
   \begin{definition}
     Квадратная матрица $A$ порядка $n$ называется невырожденной, если $rkA = n$ (т.е. её строки ЛНЗ, как и все столбцы)
   \end{definition}
@@ -2090,12 +2089,12 @@ $V$- конечномерное векторное простанство над
     $$B_1 E = E B_2$$
     $$B_1 = B_2$$  
   \end{proof} 
-  \begin{properties} \tab
-    \begin{enumerate} \label{pro1}
-      \item Если матрица $A$ имеет обратную, то $A^{-1}$ тоже имеет обратную, причем \\$(A^{-1})^{-1} = A$ 
+  \begin{properties}  \tab
+    \begin{enumerate}
+      \item Если матрица $A$ имеет обратную, то $A^{-1}$ тоже имеет обратную, причем \\$(A^{-1})^{-1} = A$ \label{pro1} 
       \item Если матрица $A$ имеет обратную, $\lambda \not =0$, то $\lambda A$, тоже имеет обратную, причем $(\lambda A)^{-1} = \lambda^{-1} A^{-1}$ 
       \item Если матрица $A$ имеет обратную, то $A^{T}$ тоже имеет обратную, причем \\$(A^{T})^{-1} = (A^{-1})^{T}$
-      \item Если матрицы $A,B$ квадратные порядка $n$ и каждая имеет обратную, то $AB$ тоже имеет обратную, причем $(AB)^{-1} = B^{-1}A^{-1}$ 
+      \item Если матрицы $A,B$ квадратные порядка $n$ и каждая имеет обратную, то $AB$ тоже имеет обратную, причем $(AB)^{-1} = B^{-1}A^{-1}$ \label{pro4} 
     \end{enumerate}
   \end{properties}
   \begin{proof}
@@ -2129,10 +2128,10 @@ $V$- конечномерное векторное простанство над
       $$detA\cdot detB = det(AB) = detE = 1 \Longrightarrow detA \not = 0$$ 
       \item[\underline{$\Longleftarrow$}] Пусть $A$ - невырожденная, $detA \not = 0 \Longrightarrow A \leadsto E \Longrightarrow \exists \ $ элементарная матрица \\
       $T_1,...,T_k: (T_1 \cdot ... \cdot T_k)A = E (*)$ \\
-      По утверждению $\forall i = \overline{1,k} T_i$ имеет обратную.\\
-      По свойству 4 \eqref{pro1}: $T_1 \cdot ... \cdot T_k$ имеет обратную \\
-      Умножим $*$ на обратную к $T_1 \cdot ... \cdot T_k: (T_1 \cdot ... \cdot T_k)^{-1} \cdot (T_1 \cdot ... \cdot T_k) \cdot A = (T_1 \cdot ... \cdot T_k)^{-1}E \Longrightarrow A = (T_1 \cdot ... \cdot T_k)^{-1}E$ \\
-      По свойству 1 \eqref{pro1} : $A$, как обратная к $(T_1 \cdot ... \cdot T_k)$, имеет обратную и $A^{-1} = ((T_1 \cdot ... \cdot T_k)^{-1})^{-1} = (T_1 \cdot ... \cdot T_k)$  \\    
+      По утверждению $\forall i = \overline{1,k} \ T_i$ имеет обратную.\\
+      По свойству \eqref{pro4} : $T_1 \cdot ... \cdot T_k$ имеет обратную. \\
+      Умножим $(*)$ на обратную к $T_1 \cdot ... \cdot T_k: (T_1 \cdot ... \cdot T_k)^{-1} \cdot (T_1 \cdot ... \cdot T_k) \cdot A = (T_1 \cdot ... \cdot T_k)^{-1}E \Longrightarrow A = (T_1 \cdot ... \cdot T_k)^{-1}E$ \\
+      По свойству \eqref{pro1} : $A$, как обратная к $(T_1 \cdot ... \cdot T_k)$, имеет обратную и $A^{-1} = ((T_1 \cdot ... \cdot T_k)^{-1})^{-1} = (T_1 \cdot ... \cdot T_k)$
     \end{itemize}
   \end{proof} 
   Из докозательства имеем:  
@@ -2180,12 +2179,222 @@ $V$- конечномерное векторное простанство над
   Декартовое произведение: $A \times B = {(a,b)| a \in A, b \in B}$ 
   \begin{definition}
     Бинарное отношение на множестве $A$ называется отображением $\rho:A \times A \to A$ \\
-    Обозначается: $\rho(a_1,a_2) = a_3$ 
+    Обозначается: \begin{enumerate}
+      \item $\rho(a_1,a_2) = a_3$
+      \item $a_1 \rho a_2 = a_3$
+      \item $a_1 * a_2 = a_3$ 
+      \item $(A, *) - $ на $A$ задана бинарная операция $*$ 
+    \end{enumerate}
   \end{definition}    
-  Если на $A$ задана бинарная операция, то пишут $(A,*)$. Говорят, что на $A$ задана алгебраическая структура. \\
-  $(A,*)$ - алгебраическая структура.  
+  \begin{definition}
+    $(A,*)$. Говорят, что на $A$ определена алгебраическая структура. $(A,*)$ называется алгебраической системой. 
+  \end{definition} 
+  \begin{definition}
+    Бинарная операция $(*)$ на $A$ называется коммутатирностью, если $\forall a,b \in A: a*b=b*a$ 
+  \end{definition} 
+  \begin{definition}
+    Бинарная операция $(*)$ на $A$ называется ассоциативной, если $\forall a,b,c \in A: a*(b*c)=(a*b)*c$ 
+  \end{definition}
+  \begin{example}
+    \begin{enumerate} \tab
+      \item $(\Z, +)$ ассоциативна и коммутативна. 
+      \item $(\Z, -)$ НЕ ассоциативна и НЕ коммутативна
+      \item $(M_{m \times n}, +)$ ассоциативна и коммутативна.
+      \item $(M_{m \times n}, \cdot)$ ассоциативна и НЕ коммутативна.
+    \end{enumerate}
+  \end{example}
+  \begin{definition}
+    Элемент $e \in A$ называется нейтральным элементом относительно бинарной операции $(*)$, если $\forall a \in A: a*e = e*a = a$ 
+  \end{definition} 
+  \begin{example}
+    \begin{enumerate} \tab
+      \item $(\Z, +)$ $e=0$  
+      \item $(\Z, \cdot)$ $e=1$ 
+      \item $(\Z, -)$ $\not \exists \ e$ 
+      \item $(\N, +)$ $\not \exists \ e$ 
+    \end{enumerate}
+  \end{example}
+  \begin{subtheorem}
+    Если нейтральных элемент существует, то он единственный. 
+  \end{subtheorem} 
+  \begin{proof}
+    (От противного) Допустим, что $\exists \ e_1,e_2 \in A$ - нейтральные
+    $$e_1 \not = e_2 \Longrightarrow \underbrace{e_1}_{\text{нейтральный}}* e_2 = e_1; \ \ \ e_1 * \underbrace{e_2}_{\text{нейтральный}}= e_2 \Longrightarrow e_1 = e_2$$ 
+  \end{proof} 
+  \begin{definition}
+    Группоид - это множество $A$, на котором введена бинарная операция $(*)$. $(A,*)$  
+  \end{definition} 
+  \begin{definition}
+    Полугруппа - группоид с ассоциативной бинарной операцией.
+  \end{definition} 
+  \begin{definition}
+    Моноид - полугруппа, в которой $\exists $ нейтральный элемент.\\ Обозначение: $(A,*,e)$ 
+  \end{definition} 
+  \begin{subtheorem}
+    Если элемент $a$ моноида $A$ имеет обратный, то этот обратный единственный. 
+  \end{subtheorem}
+  \begin{proof}
+    Допустим $\exists \ b_1,b_2$ - обратные к $a$ элементы: $b_1 \not = b_2$ \\
+    В силу ассоциативности:
+    $$b_1 * (a * b_2) = (b_1 * a) * b_2$$
+    $$b_1 * e = e * b_2$$ 
+    $$b_1 = b_2$$ 
+  \end{proof} 
+  \begin{example}
+    \begin{enumerate} \tab
+      \item $(M_{n \times m}(\R), \cdot, E)$ моноид, $\exists \ A^{-1} \Longleftrightarrow det \not = 0$ 
+      \item $(\Z, \cdot, 1)$ моноид, $1, -1$ обратимы  
+      \item $(\R, \cdot, 1)$ моноид, $\forall a \not =0:  \exists \ a^{-1}$ 
+    \end{enumerate}
+  \end{example}
+  \begin{properties}
+    \begin{itemize} \tab
+      \item[1)] Если элемент $a$  имеет обратный $b$ , то элемент $b$ имеет обратный и этот обратный равен $a$
+      \item[2)] Если $a_1$ имеет обратный $b_1$, $a_2$ имеет обратный $b_2$, то: $a_1*a_2 = b_2*b_1$ 
+    \end{itemize}
+  \end{properties}
+  \begin{proof}
+    Группа - моноид, в котором каждый элемент имеет обратный.
+  \end{proof} 
+  \begin{example}
+    \begin{enumerate} \tab
+      \item $(\Z, +, 0)$ - группа (абелева)
+      \item $(\Z, \cdot, 1)$ - НЕ группа (коммутативный моноид)
+      \item $(\R, \cdot, 1)$ - НЕ группа
+      \item $(\R/\{0\}, \cdot, 1)$ - группа (абелева)
+      \item $(M_{m \times n}(\R), \cdot, E)$ - НЕ группа
+      \item $(GL_n, \cdot, E)$ - группа \\($GL_n$ - множество невырожденных матриц порядка $n$ с коэф. из $\R$)
+    \end{enumerate}
+  \end{example}
+  \begin{definition}
+    Группоид (полугруппа, моноид, группа) называется коммутативной, если бинарная операция коммутативна.
+  \end{definition} 
+  \begin{definition}
+    Абелева группа - коммутативная группа. 
+  \end{definition} 
+  \begin{definition}
+    Множество $A$, на котором задана бинарная операция $(*)$ называется группой, если:
+    \begin{enumerate}
+      \item  $\forall a,b,c \in A: a*(b*c)=(a*b)*c$ (ассоциаивность)
+      \item $\exists \ e \in A: \forall a \in A a*e = e*a = a$ (нейтральный элемент)
+      \item $\forall a \in A \ \exists \ b \in A: a*b = b*a = e $ (обратный элемент)
+    \end{enumerate}
+  \end{definition} 
+  Терминология
+  Таблицу пока что скипаем 
+  \subsection{Изоморфизм группы}
+  Пусть $(G_1, *, e_1), \ (G_2, \circ, e_2)$  - группы
+  \begin{definition}
+    Группы $G_1, G_2$ называются изоморфными, если $\exists $ отображение $\phi: G_1 \to G_2: $
+    \begin{enumerate}
+      \item $\phi - $ биекция. 
+      \item $\forall a,b \in G_1: \ \phi(a*b) = \phi(a)\circ\phi(b)$  
+    \end{enumerate}
+  Обозначение: $G_1\cong G_2$ \\
+  При этом отображение называется изоморфизмом групп.  
+  \end{definition} 
+  \begin{example1}
+    $(\R, +, 0), \ (\R^{+}, \cdot, 1)$ \\
+    $\phi:\R \to \R^{+}$
+    $$\begin{cases}
+    \phi(x) = e^x - \text{биекция}\\
+    \phi(a+b) = e^{a+b} = e^a \cdot e^b = \phi(a) \cdot \phi(b)
+  \end{cases} \Longrightarrow \R \cong \R^+ $$
+  \end{example1}
+  \begin{properties} \tab
+    \begin{enumerate}
+      \item $\phi(e_1) = e_2$
+      \item $\phi(a^{-1}) = \phi(a)^{-1}$  
+    \end{enumerate}
+  \end{properties}
+  \begin{proof} \tab
+    \begin{itemize}
+      \item[1)] $\forall a \in G_1:$ $$a * e_1 = a$$ 
+      $$\phi(a*e_2) = \phi(a)$$ 
+      $$\phi(a) \circ \phi(e_1) = \phi(a)$$
+      Т.к. $G_2$ - группа, то $\exists \ \phi(a)^{-1}$. Умножение на $\phi(a)^{-1}$ слева: $$\phi(a)^{-1} \circ (\phi(a) \circ \phi(e_1)) = \phi(a)^{-1} \circ \phi(a) = e_2$$
+      \item[2)] $$a^{-1} * a = e_1$$
+      $$\phi(a^{-1} * a) = \phi(e_1)= e_2$$
+    $$\phi(a^{-1}) \circ \phi(a) = e_2$$
+    $\Longrightarrow $ обратный к $\phi(a)$ является $\phi(a)^{-1}$ \\
+    Аналогично $\phi(a) \circ \phi(a^{-1}) = e_2$     
+    \end{itemize}
+  \end{proof} 
+  \subsection{Группа подстановок}
+  \begin{definition}
+    Подстановкой степени $n$ называется биективное отображение $\sigma$ множества $\{1,...,n\}$ в себя. 
+    $$\{1,...,n\} \to \{1,...,n\} - \text{биективная}$$  
+    Подстановку можно написать в виде таблицы:
+    $$\sigma = \begin{pmatrix}
+      i_1 & i_2 & \cdots & i_n \\
+      j_1 & j_2 & \cdots & j_n
+    \end{pmatrix}$$ 
+    В верхней строке расположеня числа от 1 до $n$ в некотором порядке. В нижней строке расположены их образы, т.е. $j_k = \sigma(i_k)$ 
+    \begin{example1}
+      $n=3:$ $$\sigma=\begin{pmatrix}
+        1 & 2 & 3 \\
+        2 & 1 & 3
+      \end{pmatrix}$$  
+    \end{example1}
+    Если поменять столбцы местами, отображение не изменится. \\
+    Если в верхней строке числа упорядочить по возрастанию, то такая запись называется стандартной.
+  \end{definition} 
+  \begin{definition}
+    Подстановка $id$ степени $n$ называется тождественной, если:
+    $$\forall k \in \{1,...,n\}: id(k) = k$$ 
+    т.е. $$id = \begin{pmatrix}
+      1 & 2 & \cdots & n \\
+      1 & 2 & \cdots & n
+    \end{pmatrix}$$  
+    Обозначение: $\Omega = \{1,...,n\}$ 
+  \end{definition} 
+  \begin{definition}
+    Произведение подстановок $\pi$ и $\tau$ степени $n$ - это их композиция $\pi \circ \tau$, \ т.е. $$(\pi \circ \tau)(k)= \pi(\tau(k))$$  
+  \end{definition} 
+  \begin{subtheorem}\textbf{(1)} 
+    Произведение подстановок степени $n$ - снова подстановка длины $n$ 
+  \end{subtheorem} 
+  \begin{subtheorem}\textbf{(2)}
+    Множество $S_n$ всех подстановок степени $n$ относительно этого произведения (композиции) является группой. 
+  \end{subtheorem} 
+  \begin{proof}
+    По утверждению (1) произведение - это бинарное отношение:
+    \begin{itemize}
+      \item[1)] ассоциаивность верна
+      \item[2)] $id$ - нейтральный элемент
+      \item[3)] $\forall \sigma \in S_n \exists \ \sigma^{_1} \in S_n, $ т.к. $\sigma: \Omega \overset{\text{биекция}}{\longrightarrow} \Omega$  
+    \end{itemize}
+  \end{proof} 
+  \begin{definition}
+    Эта группа называется симметрической группой степени $n$ \\(группой подстановок степени $n$) \\
+    Обозначение: $S_n$ 
+  \end{definition} 
+  \begin{subtheorem}
+    $|S_n| = n!$ 
+  \end{subtheorem} 
+  \begin{subtheorem}
+    Группа $S_n$ НЕ коммутативная.
+  \end{subtheorem} 
+  \begin{example1}
+    $$\begin{pmatrix}
+      1 & 2 & 3 \\ 2 & 1 & 3
+    \end{pmatrix} \begin{pmatrix}
+      1 & 2 & 3 \\ 1 & 3 & 2
+    \end{pmatrix} = \begin{pmatrix}
+      1 & 2 & 3 \\ 2 & 3 & 1
+    \end{pmatrix}$$ 
+    $$\neq$$ 
+    $$\begin{pmatrix}
+      1 & 2 & 3 \\ 1 & 3 & 2
+    \end{pmatrix} \begin{pmatrix}
+      1 & 2 & 3 \\ 2 & 1 & 3
+    \end{pmatrix} = \begin{pmatrix}
+      1 & 2 & 3 \\ 3 & 1 & 2
+    \end{pmatrix}$$ 
+  \end{example1}
 
-  % \textbf{Мораль в том, что я не успел....}
+
+
 \end{document}
 
 
