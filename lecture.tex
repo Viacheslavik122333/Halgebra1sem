@@ -2404,6 +2404,228 @@ $V$- конечномерное векторное простанство над
     \end{pmatrix}$$ 
   \end{example1}
 
+  \begin{definition}
+    Циклом длины $k$ называется подстановка \\(обозначение: $(i_1,...,i_k)$), которая  $\forall i \in \{1,...,n\}\setminus \{i_1,...,i_k\}$, где $\sigma(i) = i$, при этом: $$\sigma(i_1)= i_2, \sigma(i_2)=i_3,..,\sigma(i_k)=i_1$$ 
+    Представление в виде графа: РИСУНОК
+  \end{definition} 
+  \begin{example1}
+    $n=6, \sigma=(1,3,2)$ РИСУНОК
+  \end{example1}
+\begin{remark}
+  Заметим, что $(i_1,i_2,...,i_k) = (i_k,i_1,...,i_{k-1}) = (i_2,i_3,..,i_1) = ...$ 
+\end{remark} 
+\begin{definition}
+  Циклы $(i_1,...,i_k)$ и $j_1,...,j_k$ называется независимыми, если:s $$\{i_1,...,i_k\} \cap \{j_1,...,j_k\} = \varnothing $$  
+\end{definition} 
+\begin{example1}
+  $(1,2,3),(4,5)$ 
+\end{example1}
+\begin{subtheorem}
+  Независимые циклы коммутируют.
+\end{subtheorem} 
+\begin{example1}
+  $\begin{pmatrix}
+    1 & 2 & 3 & 4 & 5 & 6 \\
+    2 & 3 & 1 & 5 & 4 & 6
+  \end{pmatrix} = \begin{pmatrix}
+    1 & 2 & 3
+  \end{pmatrix} \begin{pmatrix}
+    4 & 5
+  \end{pmatrix} \begin{pmatrix}
+    6
+  \end{pmatrix}$ РИСУНОК
+  
+\end{example1}
+\setcounter{thcount}{0}
+\begin{theoremnum} \label{1th}
+  Любая подстановка $\sigma \in S_n,\ \sigma \neq id$ раскладывается в произведение $\text{\underline{независимых} }$ циклов длины $\geq 2$, причем это разложение единственно с точностью до перестановки множителей. 
+\end{theoremnum}
+\begin{proof} \tab
+  \begin{itemize}
+    \item[ $\exists$: ] Рассмотрим степени подстановки $\sigma$. \\
+    По опредедению $\sigma^0 := id; \ \sigma^m := \sigma \cdot ... \cdot \sigma, $ при $m>0; $\\ \tab[5.75cm] $\sigma^m := \sigma^{-1} \cdot ...\cdot \sigma^{-1}$, при $m<0$ \\
+    Отметим, что: \begin{enumerate}
+      \item Степень подстановки $\sigma^m$ - это подстановка $\forall m \in \Z$ 
+      \item $\sigma^{m_1}\cdot \sigma^{m_2} = \sigma^{m_1+m_2}$
+      \item $(\sigma^{m_1})^{m_2} = \sigma^{m_1 \cdot m_2}$  
+    \end{enumerate}
+    Рассмотрим произвольный $i \in \{1,...,n\}$ \\
+    РИСУНОК\\
+    Множество $Orb(i) = \{\sigma^m(i) \ | \ m \in \Z\}$  называется орбитой числа $i$. $Orb(i) \subseteq \{1,...,n\} \Longrightarrow \exists \ m_1,m_2 \in \Z \ : \ \sigma^{m_1}(i) = \sigma^{m_2}(i) \Longrightarrow $ допустим $m_1 > m_2$. $\sigma^{m_1 - m_2}(i)=j \Longrightarrow $ (т.к. $m_1 - m_2 \in \N)$  наименьшее натуральное $k \in \N^0 \ : \ \sigma^k(i)= j$ 
+    $(Orb(i) = \{i, \sigma(i),...,\sigma^{k-1}(i)\})$.
+    \begin{properties} \tab
+      \begin{enumerate}
+        \item Различные орбиты не пересекаются. 
+        \begin{proof}
+          $Orb(i) \cap Orb(j) \ni l \Longrightarrow \exists \ m_1, m_2 \in \N^0 : \\
+        \sigma^{m_1}(i) = l = \sigma^{m_2}(i) \Longrightarrow \sigma^{m_1-m_2}(i) = j \Longrightarrow \forall m \in \Z \\
+        \sigma^{m}(j)= \sigma^{m_1-m_2}(i) \Longrightarrow Orb(j) \subseteq  Orb(j)$ \\
+        Аналогично $Orb(i) \subseteq Orb(j) \Longrightarrow Orb(i) = Orb(j)$
+        \end{proof} 
+        \item $\{1,...,n\ = Orb(i_1) \cup ... \cup Orb(i_s)\}$ 
+        \begin{proof}
+          Т.к. $\forall i \in \{1,...,n\} \ i \in Orb(i)$ 
+        \end{proof} 
+      \end{enumerate}
+    \end{properties}
+    $\{1,...,n\} = \underset{k_1}{Orb(i_1)} \sqcup ... \sqcup \underset{k_t}{Orb(i_t)}\sqcup \underset{k_{t+1}}{Orb(i_{t+1})} \sqcup ... \sqcup \underset{k_s}{Orb(i_s)}$ \\
+    Если $\sigma \neq id$, то $k_1>1,...,k_t>1,k_{t+1}=1,...,k_s=1 \Longrightarrow \\
+    \sigma = (i_1 \ \sigma(i_1) \ ... \ \sigma^{k_1-1}(i_1)) \ ... \ (i_t \ \sigma(i_t) \ ... \ \sigma^{k_t-1}(i_t))$. $\exists$ \ доказано.   
+    \item[ $!:$ ](От противного)\\
+    Допустим, $$\sigma = \pi_1,...,\pi_{\nu}$$ $$\sigma = \tau_1,...,\tau_{\mu}$$  Различные разложения на независимые циклы длины $\geq 2$ \\
+    Т.к. $\sigma \neq id$, то $\exists \ j: \sigma(j) \neq j \Longrightarrow $ с точностью до нумерации $\pi_1(j) \neq j , \tau_1(j) \neq j$  
+    $$\begin{matrix}
+      \sigma(j) = \pi_1(j) \\
+      \sigma(j) = \tau_1(j)
+    \end{matrix} \ \Longrightarrow \forall m \in \Z  \ \ \begin{matrix}
+      \sigma^m(j) = \pi_1^m(j) \\
+      \sigma^m(j) = \tau_1^m(j)
+    \end{matrix}$$ 
+    Т.к. ... полностью определяется степенями $\sigma$, то $\pi_1 = \tau_1 \Longrightarrow \pi_2 ... \pi_{\nu} = \tau_2 ... \tau_{\mu}$ Далее индукция по $\nu$ и $\mu \Longrightarrow $ Противоречие $\Longrightarrow $ Разложение единственно.   
+    \end{itemize}
+  \end{proof} 
+  \begin{definition}
+    Цикл длины 2 называется транспозицией. 
+  \end{definition}
+  \begin{theorem}
+    Любая подстановка $\sigma \in S_n$ раскладывается в произведение транспозиций. 
+  \end{theorem} 
+  \begin{proof}
+    Если $\sigma = id$, то $\sigma = (12)(12)$ \\
+    Если $\sigma \neq id$, то по Теореме \eqref{1th} $\sigma$ раскладывается в произведение независимых циклов длины $\geq 2$ \\
+    Поэтому достаточно разложить на транспозиции каждый такой цикл.
+    $$k>1 \ \ \ (1,2,...,k) = (1,k)(1,k-1)...(1,3)(1,2)$$     
+  \end{proof} 
+  \subsection{Четность подстановки}
+  $\sigma \in S_n$ \ \ $\sigma = \begin{pmatrix}
+    i_1 & \cdots & i_n \\
+    j_1 & \cdots & j_n
+  \end{pmatrix}$  
+  \begin{definition}
+    Знаком подстановки $\sigma$ называется функция: 
+    $$sgn \sigma:= sgn(i_1,...,i_n)\cdot sgn(j_1,...,j_n)$$  
+  \end{definition} 
+  \begin{subtheorem}
+    Знак подстановки не зависит от способа записи подстановки в виде таблицы.
+  \end{subtheorem} 
+  \begin{proof}
+    Если $\begin{pmatrix}
+    i_1 & \cdots & i_n \\
+    j_1 & \cdots & j_n
+  \end{pmatrix}$ и $\begin{pmatrix}
+    m_1 & \cdots & m_n \\
+    k_1 & \cdots & k_n
+  \end{pmatrix}$ - две записи одной и той же подстановки $\sigma$, то от $\begin{pmatrix}
+    i_1 & \cdots & i_n \\
+    j_1 & \cdots & j_n
+  \end{pmatrix}$ к $\begin{pmatrix}
+    m_1 & \cdots & m_n \\
+    k_1 & \cdots & k_n
+  \end{pmatrix}$ можно перейти за конечное число перемен столбцов местами. Каждая перемена столбцов местами производят транспозицию в верхней и в нижней строке $\Longrightarrow $ знак меняется и там, и там $\Longrightarrow $ знак произведения не изменяется. 
+  \end{proof} 
+  В стандартной записи $\sigma = \begin{pmatrix}
+    1 & 2 & \cdots & n \\
+    i_1 & i_2 & \cdots & i_n
+  \end{pmatrix} \Longrightarrow sgn \sigma = sgn (i_1,i_2,...,i_n)$  
+  \begin{definition}
+    Подстановка $\sigma$ называется четной (нечетной), если: 
+    $$sgn \sigma = +1 (sgn \sigma = -1)$$  
+  \end{definition} 
+  \begin{properties} \tab 
+    \begin{enumerate}
+      \item $sgn \sigma^{-1} = sgn \sigma$
+      \begin{proof}
+        $\sigma = \begin{pmatrix}
+          i_1 & \cdots & i_n \\
+          j_1 & \cdots & j_n
+        \end{pmatrix} \Longrightarrow \sigma^{-1} = \begin{pmatrix}
+          j_1 & \cdots & j_n \\
+          i_1 & \cdots & i_n  
+        \end{pmatrix}$ 
+      \end{proof}
+      \item \label{propertie2} $sgn (\sigma \cdot \tau) = sgn(\sigma) \cdot sgn(\tau) \ \ (\sigma, \tau \in S_n)$ 
+      \begin{proof}
+        $$\sigma = \begin{pmatrix}
+          i_1 & \cdots & i_n \\
+          j_1 & \cdots & j_n
+        \end{pmatrix}, 
+        \tau = \begin{pmatrix}
+        k_1 & \cdots & k_n \\
+        i_1 & \cdots & i_n
+        \end{pmatrix} $$ $ \Longrightarrow \sigma \cdot \tau = \begin{pmatrix}
+          k_1 & \cdots & k_n \\
+          j_1 & \cdots & j_n
+        \end{pmatrix} \Longrightarrow sgn(\sigma \cdot \tau) = sgn(k_1,...,k_n) \cdot sgn(j_1,...,j_n) = sgn(k_1,...,k_n) \cdot \underbrace{sgn(i_1,....,i_n) \cdot sgn(i_1,....,i_n)}_{1}   \cdot sgn (j_1,...,j_n) = sgn(\sigma) \cdot sgn (\tau)$ 
+      \end{proof} 
+    \end{enumerate}
+  \end{properties}
+  \begin{subtheorem}\tab
+    \begin{enumerate}
+      \item \label{Ytv1} если $\tau$ - транспозиция, то $\sigma(\tau) = -1$
+      \item если $\sigma$ - цикл длины $k$, то $sgn(\sigma) = (-1)^{k-1}$
+      \item \label{Ytv3}если $\sigma = \tau_1 \cdot ... \cdot \tau_l$, где $\tau_i$ - транспозиции, то $sgn(\sigma) = -1^l$      
+    \end{enumerate}
+  \end{subtheorem}
+  \begin{proof}\tab
+    \begin{itemize}
+      \item[1)] $$\tau = \begin{pmatrix}
+        1 & \cdots & i & \cdots & j & \cdots n \\
+        1 & \cdots & j & \cdots & i & \cdots n
+      \end{pmatrix} $$$  \Longrightarrow sgn (\tau) = sgn(1,...,j,...,i,...,n) = sgn(1,...,i,...,j,...,n) = -1$  
+      \item[3)] следует из Свойства \eqref{propertie2} и Утверждения \eqref{Ytv1}:
+      $$sgn(\sigma) = sgn(\tau_1) \cdot sgn(\tau_2) \cdot ... \cdot sgn(\tau_l) = \underbrace{(-1)\cdot(-1)\cdot ... \cdot(-1)}_{l} = (-1)^{l}$$ 
+      \item[2)] $\sigma = (i_1,...,i_k) = (i_1,i_k)(i_1,i_{k-1})...(i_1,i_2) =$ (по Утверждения \eqref{Ytv3}) $= (-1)^{k-1}$ 
+    \end{itemize}
+  \end{proof}
+  \begin{example1}
+    $$\begin{pmatrix}
+      1 & 2 & 3 & 4 & 5 & 6 \\
+      3 & 1 & 2 & 5 & 4 & 6
+    \end{pmatrix} = \begin{pmatrix}
+      1 & 3 & 3
+    \end{pmatrix} \begin{pmatrix}
+      4 & 5 
+    \end{pmatrix} = (-1)^2 \cdot ???$$
+  \end{example1}
+  \subsection{Подгруппа}
+  $(A,*)$ - множество с бинарной оперицией \ \ $B \subseteq A$ 
+  \begin{definition}
+    Говорят. что $B$ замкнуто относительно бинарной опериции $*$, если: $$\forall b_1,b_2 \in B \ \ b_1 * b_2 \in B$$
+    В этом случае $B$ превращается в алгебраическую структуру.   
+  \end{definition}  
+  \begin{example1}
+    $\N \text{ (коммутативная полугруппа) }  \subset \Z \text{ (с + абелева группа) }$ 
+  \end{example1}
+  \begin{definition}
+    Множество $H$ называется подгруппой группы $G$, если:
+    \begin{enumerate}
+      \item $\forall h_1,h_2 \in H \Longrightarrow h_1 \cdot h_2 \in H$ 
+      \item $\mathfrak{1} \in H$
+      \item $\forall h \in H \Longrightarrow h^{-1} \in H$  
+    \end{enumerate}
+    Обозначается: $H\leq G$ 
+  \end{definition} 
+  \begin{subtheorem}
+    Любая подгруппа группы $G$ сама является группой, относительно той же операции.
+  \end{subtheorem} 
+  \begin{remark}
+    В определении подгруппы $(2.) \longleftrightarrow "H \neq \varnothing"$ 
+  \end{remark} 
+  \begin{example}\tab
+    \begin{itemize}
+      \item[1)] $\N\leq \Z$
+      \item[2)] $\Z \leq \Q \leq \R$
+      \item[3)] $m\Z \leq\Z, \ m\in \N$   
+      \item[4)] $A_n$ - все четные подстановки\\
+      $A_n \leq S_n$. (для нечетных неверно)    
+    \end{itemize}
+    
+    
+  \end{example}
+
+
+
+
 
 
 \end{document}
