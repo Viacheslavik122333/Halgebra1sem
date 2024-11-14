@@ -2833,9 +2833,28 @@ $V$- конечномерное векторное простанство над
     $\Z_3: \ 1 + 1 + 1 = 0$ 
   \end{example1}
   \begin{definition}
-    Говорят
+    Говорят, что поле $P$ имеет характеристику $n$, если $n$ - наименьшее натуральное число, такое, что $\underbrace{1 + 1 + ... + 1}_{n} = 0 $. \\
+    Если такого числа нет, то говорят, чот поле имеет характеристику 0.\\
+    Обозначается: $charP=n$ 
   \end{definition} 
-  
+  \begin{example} \tab
+    \begin{enumerate}
+      \item $char\Z_3 = 3$
+      \item $char\R = 0$  
+    \end{enumerate}
+  \end{example}
+  \begin{remark}
+    Если $charP = n \neq 0, $ то $\forall a \in P:$ 
+    $$ \underbrace{a+a+...+a}_{n} = \underbrace{a\cdot 1+a\cdot 1+...+a\cdot 1}_{n} = a\cdot (\underbrace{1+1+...+1}_{n}) = a \cdot 0 =0 $$ 
+  \end{remark} 
+  \begin{subtheorem}
+    Если $P$ - поле характеристики $n$, $n \neq 0$, то $n \ -$ простое. 
+  \end{subtheorem} 
+  \begin{proof}
+    Докажем, $n=m\cdot k, \ 1<m, \ k<n$:
+    $$\underbrace{1+1+...+1}_{n} = (\underbrace{1+1+...+1}_{m})(\underbrace{1+1+...+1}_{k})\Longrightarrow m \cdot k=0$$  
+    В поле нет делителей нуля $\Longrightarrow \underbrace{1+1+...+1}_{m} = 0$. Противоречие.
+  \end{proof} 
 
 
 
