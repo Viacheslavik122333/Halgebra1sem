@@ -45,6 +45,7 @@
 \newtheorem*{definition}{Определение}
 \newtheorem*{theorem}{Теорема}
 \newtheorem*{consequense}{Следствие}
+\newtheorem*{consequenses}{Следствия}
 \newtheorem*{lemma}{Лемма}
 \newtheorem*{subtheorem}{Утверждение}
 \newtheorem*{remark}{Замечание}
@@ -2619,9 +2620,231 @@ $V$- конечномерное векторное простанство над
       \item[4)] $A_n$ - все четные подстановки\\
       $A_n \leq S_n$. (для нечетных неверно)    
     \end{itemize}
-    
-    
   \end{example}
+  \subsection{Кольца и поля}
+  \begin{definition}
+    Множество $K$, на котором введены 2 бинарные операции:\\ $"+"$ - сложение, $"\cdot"$ - умножение, называется кольцом, если выполнены следующие аксиомы:
+    \begin{enumerate}
+      \item $(K, \cdot)$ - абелева группа
+      \item $\forall a,b,c \in K: \ a(b+c) = ab+ac$ и $(a+b)c = ac+ab$   
+    \end{enumerate}
+    Обозначается: $(K, +, \cdot)$
+  \end{definition} 
+  \begin{example}\tab
+    \begin{enumerate}
+      \item $(\Z, +, \cdot)$
+      \item $(M_n(\R), +, \cdot)$
+    \end{enumerate}
+  \end{example}
+  \begin{definition}
+    Кольцо называется ассоциативным, если умножение ассоциативно.
+  \end{definition}
+  \begin{definition}
+    Кольцо называется коммутативным, если умножение комутативное.
+  \end{definition}
+  \begin{definition}
+    Кольцо называется кольцом с единицей, если существует нейтральный элемент по умножению:
+    $$\exists \ 1 \in K: \ \forall a\in K: \ 1 \cdot a = a \cdot 1 = a$$ 
+  \end{definition}
+  \begin{subtheorem}
+    Если в $K$ есть единица, то она единственная. 
+  \end{subtheorem} 
+  \begin{example} \tab
+    \begin{enumerate}
+      \item $(\Z, +, \cdot)$ - коммутативное, ассоциативное кольцо с 1
+      \item $(M_n(\R), +, \cdot)$ - НЕ коммутативное, ассоциативное кольцо с 1
+      \item $(V^3,+, x)$, ($x$ - векторное произведение) - НЕ коммутативное, НЕ ассоциативное кольцо без 1
+      \item $(2\Z, +, \cdot)$ -  коммутативное, ассоциативное кольцо без 1
+    \end{enumerate}
+  \end{example}
+  \begin{consequenses} (простейшие)
+    \begin{enumerate}
+      \item \begin{itemize}
+        \item $0$ - единственный
+        \item $\forall a\in K$ - противоположный единственный
+        \item $\forall a, b\in K \ \exists! \ x \in K: \ a+x=b$, ($x = b+(-a)$; $!x,$ т.к. $!(-a)$)   
+        Обозначается: $x = b-a$ 
+      \end{itemize}
+      \item $\forall a \in K: \ a \cdot 0=0 \cdot a = 0$
+      \item $a\cdot(-b) = (-a)\cdot b = -(a\cdot b)$  
+      \item $\forall a, b, c \in K: \ a(b-c) = ab_ac, \ (b-c)A = ba-ca$ 
+      \item Если $K$ - кольцо с 1, то $a(-1) = (-1)a = -a$ 
+    \end{enumerate}
+  \end{consequenses}
+  \begin{remark}
+    Пусть $K$ - кольцо с единицей (1), то если $0 = 1 \Longrightarrow K = \{0\}$ 
+  \end{remark}
+  \begin{proof}
+    $\forall a \in K: \ 0 = 0 \cdot a= 1 \cdot a \Longrightarrow a = 0$ 
+  \end{proof} 
+  Пусть $K$ - кольцо с единицей 
+  \begin{definition}
+      Элемент $a \in K$ называется обратимым, если $\exists \ b \in K: \\ab =ba = 1$. При этом элемент $b$ должен быть обратным к $a$   
+  \end{definition}  
+  \begin{subtheorem}
+    Если $K$ - ассициативное кольцо с 1, то если элемент $a \in K$ имеет обратный, то он единственный.  
+  \end{subtheorem} 
+  \begin{example} \tab
+    \begin{enumerate}
+      \item $(\Z, +, \cdot)$:  $1, -1$ - обратимые, других нет.
+      \item $(\R, +, \cdot)$: $\forall a \in \R, \ a \neq 0$ - обратим.
+      Обозначается: $K$ - ассоциативное кольцо с 1  
+    \end{enumerate}
+  \end{example}
+  $K^*$ - множество элементов кольца $K$, имеющих обратный. 
+  \begin{subtheorem}
+    $K^*$ - группа относительно умножения. 
+  \end{subtheorem}  
+  \begin{example1}
+    $\Z^* = \{1, -1\}$
+  \end{example1}
+  \begin{definition}
+    Поле $K$ - коммутативное, ассоциативное кольцо с $1 \neq 0$ , в котором любой ненулевой элемент обратим.
+  \end{definition} 
+  \begin{remark}
+    $0 = 1 \Longleftrightarrow K = \{0\}$ - не поле.
+  \end{remark} 
+  \begin{example}\tab
+    \begin{enumerate}
+      \item $(\R, +, \cdot)$ - поле
+      \item $(\Q, +, \cdot)$ - поле
+      \item $(\Z, +, \cdot)$ - НЕ поле   
+    \end{enumerate}
+  \end{example}
+  \begin{example1}
+    Коммутативное, ассоциативное кольцо с 1:\  $\Z_n$ 
+  \end{example1}
+  \begin{subtheorem}
+    $k \in \Z_n$ - обратим $\Longleftrightarrow (k, n) = 1$  
+  \end{subtheorem} 
+  \begin{theorem}
+    $\Z_n$ - поле $\Longleftrightarrow n - $ простое 
+  \end{theorem} 
+  \begin{proof}\tab
+    \begin{itemize}
+      \item[$\underline{\Longrightarrow }$] Пусть $\Z_n$ - поле, то $\forall k \in \Z_n$ имеет обратный: $m \ : \ km=1$. Предположим, что $n - $ не простое.\\
+      $\Longrightarrow n = st, $ где $1<s, t<n \Longrightarrow s \neq 0$ в $\Z_n$\\
+      $\Longrightarrow s $ имеет обратный $\widetilde{s} : s \cdot \widetilde{s} = 1$ в $\Z_n$\\
+      $\Longrightarrow t \cdot s \cdot \widetilde{s} = t $ в $
+      \Z_n \Longrightarrow t=0$ в $\Z_n$ - противоречие.
+      \item[$\underline{\Longleftarrow  }$] $n -$ простое, то $\forall k \in \Z_n: \ k \neq 0$ в $\Z_n$, т.е. $n \neq k \Longrightarrow (n, k) = 1 \Longrightarrow k$ - обратим.  
+    \end{itemize}
+  \end{proof}
+  \begin{definition}
+    Говорят, что кольцо $K$ не имеет делителей нуля, если из равенства $a \cdot b =0 \Longrightarrow a = 0 $ или $b=0$\\
+    Если же для ненулевого элемента $a \in K$ найдется  ненулевой элемент $b  \in K$, т.ч. $a \cdot b = 0, $ то $a, b $ называются делителями нуля.
+  \end{definition} 
+  \begin{example} \tab
+    \begin{enumerate}
+      \item $\Z$ без делителя нуля 
+      \item $\Z_6: \ 2 \cdot 3 =0 \Longrightarrow $ есть делители нуля.  
+      \item $M_2(\R)$: \ $\begin{pmatrix}
+        1 & 0 \\ 0 & 0
+      \end{pmatrix} \cdot \begin{pmatrix}
+        0 & 0 \\ 0 & 1
+      \end{pmatrix} = \begin{pmatrix}
+        0 & 0 \\ 0 & 0 
+      \end{pmatrix}$ 
+    \end{enumerate}
+  \end{example}
+  \begin{subtheorem}
+    Если в кольце $K$ нет делителя нуля, то возможно сокращение, если $a \cdot c = b \cdot c, $ и $c \neq 0, $ то $a = b$  
+  \end{subtheorem}
+  \begin{proof}
+    $a \cdot c = b \cdot c \Longrightarrow a \cdot c - b \cdot c =0 \Longrightarrow (a-b) \cdot c =0$\\
+    т.к. нет делителя нуля $\Longrightarrow $ либо $c=0$, либо $a-b=0, $ но $c \neq = \Longrightarrow a=b$   
+  \end{proof}  
+  \begin{subtheorem}
+    В поле нет делителя нуля.
+  \end{subtheorem} 
+  \begin{proof}
+    Предположим, что:
+    $\begin{cases}
+      a \cdot b =0\\a \neq 0 \\ b \neq 0
+    \end{cases}$ т.к. $a \neq 0$, в поле $\exists \ a^{-1}$\\
+    Умножим $a \cdot b =0 $ на $a^{-1}$ \\ $\\$ 
+    $\begin{cases}
+      a^{-1}(a \cdot b) = a^{-1} \cdot 0 = 0\\
+      a^{-1}(a \cdot b) = (a^{-1} \cdot a)b = 1 \cdot b =b
+    \end{cases}$ $ \Longrightarrow b =0$
+  \end{proof} 
+  \begin{subtheorem}
+    Пусть $K$ - коммутативное, ассоциативное кольцо с 1, тогда:\\ $x$ - обратный $\Longleftrightarrow x$ - не делитель нуля.  
+  \end{subtheorem} 
+  \begin{proof}
+    Упражнение
+  \end{proof}
+  \subsection{Изоморфные кольца и поля}
+  \begin{definition}
+    Кольцо $K$ и $\widetilde{K}$ называется изоморфными, если: 
+    $\exists \ \phi: \ K \to \widetilde{K}$ т.ч.:
+    \begin{enumerate}
+      \item $\phi$ - биекуция
+      \item $\forall a, b \in K: \ \phi(a+b) = \phi(a)+\phi(b)$
+      \item $\forall a, b \in K: \ \phi(ab) = \phi(a)\phi(b)$ 
+    \end{enumerate}
+    Обозначается: $K\cong \widetilde{K}$ \ \ $\phi \ - $ изоморфизм колец 
+  \end{definition} 
+  \begin{consequenses}\tab
+    \begin{enumerate}
+      \item $\phi(0) = \widetilde{0}$
+      \item $\phi(-a) = -\phi(a)$
+      \item если $K$ - ассоциативное кольцо с 1, то $\phi(1) = 1$, \\а если $a \in K$ имеет обратный, то $\phi(a^{-1}) = \phi(a)^{-1}$    
+    \end{enumerate}
+  \end{consequenses} 
+  \begin{definition}
+    Поля $P$ и $\widetilde{P}$ называется подкольцом, если:
+    \begin{enumerate}
+      \item $L$ - подгруппа адитивной группа кольца $K$\\
+      т.е. $\begin{cases}
+        \forall a, b \subset L : \ a + b \in L \\
+        0 \in L \\
+        \forall a \in L: (-a) \in L
+      \end{cases}$
+      \item $\forall a, b \in L: \ a \cdot b \in L$    
+    \end{enumerate}
+  \end{definition} 
+  \begin{subtheorem}
+    Любое подкольцо кольца $K$ само является кольцом относительно тех же операций.  
+  \end{subtheorem}
+  \begin{definition}
+    Подмножество $L$ поля $K$ называется подполем, если:
+    \begin{enumerate}
+      \item $L$ - подкольцо кольца $K$
+      \item $1 \in L$
+      \item $\forall a \in L, a \neq 0 \Longrightarrow a^{-1} \in L$   
+    \end{enumerate}
+  \end{definition}
+  \begin{subtheorem}
+    Любое подмножество поля $K$ само является полем относильно тех же операций.  
+  \end{subtheorem}  
+  \begin{example} \tab
+    \begin{enumerate}
+      \item $\Q \subseteq \R$ - подполе
+      \item $\Z \subseteq \R$ - подкольцо
+      \item $2\Z \subseteq \Z$ - подкольцо
+    \end{enumerate}
+  \end{example} 
+  \begin{lalala}
+    В $\Q$ нет подполей, отличных от самого $\Q$ 
+  \end{lalala}
+  \subsection{Характеристика поля}
+  \begin{example1}
+    $\Z_3: \ 1 + 1 + 1 = 0$ 
+  \end{example1}
+  \begin{definition}
+    Говорят
+  \end{definition} 
+  
+
+
+
+
+
+
+
+  \textbf{Мораль в том, что я в этот раз успел} 
+  
 
 
 
