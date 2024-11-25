@@ -28,7 +28,7 @@
 \newcommand{\Q}{\mathbb Q}
 \newcommand{\Z}{\mathbb Z}
 \newcommand{\N}{\mathbb N}
-%\newcommand{\C}{\mathbb C}
+\newcommand{\CC}{\mathbb C}
 \renewcommand{\phi}{\varphi}
 \renewcommand{\epsilon}{\varepsilon}
 \newcommand{\aug}{\fboxsep=-\fboxrule\!\!\!\fbox{\strut}\!\!\!}
@@ -2960,14 +2960,153 @@ $V$- конечномерное векторное простанство над
     \end{itemize}
   \end{proof} 
   \begin{remark}
-    Запись $z=a+bi$ называется алгебраической записью комплексного числа.
+    Запись $z=a+bi$ называется алгебраической записью комплексного числа. \\
+    $Re (z) = x$ - вещественная часть комплексного числа \\
+    $Im (z) = y$ - мнимая часть комплексного числа \\
+    $i$ - мнимая единица. \\
+    На декартовой плоскоси: РИСУНОК (Надо изучить векторную графику)\\
+    $z = x + iy \longleftrightarrow $ точка $M(x,y) \longleftrightarrow$ вектор $\overline{OM}$ 
   \end{remark}  
-
-
-  % \textbf{Мораль в том, что я в этот раз успел} 
-  
-
-
+  \begin{definition}
+    Число $\overline{z} = x+iy$ называется комплексно-сопряженным к $z = x+iy$ 
+  \end{definition} 
+  \begin{subtheorem}
+    Отображеие $\phi: z \to \overline{z}$ является изоморфизмом поля $\mathbb{C}$ в себя (т.е. является автоморфизмом). 
+  \end{subtheorem} 
+  \begin{proof}
+    биекция очевидна \\
+    $\overline{z_1+z_2} = (x_1 + x_2)-(y_1+y_2)i$  = $\overline{z_1}+\overline{z_2}$\\
+    $\overline{z_1z_2} = (x_1x_2-y_1y_2)+(x_1y_2+x_2y_1) = \overline{z_1}\cdot \overline{z_2}$  
+  \end{proof} 
+  \begin{properties}\tab
+    \begin{enumerate}
+      \item $\overline{z} = z$
+      \item $z \cdot \overline{z} = x^2 + y^2 \in \R$
+      \item $ z + \overline{z} = 2x \in \R$ 
+      \item $ \forall z = x + iy, \ z \neq 0, \ \exists \ z^{-1} = \frac{1}{z} = \ \frac{\overline{z}}{z \cdot \overline{z}} = \frac{x-iy}{x^2 + y^2}$   
+    \end{enumerate}
+  \end{properties}
+  \begin{definition}
+    Тригонометрическая форма (полярная система координат на плоскости) \\
+    точка $M(x, y) \longleftrightarrow $ РИСУНОК \\
+    $\rho = |\overrightarrow{OM}|; \phi = \angle(Ox, \overrightarrow{OM})$ \\
+    $\begin{cases}
+      x = \rho cos(\phi)\\
+      y = \rho sin(\phi)
+    \end{cases}  \ \ \ \ z = \rho(cos(\phi)+isin(\phi)); \ \ 
+    \rho = |z| = \sqrt{x^2+y^2}$ \\
+    $\phi$ называется аргументом комплексного числа $z$\\
+    $\phi$ определяется с точностью до $2\pi k, k \in \Z$ \\
+    $Arg(z) = \phi + 2 \pi k, k \in \Z$\\
+    $0\leq Arg(z)\leq2\pi$ - главный аргумент\\
+    $Arg(z) = \begin{cases}
+      arctg(\frac{y}{x}),\ \ \ \ \ \ x>0 \\
+      arctg(\frac{y}{x}+\pi), \ x<0
+    \end{cases}$ \\ $\\$  
+    Если $z = 0$, то аргумент не определяется (либо угол любой, либо $|z| = 0$ ) \\
+    $z_1 = z_2 \Longleftrightarrow \begin{cases}
+      |z_1| = |z_2| \\
+      \phi_1 = \phi_2 + 2\pi k, \ k\in \Z
+    \end{cases}$ 
+  \end{definition} 
+  \begin{subtheorem} (Формула Муавра)\\
+    Пусть $z_1 = \rho_1(cos(\phi_1) + isin(\phi_1)), \ z_2 = \rho_2(cos(\phi_2) + isin(\phi_2))$ \\
+    Тогда:
+    \begin{enumerate}
+      \item $z_1 \cdot z_2 = (\rho_1 \cdot \rho_2)(cos(\phi_1+\phi_2) + isin(\phi_1+\phi_2))$
+      \item если $z_2 \neq 0$, то $\frac{z_1}{z_2} = \frac{\rho_1}{\rho_2} (cos(\phi_1-\phi_2) + isin(\phi_1-\phi_2))$  
+    \end{enumerate}
+  \end{subtheorem} 
+  \begin{proof}\tab
+    \begin{enumerate}
+      \item $z_1 \cdot z_2 = \rho_1(cos(\phi_1) + isin(\phi_1))\cdot \rho_2(cos(\phi_2) + isin(\phi_2)) = \\ =(\rho_1 \cdot \rho_2)(cos(\phi_1)cos(\phi_2) + isin(\phi_1)sin(\phi_2)) = (\rho_1 \cdot \rho_2)(cos(\phi_1+\phi_2) + isin(\phi_1+\phi_2))$ 
+      \item Аналогично
+    \end{enumerate}
+  \end{proof} 
+  \begin{definition}
+    Число $w \in \mathbb{C}$ называется корнем $n -$ой степени из $z\in \mathbb{C}$, где $ n \in \N$, если $w^n = z$.
+  \end{definition} 
+  \begin{subtheorem}
+    Пусть $z = \rho(cos(\phi) + isin(\phi)), \ z \neq 0, \ n\in \N$\\
+    Тогда $\exists \ $ ровно $n$ корней $n -$ой степени из $z\in \mathbb{C}$: $w_0, w_1,...,w_{n-1}$, причем $$w_l = \sqrt[n]{\rho}\cdot (cos(\frac{\phi+2\pi l}{n})+isin(\frac{\phi+2\pi l}{n}))$$ \\
+    РИСУНОК \\
+    $w_0, w_1,...,w_{n-1}$  - лежат в верщинах правильного $n$ - угольника, вписанного в окружность.  
+  \end{subtheorem} 
+  \begin{proof}
+    Рассмотрим $w = r(cos(\psi) + isin(\psi))$ 
+    $$z = \rho(cos(\phi) + isin(\phi)) = r^n(cos(n\psi) + isin(n\psi)) = w^n$$
+    $\Longrightarrow \begin{cases}
+      r^n = \rho\\
+      n \phi = \phi + 2 \pi k, k\in \Z
+    \end{cases} \Longrightarrow w = \sqrt[n]{\rho}\cdot (cos(\frac{\phi+2\pi k}{n})+isin(\frac{\phi+2\pi k}{n})), k \in \Z$\\
+    при $ k = \{0,1,...,k-1\}$ - $w$ принимает все различные значения  
+  \end{proof} 
+  \section{Алгебра над полем}
+  Пусть $F$ - поле 
+  \begin{definition}
+    Алгеброй над полем $F$, называется множество $A$  с операциями сложения, умножения и умножения на элементы поля, удовлетворяет следующим аксиомам:
+    \begin{enumerate}
+      \item $(A, +, \cdot)$ - кольцо
+      \item $A, +, \lambda \cdot$ - векторное пространсво под полем $F$
+      \item $\forall a, b \in A, \lambda\in F: \ \ \lambda(a \cdot b) = (\lambda a)b = a(\lambda b)$    
+    \end{enumerate}
+    Обозначается: $(A, +, \cdot, \lambda \cdot)$, \ \ $\lambda\in F$ 
+  \end{definition}
+  \begin{definition}
+    Алгебрай над полем называется коммутативной (ассоциативной, с единицей и т.д.), если алгебра, как кольцо, имеет соответвенное свойство.
+  \end{definition}  
+  \begin{definition}
+    Размерность алгебры - размерность алгебры, как векторного пространства над полем.
+  \end{definition} 
+  \begin{example}\tab
+    \begin{enumerate}
+      \item $M_n(F) -$ алгебра матриц с коэфициентами из $F$ (это НЕ коммутативная, ассоциативная с единицей алгебра над $F$)
+      \item $(V^3, +, \times, \lambda \cdot)$ - векторное произведение (НЕ коммутативна, НЕ ассоциативная без единицы алгебра над $\R$, размерности 3)
+      \item $L$ - подполе поля $F \Longrightarrow F$ можно рассматривать, как алгебру над $L$  
+      \begin{example1}
+        $\mathbb{C} - $ алгебра над $\R$ размерности 2 (Базис: $\{1, i\}$) 
+      \end{example1}
+    \end{enumerate}
+  \end{example}
+  Пусть $A$ - алгебра над полем $F$, \ $\{e_1,...,e_n\}$ - базис алгебры $A$, как векторного пространства, тогда $$\forall a, b \in A: a = \sum \limits_{j=1}^na_je_j, \ b = \sum \limits_{j=1}^na_je_j$$ 
+  $$\Longrightarrow a \cdot b = (\sum \limits_{j=1}^na_je_j)(\sum \limits_{j=1}^na_je_j) = \sum \limits_{j,k=1}^na_jb_k(e_je_k)$$ 
+  Для умножения произвольных элементов достаточно знать таблицу умножения базисных элементов $(e_j \cdot e_k)$ 
+  \begin{subtheorem}
+    Для проверки коммутативности $\cdot$ в алгебре (ассоциативности и т.д.) достаточно проверить на базисных векторах. 
+  \end{subtheorem} 
+  \begin{proof}
+    Очевидно
+  \end{proof}
+  \begin{example}\tab
+    \begin{enumerate}
+      \item $\mathbb{C}$ - алгебра над $\R$ с базисом $\{1, i\}$  \\
+      $\begin{matrix}
+        \null \  \vline & 1 & i \\ \hline
+        1 \vline & 1 & i \\
+        i \vline & i & -1
+      \end{matrix}$
+      \item $(V^3, +, \times, \lambda \cdot)$ Матрица
+      \item $M_n(F)$  
+    \end{enumerate}
+  \end{example}
+  Пусть $V$ - векторное пространство над полем $F$.
+  Хотим превратить $V$ в алгебру над полем $F$ \\
+  Пусть $e_{jk}$ - произвольные векторы из $V, \ j,i = \overline{1, n}$ \\
+  Положим $e_j \cdot e_k = e_{jk} \Longrightarrow $ $$\forall a, b\in V: \ a\cdot b=\sum \limits_{j,k=1}^na_jb_ke_{jk}$$
+  \begin{example1}
+    Алгебра кватернионов $\mathbb{H}$ \\
+    $\mathbb{H}$ - 4-х - мерное векторное пространство над $\R$ с базисом $\{1, i, j, k\}$ и таблицей умнодения: МАТРИЦА
+  \end{example1}
+  \begin{definition}
+    Подмножество $B$ алгебры $A$ назвается подалгеброй $A$, если $B$ - подпространство $A$, как кольца и подпространства $A$, как пространства.      
+  \end{definition} 
+  \begin{subtheorem}
+    Любоя подалгебра сама является алгеброй относильно тех же оперций и тем же полем.
+  \end{subtheorem} 
+  \begin{definition}
+    Алгебра $A$ и $\widetilde{A}$ над одним и тем же полем назваются изоморфными, если они изоморфны. 
+  \end{definition} 
+  % \textbf{Мораль в том, что я в этот раз почти успел} 
 
 \end{document}
 
