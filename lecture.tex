@@ -3176,43 +3176,42 @@ $V$- конечномерное векторное простанство над
   \end{subtheorem} 
   \begin{definition}
     Алгебра $A$ и $\widetilde{A}$ над одним и тем же полем назваются изоморфными, если они изоморфны. 
-  \end{definition} 
+  \end{definition}
+  
   \textbf{Надо дописать прошлую лекцию} 
   \subsection{Алгебра многочленов над полем}
   $F$ - поле
   \begin{definition}
     Бесконечная последовательность $(a_0,a_1, a_2,...)$, где $a_i \in \R$, называется финитной, если только конечное число $a_i$ отлично от нуля. 
-    $$F^{infty} = \{(a_0,a_1, a_2,...) \ |\ a_i \in \R\}$$ 
+    $$F^{\infty} = \{(a_0,a_1, a_2,...) \ |\ a_i \in \R\}$$ 
   \end{definition}  
   \begin{subtheorem}
-    Множество $F^{infty}$ относительно операции сложения: $$(a_0,a_1, a_2,...) + (b_0,b_1, b_2,...) = (a_0+b_0,a_1+b_1, a_2+b_2,...)$$ и умножения на элементы $\lambda \in F$: $$(a_0,a_1, a_2,...) \cdot \lambda = (\lambda a_0,\lambda a_1, \lambda a_2,...)$$
+    Множество $F^{\infty}$ относительно операции сложения: $$(a_0,a_1, a_2,...) + (b_0,b_1, b_2,...) = (a_0+b_0,a_1+b_1, a_2+b_2,...)$$ и умножения на элементы $\lambda \in F$: $$(a_0,a_1, a_2,...) \cdot \lambda = (\lambda a_0,\lambda a_1, \lambda a_2,...)$$
     $F^{\infty}$ - бесконечномерное векторное пространство.   
   \end{subtheorem} 
   \begin{subtheorem}
     $F^{\infty}$ - счетномерно с базисом:
-    $$e_0 = (1, 0, 0, ...)$$
-    $$e_1 = (0, 1, 0, ...)$$
-    $$e_2 = (0, 0, 1, ...)$$
-    $$...$$ 
+    $$(e_0,e_1,e_2,...) = ( \ (1, 0, 0, ...), \ (0, 1, 0, ...), \ (0, 0, 1, ...), ... \ )$$ 
     Зададим умножение $e_k \cdot e_l = e_{k+l} \Longrightarrow F^{\infty}$  превращается в алгебру над полем $F$ 
   \end{subtheorem} 
   \begin{remark}
-    Так как $e_l = e_{k+l}$ и в $\Z$ сложение коммутативно и ассоциативно, то $F^{\infty}$ - ассоциативная, коммутативная алшебра над $F$ с единицей: $e_0 = (1, 0, 0, ...)$
+    Так как $e_l = e_{k+l}$ и в $\Z$ сложение коммутативно и ассоциативно, то $F^{\infty}$ - ассоциативная, коммутативная алгебра над $F$ с единицей: $e_0 = (1, 0, 0, ...)$
   \end{remark} 
   \begin{definition}
-    Такая алгебра называется алгеброй многочлетов над полем $F$. 
+    Такая алгебра называется алгеброй многочленов над полем $F$. 
     Обозначается: $F[x]$  
   \end{definition} 
   Получаем привычный вид многочлена: 
-  $\forall a \in F \ a\cdot e_0$ отобдествим с этементом $a$, а вектор $e_1$ обозначим через $x$: 
+  $\forall a \in F: \ a\cdot e_0$ отожествим с элементом $a$, а вектор $e_1$ обозначим через $x$:
   $$e_k = \underbrace{e_1 \cdot e_1 \cdot ... \cdot e_1}_{k}  = x^k$$     
-  Рассмотрим произвольный $(a_0,a_1, a_2,...) \in F^{\infty}$. Так как она финитная, то это $$(a_0,a_1, ..., a_n,0, 0,...) = a_0e_0 + a_1e_1+...+a_ne_n = a_0 + a_1x+...+a_nx^n$$
-  $a_i$ называет коэффициентом многочлена
+  Рассмотрим произвольный $(a_0,a_1, a_2,...) \in F^{\infty}$. Так как она финитная, то: 
+  $$(a_0,a_1, ..., a_n,0, 0,...) = a_0e_0 + a_1e_1+...+a_ne_n = a_0 + a_1x+...+a_nx^n$$
+  $a_i$ называется коэффициентом многочлена.
   \begin{definition}
-    Если $f = a_0 + a_1x+...+a_nx^n$, где $a_n \neq 0$, $a_k =0 \forall k>n$, то $a_n$ называется старшим членом, а число $\deg f = n$  называется степенью многочлена.  
+    Если $f = a_0 + a_1x+...+a_nx^n$, где $a_n \neq 0$, $a_k = 0,  \ \forall k>n$, то $a_n$ называется старшим членом, а число $\deg f = n$  называется степенью многочлена.  
   \end{definition} 
   \begin{remark}
-    $deg0 = -\infty$ (или неопределена)\\
+    $\deg 0 = -\infty$ (или неопределена)\\
     $f\neq 0, \ \deg f \in \N \cup \{0\}$  
   \end{remark} 
   \begin{properties}\tab
@@ -3227,7 +3226,7 @@ $V$- конечномерное векторное простанство над
       \item $$f = a_0 + a_1x+...+a_nx^n, \ a_n, \ \deg f = n$$
       $$g = b_0 + b_1x+...+b_mx^m, \ b_m, \ \deg f = m$$
       $$fg = a_0b_0 +...+a_nb_mx^{n+m}$$
-      $a_n, b_m \neq 0$, т.к. в поле нет делителей нуля. 
+      $a_n, b_m \neq 0$, т.к. в поле нет делителей нуля 
       $\Longrightarrow a_nb_m$ - старший член $$\Longrightarrow \deg fg = \deg f + \deg g$$     
     \end{enumerate}
   \end{proof}
@@ -3239,15 +3238,15 @@ $V$- конечномерное векторное простанство над
   \end{consequense} 
   \subsubsection{Деление с остатком}
   \begin{theorem}
-    Пусть $F$ - поле, \ $f, g \in F,\ g\neq 0 $. Тогда $\exists ! \ q, r$, т.ч. $f = g \cdot q + r$, \\причем либо $r=0$, либо $\deg r < \deg g$       
+    Пусть $F$ - поле, \ $f, g \in F,\ g\neq 0 $. Тогда $\exists ! \ q, r$: \ $f = g \cdot q + r$, \\причем либо $r=0$, либо $\deg r < \deg g$       
   \end{theorem}
   \begin{proof}
     Пусть $f, g \neq 0$$$f = a_0 + a_1x+...+a_nx^n, \ a_n \neq 0, \ \deg f = n$$ $$g = b_0 + b_1x+...+b_mx^m, \ b_m \neq 0, \ \deg f = m$$ 
     \textit{Докажем существование:} 
     \begin{enumerate}
       \item $n<m \Longrightarrow f = 0 \cdot g + f \ (q=0, f = r)$
-      \item $n\geq \Longrightarrow f_1 = f - \frac{a_n}{b_m} \cdot g \cdot x^{n-m}$ \\
-      $\deg f_1 < \deg g \Longrightarrow r = f_1, \ q = \frac{a_n}{b_m}\cdot x^{n-m}$ \\
+      \item $n\geq m \Longrightarrow f_1 = f - \frac{a_n}{b_m} \cdot g \cdot x^{n-m}$ \\
+      Если $\deg f_1 < \deg g \Longrightarrow r = f_1, \ q = \frac{a_n}{b_m}\cdot x^{n-m}$ \\
       Иначе продолжаем процесс с $f_1$ (заметим, что $\deg f_1 < \deg f$): находим $f_2 $ и т.д. Процесс закончится на конечном шаге.  
     \end{enumerate}
     \textit{Докажем единственность:}  \\
@@ -3256,15 +3255,15 @@ $V$- конечномерное векторное простанство над
   \subsubsection{Мгогочлены как фунции}
   $F$ - поле, \ $f = a_nx^n + a_{n-1}x^{n-1} +...+ a_0$
   \begin{definition}
-    Значение многочлена $f$ в точке $C$ называет число, равное: $$a_nC^n + a_{n-1}C^{n-1} +...+ a_0$$
+    Значение многочлена $f$ в точке $c$ называет число, равное: $$a_nc^n + a_{n-1}c^{n-1} +...+ a_0$$
      Таким образом, множество $f$ задает отображение $F \to F$
-     $$C \to f(C) \Longrightarrow f \text{ задает функцию}$$      
+     $$c \to f(c) \Longrightarrow f \text{ задает функцию}$$      
   \end{definition} 
   \begin{remark}
     Разные многочлены могут задавать одну функцию.
   \end{remark} 
   \begin{example1}
-    $F = |\Z_2, \ f_1 = x^2, \ f_2 = x$ - разные многочлены, но они задают одну и ту же функцию:
+    $F = \Z_2, \ f_1 = x^2, \ f_2 = x$ - разные многочлены, но они задают одну и ту же функцию:
     $$f_1(0)=0, \ f_1(1) = 1, \ f_2(0)=0, \ f_2(1) = 1$$ 
   \end{example1}
   \begin{theorem}
@@ -3272,48 +3271,110 @@ $V$- конечномерное векторное простанство над
   \end{theorem} 
   \begin{proof}
     Допустим, $f, g \in F[x], \ f \neq g, \ \forall c \in F, \ f(c) = g(c)$ \\
-    Обозначим $h = f - g \in F[x]. \ h \neq 0, \ \forall c \in F F(c)=0$\\
-    Т.к. поле $F$ - бесконечное, то $\exists \ c_0, c_1,...,c_n \in F$ - различные числа:
+    Введем $h = f - g \in F[x], \ h \neq 0, \ \forall c \in F, \  h(c)=0$\\
+    Т.к. поле $F$ - бесконечное, то $\exists \ c_0, c_1,...,c_n \in F$ - различные числа, такие что:
     $$\begin{cases}
       h(c_0) = 0 \\
       h(c_1) = 0 \\
       \vdots \\
       h(c_n) = 0 
-    \end{cases} \ \ 
+    \end{cases} \Longrightarrow \ \ 
     \begin{cases}
       a_nc_0^n + a_{n-1}c_0^{n-1} + ... + a_1c_0+ a_0 = 0 \\
       a_nc_1^n + a_{n-1}c_1^{n-1} + ... + a_1c_1+ a_0 = 0 \\
       \vdots \\
       a_nc_n^n + a_{n-1}c_n^{n-1} + ... + a_1c_n+ a_0 = 0
-    \end{cases}$$ - квадратная однородная СЛУ относительно неизвестных $a_n, a_{n-1}, ..., a_0$ с матрицей коэффициентов $A$
+    \end{cases}$$ - квадратная однородная СЛУ относительно неизвестных $a_n, a_{n-1}, ..., a_0$ с матрицей коэффициентов $A:$
     $$A = \begin{pmatrix}
       c_0^n & \cdots & c_0^1 \\
       c_1^n & \cdots & c_1^1 \\
       \vdots & \null & \vdots\\ 
       c_n^n & \cdots & c_n^1 \\
     \end{pmatrix}, \ \ \det A = (-1)^2 \cdot \underbrace{V(c_0, c_1,...,c_n)}_{\text{Определитель Вандермонда}}$$
-    $\Longrightarrow $ по правилу Крамера СЛУ имеет единственное решение и оно тривиальное $\Longrightarrow  a_n=0,a_{n-1} = 0, ..., a_0=0 \Longrightarrow n=0$ противоречие.    
+    $\Longrightarrow $ по правилу Крамера СЛУ имеет единственное решение и оно тривиальное $\Longrightarrow  \forall i \in \{0, 1,...,n\}: a_i = 0 \Longrightarrow n=0$ противоречие.    
   \end{proof}
-  \begin{theorem}(Безу)
-    Пусть $F$ - поле, $ \ f \in F[x], c \in F$. Тогда остаток при делении $f$ на $(x-c)$ равен значению многочлена в точке $c$.     
+  
+  \begin{theorem}\textbf{(Безу)} 
+    Пусть $F$ - поле, $ \ f \in F[x], c \in F$.\\
+    Тогда остаток при делении $f$ на $(x-c)$ равен значению многочлена в точке $c$.     
   \end{theorem}
   \begin{proof}
-    $f(x) = (x-c)g(x) + r(x)\ \  (*)$\\
-    $\deg r(x) < \deg (x-c) = 1$\\
-    $\Longrightarrow  r(x)$ - это $const$ \ \
-    $\Longrightarrow $ Либо $r(x) = 0$, либо $r(x)=r \in F$    \\
+    Пусть $f(x) = (x-c)g(x) + r(x)\  (*)$
+    $$\deg r(x) < \deg (x-c) = 1 \Longrightarrow  r(x) - const$$
+    $\Longrightarrow $ Либо $r(x) = 0$, либо $r(x)=r \in F$\\
     Подставим в $(*) \ x = c$
-    $$f(c) = (c-c)q(c) + r(c) = r$$ 
-    
+    $$f(c) = (c-c)\cdot q(c) + r(c) = r$$
   \end{proof}   
-  
+  \subsubsection{Корни многочленов}
+  \begin{definition}
+    Элемент $c\in F$ - корень многочлена $f \in F[x]$, если $f(c) = 0$. Из теоремы Безу получаем утверждение: 
+  \end{definition}
+  \begin{subtheorem}
+    $c \in F$ - корень многочлена $f\in F[x] \Longleftrightarrow (x-c) \ | \ f$.  
+  \end{subtheorem}  
+  \begin{definition}
+    Если $c$ - корено многочлена $f$ и $(x-c)^2 \nmid f$, то корень $c$ - называется простым, иначе кратным.
+  \end{definition} 
+  \begin{definition}
+    Если $c$ - корень и $(x-c)^k \ | \ f, (x-c)^{k+1} \nmid f$, то $c$ - корень кратности $k$ \ $(k \in \N)$.     
+  \end{definition} 
+  \begin{subtheorem}
+    $c$- корень многочлена $f$ кратности $k \Longleftrightarrow \begin{cases}
+      f = (x-c)^k \cdot g\\
+      g(c) \neq 0
+    \end{cases}$  
+  \end{subtheorem} 
+  \begin{consequense}
+    Пусть $f \in F[x], \ f \neq 0, \ \deg f = n, \ k$ - число всех корней многочлена $f$ с учетом кратности. \\
+    Тогда $k\leq n$, причем если $k=n \Longleftrightarrow f$ раскладывается на линейные многочлены.    
+  \end{consequense}
+  \begin{proof}
+    Если $c_1$ - корень, то $f = (x-c_1)g_1$ \\
+    \tab[4.1cm]Если $c_2$ - корень, то $f = (x-c_1)(x-c_2)g_2$ и т.д. 
+    $$\Longrightarrow f = (x-c_1)(x-c_2)...(x-c_k)g$$
+    где $g$ не имеет корней. То есть $c_1,...,c_k$ - корни многочлена $f$, при этом среди них могут быть одинаковые.
+    $$\Longrightarrow f = (x-\widetilde{c_1})^{k_1}(x-\widetilde{c_2})^{k_2}...(x-\widetilde{c_s})^{k_s}g$$
+    где $\widetilde{c_1},...,\widetilde{c_s}$ - все различные корни.\\ Т.к. $$f = (x-\widetilde{c_l})h$$ 
+    где $h(\widetilde{c_l}) \neq 0 \Longrightarrow \widetilde{c_l}$ - корень кратности $k_l$ $$\Longrightarrow \deg f = k_1 +...,+k_s + \deg g \Longrightarrow k = k_1+...+k_s \leq n$$
+    При этом: $$k=n \Longleftrightarrow \deg g =0 \Longleftrightarrow f = \prod\limits_{l=1}^{s}(x-\widetilde{c_l})^{k_l}$$       
+  \end{proof}
+  \begin{definition}
+    Формальной производной многочлена 
+    $$f = a_nx^n + a_{n-1}x^{n-1} + ... + a_0$$
+    называется многочлен:
+    $$f' = a_nnx^n + a_{n-1}(n-1)x^{n-1} + ... + a_1$$  
+  \end{definition}
+  \begin{subtheorem}\tab
+    \begin{enumerate}
+      \item $(f+g)' = f'+g'$
+      \item $(\alpha f)' = \alpha f'$
+      \item $(fg)' = f'g+fg'$   
+    \end{enumerate}
+  \end{subtheorem}
+  \begin{subtheorem}
+    Пусть $char F = 0, \ c \in F, \ f \in F[x]$, \ тогда: 
+    $$f(x)=f(c) + \frac{f'(c)}{1!}(x-c) + \frac{f^{(2)}(c)}{2!}(x-c)^2 + ... + \frac{f^{(n)}(c)}{n!}(x-c)^n$$ 
+  \end{subtheorem}
+  \begin{proof}
+    $f(x) = a_nx^n + a_{n-1}x^{n-1} + ... + a_0$.\\ Подставим $x = y+c$: 
+    $$f = b_ny^n + b_{n-1}y^{n-1} + ... + b_0$$
+    Подставим $y = x - c$:
+    $$f = b_n(x-c)^n + b_{n-1}(x-c)^{n-1} + ... + b_0$$ 
+    $\Longrightarrow f^{(k)}(c) = k! \cdot b_k$ (вопросик)
+  \end{proof}
+  \begin{consequense}
+    Пусть $char F = 0, \ f \in F[x], c\in F$\\
+    Тогда $c$ - корень многочлена $f$ кратности $k \Longleftrightarrow \begin{cases}
+      f(c) = 0\\
+      f'(c) = 0\\
+      \vdots \\
+      f^{(k-1)}(c) = 0\\
+      f^{(k)}(c) \neq 0
+    \end{cases}$    
+  \end{consequense}    
 
-
-
-
-  
   % \textbf{Мораль в том, что я в этот раз почти успел}
-  \textbf{Мораль в том, что в этот раз я вообще не успел} 
+  % \textbf{Мораль в том, что в этот раз я вообще не успел}
 
 \end{document}
 
