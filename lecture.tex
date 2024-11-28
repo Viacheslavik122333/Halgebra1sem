@@ -15,7 +15,9 @@
 %\usepackage{indentfirst}
 \usepackage{soulutf8}
 \usepackage{graphicx}
-
+\usepackage{tkz-euclide}
+\usepackage{tikz}
+% \usepackage{tikz II}
 
 \usepackage{tikz,amstext}
 \newlength{\tempheight}
@@ -2223,7 +2225,7 @@ $V$- конечномерное векторное простанство над
   \end{subtheorem} 
   \begin{proof}
     (От противного) Допустим, что $\exists \ e_1,e_2 \in A$ - нейтральные
-    $$e_1 \not = e_2 \Longrightarrow \underbrace{e_1}_{\text{нейтральный}}* e_2 = e_1; \ \ \ e_1 * \underbrace{e_2}_{\text{нейтральный}}= e_2 \Longrightarrow e_1 = e_2$$ 
+    $$e_1 \not = e_2 \Longrightarrow \underbrace{e_1}_{\text{нейтральный}}* e_2 = e_2; \ \ \ e_1 * \underbrace{e_2}_{\text{нейтральный}}= e_1 \Longrightarrow e_1 = e_2$$ 
   \end{proof} 
   \begin{definition}
     Группоид - это множество $A$, на котором введена бинарная операция $(*)$. $(A,*)$  
@@ -2246,7 +2248,7 @@ $V$- конечномерное векторное простанство над
   \end{proof} 
   \begin{example}
     \begin{enumerate} \tab
-      \item $(M_{n \times m}(\R), \cdot, E)$ моноид, $\exists \ A^{-1} \Longleftrightarrow det \not = 0$ 
+      \item $(M_{n \times m}(\R), \cdot, E)$ моноид, $\exists \ A^{-1} \Longleftrightarrow detA \not = 0$ 
       \item $(\Z, \cdot, 1)$ моноид, $1, -1$ обратимы  
       \item $(\R, \cdot, 1)$ моноид, $\forall a \not =0:  \exists \ a^{-1}$ 
     \end{enumerate}
@@ -2254,7 +2256,7 @@ $V$- конечномерное векторное простанство над
   \begin{properties}
     \begin{itemize} \tab
       \item[1)] Если элемент $a$  имеет обратный $b$ , то элемент $b$ имеет обратный и этот обратный равен $a$
-      \item[2)] Если $a_1$ имеет обратный $b_1$, $a_2$ имеет обратный $b_2$, то: $a_1*a_2 = b_2*b_1$ 
+      \item[2)] Если $a_1$ имеет обратный $b_1$, $a_2$ имеет обратный $b_2$, то: $(a_1*a_2)^{-1} = b_2*b_1$ 
     \end{itemize}
   \end{properties}
   \begin{definition}
@@ -2565,9 +2567,9 @@ $V$- конечномерное векторное простанство над
   \end{properties}
   \begin{subtheorem}\tab
     \begin{enumerate}
-      \item \label{Ytv1} если $\tau$ - транспозиция, то $\sigma(\tau) = -1$
+      \item \label{Ytv1} если $\tau$ - транспозиция, то $sgn(\tau) = -1$
       \item если $\sigma$ - цикл длины $k$, то $sgn(\sigma) = (-1)^{k-1}$
-      \item \label{Ytv3}если $\sigma = \tau_1 \cdot ... \cdot \tau_l$, где $\tau_i$ - транспозиции, то $sgn(\sigma) = -1^l$      
+      \item \label{Ytv3}если $\sigma = \tau_1 \cdot ... \cdot \tau_l$, где $\tau_i$ - транспозиции, то $sgn(\sigma) = (-1)^l$      
     \end{enumerate}
   \end{subtheorem}
   \begin{proof}\tab
@@ -2593,7 +2595,7 @@ $V$- конечномерное векторное простанство над
     $$ = \text{ (чет) }\cdot \text{ (нечет) } = \text{ (нечет) }$$
   \end{example1}
   \subsection{Подгруппа}
-  $(A,*)$ - множество с бинарной оперицией. \ $B \subseteq A$ 
+  $(A,*)$ - множество с бинарной операцией. \ $B \subseteq A$ 
   \begin{definition}
     Говорят. что $B$ замкнуто относительно бинарной опериции $*$, если: $$\forall b_1,b_2 \in B: \ b_1 * b_2 \in B$$
     В этом случае $B$ превращается в алгебраическую структуру.   
@@ -2605,7 +2607,7 @@ $V$- конечномерное векторное простанство над
     Множество $H$ называется подгруппой группы $G$, если:
     \begin{enumerate}
       \item $\forall h_1,h_2 \in H \Longrightarrow h_1 \cdot h_2 \in H$ 
-      \item $\mathfrak{1} \in H$
+      \item $1 \in H$
       \item $\forall h \in H \Longrightarrow h^{-1} \in H$  
     \end{enumerate}
     Обозначается: $H\leq G$ 
@@ -2629,7 +2631,7 @@ $V$- конечномерное векторное простанство над
   \begin{definition}
     Множество $K$, на котором введены 2 бинарные операции:\\ $"+"$ - сложение, $"\cdot"$ - умножение, называется кольцом, если выполнены следующие аксиомы:
     \begin{enumerate}
-      \item $(K, \cdot)$ - абелева группа
+      \item $(K, +)$ - абелева группа
       \item $\forall a,b,c \in K: \ a(b+c) = ab+ac$ и $(a+b)c = ac+ab$   
     \end{enumerate}
     Обозначается: $(K, +, \cdot)$
@@ -2671,7 +2673,7 @@ $V$- конечномерное векторное простанство над
       \end{itemize}
       \item $\forall a \in K: \ a \cdot 0=0 \cdot a = 0$
       \item $a\cdot(-b) = (-a)\cdot b = -(a\cdot b)$  
-      \item $\forall a, b, c \in K: \ a(b-c) = ab_ac, \ (b-c)A = ba-ca$ 
+      \item $\forall a, b, c \in K: \ a(b-c) = ab-ac, \ (b-c)a = ba-ca$ 
       \item Если $K$ - кольцо с 1, то $a(-1) = (-1)a = -a$ 
     \end{enumerate}
   \end{consequenses}
@@ -2686,7 +2688,7 @@ $V$- конечномерное векторное простанство над
       Элемент $a \in K$ называется обратимым, если $\exists \ b \in K: \\ab =ba = 1$. При этом элемент $b$ должен быть обратным к $a$   
   \end{definition}  
   \begin{subtheorem}
-    Если $K$ - ассициативное кольцо с 1, то если элемент $a \in K$ имеет обратный, то он единственный.  
+    Если $K$ - ассоциативное кольцо с 1, то если элемент $a \in K$ имеет обратный, то он единственный.  
   \end{subtheorem} 
   \begin{example} \tab
     \begin{enumerate}
@@ -2756,7 +2758,7 @@ $V$- конечномерное векторное простанство над
   \end{subtheorem}
   \begin{proof}
     $a \cdot c = b \cdot c \Longrightarrow a \cdot c - b \cdot c =0 \Longrightarrow (a-b) \cdot c =0$\\
-    т.к. нет делителя нуля $\Longrightarrow $ либо $c=0$, либо $a-b=0, $ но $c \neq = \Longrightarrow a=b$   
+    т.к. нет делителя нуля $\Longrightarrow $ либо $c=0$, либо $a-b=0, $ но $c \neq 0 \Longrightarrow a=b$   
   \end{proof}  
   \begin{subtheorem}
     В поле нет делителя нуля.
@@ -2780,7 +2782,7 @@ $V$- конечномерное векторное простанство над
   \end{proof}
   \subsection{Изоморфные кольца и поля}
   \begin{definition}
-    Кольцо $K$ и $\widetilde{K}$ называется изоморфными, если: 
+    Кольцо $K$ и $\widetilde{K}$ называются изоморфными, если: 
     $\exists \ \phi: \ K \to \widetilde{K}$ т.ч.:
     \begin{enumerate}
       \item $\phi$ - биекция
@@ -2797,14 +2799,17 @@ $V$- конечномерное векторное простанство над
     \end{enumerate}
   \end{consequenses} 
   \begin{definition}
-    Поля $P$ и $\widetilde{P}$ называется подкольцом, если:
+    Поля $P$ и $\widetilde{P}$  изоморфны, если они изоморфны как кольца.
+  \end{definition} 
+  \begin{definition}
+    Подмножество $L$ кольца $K$ называется подкольцом, если:
     \begin{enumerate}
-      \item $L$ - подгруппа адитивной группа кольца $K$\\
-      т.е. $\begin{cases}
-        \forall a, b \subset L : \ a + b \in L \\
-        0 \in L \\
-        \forall a \in L: (-a) \in L
-      \end{cases}$
+      \item $L$ - подгруппа адитивной группы кольца $K$, т.е.
+      \begin{itemize}
+        \item $\forall a, b \subset L : \ a + b \in L$ 
+        \item $0 \in L$ 
+        \item $\forall a \in L: (-a) \in L$
+      \end{itemize}
       \item $\forall a, b \in L: \ a \cdot b \in L$    
     \end{enumerate}
   \end{definition} 
@@ -2860,13 +2865,13 @@ $V$- конечномерное векторное простанство над
     В поле нет делителей нуля $\Longrightarrow \underbrace{1+1+...+1}_{m} = 0$. Противоречие.
   \end{proof}
   \begin{remark}
-    Теория решения СЛУ (метод Гаусса, праивло Крамера, ...), теория определителей, утверждения о векторных пространсвах (в частности о матрицах), которые мы рассматривали раннее, переносятся с $\R$ на произвольные поля. \\
-    \textbf{Исключение}  - поле характеристики 2: в определение кососимметричной и полилинейной функции надо трбовать, что при 2 совпадающих аргументов \\ $f(...,v,...,v,...)=0$. Отсюда получаем, что $f(...,v,...,w,...) = -f(...,w,...,v,...)$ (при $charP = 2$ \ \ $1 \neq-1$)  
+    Теория решения СЛУ (метод Гаусса, правила Крамера, ...), теория определителей, утверждения о векторных пространсвах (в частности о матрицах), которые мы рассматривали раннее, переносятся с $\R$ на произвольные поля. \\
+    \textbf{Исключение}  - поле характеристики 2: в определение кососимметричной и полилинейной функции надо требовать, что при 2 совпадающих аргументов \\ $f(...,v,...,v,...)=0$. Отсюда получаем, что $f(...,v,...,w,...) = -f(...,w,...,v,...)$ (при $charP = 2$ \ \ $1 = -1$)  
   \end{remark}
   \subsection{Поле комплексных чисел}
-  \textbf{xd} 
+  $$\textbf{xd}$$ 
   \begin{definition}
-    Поле комплексных чисел $\mathbb{C} $ - это:
+    Поле комплексных чисел $\mathbb{C} $ - это поле, в котором выполнены следующие условия:
     \begin{enumerate}
       \item Поле $\R$ содержится в $\mathbb{C} $ в качестве подполя.
       \item В $\mathbb{C} \ \exists$ элемент $i:\  i^2 = -1$
@@ -2952,7 +2957,7 @@ $V$- конечномерное векторное простанство над
       $\forall (a, b) \in \Gamma$ \\
       $(a, 0)(1, 0) + (b, 0)(0, 1) = (a, b)$ \\
       т.е. $\forall z \in \Gamma \ \ z = a \cdot 1 + b \cdot i$ \\
-      $\forall F \subseteq \Gamma$\\
+      $\forall F \subseteq \Gamma$\\ 
       $\begin{cases}
         \R \subseteq F \\
         i \in F
@@ -2964,7 +2969,18 @@ $V$- конечномерное векторное простанство над
     $Re (z) = x$ - вещественная часть комплексного числа \\
     $Im (z) = y$ - мнимая часть комплексного числа \\
     $i$ - мнимая единица. \\
-    На декартовой плоскоси: РИСУНОК (Надо изучить векторную графику)\\
+    На декартовой плоскоси: 
+    \begin{center}
+      \begin{tikzpicture}
+        \draw[->] (-1,0) - - (3.5,0) node[right] {$x$};
+        \draw[->] (0,-0.5) - - (0,3.5) node[left] {$y$};
+        \draw[->] (0,0) - - (2.47,1.97);
+        \coordinate (M) at (2.5, 2);
+        \coordinate (O) at (0, 0);
+        \draw[fill] (M) circle (1.2pt) node[right] {$M(x,y)$};
+        \draw[fill] (O) circle (1pt) node[below left] {$O$};
+      \end{tikzpicture}
+    \end{center}
     $z = x + iy \longleftrightarrow $ точка $M(x,y) \longleftrightarrow$ вектор $\overline{OM}$ 
   \end{remark}  
   \begin{definition}
@@ -3028,8 +3044,63 @@ $V$- конечномерное векторное простанство над
   \end{definition} 
   \begin{subtheorem}
     Пусть $z = \rho(cos(\phi) + isin(\phi)), \ z \neq 0, \ n\in \N$\\
-    Тогда $\exists \ $ ровно $n$ корней $n -$ой степени из $z\in \mathbb{C}$: $w_0, w_1,...,w_{n-1}$, причем $$w_l = \sqrt[n]{\rho}\cdot (cos(\frac{\phi+2\pi l}{n})+isin(\frac{\phi+2\pi l}{n}))$$ \\
-    РИСУНОК \\
+    Тогда $\exists \ $ ровно $n$ корней $n -$ой степени из $z\in \mathbb{C}$: $w_0, w_1,...,w_{n-1}$, причем $$w_l = \sqrt[n]{\rho}\cdot (cos(\frac{\phi+2\pi l}{n})+isin(\frac{\phi+2\pi l}{n}))$$ 
+    \begin{center}
+      \begin{tikzpicture}[scale=3]
+        %\usetikzlibrary{calc}
+        \draw[->] (-1.5,0) - - (1.5,0) node[right] {$Re(z)$};
+        \draw[->] (0,-1.5) - - (0,1.5) node[left] {$Im(z)$};
+
+        \coordinate (x0) at (0, 0);
+        \coordinate (x1) at (1, 0);
+        \coordinate (x2) at (0.8660254, 0.5);
+        \coordinate (x3) at (0.5, 0.8660254);
+        \coordinate (x4) at (0, 1);
+        \coordinate (x5) at (-0.5, 0.8660254);
+        \coordinate (x6) at (-0.8660254, 0.5);
+        \coordinate (x7) at (-1, 0);
+        \coordinate (x8) at (-0.8660254, -0.5);
+        \coordinate (x9) at (-0.5, -0.8660254);
+        \coordinate (x10) at (0, -1);
+        \coordinate (x11) at (0.5, -0.8660254);
+        \coordinate (x12) at (0.8660254, -0.5);
+
+        \draw[fill] (x2) circle (0.8pt) node[above right] {$w_0$};
+        \draw[fill] (x3) circle (0.8pt) node[above right] {$w_1$};
+        \draw[fill] (x4) circle (0.8pt) node[above right] {$w_2$};
+        \draw[fill] (x5) circle (0.8pt) node[above left] {$w_3$};
+        \draw[fill] (x6) circle (0.8pt) node[above left] {$w_4$};
+        \draw[fill] (x7) circle (0.8pt) node[above left] {$w_5$};
+        \draw[fill] (x8) circle (0.8pt) node[below left] {$w_6$};
+        \draw[fill] (x9) circle (0.8pt) node[below left] {$w_7$};
+        \draw[fill] (x10) circle (0.8pt) node[below left] {$w_8$};
+        \draw[fill] (x11) circle (0.8pt) node[below right] {$w_9$};
+        \draw[fill] (x12) circle (0.8pt) node[below right] {$w_{10}$};
+        \draw[fill] (x1) circle (0.8pt) node[below right] {$w_{11}$};
+        \draw[fill] (x0) circle (1pt) node[below left] {$O$};
+        \draw (x0) circle (28.5pt);
+
+        % \tkzMarkAngle[mark=,arc=ll,size=10pt] (x2, x0, x3);
+        % \tkzLabelAngle[pos=0.6] (x2, O, x3) {$\frac{\phi}{n}$};
+
+        \draw[->] (0,0) - - (0.842, 0.484);
+        \draw[->] (0,0) - - (0.484, 0.842);
+
+        \draw (1,0) - - (0.8660254, 0.5);
+        \draw (0.8660254, 0.5) - - (0.5, 0.8660254);
+        \draw (0.5, 0.8660254) - - (0,1);
+        \draw (0,1) - - (-0.5, 0.8660254);
+        \draw (-0.5, 0.8660254) - - (-0.8660254, 0.5);
+        \draw (-0.8660254, 0.5) - - (-1,0);
+        \draw (-1,0) - - (-0.8660254, -0.5);
+        \draw (-0.8660254, -0.5) - - (-0.5, -0.8660254);
+        \draw (-0.5, -0.8660254) - - (0, -1);
+        \draw (0, -1) - - (0.5, -0.8660254);
+        \draw (0.5, -0.8660254) - - (0.8660254, -0.5);
+        \draw (0.8660254, -0.5) - - (1,0);
+
+      \end{tikzpicture}
+    \end{center}
     $w_0, w_1,...,w_{n-1}$  - лежат в верщинах правильного $n$ - угольника, вписанного в окружность.  
   \end{subtheorem} 
   \begin{proof}
@@ -3095,7 +3166,7 @@ $V$- конечномерное векторное простанство над
   Положим $e_j \cdot e_k = e_{jk} \Longrightarrow $ $$\forall a, b\in V: \ a\cdot b=\sum \limits_{j,k=1}^na_jb_ke_{jk}$$
   \begin{example1}
     Алгебра кватернионов $\mathbb{H}$ \\
-    $\mathbb{H}$ - 4-х - мерное векторное пространство над $\R$ с базисом $\{1, i, j, k\}$ и таблицей умнодения: МАТРИЦА
+    $\mathbb{H}$ - 4-х - мерное векторное пространство над $\R$ с базисом $\{1, i, j, k\}$ и таблицей умножения: МАТРИЦА
   \end{example1}
   \begin{definition}
     Подмножество $B$ алгебры $A$ назвается подалгеброй $A$, если $B$ - подпространство $A$, как кольца и подпространства $A$, как пространства.      
@@ -3106,7 +3177,142 @@ $V$- конечномерное векторное простанство над
   \begin{definition}
     Алгебра $A$ и $\widetilde{A}$ над одним и тем же полем назваются изоморфными, если они изоморфны. 
   \end{definition} 
-  % \textbf{Мораль в том, что я в этот раз почти успел} 
+  \textbf{Надо дописать прошлую лекцию} 
+  \subsection{Алгебра многочленов над полем}
+  $F$ - поле
+  \begin{definition}
+    Бесконечная последовательность $(a_0,a_1, a_2,...)$, где $a_i \in \R$, называется финитной, если только конечное число $a_i$ отлично от нуля. 
+    $$F^{infty} = \{(a_0,a_1, a_2,...) \ |\ a_i \in \R\}$$ 
+  \end{definition}  
+  \begin{subtheorem}
+    Множество $F^{infty}$ относительно операции сложения: $$(a_0,a_1, a_2,...) + (b_0,b_1, b_2,...) = (a_0+b_0,a_1+b_1, a_2+b_2,...)$$ и умножения на элементы $\lambda \in F$: $$(a_0,a_1, a_2,...) \cdot \lambda = (\lambda a_0,\lambda a_1, \lambda a_2,...)$$
+    $F^{\infty}$ - бесконечномерное векторное пространство.   
+  \end{subtheorem} 
+  \begin{subtheorem}
+    $F^{\infty}$ - счетномерно с базисом:
+    $$e_0 = (1, 0, 0, ...)$$
+    $$e_1 = (0, 1, 0, ...)$$
+    $$e_2 = (0, 0, 1, ...)$$
+    $$...$$ 
+    Зададим умножение $e_k \cdot e_l = e_{k+l} \Longrightarrow F^{\infty}$  превращается в алгебру над полем $F$ 
+  \end{subtheorem} 
+  \begin{remark}
+    Так как $e_l = e_{k+l}$ и в $\Z$ сложение коммутативно и ассоциативно, то $F^{\infty}$ - ассоциативная, коммутативная алшебра над $F$ с единицей: $e_0 = (1, 0, 0, ...)$
+  \end{remark} 
+  \begin{definition}
+    Такая алгебра называется алгеброй многочлетов над полем $F$. 
+    Обозначается: $F[x]$  
+  \end{definition} 
+  Получаем привычный вид многочлена: 
+  $\forall a \in F \ a\cdot e_0$ отобдествим с этементом $a$, а вектор $e_1$ обозначим через $x$: 
+  $$e_k = \underbrace{e_1 \cdot e_1 \cdot ... \cdot e_1}_{k}  = x^k$$     
+  Рассмотрим произвольный $(a_0,a_1, a_2,...) \in F^{\infty}$. Так как она финитная, то это $$(a_0,a_1, ..., a_n,0, 0,...) = a_0e_0 + a_1e_1+...+a_ne_n = a_0 + a_1x+...+a_nx^n$$
+  $a_i$ называет коэфициентом многочлена
+  \begin{definition}
+    Если $f = a_0 + a_1x+...+a_nx^n$, где $a_n \neq 0$, $a_k =0 \forall k>n$, то $a_n$ называется старшим членом, а число $\deg f = n$  называется степенью многочлена.  
+  \end{definition} 
+  \begin{remark}
+    $deg0 = -\infty$ (или неопределена)\\
+    $f\neq 0, \ \deg f \in \N \cup \{0\}$  
+  \end{remark} 
+  \begin{properties}\tab
+    \begin{enumerate}
+      \item $\deg (f+g) \leq \max \{\deg f, \deg g\}$
+      \item $\deg (fg) = \deg f + \deg g$  
+    \end{enumerate}
+  \end{properties}
+  \begin{proof} \tab
+    \begin{enumerate}
+      \item Упражнение
+      \item $$f = a_0 + a_1x+...+a_nx^n, \ a_n, \ \deg f = n$$
+      $$g = b_0 + b_1x+...+b_mx^m, \ b_m, \ \deg f = m$$
+      $$fg = a_0b_0 +...+a_nb_mx^{n+m}$$
+      $a_n, b_m \neq 0$, т.к. в поле нет делителей нуля. 
+      $\Longrightarrow a_nb_m$ - старший член $$\Longrightarrow \deg fg = \deg f + \deg g$$     
+    \end{enumerate}
+  \end{proof}
+  \begin{consequense}\tab
+    \begin{enumerate}
+      \item в $F[x]$ нет делителей нуля.
+      \item Обратные в $F[x]$ - это многочлены нулевой степени и только они, т.е. это все ненулевые константы. 
+    \end{enumerate}
+  \end{consequense} 
+  \subsubsection{Деление с остатком}
+  \begin{theorem}
+    Пусть $F$ - поле, \ $f, g \in F,\ g\neq 0 $. Тогда $\exists ! \ q, r$, т.ч. $f = g \cdot q + r$, \\причем либо $r=0$, либо $\deg r < \deg g$       
+  \end{theorem}
+  \begin{proof}
+    Пусть $f, g \neq 0$$$f = a_0 + a_1x+...+a_nx^n, \ a_n \neq 0, \ \deg f = n$$ $$g = b_0 + b_1x+...+b_mx^m, \ b_m \neq 0, \ \deg f = m$$ 
+    \textit{Докажем существование:} 
+    \begin{enumerate}
+      \item $n<m \Longrightarrow f = 0 \cdot g + f \ (q=0, f = r)$
+      \item $n\geq \Longrightarrow f_1 = f - \frac{a_n}{b_m} \cdot g \cdot x^{n-m}$ \\
+      $\deg f_1 < \deg g \Longrightarrow r = f_1, \ q = \frac{a_n}{b_m}\cdot x^{n-m}$ \\
+      Иначе продолжаем процесс с $f_1$ (заметим, что $\deg f_1 < \deg f$): находим $f_2 $ и т.д. Процесс закончится на конечном шаге.  
+    \end{enumerate}
+    \textit{Докажем единственность:}  \\
+    Допустим, $ f = g \cdot q_1 + r_1$ и $f = g \cdot q_2 + r_2$ $$  \Longrightarrow r_1 - r_2 = g(q_2 - q_1) \Longrightarrow \deg (r_1-r_2) = \deg g + \deg (q_2 - q_1) $$ $$\deg(r_1 - r_2) \geq \deg g$$. С другой стороны $$\deg (r_1-r_2) < \max \{\deg r_1, \deg r_2\} < \deg g$$ - получаем противоречие.   
+  \end{proof} 
+  \subsubsection{Мгогочлены как фунции}
+  $F$ - поле, \ $f = a_nx^n + a_{n-1}x^{n-1} +...+ a_0$
+  \begin{definition}
+    Значение многочлена $f$ в точке $C$ называет число, равное: $$a_nC^n + a_{n-1}C^{n-1} +...+ a_0$$
+     Таким образом, множество $f$ задает отображение $F \to F$
+     $$C \to f(C) \Longrightarrow f \text{ задает функцию}$$      
+  \end{definition} 
+  \begin{remark}
+    Разные многочлены могут задавать одну функцию.
+  \end{remark} 
+  \begin{example1}
+    $F = |\Z_2, \ f_1 = x^2, \ f_2 = x$ - разные многочлены, но они задают одну и ту же функцию:
+    $$f_1(0)=0, \ f_1(1) = 1, \ f_2(0)=0, \ f_2(1) = 1$$ 
+  \end{example1}
+  \begin{theorem}
+    Пусть $F$ - бесконечное полею. Тогда разные многочлены задают разные функции. 
+  \end{theorem} 
+  \begin{proof}
+    Допустим, $f, g \in F[x], \ f \neq g, \ \forall c \in F, \ f(c) = g(c)$ \\
+    Обозначим $h = f - g \in F[x]. \ h \neq 0, \ \forall c \in F F(c)=0$\\
+    Т.к. поле $F$ - бесконечное, то $\exists \ c_0, c_1,...,c_n \in F$ - различные числа:
+    $$\begin{cases}
+      h(c_0) = 0 \\
+      h(c_1) = 0 \\
+      \vdots \\
+      h(c_n) = 0 
+    \end{cases} \ \ 
+    \begin{cases}
+      a_nc_0^n + a_{n-1}c_0^{n-1} + ... + a_1c_0+ a_0 = 0 \\
+      a_nc_1^n + a_{n-1}c_1^{n-1} + ... + a_1c_1+ a_0 = 0 \\
+      \vdots \\
+      a_nc_n^n + a_{n-1}c_n^{n-1} + ... + a_1c_n+ a_0 = 0
+    \end{cases}$$ - квадратная однородная СЛУ относительно неизвестных $a_n, a_{n-1}, ..., a_0$ с матрицей коэфициентов $A$
+    $$A = \begin{pmatrix}
+      c_0^n & \cdots & c_0^1 \\
+      c_1^n & \cdots & c_1^1 \\
+      \vdots & \null & \vdots\\ 
+      c_n^n & \cdots & c_n^1 \\
+    \end{pmatrix}, \ \ \det A = (-1)^2 \cdot \underbrace{V(c_0, c_1,...,c_n)}_{\text{Определитель Вандермонда}}$$
+    $\Longrightarrow $ по правилу Крамера СЛУ имеет единственное решение и оно тривиальное $\Longrightarrow  a_n=0,a_{n-1} = 0, ..., a_0=0 \Longrightarrow n=0$ противоречие.    
+  \end{proof}
+  \begin{theorem}(Безу)
+    Пусть $F$ - поле, $ \ f \in F[x], c \in F$. Тогда остаток при делении $f$ на $(x-c)$ равен значению многочлена в точке $c$.     
+  \end{theorem}
+  \begin{proof}
+    $f(x) = (x-c)g(x) + r(x)\ \  (*)$\\
+    $\deg r(x) < \deg (x-c) = 1$\\
+    $\Longrightarrow  r(x)$ - это $const$ \ \
+    $\Longrightarrow $ Либо $r(x) = 0$, либо $r(x)=r \in F$    \\
+    Подставим в $(*) \ x = c$
+    $$f(c) = (c-c)q(c) + r(c) = r$$      
+  \end{proof}   
+  
+
+
+
+
+  
+  % \textbf{Мораль в том, что я в этот раз почти успел}
+  \textbf{Мораль в том, что в этот раз я вообще не успел} 
 
 \end{document}
 
