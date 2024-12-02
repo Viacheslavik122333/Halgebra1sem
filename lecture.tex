@@ -44,11 +44,13 @@
 \newcounter{lemcount2}
 \newcounter{thcount}
 \newcounter{offercount}
+\newcounter{concount}
 \theoremstyle{definition}
 \newtheorem*{definition}{Определение}
 \newtheorem*{theorem}{Теорема}
 \newtheorem*{consequense}{Следствие}
 \newtheorem*{consequenses}{Следствия}
+\newtheorem{consequensenum}[concount]{Следствие}
 \newtheorem*{lemma}{Лемма}
 \newtheorem*{subtheorem}{Утверждение}
 \newtheorem*{remark}{Замечание}
@@ -402,7 +404,7 @@
     Подставляем во все оставшиеся уравнения $x_n = \frac{b_n}{a_{nn}}$ $\Longrightarrow$ исключаем $x_n$. Получаем строго треугольную систему с меньшим количество неизвестных.  \\
     Далее из (n-1)-го уравнения  находим $x_{n-1}$ и т.д. $\Longrightarrow$ СЛУ имеет единственное решение т.е. является определенной.
 
-    \item[3 случай:] $\widetilde{s}<n$ 
+    \item[3 случай:] $\widetilde{s}\underbrace{<}_{\text{хотим}} n$ 
   $$\begin{pmatrix}
     0 & \null & 0 & |\underline{a_{1k_1}} & \ast & \cdots & \cdots & \ast & \vline & \ast  \\
     0 & \null & 0 & 0 & |\underline{a_{2k_2}} & \ast & \cdots & \ast & \vline & \ast \\
@@ -2423,7 +2425,7 @@ $V$- конечномерное векторное простанство над
   Заметим, что $(i_1,i_2,...,i_k) = (i_k,i_1,...,i_{k-1}) = (i_2,i_3,..,i_1) = ...$ 
 \end{remark} 
 \begin{definition}
-  Циклы $(i_1,...,i_k)$ и $(j_1,...,j_k)$ называется независимыми, если: $$\{i_1,...,i_k\} \cap \{j_1,...,j_k\} = \varnothing $$  
+  Циклы $(i_1,...,i_k)$ и $(j_1,...,j_k)$ называются независимыми, если: $$\{i_1,...,i_k\} \cap \{j_1,...,j_k\} = \varnothing $$  
 \end{definition} 
 \begin{example1}
   $(1,2,3), \ (4,5)$ 
@@ -2655,7 +2657,7 @@ $V$- конечномерное векторное простанство над
     Кольцо называется ассоциативным, если умножение ассоциативно.
   \end{definition}
   \begin{definition}
-    Кольцо называется коммутативным, если умножение комутативное.
+    Кольцо называется коммутативным, если умножение коммутативное.
   \end{definition}
   \begin{definition}
     Кольцо называется кольцом с единицей, если существует нейтральный элемент по умножению:
@@ -2687,7 +2689,7 @@ $V$- конечномерное векторное простанство над
     \end{enumerate}
   \end{consequenses}
   \begin{remark}
-    Пусть $K$ - кольцо с единицей (1), то если $0 = (1) \Longrightarrow K = \{0\}$ 
+    Пусть $K$ - кольцо с единицей (1), тогда если $0 = (1) \Longrightarrow K = \{0\}$ 
   \end{remark}
   \begin{proof}
     $\forall a \in K: \ 0 = 0 \cdot a= 1 \cdot a \Longrightarrow a = 0$ 
@@ -2698,7 +2700,7 @@ $V$- конечномерное векторное простанство над
       При этом элемент $b$ должен быть обратным к $a$   
   \end{definition}  
   \begin{subtheorem}
-    Если $K$ - ассоциативное кольцо с 1, то если элемент $a \in K$ имеет обратный, то он единственный.  
+    Пусть $K$ - ассоциативное кольцо с 1, тогда если элемент $a \in K$ имеет обратный, то он единственный.  
   \end{subtheorem} 
   \begin{example} \tab
     \begin{enumerate}
@@ -2738,7 +2740,7 @@ $V$- конечномерное векторное простанство над
   \end{theorem} 
   \begin{proof}\tab
     \begin{itemize}
-      \item[$\underline{\Longrightarrow}$] Пусть $\Z_n$ - поле, то $\forall k \in \Z_n$ имеет обратный $m : \ km=1$.\\ Предположим, что $n$ - не простое, тогда $n = st, $ где $1<s, t<n \\ \Longrightarrow s \neq 0$ в $\Z_n$
+      \item[$\underline{\Longrightarrow}$] Пусть $\Z_n$ - поле, тогда $\forall k \in \Z_n$ имеет обратный $m : \ km=1$.\\ Предположим, что $n$ - не простое, тогда $n = st, $ где $1<s, t<n \\ \Longrightarrow s \neq 0$ в $\Z_n$
       $\Longrightarrow s $ имеет обратный $\widetilde{s} : \ s \cdot \widetilde{s} = 1$ в $\Z_n$\\
       $\Longrightarrow t \cdot s \cdot \widetilde{s} = t $ в $
       \Z_n \Longrightarrow t=0$ в $\Z_n$ - противоречие.
@@ -2849,7 +2851,7 @@ $V$- конечномерное векторное простанство над
   \subsection{Характеристика поля}
   \begin{definition}
     Говорят, что поле $P$ имеет характеристику $n$, если $n$ - наименьшее натуральное число, такое, что $\underbrace{1 + 1 + ... + 1}_{n} = 0 $. \\
-    Если такого числа нет, то говорят, чот поле имеет характеристику 0.\\
+    Если такого числа нет, то говорят, что поле имеет характеристику 0.\\
     Обозначается: $\textrm{char}P=n$ 
   \end{definition} 
   \begin{example} \tab
@@ -3417,9 +3419,135 @@ $V$- конечномерное векторное простанство над
       f^{(k)}(c) \neq 0
     \end{cases}$    
   \end{consequense}    
+  \subsection{Основаня теорема алгебры}
+  \begin{theorem}
+    Любой многочлен над полем комплексных числел положительной степени имеет хотя бы один корень.
+  \end{theorem}
+  \begin{subtheorem}\tab
+    \begin{properties}\tab
+      $\forall z_1, z_2 \in \mathbb{C}$
+      \begin{enumerate} 
+        \item $|z_1+z_2|\leq |z_1| + |z_2|$
+        \item $||z_1|-|z_2||\leq |z_1-z_2|$ 
+      \end{enumerate}
+      \begin{proof}
+        Из свойств векторов \ ($z = x+iy$ - вектор, $\sqrt{x^2+y^2}$ - длина вектора)
+      \end{proof} 
+    \end{properties}
+  \end{subtheorem}
+  \begin{definition}
+    Последовательность $\{z_k\}_{k=1}^{\infty} \subseteq \mathbb{C}$ называется сходящейся к $z_0 \in \mathbb{C}$ , если $|z_k-z_0| \to 0, \ k\to \infty$\\
+    Обозначается: $z_k \to z_0, \ k\to \infty$ 
+  \end{definition} 
+  \setcounter{lemcount}{0}
+  \begin{lemmanum}
+    Пусть $z_k = x_k+iy_k, \ z_0 = x_0 + iy_0$, тогда:
+    $$z_k \to z_0 \Longleftrightarrow \begin{cases}
+      x_k \to x_0 \\
+      y_k \to y_0
+    \end{cases}$$  
+  \end{lemmanum} 
+  \begin{proof}
+    Следует из равенства $|z_k-z_0| = \sqrt{x^2+y^2}$ 
+  \end{proof} 
+  \begin{lemmanum}
+    Если $z_k \to z_0$, то $|z_k| \to |z_0|$  
+  \end{lemmanum} 
+  \begin{proof}
+    Т.к. $||z_k|-|z_0||\leq |z_k-z_0|$ 
+  \end{proof} 
+  \begin{lemmanum}
+    Если $z_k \to z_0, \ w_k \to w_0$, то:
+    \begin{enumerate}
+      \item $z_k + w_k \to z_0 + w_0$
+      \item $z_k \cdot w_k \to z_0 \cdot w_o$  
+    \end{enumerate}
+  \end{lemmanum} 
+  \begin{proof}
+    Упражнение.
+  \end{proof} 
+  \begin{consequense}
+    Если $f \in \mathbb{C}[z], \ \deg f >0, \ z_0 \in \mathbb{C}, \ z_k \to z_0$, тогда: 
+    $$f(z_k) \to f(z_0)$$  
+  \end{consequense}
+  \begin{lemmanum} \textbf{О возрастании модуля} $|f(z)|$ \\
+    Пусть $f \in \mathbb{C}[z], \ \deg f >0$, тогда если $|z_k| \to \infty$, то:
+    $$|f(z_k)| \to \infty$$        
+  \end{lemmanum} 
+  \begin{proof}
+    $f(z) = a_nx^n + ... + a_1x+a_0 \in \mathbb{C}[z] \neq 0$
+    \begin{multline*}
+      |f(z_k)| = a_nz_k^n + a_{n-1}z_k^{n-1}... + a_1z_k+a_0 \geq \\
+      \geq |z_k|^n \cdot ||a_n|-\frac{|a_{n-1|}}{|z_k|} - ... - \frac{|a_{1|}}{|z_k|^{n-1}} - \frac{|a_{0|}}{|z_k|^{n}}| \to \infty
+    \end{multline*} 
+  \end{proof} 
+  \begin{lemmanum}\textbf{(Лемма Даламбера)} \\
+    Пусть $f \in \mathbb{C}[z], \ \deg f >0, \ f(z_0) \neq 0$, тогда $\exists$ $z \in \mathbb{C}$ сколько угодно близкое  к $z_0$ такое, что:
+    $$|f(z)|< |f(z_0)|$$ 
+  \end{lemmanum} 
+  \begin{proof}
+    Разложим $f$ по степеням $(z-z_0)$:
+    $$f(z) = f(z_0) + b_s(z-z_0)^s + ... + b_n(z-z_0), \ \text{ где } b_s \neq 0$$
+    Так как $f(z_0) \neq 0$, то можно поделить на него:
+    $$\frac{f(z)}{f(z_0)} = 1 + c_s(z-z_0)^s + ... + c_n(z-z_0), \ c_i = \frac{b_i}{f(z_0)} \neq 0$$  
+    Найдем $z_1 \in \mathbb{C}: \ c_sz_1^s = -1$
+    ГРАФИК\\
+    Рассмотрим $z = z_0 + tz$, где $t \in (0,1)$\\
+    Подставим: 
+    $$\frac{f(z)}{f(z_0)} = 1 - t^s + t^{s+1} g(t), \text{ где } g(t) \in \mathbb{C}, \ \deg g \leq n-(s-1)$$
+    $$|g(t)| = |\alpha_0 + \alpha_1t + ... + \alpha_{n-(s+1)}t^{n-(s+1)}|$$ 
+    Обозначим $C = \max\{|\alpha_i|\}$, тогда $|g(t)|\leq C(n-s)$
+    \begin{multline*}
+      |\frac{f(z)}{f(z_0)}| = |1 - t^s + t^{s+1} g(t)| \leq |1 - t^s| + t^{s+1} |g(t)| \leq \\ \leq 1 - t^s + t^{s+1} C(n-s) = 1 - t^s(1-+ tC(n-s)) \underbrace{<}_{\text{хотим}} 1
+    \end{multline*} 
+     $$1-tC(n-c)>0 \Longleftrightarrow \frac{1}{C(n-s)}$$
+     Выбираем такое $t \in (0,1)$ и получаем:
+     $$1-t^s(1-tC(n-s)) < 1$$
+     Если $C=0$, то верно и очевидно.   
+  \end{proof}
+  \begin{theorem} \textbf{(Основаня теорема алгебры)} 
+    $$\forall f \in \mathbb{C}[z], \ \deg f >0 \Longrightarrow  \exists \ z_0 \in \mathbb{C}: \ f(z_0) = 0$$
+  \end{theorem}
+  \begin{proof}
+    Рассмотрим $M = \underbrace{\inf}_{z} |f(z)|$
+    \begin{itemize}
+      \item[\textit{1 шаг.}] Хотим доказать, что $\inf$ достигается, т.е. $\exists \ z_0 \in \mathbb{C}: \ |f(z_0)| = M$\\
+      По определению $\inf \exists$ последовательность $\{z_k\}: \ |f(z_k)| \to M$
+      \begin{itemize}
+        \item[1 случай.] $\{z_k\}$  - не ограничена, т.е. $\exists \subseteq \{z_{i_k}\}: \ |z_{i_k}| \to \infty$. \\
+        По лемме (4): \ $|f(z_{k_i})| \to \infty$ - противоречие. 
+        \item[2 случай.] $\{z_k\}$ - ограничена $\Longrightarrow \exists \ C > 0: \ |z_k | < C \Longrightarrow$   
+        $$\begin{matrix}
+          |x_k|<|z_k|<C \\
+          |y_k|<|z_k|<C
+        \end{matrix} \ \ \ \text{ где } z_k = x_k + iy_k$$
+        Так как $\{x_n\}, \{y_k\}$ - ограничены, то по теореме Больцано-Вейштрасса:
+        $$\exists \ \{x_{k_{i}}\}\subseteq \{x_{k}\}: \ \{x_{k_{i}}\} \to x_0$$
+        $$\exists \ \{y_{k_{i_l}}\}\subseteq \{y_{k_{i}}\}: \ \{y_{k_{i_l}}\} \to y_0$$
+        Значит по Лемме (1):
+        $$\{z_{k_{i_l}}\} \to x_0 + iy_0 = z_0 \Longrightarrow |f(\{z_{k_{i_l}}\})| \to |f(z_0)| = M$$  
+      \end{itemize}
+      \item[\textit{2 шаг.}] Допустим, что $M>0 \Longrightarrow$ по Лемме (5):
+      $$\exists \ \widetilde{z} \in \mathbb{C}: \ |f(\widetilde{z})|<M = f(z_0) - \text{противоречие, т.к. } M - \inf $$
+      $$\Longrightarrow M=0 \Longrightarrow f(z_0) =0$$  
+    \end{itemize}
+  \end{proof} 
+  \begin{consequensenum}
+    Любой многочлен над $\mathbb{C}$ положительной степени раскладывается на линейные множители. 
+  \end{consequensenum}
+  \begin{consequensenum}
+    Любой многочлен над $\mathbb{C}$ степени $n$ имеет $n$ корней с учетом кратности. 
+  \end{consequensenum} 
+  \begin{example1}
+    Пока что впадлу
+  \end{example1}
+  \begin{theorem}\textbf{(О мнимых корнях многочлена с вещественными коэффициентами)} \\
+    Пусть $f \in \R[x], \ C$ - корень, \ $C \in \mathbb{C}\setminus \R$ и пусть этот корень имеет кратность $k$, тогда $\overline{c}$ - тоже корень многочлена $f$ кратности $k$.     
+    
+  \end{theorem} 
 
   % \textbf{Мораль в том, что я в этот раз почти успел}
-  % \textbf{Мораль в том, что в этот раз я вообще не успел}
+  \textbf{Мораль в том, что в этот раз я вообще не успел}
 
 \end{document}
 
