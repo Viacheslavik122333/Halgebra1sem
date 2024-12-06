@@ -17,6 +17,7 @@
 \usepackage{graphicx}
 \usepackage{tkz-euclide}
 \usepackage{tikz}
+\usepackage{asymptote}
 % \usepackage{tikz II}
 
 \usepackage{tikz,amstext}
@@ -2415,11 +2416,97 @@ $V$- конечномерное векторное простанство над
   \end{example1}
   \begin{definition}
     Циклом длины $k$ называется подстановка, в которой\\ $\forall i \in \{1,...,n\}\setminus \{i_1,...,i_k\}$, где $\sigma(i) = i$, при этом: $$\sigma(i_1)= i_2, \sigma(i_2)=i_3,..,\sigma(i_k)=i_1$$ 
-    Обозначение: $(i_1,...,i_k)$
-    Представление в виде графа: РИСУНОК
+    Обозначение: $(i_1,...,i_k)$\\
+    Представление в виде графа:
+    $\begin{matrix}\tab[1cm]
+      \begin{asy}
+        texpreamble("\usepackage[T2A]{fontenc}\usepackage[utf8]{inputenc}
+        \usepackage{mathtext}\usepackage[russian]{babel}");
+        unitsize(1cm);
+        pair i1 = (-1, 0), O = (0, 0);
+        transform r=rotate(-72,O);
+        transform r2=rotate(72,O);
+        dot("$i_1$",i1, W);
+        dot("$i_2$",r*i1, NW);
+        dot("$i_3$",r*(r*i1), NE);
+        dot("$i_m$",r2*i1,SW);
+
+        path p1=i1{dir(rotate(-90)*(i1-O))}..r*i1;
+        draw(p1,Arrow(TeXHead));
+
+        path p2=r*i1{dir(rotate(-90)*(r*i1-O))}..r*(r*i1);
+        draw(p2,Arrow(TeXHead));
+
+        path p3=r2*i1{dir(rotate(-90)*(r2*i1-O))}..r*(r2*i1);
+        draw(p3,Arrow(TeXHead));
+
+        path p4=r*(r*i1){dir(rotate(-90)*(r*(r*i1)-O))}..r2*(r2*i1);
+        draw(p4, dashed);
+
+        path p5=r2*(r2*i1){dir(rotate(-90)*(r2*(r2*i1)-O))}..r2*i1;
+        draw(p5,Arrow(TeXHead));
+
+        pair a = (3.5, 0), b = (3.5, 0.7);
+        dot(scale(0.8)*Label("$i$ не $k$"),a, S);
+
+        path p6=a{dir(rotate(-90)*(a-(3.5, 0.35)))}..b;
+        path p7=b{dir(rotate(-90)*(b-(3.5, 0.35)))}..a;
+
+        draw(p6);
+        draw(p7,Arrow(TeXHead));
+
+      \end{asy}
+    \end{matrix}$
   \end{definition} 
   \begin{example1}
-    $n=6, \ \ \sigma=(1,3,2)$ РИСУНОК
+    $n=6, \ \ \sigma=(1,3,2)$
+    $\begin{matrix}\tab[1cm]
+      \begin{asy}
+        % \usepackage[russian]{babel};
+        texpreamble("\usepackage[T2A]{fontenc}\usepackage[utf8]{inputenc}
+        \usepackage{mathtext}\usepackage[russian]{babel}");
+        unitsize(0.48cm);
+        pair i1 = (-1, 0), O = (0, 0);
+        transform r=rotate(-120,O);
+        transform r2=rotate(120,O);
+        dot("$1$",i1, W);
+        dot("$2$",r*i1, NE);
+        dot("$3$",r*(r*i1), SE);
+
+        path p1=r*i1{dir(rotate(90)*(r*i1-O))}..i1;
+        draw(p1,Arrow(TeXHead));
+
+        path p2=r*(r*i1){dir(rotate(90)*(r*(r*i1)-O))}..r*i1;
+        draw(p2,Arrow(TeXHead));
+
+        path p3=i1{dir(rotate(90)*(i1-O))}..r2*i1;
+        draw(p3,Arrow(TeXHead));
+
+
+        pair a1 = (3, 0), b1 = (3, 0.7);
+        pair a2 = (5, 0), b2 = (5, 0.7);
+        pair a3 = (7, 0), b3 = (7, 0.7);
+
+        dot(scale(0.8)*Label("$4$"),a1, S);
+        dot(scale(0.8)*Label("$5$"),a2, S);
+        dot(scale(0.8)*Label("$6$"),a3, S);
+
+        path p4=a1{dir(rotate(90)*(a1-(3, 0.35)))}..b1;
+        path p5=b1{dir(rotate(90)*(b1-(3, 0.35)))}..a1;
+        draw(p4);
+        draw(p5,Arrow(TeXHead));
+
+        path p6=a2{dir(rotate(90)*(a2-(5, 0.35)))}..b2;
+        path p7=b2{dir(rotate(90)*(b2-(5, 0.35)))}..a2;
+        draw(p6);
+        draw(p7,Arrow(TeXHead));
+
+        path p8=a3{dir(rotate(90)*(a3-(7, 0.35)))}..b3;
+        path p9=b3{dir(rotate(90)*(b3-(7, 0.35)))}..a3;
+        draw(p8);
+        draw(p9,Arrow(TeXHead));
+      \end{asy}
+    \end{matrix}$
   \end{example1}
 \begin{remark}
   Заметим, что $(i_1,i_2,...,i_k) = (i_k,i_1,...,i_{k-1}) = (i_2,i_3,..,i_1) = ...$ 
@@ -2443,7 +2530,7 @@ $V$- конечномерное векторное простанство над
     4 & 5
   \end{pmatrix} \begin{pmatrix}
     6
-  \end{pmatrix}$ РИСУНОК
+  \end{pmatrix}$
   
 \end{example1}
 \setcounter{thcount}{0}
@@ -2461,8 +2548,37 @@ $V$- конечномерное векторное простанство над
       \item $\sigma^{m_1}\cdot \sigma^{m_2} = \sigma^{m_1+m_2}$
       \item $(\sigma^{m_1})^{m_2} = \sigma^{m_1 \cdot m_2}$  
     \end{enumerate}
-    Рассмотрим произвольный $i \in \{1,...,n\}$ \\
-    РИСУНОК
+    Рассмотрим произвольный $i \in \{1,...,n\}$
+    \begin{center}
+      \begin{asy}
+        unitsize(1.5cm);
+        pair [] i;
+        i[0] = (0, 0); i[1] = (1, 0); i[2] = (2, 0); i[3] = (3, 0); i[4] = (4, 0); i[5] = (5, 0); i[6] = (6, 0);
+        dot("$\sigma^{-1}(i)$", i[1], S);
+        dot("$i$", i[2], S);
+        dot("$\sigma(i)$", i[3], S);
+        dot("$\sigma^{2}(i)$", i[4], S);
+
+        path p1=i[0]{dir(rotate(-131)*(i[0]-((i[1]-i[0])/2+i[0])))}..i[1];
+        draw(p1,Arrow(TeXHead));
+
+        path p2=i[1]{dir(rotate(-131)*(i[1]-((i[2]-i[1])/2+i[1])))}..i[2];
+        draw(p2,Arrow(TeXHead));
+        draw(Label("$\sigma$"),p2, N);
+
+        path p3=i[2]{dir(rotate(-131)*(i[2]-((i[3]-i[2])/2+i[2])))}..i[3];
+        draw(p3,Arrow(TeXHead));
+        draw(Label("$\sigma$"),p3, N);
+
+        path p4=i[3]{dir(rotate(-131)*(i[3]-((i[4]-i[3])/2+i[3])))}..i[4];
+        draw(p4,Arrow(TeXHead));
+        draw(Label("$\sigma$"),p4, N);
+
+        path p5=i[4]{dir(rotate(-131)*(i[4]-((i[5]-i[4])/2+i[4])))}..i[5];
+        draw(p5,Arrow(TeXHead));
+        draw(Label("$\sigma$"),p5, N);
+      \end{asy}
+    \end{center}
     \begin{definition}
       Множество $\textrm{Orb}(i) = \{\sigma^m(i) \ | \ m \in \Z\}$  называется орбитой числа $i$.
     \end{definition} 
@@ -3023,15 +3139,19 @@ $V$- конечномерное векторное простанство над
     Тригонометрическая форма (полярная система координат на плоскости) \\
     Точка $M(x, y) \longleftrightarrow (\rho, \phi)$
     \begin{center}
-      \begin{tikzpicture}[>=latex]
-        \draw[->] (0,0) - - (4.5,0) node[right] {$x$};
-        % \draw[->] (0,-0.5) - - (0,3.5) node[left] {$Im(z)$};
-        \draw[->] (0,0) - - node[above left] {$\rho$} (2.47,2.97) ; 
-        \coordinate (M) at (2.5, 3);
-        \coordinate (O) at (0, 0);
-        \draw[fill] (M) circle (1.2pt) node[right] {$M(x,y)$};
-        \draw[fill] (O) circle (1pt) node[below left] {$0$};
-      \end{tikzpicture}
+      \begin{asy}
+        import markers;
+        unitsize(2.7cm);
+        pair O = (-1,0), X = (1, 0), B = (0.3, 0);
+        real a = 45;
+        transform r=rotate(a,O);
+        dot("$M(x,y)$",r*B, NE);
+        dot("$O$", O, NW); 
+        label("$x$", X, E);
+        path g = X -- O -- r*B;
+        draw(g, BeginArrow, EndArrow);
+        markangle(scale(1.15)*Label("$\varphi$"),B,O,r*B,radius=1.3cm,Arrow(TeXHead));
+      \end{asy}
     \end{center}
     $$\rho = |\overrightarrow{OM}|; \ \ \phi = \angle(Ox, \overrightarrow{OM})$$
     $$\begin{cases}
@@ -3063,9 +3183,10 @@ $V$- конечномерное векторное простанство над
   \end{subtheorem} 
   \begin{proof}\tab
     \begin{enumerate}
-      \item\begin{multline*}
-        z_1 \cdot z_2 = \rho_1(\cos(\phi_1) + i\sin(\phi_1))\cdot \rho_2(\cos(\phi_2) + i\sin(\phi_2)) = \\ =(\rho_1 \cdot \rho_2)(\cos(\phi_1)\cos(\phi_2) + i\sin(\phi_1)\sin(\phi_2)) = \\ = (\rho_1 \cdot \rho_2)(\cos(\phi_1+\phi_2) + i\sin(\phi_1+\phi_2))
-      \end{multline*} 
+      \item
+        $z_1 \cdot z_2 = \rho_1(\cos(\phi_1) + i\sin(\phi_1))\cdot \rho_2(\cos(\phi_2) + i\sin(\phi_2)) = \\ 
+        \tab[4cm]=(\rho_1 \cdot \rho_2)(\cos(\phi_1)\cos(\phi_2) + i\sin(\phi_1)\sin(\phi_2)) = \\ 
+        \tab[8cm]= (\rho_1 \cdot \rho_2)(\cos(\phi_1+\phi_2) + i\sin(\phi_1+\phi_2))$
       \item Аналогично
     \end{enumerate}
   \end{proof} 
@@ -3076,61 +3197,98 @@ $V$- конечномерное векторное простанство над
     Пусть $z = \rho(\cos(\phi) + i\sin(\phi)), \ z \neq 0, \ n\in \N$\\
     Тогда $\exists$ ровно $n$ корней $n$-ой степени из $z\in \mathbb{C}$: \ $w_0, w_1,...,w_{n-1}$, причем: 
     $$w_l = \sqrt[n]{\rho}\cdot (\cos(\frac{\phi+2\pi l}{n})+i\sin(\frac{\phi+2\pi l}{n}))$$
+    % \begin{center}
+    %   \begin{tikzpicture}[scale=3]
+    %     %\usetikzlibrary{calc}
+    %     \draw[->] (-1.2,0) - - (1.5,0) node[right] {$Re(z)$};
+    %     \draw[->] (0,-1.2) - - (0,1.5) node[left] {$Im(z)$};
+
+    %     \coordinate (x0) at (0, 0);
+    %     \coordinate (x1) at (1, 0);
+    %     \coordinate (x2) at (0.8660254, 0.5);
+    %     \coordinate (x3) at (0.5, 0.8660254);
+    %     \coordinate (x4) at (0, 1);
+    %     \coordinate (x5) at (-0.5, 0.8660254);
+    %     \coordinate (x6) at (-0.8660254, 0.5);
+    %     \coordinate (x7) at (-1, 0);
+    %     \coordinate (x8) at (-0.8660254, -0.5);
+    %     \coordinate (x9) at (-0.5, -0.8660254);
+    %     \coordinate (x10) at (0, -1);
+    %     \coordinate (x11) at (0.5, -0.8660254);
+    %     \coordinate (x12) at (0.8660254, -0.5);
+
+    %     \draw[fill] (x2) circle (0.8pt) node[above right] {$w_0$};
+    %     \draw[fill] (x3) circle (0.8pt) node[above right] {$w_1$};
+    %     \draw[fill] (x4) circle (0.8pt) node[above right] {$w_2$};
+    %     \draw[fill] (x5) circle (0.8pt) node[above left] {$w_3$};
+    %     \draw[fill] (x6) circle (0.8pt) node[above left] {$w_4$};
+    %     \draw[fill] (x7) circle (0.8pt) node[above left] {$w_5$};
+    %     \draw[fill] (x8) circle (0.8pt) node[below left] {$w_6$};
+    %     \draw[fill] (x9) circle (0.8pt) node[below left] {$w_7$};
+    %     \draw[fill] (x10) circle (0.8pt) node[below left] {$w_8$};
+    %     \draw[fill] (x11) circle (0.8pt) node[below right] {$w_9$};
+    %     \draw[fill] (x12) circle (0.8pt) node[below right] {$w_{10}$};
+    %     \draw[fill] (x1) circle (0.8pt) node[below right] {$w_{11}$};
+    %     \draw[fill] (x0) circle (1pt) node[below left] {$O$};
+    %     \draw (x0) circle (28.5pt);
+
+    %     % \tkzMarkAngle[mark=,arc=ll,size=10pt] (x2, x0, x3);
+    %     % \tkzLabelAngle[pos=0.6] (x2, O, x3) {$\frac{\phi}{n}$};
+
+    %     \draw[->] (0,0) - - node[above] {$\sqrt[n]{\rho}$}(0.842, 0.484);
+    %     \draw[->] (0,0) - - (0.484, 0.842);
+
+    %     \draw (1,0) - - (0.8660254, 0.5);
+    %     \draw (0.8660254, 0.5) - - (0.5, 0.8660254);
+    %     \draw (0.5, 0.8660254) - - (0,1);
+    %     \draw (0,1) - - (-0.5, 0.8660254);
+    %     \draw (-0.5, 0.8660254) - - (-0.8660254, 0.5);
+    %     \draw (-0.8660254, 0.5) - - (-1,0);
+    %     \draw (-1,0) - - (-0.8660254, -0.5);
+    %     \draw (-0.8660254, -0.5) - - (-0.5, -0.8660254);
+    %     \draw (-0.5, -0.8660254) - - (0, -1);
+    %     \draw (0, -1) - - (0.5, -0.8660254);
+    %     \draw (0.5, -0.8660254) - - (0.8660254, -0.5);
+    %     \draw (0.8660254, -0.5) - - (1,0);
+
+    %   \end{tikzpicture}
+    % \end{center}
+
     \begin{center}
-      \begin{tikzpicture}[scale=3]
-        %\usetikzlibrary{calc}
-        \draw[->] (-1.2,0) - - (1.5,0) node[right] {$Re(z)$};
-        \draw[->] (0,-1.2) - - (0,1.5) node[left] {$Im(z)$};
-
-        \coordinate (x0) at (0, 0);
-        \coordinate (x1) at (1, 0);
-        \coordinate (x2) at (0.8660254, 0.5);
-        \coordinate (x3) at (0.5, 0.8660254);
-        \coordinate (x4) at (0, 1);
-        \coordinate (x5) at (-0.5, 0.8660254);
-        \coordinate (x6) at (-0.8660254, 0.5);
-        \coordinate (x7) at (-1, 0);
-        \coordinate (x8) at (-0.8660254, -0.5);
-        \coordinate (x9) at (-0.5, -0.8660254);
-        \coordinate (x10) at (0, -1);
-        \coordinate (x11) at (0.5, -0.8660254);
-        \coordinate (x12) at (0.8660254, -0.5);
-
-        \draw[fill] (x2) circle (0.8pt) node[above right] {$w_0$};
-        \draw[fill] (x3) circle (0.8pt) node[above right] {$w_1$};
-        \draw[fill] (x4) circle (0.8pt) node[above right] {$w_2$};
-        \draw[fill] (x5) circle (0.8pt) node[above left] {$w_3$};
-        \draw[fill] (x6) circle (0.8pt) node[above left] {$w_4$};
-        \draw[fill] (x7) circle (0.8pt) node[above left] {$w_5$};
-        \draw[fill] (x8) circle (0.8pt) node[below left] {$w_6$};
-        \draw[fill] (x9) circle (0.8pt) node[below left] {$w_7$};
-        \draw[fill] (x10) circle (0.8pt) node[below left] {$w_8$};
-        \draw[fill] (x11) circle (0.8pt) node[below right] {$w_9$};
-        \draw[fill] (x12) circle (0.8pt) node[below right] {$w_{10}$};
-        \draw[fill] (x1) circle (0.8pt) node[below right] {$w_{11}$};
-        \draw[fill] (x0) circle (1pt) node[below left] {$O$};
-        \draw (x0) circle (28.5pt);
-
-        % \tkzMarkAngle[mark=,arc=ll,size=10pt] (x2, x0, x3);
-        % \tkzLabelAngle[pos=0.6] (x2, O, x3) {$\frac{\phi}{n}$};
-
-        \draw[->] (0,0) - - node[above] {$\sqrt[n]{\rho}$}(0.842, 0.484);
-        \draw[->] (0,0) - - (0.484, 0.842);
-
-        \draw (1,0) - - (0.8660254, 0.5);
-        \draw (0.8660254, 0.5) - - (0.5, 0.8660254);
-        \draw (0.5, 0.8660254) - - (0,1);
-        \draw (0,1) - - (-0.5, 0.8660254);
-        \draw (-0.5, 0.8660254) - - (-0.8660254, 0.5);
-        \draw (-0.8660254, 0.5) - - (-1,0);
-        \draw (-1,0) - - (-0.8660254, -0.5);
-        \draw (-0.8660254, -0.5) - - (-0.5, -0.8660254);
-        \draw (-0.5, -0.8660254) - - (0, -1);
-        \draw (0, -1) - - (0.5, -0.8660254);
-        \draw (0.5, -0.8660254) - - (0.8660254, -0.5);
-        \draw (0.8660254, -0.5) - - (1,0);
-
-      \end{tikzpicture}
+      \begin{asy}
+        unitsize(2.3cm);
+        import graph;
+        filldraw(Circle((0,0),1), white);
+        pair O = (0,0);
+        pair B = (1,0);
+        dot("$O$", O, NW);
+        draw((-1.25,0)--(1.35,0), Arrow);
+        draw((0,-1.25)--(0,1.35), Arrow);
+        label("$Re(z)$",(1.35, 0), SE); 
+        label("$Im(z)$",(0, 1.35), NW);
+        pair [] w;
+        w[0] = (0.8660252, 0.5);
+        w[1] = (0, 1);
+        w[2] = (-0.8660252, 0.5);
+        w[3] = (-0.8660252, -0.5);
+        w[4] = (0, -1);
+        w[5] = (0.8660252, -0.5);
+        dot("$w_{1}$",w[1], NW);
+        dot("$w_{2}$",w[2], NW);
+        dot("$w_{3}$",w[3], SW);
+        dot("$w_{4}$",w[4], SE);
+        dot("$w_{5}$",w[5], SE);
+        draw(w[0]--w[1]--w[2]--w[3]--w[4]--w[5]--cycle);
+        draw((0, 0) -- w[0], Arrow);
+        label("$\sqrt{\rho}$",(0.5, 0.27), NW);
+        transform r1=rotate(60,O);
+        dot("$w_0$",r1*w[5], NE); // интересно
+        path p = scale(0.5)*(dir(B){up}..dir(r1*w[5]));
+        draw(scale(1.15)*Label("$\frac{\varphi}{n}$"), p, Arrow(TeXHead));
+        // path c = unitcircle;
+        // path g=scale(5)*unitcircle;
+        // filldraw(g);
+      \end{asy}
     \end{center}
     $w_0, w_1,...,w_{n-1}$  - лежат в верщинах правильного $n$ - угольника, вписанного в окружность.  
   \end{subtheorem} 
@@ -3143,6 +3301,42 @@ $V$- конечномерное векторное простанство над
     \end{cases} \Longrightarrow w = \sqrt[n]{\rho}\cdot (\cos(\frac{\phi+2\pi k}{n})+i\sin(\frac{\phi+2\pi k}{n})), \ k \in \Z$\\ $\\$ 
     при $ k = \{0,1,...,k-1\}$ - $w$ принимает все различные значения.  
   \end{proof} 
+  \begin{example1}
+    $z=1,\ n=3, \ \sqrt[3]{1}$ 
+  \end{example1}
+  \begin{center}
+    \begin{asy}
+      unitsize(2cm);
+      import graph;
+      filldraw(Circle((0,0),1), white);
+      pair O = (0,0);
+      dot("$O$", O, SW);
+      draw((-1.25,0)--(1.4,0), Arrow);
+      draw((0,-1.25)--(0,1.4), Arrow);
+      label("$Re(z)$",(1.35, 0), SE); 
+      label("$Im(z)$",(0, 1.35), NW);
+      pair w0 = (1, 0);
+
+      real a = 120;
+      real b = -120;
+      transform r1=rotate(a,O);
+      transform r2=rotate(b,O);
+
+      draw("$w_0$", w0, NE);
+      draw("$w_1$",r1*w0,NW);
+      draw("$w_2$",r2*w0,SW);
+
+      draw(w0--r1*w0--r2*w0--cycle);
+
+      draw(O--r1*w0, Arrow);
+
+      // label("$\sqrt{\rho}$",(0.5, 0.27), NW);
+
+      path p = scale(0.23)*(dir(w0){up}..dir(r1*w0));
+      draw(scale(1.15)*Label("$\frac{2\pi}{3}$"), p, Arrow(TeXHead));
+      
+    \end{asy}
+  \end{center}
   \section{Алгебра над полем}
   Пусть $F$ - поле 
   \begin{definition}
@@ -3491,8 +3685,24 @@ $V$- конечномерное векторное простанство над
     Так как $f(z_0) \neq 0$, то можно поделить на него:
     $$\frac{f(z)}{f(z_0)} = 1 + c_s(z-z_0)^s + ... + c_n(z-z_0), \ c_i = \frac{b_i}{f(z_0)} \neq 0$$  
     Найдем $z_1 \in \mathbb{C}: \ c_sz_1^s = -1$
-    ГРАФИК\\
-    Рассмотрим $z = z_0 + tz$, где $t \in (0,1)$\\
+    \begin{center}
+      \begin{asy}
+        unitsize(2cm);
+        dot("$O$", (0,0), NW);
+        dot("$z_0$", (0.4, 0.33));
+        dot("$z ?$", (0.8, 0.66));
+        dot("$z_1+z_0$", (1.22, 1.00));
+        draw((0.4, 0.33) -- (1.2, 0.99), Arrow(TeXHead));
+        draw((-0.25,0)--(2,0), Arrow);
+        draw((0,-0.25)--(0,1.6), Arrow);
+        label("$Re(z)$",(1.9, 0), SE); 
+        label("$Im(z)$",(0, 1.5), NW);
+      \end{asy}
+    \end{center}
+
+    \begin{center}
+      Рассмотрим $z = z_0 + tz$, где $t \in (0,1)$
+    \end{center}
     Подставим: 
     $$\frac{f(z)}{f(z_0)} = 1 - t^s + t^{s+1} g(t), \text{ где } g(t) \in \mathbb{C}, \ \deg g \leq n-(s-1)$$
     $$|g(t)| = |\alpha_0 + \alpha_1t + ... + \alpha_{n-(s+1)}t^{n-(s+1)}|$$ 
@@ -3505,7 +3715,7 @@ $V$- конечномерное векторное простанство над
      $$1-t^s(1-tC(n-s)) < 1$$
      Если $C=0$, то верно и очевидно.   
   \end{proof}
-  \begin{theorem} \textbf{(Основаня теорема алгебры)} 
+  \begin{theorem} \textbf{(Основная теорема алгебры)} 
     $$\forall f \in \mathbb{C}[z], \ \deg f >0 \Longrightarrow  \exists \ z_0 \in \mathbb{C}: \ f(z_0) = 0$$
   \end{theorem}
   \begin{proof}
@@ -3542,12 +3752,90 @@ $V$- конечномерное векторное простанство над
     Пока что впадлу
   \end{example1}
   \begin{theorem}\textbf{(О мнимых корнях многочлена с вещественными коэффициентами)} \\
-    Пусть $f \in \R[x], \ C$ - корень, \ $C \in \mathbb{C}\setminus \R$ и пусть этот корень имеет кратность $k$, тогда $\overline{c}$ - тоже корень многочлена $f$ кратности $k$.     
-    
+    Пусть $f \in \R[x], \ c$ - корень, \ $c \in \mathbb{C}\setminus \R$ и пусть этот корень имеет кратность $k$, тогда $\overline{c}$ - тоже корень многочлена $f$ кратности $k$.     
   \end{theorem} 
+  \begin{proof}
+    $f(x) = a_nx^n+...+a_1x+a_0, \ a_i \in \R$, \ $c$ - корень $\Longrightarrow f(c) =0$  
+    $$f(\overline{c}) = a_n\overline{c}^n+...+a_1\overline{c}+a_0 = a_nc^n+...+a_1c+a_0 = f(c) = 0$$  ХЗ \\
+    Кратность одинаковая, т.к. $f^{(s)}(c)=0 \Longleftrightarrow f^{(s)}( \overline{c})=0$ 
+  \end{proof}
+  \begin{theorem}
+    Любой многочлен над $\R$ положительной степени раскладывается на линейные множители и квадратные множители с отрицательным дискриминантом.
+  \end{theorem}
+  \begin{proof}
+    $f\in \R[x] \subseteq \mathbb{C}[x] \Longrightarrow $ (по следствию 1 и ОТА) \\
+    $\alpha_1,...,\alpha_s \in \R$ - все корни кратности $k_1,..,k_s$\\
+    $c_1,...,c_t \in \mathbb{C}\setminus \R$ - мнимые корни кратности $m_1,...,m_t$\\
+    $\overline{c_1},...,\overline{c_t}$ - тоже мнимые корни, той же кратности $(c_1 \to \overline{c_1})$\\
+    $\Longrightarrow \alpha_1,..,\alpha_s,c_1,...,c_t,\overline{c_1},...,\overline{c_t}$ - все корни многочлена
+    $$f(x) = a_n \prod\limits_{j=1}^{s}(x-\alpha_j)^{k_j} \cdot \prod\limits_{\nu=1}^{t}(x-c_{\nu})(x-\overline{c_{\nu}})^{m_\nu} = (*)$$
+    Если $c=a+bi \in \mathbb{C}\setminus \R$, то:
+    $$(x-c)(x-\overline{c}) = x^2 - (c-\overline{c})x + c \overline{c}$$
+    $$c+\overline{c} = 2a, \ \ c \overline{c} = a^2 + b^2$$
+    $\Longrightarrow $ уравнение с отрицательным дискриминантом    
+    $$(*) = a_n \prod\limits_{j}(x-\alpha_j)^k_j \cdot \prod\limits_{\nu}(\underbrace{x^2+\beta_{\nu}+ \gamma_{\nu}}_{D<0})^{m_\nu} $$    
+  \end{proof}
+  \begin{example1}
+    $x^4 +1=0, \ x^4 = -1, \ w_k = \cos(\frac{\pi+2\pi k}{4})+ i\sin (\frac{\pi+2\pi k}{4})$
+    \begin{multline*}
+      \tab[2cm]x^4 +1= (x-w_0)(x-\overline{w_0})(x-w_1)(x-\overline{w_1}) = \\
+      = (x^2 - \sqrt{2}x + 1)(x^2 + \sqrt{2}x + 1)\tab[1cm]
+      \
+    \end{multline*}
+    \begin{center}
+      \begin{asy}
+        unitsize(2cm);
+        import graph;
+        filldraw(Circle((0,0),1), white);
+        dot((0,0));
+        label(" $O$ ", (0.2, 0.09));
+        draw((-1.25,0)--(1.35,0), Arrow);
+        draw((0,-1.25)--(0,1.35), Arrow);
+        label("$Re(z)$",(1.35, 0), SE); 
+        label("$Im(z)$",(0, 1.35), NW);
+        pair [] w;
+        w[0] = (0.7071067, 0.7071067);
+        w[1] = (-0.7071067, 0.7071067);
+        w[2] = (-0.7071067, -0.7071067);
+        w[3] = (0.7071067, -0.7071067);
+        dot("$w_{0}$",w[0], NE); 
+        dot("$w_{1}$",w[1], NW);
+        dot("$w_{2}$",w[2], SW);
+        dot("$w_{3}$",w[3], SE);
+    
+        draw((0, 0) -- w[0]);
+        draw((0, 0) -- w[1]);
+        draw((0, 0) -- w[2]);
+        draw((0, 0) -- w[3]);
+      \end{asy}
+    \end{center}
+  \end{example1}
+
+  \subsection{Неприводимые многочлены}
+  $F$ - поле
+  \begin{definition}
+    Многочлен $f \in F[x], \ \deg f > 0$ называется неприводимым над полем $F$, если $f$ нельзя разложить в произведение многочленов $gh$, \\где $gh \in F[x], \ \deg g < \deg f, \ \deg h < \deg f$.
+  \end{definition}
+  \begin{subtheorem}
+    Любой многочлен 1-ой степени является неприводимым над $F$. 
+  \end{subtheorem}
+  \begin{example1} 
+    $x^2 + 1 \in \mathbb{C}[x]$ - приводимый
+    $$x^2 + 1 = (x+i)(x-i)$$
+    \tab[11cm]$x^2 + 1 \in \R[x]$ - неприводимый  
+  \end{example1} 
+  \begin{subtheorem}\textbf{(1)}
+    Неприводимые многочлены над $\mathbb{C}$ - это линейные многочлены и только они. 
+  \end{subtheorem}
+  \begin{subtheorem}\textbf{(2)}
+    Неприводимые многочлены над $\R$ - это все линейные многочлены и все квадратные многочлены с отрицательным дискриминантом и только такие.  
+  \end{subtheorem}
+  \begin{remark}
+    Над любым полем $\exists$ бесконечное число ...ХЗ... неприводимых многочленов.  
+  \end{remark}   
 
   % \textbf{Мораль в том, что я в этот раз почти успел}
-  \textbf{Мораль в том, что в этот раз я вообще не успел}
+  % \textbf{Мораль в том, что в этот раз я вообще не успел}
 
 \end{document}
 
