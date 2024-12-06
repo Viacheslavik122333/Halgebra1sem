@@ -13,7 +13,6 @@
 .*.lb
 *.png
 *.DS_Store
-*.asy
 
 ## Intermediate documents:
 *.dvi
