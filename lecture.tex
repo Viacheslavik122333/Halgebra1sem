@@ -2420,93 +2420,95 @@ $V$- конечномерное векторное простанство над
     Обозначение: $(i_1,...,i_k)$\\
     Представление в виде графа:
     $\begin{matrix}\tab[1cm]
-      \begin{asy}
-        texpreamble("\usepackage[T2A]{fontenc}\usepackage[utf8]{inputenc}
-        \usepackage{mathtext}\usepackage[russian]{babel}");
-        unitsize(1cm);
-        pair i1 = (-1, 0), O = (0, 0);
-        transform r=rotate(-72,O);
-        transform r2=rotate(72,O);
-        dot("$i_1$",i1, W);
-        dot("$i_2$",r*i1, NW);
-        dot("$i_3$",r*(r*i1), NE);
-        dot("$i_m$",r2*i1,SW);
+      % \begin{asy}
+      %   texpreamble("\usepackage[T2A]{fontenc}\usepackage[utf8]{inputenc}
+      %   \usepackage{mathtext}\usepackage[russian]{babel}");
+      %   unitsize(1cm);
+      %   pair i1 = (-1, 0), O = (0, 0);
+      %   transform r=rotate(-72,O);
+      %   transform r2=rotate(72,O);
+      %   dot("$i_1$",i1, W);
+      %   dot("$i_2$",r*i1, NW);
+      %   dot("$i_3$",r*(r*i1), NE);
+      %   dot("$i_m$",r2*i1,SW);
 
-        path p1=i1{dir(rotate(-90)*(i1-O))}..r*i1;
-        draw(p1,Arrow(TeXHead));
+      %   path p1=i1{dir(rotate(-90)*(i1-O))}..r*i1;
+      %   draw(p1,Arrow(TeXHead));
 
-        path p2=r*i1{dir(rotate(-90)*(r*i1-O))}..r*(r*i1);
-        draw(p2,Arrow(TeXHead));
+      %   path p2=r*i1{dir(rotate(-90)*(r*i1-O))}..r*(r*i1);
+      %   draw(p2,Arrow(TeXHead));
 
-        path p3=r2*i1{dir(rotate(-90)*(r2*i1-O))}..r*(r2*i1);
-        draw(p3,Arrow(TeXHead));
+      %   path p3=r2*i1{dir(rotate(-90)*(r2*i1-O))}..r*(r2*i1);
+      %   draw(p3,Arrow(TeXHead));
 
-        path p4=r*(r*i1){dir(rotate(-90)*(r*(r*i1)-O))}..r2*(r2*i1);
-        draw(p4, dashed);
+      %   path p4=r*(r*i1){dir(rotate(-90)*(r*(r*i1)-O))}..r2*(r2*i1);
+      %   draw(p4, dashed);
 
-        path p5=r2*(r2*i1){dir(rotate(-90)*(r2*(r2*i1)-O))}..r2*i1;
-        draw(p5,Arrow(TeXHead));
+      %   path p5=r2*(r2*i1){dir(rotate(-90)*(r2*(r2*i1)-O))}..r2*i1;
+      %   draw(p5,Arrow(TeXHead));
 
-        pair a = (3.5, 0), b = (3.5, 0.7);
-        dot(scale(0.8)*Label("$i$ не $k$"),a, S);
+      %   pair a = (3.5, 0), b = (3.5, 0.7);
+      %   dot(scale(0.8)*Label("$i$ не $k$"),a, S);
 
-        path p6=a{dir(rotate(-90)*(a-(3.5, 0.35)))}..b;
-        path p7=b{dir(rotate(-90)*(b-(3.5, 0.35)))}..a;
+      %   path p6=a{dir(rotate(-90)*(a-(3.5, 0.35)))}..b;
+      %   path p7=b{dir(rotate(-90)*(b-(3.5, 0.35)))}..a;
 
-        draw(p6);
-        draw(p7,Arrow(TeXHead));
+      %   draw(p6);
+      %   draw(p7,Arrow(TeXHead));
 
-      \end{asy}
+      % \end{asy}
+      \includegraphics[width=5cm]{image/lecture-1.pdf}
     \end{matrix}$
   \end{definition} 
   \begin{example1}
     $n=6, \ \ \sigma=(1,3,2)$
     $\begin{matrix}\tab[1cm]
-      \begin{asy}
-        % \usepackage[russian]{babel};
-        texpreamble("\usepackage[T2A]{fontenc}\usepackage[utf8]{inputenc}
-        \usepackage{mathtext}\usepackage[russian]{babel}");
-        unitsize(0.48cm);
-        pair i1 = (-1, 0), O = (0, 0);
-        transform r=rotate(-120,O);
-        transform r2=rotate(120,O);
-        dot("$1$",i1, W);
-        dot("$2$",r*i1, NE);
-        dot("$3$",r*(r*i1), SE);
+      % \begin{asy}
+      %   % \usepackage[russian]{babel};
+      %   texpreamble("\usepackage[T2A]{fontenc}\usepackage[utf8]{inputenc}
+      %   \usepackage{mathtext}\usepackage[russian]{babel}");
+      %   unitsize(0.48cm);
+      %   pair i1 = (-1, 0), O = (0, 0);
+      %   transform r=rotate(-120,O);
+      %   transform r2=rotate(120,O);
+      %   dot("$1$",i1, W);
+      %   dot("$2$",r*i1, NE);
+      %   dot("$3$",r*(r*i1), SE);
 
-        path p1=r*i1{dir(rotate(90)*(r*i1-O))}..i1;
-        draw(p1,Arrow(TeXHead));
+      %   path p1=r*i1{dir(rotate(90)*(r*i1-O))}..i1;
+      %   draw(p1,Arrow(TeXHead));
 
-        path p2=r*(r*i1){dir(rotate(90)*(r*(r*i1)-O))}..r*i1;
-        draw(p2,Arrow(TeXHead));
+      %   path p2=r*(r*i1){dir(rotate(90)*(r*(r*i1)-O))}..r*i1;
+      %   draw(p2,Arrow(TeXHead));
 
-        path p3=i1{dir(rotate(90)*(i1-O))}..r2*i1;
-        draw(p3,Arrow(TeXHead));
+      %   path p3=i1{dir(rotate(90)*(i1-O))}..r2*i1;
+      %   draw(p3,Arrow(TeXHead));
 
 
-        pair a1 = (3, 0), b1 = (3, 0.7);
-        pair a2 = (5, 0), b2 = (5, 0.7);
-        pair a3 = (7, 0), b3 = (7, 0.7);
+      %   pair a1 = (3, 0), b1 = (3, 0.7);
+      %   pair a2 = (5, 0), b2 = (5, 0.7);
+      %   pair a3 = (7, 0), b3 = (7, 0.7);
 
-        dot(scale(0.8)*Label("$4$"),a1, S);
-        dot(scale(0.8)*Label("$5$"),a2, S);
-        dot(scale(0.8)*Label("$6$"),a3, S);
+      %   dot(scale(0.8)*Label("$4$"),a1, S);
+      %   dot(scale(0.8)*Label("$5$"),a2, S);
+      %   dot(scale(0.8)*Label("$6$"),a3, S);
 
-        path p4=a1{dir(rotate(90)*(a1-(3, 0.35)))}..b1;
-        path p5=b1{dir(rotate(90)*(b1-(3, 0.35)))}..a1;
-        draw(p4);
-        draw(p5,Arrow(TeXHead));
+      %   path p4=a1{dir(rotate(90)*(a1-(3, 0.35)))}..b1;
+      %   path p5=b1{dir(rotate(90)*(b1-(3, 0.35)))}..a1;
+      %   draw(p4);
+      %   draw(p5,Arrow(TeXHead));
 
-        path p6=a2{dir(rotate(90)*(a2-(5, 0.35)))}..b2;
-        path p7=b2{dir(rotate(90)*(b2-(5, 0.35)))}..a2;
-        draw(p6);
-        draw(p7,Arrow(TeXHead));
+      %   path p6=a2{dir(rotate(90)*(a2-(5, 0.35)))}..b2;
+      %   path p7=b2{dir(rotate(90)*(b2-(5, 0.35)))}..a2;
+      %   draw(p6);
+      %   draw(p7,Arrow(TeXHead));
 
-        path p8=a3{dir(rotate(90)*(a3-(7, 0.35)))}..b3;
-        path p9=b3{dir(rotate(90)*(b3-(7, 0.35)))}..a3;
-        draw(p8);
-        draw(p9,Arrow(TeXHead));
-      \end{asy}
+      %   path p8=a3{dir(rotate(90)*(a3-(7, 0.35)))}..b3;
+      %   path p9=b3{dir(rotate(90)*(b3-(7, 0.35)))}..a3;
+      %   draw(p8);
+      %   draw(p9,Arrow(TeXHead));
+      % \end{asy}
+      \includegraphics[width=4.5cm]{image/lecture-2.pdf}
     \end{matrix}$
   \end{example1}
 \begin{remark}
@@ -2551,34 +2553,35 @@ $V$- конечномерное векторное простанство над
     \end{enumerate}
     Рассмотрим произвольный $i \in \{1,...,n\}$
     \begin{center}
-      \begin{asy}
-        unitsize(1.5cm);
-        pair [] i;
-        i[0] = (0, 0); i[1] = (1, 0); i[2] = (2, 0); i[3] = (3, 0); i[4] = (4, 0); i[5] = (5, 0); i[6] = (6, 0);
-        dot("$\sigma^{-1}(i)$", i[1], S);
-        dot("$i$", i[2], S);
-        dot("$\sigma(i)$", i[3], S);
-        dot("$\sigma^{2}(i)$", i[4], S);
+      % \begin{asy}
+      %   unitsize(1.5cm);
+      %   pair [] i;
+      %   i[0] = (0, 0); i[1] = (1, 0); i[2] = (2, 0); i[3] = (3, 0); i[4] = (4, 0); i[5] = (5, 0); i[6] = (6, 0);
+      %   dot("$\sigma^{-1}(i)$", i[1], S);
+      %   dot("$i$", i[2], S);
+      %   dot("$\sigma(i)$", i[3], S);
+      %   dot("$\sigma^{2}(i)$", i[4], S);
 
-        path p1=i[0]{dir(rotate(-131)*(i[0]-((i[1]-i[0])/2+i[0])))}..i[1];
-        draw(p1,Arrow(TeXHead));
+      %   path p1=i[0]{dir(rotate(-131)*(i[0]-((i[1]-i[0])/2+i[0])))}..i[1];
+      %   draw(p1,Arrow(TeXHead));
 
-        path p2=i[1]{dir(rotate(-131)*(i[1]-((i[2]-i[1])/2+i[1])))}..i[2];
-        draw(p2,Arrow(TeXHead));
-        draw(Label("$\sigma$"),p2, N);
+      %   path p2=i[1]{dir(rotate(-131)*(i[1]-((i[2]-i[1])/2+i[1])))}..i[2];
+      %   draw(p2,Arrow(TeXHead));
+      %   draw(Label("$\sigma$"),p2, N);
 
-        path p3=i[2]{dir(rotate(-131)*(i[2]-((i[3]-i[2])/2+i[2])))}..i[3];
-        draw(p3,Arrow(TeXHead));
-        draw(Label("$\sigma$"),p3, N);
+      %   path p3=i[2]{dir(rotate(-131)*(i[2]-((i[3]-i[2])/2+i[2])))}..i[3];
+      %   draw(p3,Arrow(TeXHead));
+      %   draw(Label("$\sigma$"),p3, N);
 
-        path p4=i[3]{dir(rotate(-131)*(i[3]-((i[4]-i[3])/2+i[3])))}..i[4];
-        draw(p4,Arrow(TeXHead));
-        draw(Label("$\sigma$"),p4, N);
+      %   path p4=i[3]{dir(rotate(-131)*(i[3]-((i[4]-i[3])/2+i[3])))}..i[4];
+      %   draw(p4,Arrow(TeXHead));
+      %   draw(Label("$\sigma$"),p4, N);
 
-        path p5=i[4]{dir(rotate(-131)*(i[4]-((i[5]-i[4])/2+i[4])))}..i[5];
-        draw(p5,Arrow(TeXHead));
-        draw(Label("$\sigma$"),p5, N);
-      \end{asy}
+      %   path p5=i[4]{dir(rotate(-131)*(i[4]-((i[5]-i[4])/2+i[4])))}..i[5];
+      %   draw(p5,Arrow(TeXHead));
+      %   draw(Label("$\sigma$"),p5, N);
+      % \end{asy}
+      \includegraphics[width=7cm]{image/lecture-3.pdf}
     \end{center}
     \begin{definition}
       Множество $\textrm{Orb}(i) = \{\sigma^m(i) \ | \ m \in \Z\}$  называется орбитой числа $i$.
@@ -3140,19 +3143,20 @@ $V$- конечномерное векторное простанство над
     Тригонометрическая форма (полярная система координат на плоскости) \\
     Точка $M(x, y) \longleftrightarrow (\rho, \phi)$
     \begin{center}
-      \begin{asy}
-        import markers;
-        unitsize(2.7cm);
-        pair O = (-1,0), X = (1, 0), B = (0.3, 0);
-        real a = 45;
-        transform r=rotate(a,O);
-        dot("$M(x,y)$",r*B, NE);
-        dot("$O$", O, NW); 
-        label("$x$", X, E);
-        path g = X -- O -- r*B;
-        draw(g, BeginArrow, EndArrow);
-        markangle(scale(1.15)*Label("$\varphi$"),B,O,r*B,radius=1.3cm,Arrow(TeXHead));
-      \end{asy}
+      % \begin{asy}
+      %   import markers;
+      %   unitsize(2.7cm);
+      %   pair O = (-1,0), X = (1, 0), B = (0.3, 0);
+      %   real a = 45;
+      %   transform r=rotate(a,O);
+      %   dot("$M(x,y)$",r*B, NE);
+      %   dot("$O$", O, NW); 
+      %   label("$x$", X, E);
+      %   path g = X -- O -- r*B;
+      %   draw(g, BeginArrow, EndArrow);
+      %   markangle(scale(1.15)*Label("$\varphi$"),B,O,r*B,radius=1.3cm,Arrow(TeXHead));
+      % \end{asy}
+      \includegraphics[width=6.5cm]{image/lecture-4.pdf}
     \end{center}
     $$\rho = |\overrightarrow{OM}|; \ \ \phi = \angle(Ox, \overrightarrow{OM})$$
     $$\begin{cases}
@@ -3256,40 +3260,38 @@ $V$- конечномерное векторное простанство над
     % \end{center}
 
     \begin{center}
-      \begin{asy}
-        unitsize(2.3cm);
-        import graph;
-        filldraw(Circle((0,0),1), white);
-        pair O = (0,0);
-        pair B = (1,0);
-        dot("$O$", O, NW);
-        draw((-1.25,0)--(1.35,0), Arrow);
-        draw((0,-1.25)--(0,1.35), Arrow);
-        label("$Re(z)$",(1.35, 0), SE); 
-        label("$Im(z)$",(0, 1.35), NW);
-        pair [] w;
-        w[0] = (0.8660252, 0.5);
-        w[1] = (0, 1);
-        w[2] = (-0.8660252, 0.5);
-        w[3] = (-0.8660252, -0.5);
-        w[4] = (0, -1);
-        w[5] = (0.8660252, -0.5);
-        dot("$w_{1}$",w[1], NW);
-        dot("$w_{2}$",w[2], NW);
-        dot("$w_{3}$",w[3], SW);
-        dot("$w_{4}$",w[4], SE);
-        dot("$w_{5}$",w[5], SE);
-        draw(w[0]--w[1]--w[2]--w[3]--w[4]--w[5]--cycle);
-        draw((0, 0) -- w[0], Arrow);
-        label("$\sqrt{\rho}$",(0.5, 0.27), NW);
-        transform r1=rotate(60,O);
-        dot("$w_0$",r1*w[5], NE); // интересно
-        path p = scale(0.5)*(dir(B){up}..dir(r1*w[5]));
-        draw(scale(1.15)*Label("$\frac{\varphi}{n}$"), p, Arrow(TeXHead));
-        // path c = unitcircle;
-        // path g=scale(5)*unitcircle;
-        // filldraw(g);
-      \end{asy}
+      % \begin{asy}
+      %   unitsize(2.3cm);
+      %   import graph;
+      %   filldraw(Circle((0,0),1), white);
+      %   pair O = (0,0);
+      %   pair B = (1,0);
+      %   dot("$O$", O, NW);
+      %   draw((-1.25,0)--(1.35,0), Arrow);
+      %   draw((0,-1.25)--(0,1.35), Arrow);
+      %   label("$Re(z)$",(1.35, 0), SE); 
+      %   label("$Im(z)$",(0, 1.35), NW);
+      %   pair [] w;
+      %   w[0] = (0.8660252, 0.5);
+      %   w[1] = (0, 1);
+      %   w[2] = (-0.8660252, 0.5);
+      %   w[3] = (-0.8660252, -0.5);
+      %   w[4] = (0, -1);
+      %   w[5] = (0.8660252, -0.5);
+      %   dot("$w_{1}$",w[1], NW);
+      %   dot("$w_{2}$",w[2], NW);
+      %   dot("$w_{3}$",w[3], SW);
+      %   dot("$w_{4}$",w[4], SE);
+      %   dot("$w_{5}$",w[5], SE);
+      %   draw(w[0]--w[1]--w[2]--w[3]--w[4]--w[5]--cycle);
+      %   draw((0, 0) -- w[0], Arrow);
+      %   label("$\sqrt{\rho}$",(0.5, 0.27), NW);
+      %   transform r1=rotate(60,O);
+      %   dot("$w_0$",r1*w[5], NE); // интересно
+      %   path p = scale(0.5)*(dir(B){up}..dir(r1*w[5]));
+      %   draw(scale(1.15)*Label("$\frac{\varphi}{n}$"), p, Arrow(TeXHead));
+      % \end{asy}
+      \includegraphics[width=6.5cm]{image/lecture-5.pdf}
     \end{center}
     $w_0, w_1,...,w_{n-1}$  - лежат в верщинах правильного $n$ - угольника, вписанного в окружность.  
   \end{subtheorem} 
@@ -3306,37 +3308,38 @@ $V$- конечномерное векторное простанство над
     $z=1,\ n=3, \ \sqrt[3]{1}$ 
   \end{example1}
   \begin{center}
-    \begin{asy}
-      unitsize(2cm);
-      import graph;
-      filldraw(Circle((0,0),1), white);
-      pair O = (0,0);
-      dot("$O$", O, SW);
-      draw((-1.25,0)--(1.4,0), Arrow);
-      draw((0,-1.25)--(0,1.4), Arrow);
-      label("$Re(z)$",(1.35, 0), SE); 
-      label("$Im(z)$",(0, 1.35), NW);
-      pair w0 = (1, 0);
+    % \begin{asy}
+    %   unitsize(2cm);
+    %   import graph;
+    %   filldraw(Circle((0,0),1), white);
+    %   pair O = (0,0);
+    %   dot("$O$", O, SW);
+    %   draw((-1.25,0)--(1.4,0), Arrow);
+    %   draw((0,-1.25)--(0,1.4), Arrow);
+    %   label("$Re(z)$",(1.35, 0), SE); 
+    %   label("$Im(z)$",(0, 1.35), NW);
+    %   pair w0 = (1, 0);
 
-      real a = 120;
-      real b = -120;
-      transform r1=rotate(a,O);
-      transform r2=rotate(b,O);
+    %   real a = 120;
+    %   real b = -120;
+    %   transform r1=rotate(a,O);
+    %   transform r2=rotate(b,O);
 
-      draw("$w_0$", w0, NE);
-      draw("$w_1$",r1*w0,NW);
-      draw("$w_2$",r2*w0,SW);
+    %   draw("$w_0$", w0, NE);
+    %   draw("$w_1$",r1*w0,NW);
+    %   draw("$w_2$",r2*w0,SW);
 
-      draw(w0--r1*w0--r2*w0--cycle);
+    %   draw(w0--r1*w0--r2*w0--cycle);
 
-      draw(O--r1*w0, Arrow);
+    %   draw(O--r1*w0, Arrow);
 
-      // label("$\sqrt{\rho}$",(0.5, 0.27), NW);
+    %   // label("$\sqrt{\rho}$",(0.5, 0.27), NW);
 
-      path p = scale(0.23)*(dir(w0){up}..dir(r1*w0));
-      draw(scale(1.15)*Label("$\frac{2\pi}{3}$"), p, Arrow(TeXHead));
+    %   path p = scale(0.23)*(dir(w0){up}..dir(r1*w0));
+    %   draw(scale(1.15)*Label("$\frac{2\pi}{3}$"), p, Arrow(TeXHead));
       
-    \end{asy}
+    % \end{asy}
+    \includegraphics[width=6.5cm]{image/lecture-6.pdf}
   \end{center}
   \section{Алгебра над полем}
   Пусть $F$ - поле 
@@ -3687,18 +3690,19 @@ $V$- конечномерное векторное простанство над
     $$\frac{f(z)}{f(z_0)} = 1 + c_s(z-z_0)^s + ... + c_n(z-z_0), \ c_i = \frac{b_i}{f(z_0)} \neq 0$$  
     Найдем $z_1 \in \mathbb{C}: \ c_sz_1^s = -1$
     \begin{center}
-      \begin{asy}
-        unitsize(2cm);
-        dot("$O$", (0,0), NW);
-        dot("$z_0$", (0.4, 0.33));
-        dot("$z ?$", (0.8, 0.66));
-        dot("$z_1+z_0$", (1.22, 1.00));
-        draw((0.4, 0.33) -- (1.2, 0.99), Arrow(TeXHead));
-        draw((-0.25,0)--(2,0), Arrow);
-        draw((0,-0.25)--(0,1.6), Arrow);
-        label("$Re(z)$",(1.9, 0), SE); 
-        label("$Im(z)$",(0, 1.5), NW);
-      \end{asy}
+      % \begin{asy}
+      %   unitsize(2cm);
+      %   dot("$O$", (0,0), NW);
+      %   dot("$z_0$", (0.4, 0.33));
+      %   dot("$z ?$", (0.8, 0.66));
+      %   dot("$z_1+z_0$", (1.22, 1.00));
+      %   draw((0.4, 0.33) -- (1.2, 0.99), Arrow(TeXHead));
+      %   draw((-0.25,0)--(2,0), Arrow);
+      %   draw((0,-0.25)--(0,1.6), Arrow);
+      %   label("$Re(z)$",(1.9, 0), SE); 
+      %   label("$Im(z)$",(0, 1.5), NW);
+      % \end{asy}
+      \includegraphics[width=6.5cm]{image/lecture-7.pdf}
     \end{center}
 
     \begin{center}
@@ -3784,31 +3788,32 @@ $V$- конечномерное векторное простанство над
       \
     \end{multline*}
     \begin{center}
-      \begin{asy}
-        unitsize(2cm);
-        import graph;
-        filldraw(Circle((0,0),1), white);
-        dot((0,0));
-        label(" $O$ ", (0.2, 0.09));
-        draw((-1.25,0)--(1.35,0), Arrow);
-        draw((0,-1.25)--(0,1.35), Arrow);
-        label("$Re(z)$",(1.35, 0), SE); 
-        label("$Im(z)$",(0, 1.35), NW);
-        pair [] w;
-        w[0] = (0.7071067, 0.7071067);
-        w[1] = (-0.7071067, 0.7071067);
-        w[2] = (-0.7071067, -0.7071067);
-        w[3] = (0.7071067, -0.7071067);
-        dot("$w_{0}$",w[0], NE); 
-        dot("$w_{1}$",w[1], NW);
-        dot("$w_{2}$",w[2], SW);
-        dot("$w_{3}$",w[3], SE);
+      % \begin{asy}
+      %   unitsize(2cm);
+      %   import graph;
+      %   filldraw(Circle((0,0),1), white);
+      %   dot((0,0));
+      %   label(" $O$ ", (0.2, 0.09));
+      %   draw((-1.25,0)--(1.35,0), Arrow);
+      %   draw((0,-1.25)--(0,1.35), Arrow);
+      %   label("$Re(z)$",(1.35, 0), SE); 
+      %   label("$Im(z)$",(0, 1.35), NW);
+      %   pair [] w;
+      %   w[0] = (0.7071067, 0.7071067);
+      %   w[1] = (-0.7071067, 0.7071067);
+      %   w[2] = (-0.7071067, -0.7071067);
+      %   w[3] = (0.7071067, -0.7071067);
+      %   dot("$w_{0}$",w[0], NE); 
+      %   dot("$w_{1}$",w[1], NW);
+      %   dot("$w_{2}$",w[2], SW);
+      %   dot("$w_{3}$",w[3], SE);
     
-        draw((0, 0) -- w[0]);
-        draw((0, 0) -- w[1]);
-        draw((0, 0) -- w[2]);
-        draw((0, 0) -- w[3]);
-      \end{asy}
+      %   draw((0, 0) -- w[0]);
+      %   draw((0, 0) -- w[1]);
+      %   draw((0, 0) -- w[2]);
+      %   draw((0, 0) -- w[3]);
+      % \end{asy}
+      \includegraphics[width=6.5cm]{image/lecture-8.pdf}
     \end{center}
   \end{example1}
 
