@@ -49,4 +49,5 @@ draw(p7,Arrow(TeXHead));
 path p8=a3{dir(rotate(90)*(a3-(7, 0.35)))}..b3;
 path p9=b3{dir(rotate(90)*(b3-(7, 0.35)))}..a3;
 draw(p8);
+
 draw(p9,Arrow(TeXHead));

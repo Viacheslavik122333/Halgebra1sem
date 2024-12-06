@@ -41,5 +41,6 @@ path p6=a{dir(rotate(-90)*(a-(3.5, 0.35)))}..b;
 path p7=b{dir(rotate(-90)*(b-(3.5, 0.35)))}..a;
 
 draw(p6);
+
 draw(p7,Arrow(TeXHead));
 

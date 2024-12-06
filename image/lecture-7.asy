@@ -9,6 +9,7 @@ settings.toolbar=false;
 viewportmargin=(2,2);
 
 unitsize(2cm);
+
 dot("$O$", (0,0), NW);
 dot("$z_0$", (0.4, 0.33));
 dot("$z ?$", (0.8, 0.66));

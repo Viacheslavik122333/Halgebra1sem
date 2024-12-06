@@ -33,4 +33,5 @@ draw(Label("$\sigma$"),p4, N);
 
 path p5=i[4]{dir(rotate(-131)*(i[4]-((i[5]-i[4])/2+i[4])))}..i[5];
 draw(p5,Arrow(TeXHead));
+
 draw(Label("$\sigma$"),p5, N);

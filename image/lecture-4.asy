@@ -18,4 +18,5 @@ dot("$O$", O, NW);
 label("$x$", X, E);
 path g = X -- O -- r*B;
 draw(g, BeginArrow, EndArrow);
+
 markangle(scale(1.15)*Label("$\varphi$"),B,O,r*B,radius=1.3cm,Arrow(TeXHead));

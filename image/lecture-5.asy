@@ -39,4 +39,5 @@ path p = scale(0.5)*(dir(B){up}..dir(r1*w[5]));
 draw(scale(1.15)*Label("$\frac{\varphi}{n}$"), p, Arrow(TeXHead));
 // path c = unitcircle;
 // path g=scale(5)*unitcircle;
+
 // filldraw(g);

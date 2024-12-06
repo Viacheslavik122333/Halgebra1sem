@@ -152,7 +152,7 @@ acs-*.bib
 *-concordance.tex
 # TODO Uncomment the next line if you use knitr and want to ignore its generated tikz files
 # *.tikz
-*-tikzDictionary
+# *-tikzDictionarys
 
 # listings
 *.lol

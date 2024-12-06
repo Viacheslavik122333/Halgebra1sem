@@ -35,5 +35,6 @@ draw(O--r1*w0, Arrow);
 // label("$\sqrt{\rho}$",(0.5, 0.27), NW);
 
 path p = scale(0.23)*(dir(w0){up}..dir(r1*w0));
+
 draw(scale(1.15)*Label("$\frac{2\pi}{3}$"), p, Arrow(TeXHead));
 
