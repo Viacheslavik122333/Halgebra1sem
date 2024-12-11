@@ -11,7 +11,7 @@
 *.cb
 *.cb2
 .*.lb
-*.png
+#*.png
 *.DS_Store
 
 ## Intermediate documents:
