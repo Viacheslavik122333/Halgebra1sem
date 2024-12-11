@@ -699,7 +699,7 @@
       \item $\R^3,\tab[0.1cm] S = \{(1,0,0),(0,1,0)\};$ \tab[0.5cm]
       $\langle S \rangle = \{(\lambda,\mu,0)\tab[0.1cm]|\tab[0.1cm]\lambda,\mu \in \R\}$ 
       \item $V^3,\tab[0.1cm] S =\{i,j,i+j\}$ \\ $\\$  
-      \includegraphics[width=6cm]{image/v3.pdf} $\widetilde{s} = \{i+j\}$ 
+      \includegraphics[width=6cm]{image/lecture-1.pdf} $\widetilde{s} = \{i+j\}$ 
     \end{enumerate}
   \end{example}
   \begin{definition}
@@ -811,7 +811,7 @@ $V$- конечномерное векторное простанство над
     Рангом системы векторов $S$, назовем $\\dim \langle S \rangle$, т.е. число векторов в максимальной ЛНЗ системе из $S$.  
   \end{definition} 
   $A$ - матрица $m \times n$ \\ $\\$
-  \includegraphics[width=15cm]{image/matr.pdf}
+  \includegraphics[width=15cm]{image/lecture-2.pdf}
   \begin{definition}
     Рангом матрицы $A$ называется ранг системы ее строк, т.е. максимальное число ЛНЗ строк матрицы.
   \end{definition} 
@@ -820,7 +820,7 @@ $V$- конечномерное векторное простанство над
     Ранг системы векторов $\{s_1,...,s_n\}$ называется $\dim \langle s_1,...,s_n \rangle$.
   \end{definition} 
   \begin{definition}
-    Рангом матрицы $A \ m\times n$ называется ранг системы её строк. $$\includegraphics[width=4cm]{image/matr5.png}$$
+    Рангом матрицы $A \ m\times n$ называется ранг системы её строк. $$\includegraphics[width=4cm]{image/lecture-3.png}$$
   \end{definition} 
   \begin{definition}
     Две системы векторов $\{v_1,...,v_n\}$ $\{w_1,...,w_n\}$ называются эквивалентными, если каждый вектор $v_i$ линейно выражается через $\{w_1,...,w_n\}$, а $w_i$ через $\{v_1,...,v_n\}$. \\
@@ -830,7 +830,7 @@ $V$- конечномерное векторное простанство над
     При элементарных преобразованиях над строками, ранг матрицы $A$  не изменяется.
   \end{subtheorem} 
   \begin{proof} 
-    $$\includegraphics[width=12cm]{image/matr1.png}$$
+    $$\includegraphics[width=12cm]{image/lecture-4.png}$$
     $$\langle A_1,...,A_m \rangle = \langle \widetilde{A_1},...,\widetilde{A_m} \rangle$$ \\
     т.е. система строк $A$ эквивалентна системе строк $\widetilde{A}$ $\Longrightarrow rkA = rk \widetilde{A}$. 
   \end{proof} 
@@ -842,7 +842,7 @@ $V$- конечномерное векторное простанство над
   \end{offernum} 
   \begin{proof}
     $A \overset{\text{ЭП строк}}{\longrightarrow } A_{\text{ст}} \Longrightarrow  rkA = rkA_{\text{ст}}$ \\
-    \includegraphics[width=5cm]{image/matr2.pdf}
+    \includegraphics[width=5cm]{image/lecture-5.pdf}
     $a_{1i_1},...,a_{si_s}$ - лидеры строк в $A_{\text{ст}} \Longrightarrow a_{1i_1} \neq 0,...,a_{si_s} \neq 0$ \\
     Очевидно, что $rkA_{\text{ст}}\leq s$. Достаточно доказать, что ненулевые строки ЛНЗ. 
     Рассмотрим ЛК: \\
@@ -900,10 +900,10 @@ $V$- конечномерное векторное простанство над
   \end{theoremnum} 
   \begin{proof}
     Было доказанно, что ранг системы строк (столбцов) матрицы не изменяется при ЭП над строками и над столбцами. Приведем матрицу $A$ к ступенчатому виду с помощью ЭП над строками. $A_\text{ст}$ имеет вид:
-    $$\includegraphics[width=5cm]{image/matr4.pdf}$$
+    $$\includegraphics[width=5cm]{image/lecture-6.pdf}$$
     $$a_{1i_1} \neq 0,...,a_{si_s} \neq 0$$ 
     Используем $i_1$-столбец, вычитая этот столбец из оставшихся с подходящими коэффициентами, получаем:
-    $$\includegraphics[width=5cm]{image/matr3.pdf}$$ 
+    $$\includegraphics[width=5cm]{image/lecture-7.pdf}$$ 
     Далее используем $i_2$-столбец, обнуляем все элементы правее $a_{i_22}$. В итоге получаем: $$\begin{pmatrix}
       a_{1i_1} && \null && 0\\
       \null && \ddots && \null\\
@@ -1210,10 +1210,10 @@ $V$- конечномерное векторное простанство над
     \begin{enumerate}
       \item Проекция \\
       $\phi: V^3 \to V^2, \phi: x_1i+x_2j+x_3k \to x_1i+x_2j$ 
-      $$\includegraphics[width=6cm]{image/projection.pdf}$$
+      $$\includegraphics[width=6cm]{image/lecture-8.pdf}$$
       \item Поворот\\
       $\phi: V^2 \to V^2$ Поворот на угол $\alpha$ вокруг точки $O$ 
-      $$\includegraphics[width=3.5cm]{image/turn.pdf}$$
+      $$\includegraphics[width=3.5cm]{image/lecture-9.pdf}$$
     \end{enumerate}
     
   \section{Линейные отображения}
@@ -1356,7 +1356,7 @@ $V$- конечномерное векторное простанство над
     \item[3)] Композиция (произведение) линейных отображений. \\
     Пусть $V, W, U$ - векторные простанства над $\R$
     $$\phi: V \to W \tab[0.5cm] \psi: W \to U$$
-    $$\includegraphics[width=5.5cm]{image/composition1.pdf}$$
+    $$\includegraphics[width=5.5cm]{image/lecture-10.pdf}$$
     Зададим отображение по правилу: 
     $$(\psi \circ \phi)(x) = \psi(\phi(x)) \tab[0.3cm] \forall x \in V$$   
     \begin{subtheorem}
@@ -1681,10 +1681,10 @@ $V$- конечномерное векторное простанство над
   \begin{definition}
     Матрица, полученная из единичной матрицы $E$, с помощью одного элементарного преобразования над строками или столбцами, называется элементарной матрицей. \\
     ЭП1: \ $\overline{a_i} \to \overline{a_i} + \lambda \overline{a_j}, \ \ i \not = j$
-    $$\includegraphics[width=12cm]{image/image8.2.1.pdf}$$
+    $$\includegraphics[width=12cm]{image/lecture-11.pdf}$$
     ЭП2: $\overline{a_i} \leftrightarrow  \overline{a_j}, \ \ i \not = j$ \tab[2.5cm] ЭП3: $\overline{a_i} \leftrightarrow \mu \overline{a_i}, \ \ \mu \not = 0$ \\
-    \includegraphics[width=7cm]{image/image8.2.2.pdf}
-    \includegraphics[width=5.6cm]{image/image8.2.3.pdf}
+    \includegraphics[width=7cm]{image/lecture-12.pdf}
+    \includegraphics[width=5.6cm]{image/lecture-13.pdf}
   \end{definition} 
   % \setcounter{lemcount}{0}
   \begin{lemmanum2}  \label{lemma1} \tab 
@@ -1799,7 +1799,7 @@ $V$- конечномерное векторное простанство над
   
   \begin{example1}
     $$\begin{matrix}
-      \includegraphics[width=3cm]{image/image8.3.1.pdf} 
+      \includegraphics[width=3cm]{image/lecture-14.pdf} 
     \end{matrix}
     \Longrightarrow \text{Минор}= \begin{vmatrix}
       6 & 8 \\ 7 & 7
@@ -1813,7 +1813,7 @@ $V$- конечномерное векторное простанство над
   \end{definition}
   \begin{example1} 
     $$\begin{matrix}
-      \includegraphics[width=3cm]{image/image8.3.2.pdf}
+      \includegraphics[width=3cm]{image/lecture-15.pdf}
     \end{matrix}
     \Longrightarrow M_{12} = \begin{vmatrix}
       2 && 3 \\ 8 && 9
@@ -2457,7 +2457,7 @@ $V$- конечномерное векторное простанство над
       %   draw(p7,Arrow(TeXHead));
 
       % \end{asy}
-      \includegraphics[width=5cm]{image/lecture-1.pdf}
+      \includegraphics[width=5cm]{image/lecture-16.pdf}
     \end{matrix}$
   \end{definition} 
   \begin{example1}
@@ -2508,7 +2508,7 @@ $V$- конечномерное векторное простанство над
       %   draw(p8);
       %   draw(p9,Arrow(TeXHead));
       % \end{asy}
-      \includegraphics[width=4.5cm]{image/lecture-2.pdf}
+      \includegraphics[width=4.5cm]{image/lecture-17.pdf}
     \end{matrix}$
   \end{example1}
 \begin{remark}
@@ -2581,7 +2581,7 @@ $V$- конечномерное векторное простанство над
       %   draw(p5,Arrow(TeXHead));
       %   draw(Label("$\sigma$"),p5, N);
       % \end{asy}
-      \includegraphics[width=7cm]{image/lecture-3.pdf}
+      \includegraphics[width=7cm]{image/lecture-18.pdf}
     \end{center}
     \begin{definition}
       Множество $\textrm{Orb}(i) = \{\sigma^m(i) \ | \ m \in \Z\}$  называется орбитой числа $i$.
@@ -3113,7 +3113,7 @@ $V$- конечномерное векторное простанство над
         \coordinate (M) at (2.5, 2);
         \coordinate (O) at (0, 0);
         \draw[fill] (M) circle (1.2pt) node[right] {$M(x,y)$};
-        \draw[fill] (O) circle (1pt) node[below left] {$0$};
+        \draw[fill] (O) circle (1pt) node[below left] {$O$};
       \end{tikzpicture}
     \end{center}
     \begin{center}
@@ -3156,7 +3156,7 @@ $V$- конечномерное векторное простанство над
       %   draw(g, BeginArrow, EndArrow);
       %   markangle(scale(1.15)*Label("$\varphi$"),B,O,r*B,radius=1.3cm,Arrow(TeXHead));
       % \end{asy}
-      \includegraphics[width=6.5cm]{image/lecture-4.pdf}
+      \includegraphics[width=6.5cm]{image/lecture-19.pdf}
     \end{center}
     $$\rho = |\overrightarrow{OM}|; \ \ \phi = \angle(Ox, \overrightarrow{OM})$$
     $$\begin{cases}
@@ -3291,7 +3291,7 @@ $V$- конечномерное векторное простанство над
       %   path p = scale(0.5)*(dir(B){up}..dir(r1*w[5]));
       %   draw(scale(1.15)*Label("$\frac{\varphi}{n}$"), p, Arrow(TeXHead));
       % \end{asy}
-      \includegraphics[width=6.5cm]{image/lecture-5.pdf}
+      \includegraphics[width=6.5cm]{image/lecture-20.pdf}
     \end{center}
     $w_0, w_1,...,w_{n-1}$  - лежат в верщинах правильного $n$ - угольника, вписанного в окружность.  
   \end{subtheorem} 
@@ -3339,7 +3339,7 @@ $V$- конечномерное векторное простанство над
     %   draw(scale(1.15)*Label("$\frac{2\pi}{3}$"), p, Arrow(TeXHead));
       
     % \end{asy}
-    \includegraphics[width=6.5cm]{image/lecture-6.pdf}
+    \includegraphics[width=6.5cm]{image/lecture-21.pdf}
   \end{center}
   \section{Алгебра над полем}
   Пусть $F$ - поле 
@@ -3702,7 +3702,7 @@ $V$- конечномерное векторное простанство над
       %   label("$Re(z)$",(1.9, 0), SE); 
       %   label("$Im(z)$",(0, 1.5), NW);
       % \end{asy}
-      \includegraphics[width=6.5cm]{image/lecture-7.pdf}
+      \includegraphics[width=6.5cm]{image/lecture-22.pdf}
     \end{center}
 
     \begin{center}
@@ -3813,7 +3813,7 @@ $V$- конечномерное векторное простанство над
       %   draw((0, 0) -- w[2]);
       %   draw((0, 0) -- w[3]);
       % \end{asy}
-      \includegraphics[width=6.5cm]{image/lecture-8.pdf}
+      \includegraphics[width=6.5cm]{image/lecture-23.pdf}
     \end{center}
   \end{example1}
 
@@ -3837,9 +3837,218 @@ $V$- конечномерное векторное простанство над
     Неприводимые многочлены над $\R$ - это все линейные многочлены и все квадратные многочлены с отрицательным дискриминантом и только такие.  
   \end{subtheorem}
   \begin{remark}
-    Над любым полем $\exists$ бесконечное число ...ХЗ... неприводимых многочленов.  
+    Над любым полем $\exists$ бесконечное число непропорциональных\\ неприводимых многочленов.
   \end{remark}   
-  
+  \subsection{Многочлены от нескольких переменных}
+  $F$ - поле, \ $n \in \N$ - фиксированная. \\
+  Рассмотрим бесконечномерную алгебру над полем $F$ с базисом \\ $\{e_{k_1},...,e_{k_n} \ | \ k_i \in \N \cup \{0\} \} $ и умножением:
+  $$e_{k_1},...,e_{k_n} \cdot \ e_{m_1},...,e_{m_n} = e_{k_1 + m_1},...,e_{k_n + m_n} \ (*)$$
+  Эта алгебра называется алгеброй множеств от $n$ переменных над полем $F$. \\
+  Обозначается: $F[x_1,...,x_n]$\\
+  Из правила $(*)$ $\Longrightarrow $ , что алгебра коммутативна, ассоциативна, с единицей: $e_{0,...,0}$\\
+  Отождествляем: \ $\alpha \in F \longleftrightarrow \alpha \cdot e_{0,...,0}$
+  $$\begin{cases}
+    e_{1,0,...,0} = x_1\\
+    e_{0,1,...,0} = x_2\\
+    \vdots\\
+    e_{0,0,...,1} = x_n
+  \end{cases} \Longrightarrow (\text{из } *) \ \ e_{k_1,...,k_n} = x_1^{k_1} \cdot ... \cdot x_n^{k_n} \Longrightarrow $$ 
+  $\Longrightarrow $ произвольный элемент из алгебры (по определению базиса) раскладывается, как $$f = \sum \alpha_{k_1,...,k_n} \cdot e_{k_1,...,k_n} = \sum \alpha_{k_1,...,k_n} \cdot x_1^{k_1} \cdot ... \cdot x_n^{k_n}$$
+  $$ f:= f(x_1,...,x_n)$$ 
+  - многочлен над полем $F$.
+  \begin{example1}
+    $$f = x_1^5 x_2^7 x_3 - 5x_2^4x_3x_4 + 6x_2x_3 + 7$$
+    Любой многочлен $f \in F[x_1,...,x_n]$ можно предствить в виде:
+    $$(**) \ f = \sum \limits_{k=0}^sf_k(x_2,...,x_n)x_1^k \Longrightarrow $$
+    $\Longrightarrow$ кольцо $F[x_1,...,x_n]$ можно рассматривать, как кольцо многочленов от $x_1$ с коэффициентами из кольца $F[x_2,...,X_n]$.\\
+    Как и для $n=1$, многочлен $f \in F[x_1,...,x_n]$ задает функцию из $F^n = F \times ... \times F$.      
+  \end{example1} 
+  \begin{theorem}
+    Если поле $F$ - бесконечно, то разные многочлены из $F[x_1,...,x_n]$ задает разные функции.
+  \end{theorem}
+  \begin{proof}
+    Идея: индукция по $n$. База: $n=1$ - было доказано.\\
+    $n-1 \to n$. Рассмотром разложение многочленов в виде $(**)$\\
+    Доказательство д/з (   
+  \end{proof}
+  \subsection{Лексикографический порядок на одночленах}
+  $\alpha x_1^{k_1} \cdot ... \cdot x_n^{k_n}$ - одночлен, $\alpha \in F$.
+  \begin{definition}
+    Порядок $\alpha x_1^{k_1} \cdot ... \cdot x_n^{k_n}\succ \beta x_1^{k_1} \cdot ... \cdot x_n^{k_n}$ \ $(\alpha, \beta \neq 0)$, называется лексикографическим, если:
+    $$\exists \ s =\overline{0,n-1}: k_1=m_1 \ ,...,\ k_s=m_s, \ k_{s+1} > m_{s+1}$$
+  \end{definition}
+  \begin{example1}
+    $$3x_1^{30}x_2^7 \succ 5x_1^{10}x_2^{150}$$
+  \end{example1}
+  \begin{properties} $\\$ 
+    Если $u, \ v, \ w, \ u_1, \ u_2, \ v_1, \ v_2$ - ненулевые одночлены, то: 
+    \begin{enumerate}
+      \item $u \succ v, \ v \succ w \Longrightarrow u \succ w$ - транзитивность
+      \item $u \succ v \Longrightarrow uw \succ vw$
+      \item $u_1 \succ v_1, \ u_2 \succ v_2 \Longrightarrow u_1u_2 \succ v_1v_2$
+    \end{enumerate}
+  \end{properties}
+  \begin{subtheorem}
+    Любой многочлен $f \in F[x_1,...,x_n]$ однозначно раскладывается в сумму различных одночленов.
+  \end{subtheorem}
+  \begin{definition}
+    Среди этох одночленов $\exists$ одночлен, который старше остальных.\\
+    Он называется сташим и обозначается: $LT(f)$  
+  \end{definition}
+  \begin{example1}
+    $$f = x_1^2x_2 + 7x_1^3x_2x_3 - 9x_1x_2^5x_6, \ \ LT(f) = 7x_1^3x_2x_3$$ 
+  \end{example1}
+  \begin{lemma} (О старшем члене произведения)\\
+    Пусть $f, g \in F[x_1,...,x_n], \ f \text{ и } g \neq 0$, тогда:
+    $$LT(fg) = LT(f) \cdot LT(g)$$  
+  \end{lemma}
+  \begin{proof}
+    $$\begin{matrix}
+      f=u_0+...+u_s\\
+      g=v_0+...+v_t
+    \end{matrix}, \ \ \text{где} u_i, v_i - \text{одночлены}$$
+    $$LT(f) = u_s, \ LT(g) = v_t$$
+    $$fg = \sum u_iv_i; \ \ u_sv_t \succ u_iv_j, \text{ при } i+j<s+t \Longrightarrow LT(fg) = u_sv_t$$
+    (Здесь учитывается, что $F$ - поле, а в поле нет делителей нуля)
+  \end{proof}
+  \begin{consequense}
+    В $F[x_1,...,x_n]$ нет делителей нуля. 
+  \end{consequense}
+  \begin{definition}
+    Степень одночлена $\alpha x_1^{k_1} \cdot ... \cdot x_n^{k_n}, \ \alpha \neq 0$ - это сумма: $k_1+...+k_n$   
+  \end{definition}
+  \begin{definition}
+    Степень многочлена $f \in F[x_1,...,x_n]$ - это максимум степеней его одночленов.\\
+    Обозначается: $\deg f$\\
+    По определению считаем, что $\deg 0 = -\infty$   
+  \end{definition}
+  \begin{definition}
+    Многочлен $f \in [x_1,...,x_n]$ называется однородным, если все его одночлены имеют одну и ту же степень. 
+  \end{definition}
+  \begin{subtheorem}
+    Любой многочлен $f \in F[x_1,...,x_n]$ однозначно раскладывается в виде $f = f_0+...+f_s$, где $f_i$ - однородный многочлен степени $i$.   
+  \end{subtheorem}
+  \begin{example1}
+    $$f= \underbrace{x_1^3x_2+2x_1^2x_2^2 + 5x_1x_2x_3^2}_{f_4}  + \underbrace{7x_1^2x_3 - 8x_1x_2x_3}_{f_3} + \underbrace{9x_1x_2}_{f_2}$$
+    $$\deg f = 4$$
+    $f_i$ - назваются однородными компонентами.   
+  \end{example1}
+  \begin{properties}\tab
+    \begin{enumerate}
+      \item $\deg (f+g) \leq max \{\deg f, \deg g\}$
+      \item $\deg (fg) = \deg f + \deg g$ 
+    \end{enumerate}
+  \end{properties}
+  \begin{proof}\tab
+    \begin{enumerate}
+      \item - д/з
+      \item 
+        $$\begin{matrix}
+          f = f_0+...+f_s\\
+          g = g_0+...+g_t
+        \end{matrix} \neq 0 \ - \text{различные однородные компоненты}$$
+        $$\deg f = \deg f_s, \ \deg g = \deg g_t$$
+        $$fg = \sum f_ig_i, \ \deg (f_sg_t) > \deg (f_ig_i), \text{ где } s+t > i+j \Longrightarrow $$
+        $$\Longrightarrow \deg (fg) = \deg (f_sg_t) = s+t$$    
+    \end{enumerate}
+  \end{proof}
+  \subsection{Симметрические многочлены}
+  \begin{definition}
+    Многочлен $f \in F[x_1,...,x_n]$ назвается симметрическим, если:
+    $$\forall \sigma \in S_n: \ f(x_1,...,x_n) = f(x_{\sigma (1)},...,x_{\sigma(n)})$$  
+  \end{definition}
+  \begin{example1}
+    $$f(x_1,x_2) = 2x_1^3x_2 + 2x_1x_2^3 - 7x_1x_2^2 - 7x_1^2x_2$$ 
+  \end{example1}
+  \begin{subtheorem}
+    Если $f$ - симметрический и $f$ раскладывается на однородные компоненты, то $f_i$ - симметрический $\forall i$:
+    $$f = f_0+...+f_s, \text{ где } f_i - \text{ однородные}$$     
+  \end{subtheorem}
+  \begin{subtheorem}
+    Множество всех симметрических многочленов от $n$ переменных над $F$ образует подалгебру в алгебре $F[x_1,...,x_n]$.    
+  \end{subtheorem}
+  \begin{proof}
+    $f, g$ - симметрические $\Longrightarrow f+g, \ fg, \ \alpha f$ - симметрические. (непосредственная проверка)
+  \end{proof}  
+   \subsection{Элементарные симметрические многочлены от n переменных}
+   \begin{definition}
+    $$\sigma_1 = \sigma_1(x_1,...,x_n) = \sum \limits_{i=1}^n x_i$$
+    $$\sigma_2 = \sigma_2(x_1,...,x_n) = \sum \limits_{1\leq i_1 < i_2 \leq n}^n x_{i_1}x_{i_2}$$
+    $$\vdots$$ 
+    $$\sigma_k = \sigma_k(x_1,...,x_n) = \sum \limits_{1\leq i_1 < i_2<...<i_k \leq n}^n x_{i_1}x_{i_2} \cdot ... \cdot x_{i_k}$$
+    $$\vdots$$
+    $$\sigma_n = \sigma_n(x_1,...,x_n) = x_{1}x_{2} \cdot ... \cdot x_{n}$$      
+   \end{definition}
+   \begin{theoremnum} (Основная теорема о симметрических многочленах)\\
+    Любой симметрический многочлен $f \in F[x_1,...,x_n]$ однозначно раскладывается в виде многочлена от элементарных симметрических: 
+    $$\exists ! \ g \in F[y_1,...,y_n] : g(\sigma_1,...,\sigma_n) = f$$
+   \end{theoremnum}
+   \begin{example1}
+    $$f(x_1, x_2) = x_1^2 + x_2^2 = x_1^2 + x_2^2 + 2x_1x_2 - x_1x_2 = (x_1+x_2)^2 - 2x_1x_2 = \sigma_1^2 - 2 \sigma_2$$
+    $$g(y_1,y_2) = y_1^2 - 2y_2$$  
+   \end{example1}
+   \begin{definition}
+    Одночлен $\alpha x_1^{k_1} \cdot ... \cdot x_n^{k_n}$ называется монотонным, если: 
+    $$k_1\geq k_2 \geq ... \geq k_n$$  
+   \end{definition}
+   \begin{example1}
+    $f(x_1,x_2,x_3) = x_1^5x_2^3x_3$ - монотонный \\
+    \tab[2.33cm]$g(x_1,x_2,x_3) = x_1^6x_2^7x_3$ - не монотонный.  
+   \end{example1}
+   \setcounter{lemcount}{0}
+   \begin{lemmanum} (О старшем члене симметрического многочлена)\\
+    Если $f \in F[x_1,...,x_n]$ - симметрический, то $LT(f)$ - монотонный. 
+   \end{lemmanum}
+   \begin{proof} (От противного)\\
+    Пусть $LT(f) = \alpha x_1^{k_1} \cdot ... \cdot x_n^{k_n}$ - не монотонный $\Longrightarrow \exists \ i = \overline{1,n-1}: \ k_i<k_{i+1}$\\
+    Т.к. $f$ - симметрический, то $\sigma \in S_n: \ \sigma = (i, i+1)$ - транспозиция $\Longrightarrow $ среди одночленов многочлена $f$ должен $\exists \ u = x_1^{k_1} \cdot ... \cdot x_i^{k_{i+1}}x_{i+1}^{k_i} \cdot ... \cdot x_n^{k_n}$\\
+    Но $u \succ LT(f)$ - противоречие определению $LT$    
+   \end{proof}
+   \begin{lemmanum}
+    Пусть $f$ - симметрический. $LT(f) = \alpha x_1^{k_1} \cdot ... \cdot x_n^{k_n}$, тогда:
+    $$\exists \ e_1,...,e_n: \ LT(\alpha \sigma_1^{e_1},...,\sigma_n^{e_n}) = \alpha x_1^{k_1} \cdot ... \cdot x_n^{k_n}$$  
+   \end{lemmanum}
+   \begin{proof}\tab
+    \begin{multline*}
+      LT(\alpha \sigma_1^{e_1},...,\sigma_n^{e_n}) = \alpha LT(\sigma_1^{e_1})LT(\sigma_2^{e_2})\cdot ... \cdot LT(\sigma_n^{e_n}) = \\
+      = \alpha x_1^{e_1}(x_1x_2)^{e_2}\cdot ... \cdot (x_1 \cdot ... \cdot x_k)^{e_k} \cdot ... \cdot (x_1x_2 \cdot ... \cdot x_n)^{e_n} = \\
+      = \alpha x_1^{e_1+...+e_n}x_2^{e_2+...+e_n} \cdot ... \cdot x_n ^{e_n} = \alpha x_1^{k_1} \cdot ... \cdot x_n^{k_n} \Longrightarrow 
+    \end{multline*}
+    $\Longrightarrow$ СЛУ: $\begin{cases}
+      e_1 + e_2 + ... + e_{n-1} + e_n = k_1\\
+      \tab[1.05cm] e_2 + ... + e_{n-1} + e_n = k_2 \\
+      \tab[2cm]\ddots \\
+      \tab[3.1cm]e_{n-1} + e_n = k_{n-1}\\
+      \tab[4.64cm]e_n = k_n
+    \end{cases} \Longleftrightarrow \ \begin{cases}
+      e_1 = k_1-k_2\\
+      e_2 = k_2 - k_3\\
+      \vdots\\
+      e_{n-1} = k_{n-1}-k_n\\
+      e_n = k_n
+    \end{cases}$\\ $\\$  
+    Т.к. $f$ - симметрический, то $k_1 \geq k_2 \geq ... \geq k_n$ по Лемме (1) $\Longrightarrow \forall i: \ e_1 \geq 0$    
+   \end{proof}
+   \begin{proof} \textbf{(Теоремы 2)} 
+    \begin{itemize}
+      \item[$\underline{\exists}: \ $] Если $f = 0$, то $g = 0$\\
+      Если $f \neq 0$, то $LT(f) = \alpha x_1^{k_1} \cdot ... \cdot x_n^{k_n}$\\
+      По Лемме (2): 
+      $$\exists ! \ e_1,...,e_n \geq 0: \ LT(\alpha \sigma_1^{e_1},...,\sigma_n^{e_n}) = \alpha x_1^{k_1} \cdot ... \cdot x_n^{k_n}$$
+      $$f_1 = f - \alpha \sigma_1^{e_1},...,\sigma_n^{e_n}$$
+      \begin{itemize}
+        \item[$f_1 = 0:$] $f = \alpha \sigma_1^{e_1},...,\sigma_n^{e_n} \Longrightarrow g = \alpha y_1^{e_1},...,y_n^{e_n}$
+        \item[$f_1 \neq 0:$] $LT(f_1) \succ LT(f)$, \ $f_1$ - симметрический.\\
+        Повторяем процесс для $f_1 \Longrightarrow f_1,f_2,f_3,...$ - симметрические и\\
+        $LT(f) \succ LT(f_1) \succ LT(f_2) \succ LT(f_3) \succ ...$\\
+        Т.к. каждый $LT(f_i)$ - монотонный, то этот процесс прервется на конечном шаге.   
+      \end{itemize}
+       
+    \end{itemize}
+    
+   \end{proof} 
+
+
 
   % \textbf{Мораль в том, что я в этот раз почти успел}
   % \textbf{Мораль в том, что в этот раз я вообще не успел}
