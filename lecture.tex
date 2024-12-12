@@ -1,46 +1,82 @@
 
 \documentclass[a4paper, 12pt]{article}
-%\usepackage{mathtext}
-\usepackage{cmap}
-\usepackage[english, russian]{babel}
+\usepackage{import}
+
+% Корректность отображения всех шрифтов, кодировок и мат. символов
 \usepackage[T2A]{fontenc}
 \usepackage[utf8]{inputenc}
-\usepackage[left=2cm, right=1.5cm, top=2cm, bottom=2cm]{geometry}
-\usepackage{amsmath}
-\usepackage{amssymb}
-\usepackage{etoolbox}
-\usepackage{amsthm}
-\usepackage{amsfonts}
-\usepackage{mathtools}
-%\usepackage{indentfirst}
-\usepackage{soulutf8}
+\usepackage[english, russian]{babel}
+\usepackage{amssymb, amsmath, amsthm, amscd, amstext, mathtools, mathtext}
+
+% Отображение содержания
+\usepackage{tocloft}
+
+% Вставка картинок
 \usepackage{graphicx}
-\usepackage{tkz-euclide}
-\usepackage{tikz}
 \usepackage{asymptote}
-% \usepackage{tikz II}
+\usepackage{tikz}
+\usepackage{tkz-euclide}
 
-\usepackage{tikz,amstext}
 
-\newlength{\tempheight}
-\newcommand{\Let}[0]{%
-\mathbin{\text{\settoheight{\tempheight}{\mathstrut}\raisebox{0.5\pgflinewidth}{%
-\tikz[baseline,line cap=round,line join=round] \draw (0,0) --++ (0.4em,0) --++ (0,1.5ex) --++ (-0.4em,0);%
-}}}}
+\usepackage{wrapfig}        % Огибание картинок текстом
+\usepackage{cancel}         % Зачёркивания
+\usepackage{indentfirst}    % Отступ у первого абзаца
+\usepackage{xcolor}         % Цвета
+\setlength{\parskip}{.5ex}  % Отступы между абзацами
+\usepackage{enumitem}       % Работа со списками
+% \usepackage{minted}       % Вставка блоков кода
+
+\usepackage{hyperref}       % гиперссылки
+\definecolor{linkcolor}{HTML}{225ae2} % Цвет ссылок
+\definecolor{urlcolor}{HTML}{225ae2} % Цвет гиперссылок
+\hypersetup{
+    pdfstartview=FitH, 
+    linkcolor=linkcolor,
+    urlcolor=urlcolor,
+    colorlinks=true}
+\setlength{\arrayrulewidth}{0.5mm} %Толщина линейки в таблицах
+\setlength{\tabcolsep}{18pt} %Разделение между столбцами в таблице
+
+% Отступы на странице
+\usepackage[left=2cm, right=1.5cm, top=2cm, bottom=2cm]{geometry}
+
+\usepackage{cmap}            % Русский поиск в PDF документе
+\usepackage{etoolbox}
+\usepackage{soul}            % Разряженный текст \so{} и подчеркивание \ul{}
+\usepackage{soulutf8}        % Поддержка UTF8 в soul
+
+\usepackage{titlesec}        % Форматирование заголовков
+\titleformat{\section}{\LARGE \bfseries}{\thesection}{1em}{}
+\titleformat{\subsection}{\Large\bfseries}{\thesubsection}{1em}{}
+\titleformat{\subsubsection}{\large\bfseries}{\thesubsubsection}{1em}{}
+
 
 \newcommand{\R}{\mathbb R}
 \newcommand{\Q}{\mathbb Q}
 \newcommand{\Z}{\mathbb Z}
 \newcommand{\N}{\mathbb N}
 \newcommand{\CC}{\mathbb C}
+\newcommand{\aug}{\fboxsep=-\fboxrule\!\!\!\fbox{\strut}\!\!\!}
+\newcommand{\sgn}{\operatorname{sgn}}
+\newcommand{\id}{\mathrm{id}}
 \renewcommand{\phi}{\varphi}
 \renewcommand{\epsilon}{\varepsilon}
-\newcommand{\aug}{\fboxsep=-\fboxrule\!\!\!\fbox{\strut}\!\!\!}
+
 \newcommand\tab[1][.5cm]{\hspace*{#1}}
+
+% Подписи для матриц
 \newcommand\undermat[2]{\makebox[0pt][l]{$\smash{\underbrace
 {\phantom{\begin{matrix}#2\end{matrix}}}_{\text{$#1$}}}$}#2}
 \newcommand\overmat[2]{\makebox[0pt][l]{$\smash{\overbrace
 {\phantom{\begin{matrix}#2\end{matrix}}}^{\text{$#1$}}}$}#2}
+
+% Значек "пусть"
+\newlength{\tempheight}  
+\newcommand{\Let}[0]{  
+\mathbin{\text{\settoheight{\tempheight}{\mathstrut}\raisebox{0.5\pgflinewidth}{%
+\tikz[baseline,line cap=round,line join=round] \draw (0,0) --++ (0.4em,0) --++ (0,1.5ex) --++ (-0.4em,0);
+}}}}
+
 
 \newcounter{lemcount}
 \newcounter{lemcount2}
@@ -58,7 +94,7 @@
 \newtheorem*{remark}{Замечание}
 \newtheorem*{example}{Примеры}
 \newtheorem*{example1}{Пример}
-\newtheorem*{lalala}{Упражнение}
+\newtheorem*{Exercise}{Упражнение}
 \newtheorem*{algorithm}{Алгоритм}
 \newtheorem*{properties}{Свойства}
 \newtheorem*{properties1}{Свойство}
@@ -68,30 +104,6 @@
 \newtheorem{offernum}[offercount]{Предложение}
 % \newtheorem{theoremL}{Теорема}[section]
 
-\usepackage[russian]{babel}
-\addto\captionsenglish{% Replace "english" with the language you use
-  \renewcommand{\contentsname}%
-    {Содержание}%
-}
-
-\usepackage{titlesec}
-\titleformat{\section}{\LARGE \bfseries}{\thesection}{1em}{}
-\titleformat{\subsection}{\Large\bfseries}{\thesubsection}{1em}{}
-\titleformat{\subsubsection}{\large\bfseries}{\thesubsubsection}{1em}{}
-
-\usepackage{hyperref}
-\usepackage{xcolor}
-% Цвета для гиперссылок
-\definecolor{linkcolor}{HTML}{225ae2} % цвет ссылок
-\definecolor{urlcolor}{HTML}{225ae2} % цвет гиперссылок
-\hypersetup{
-    pdfstartview=FitH, 
-    linkcolor=linkcolor,
-    urlcolor=urlcolor,
-    colorlinks=true
-}
-\setlength{\arrayrulewidth}{0.5mm}
-\setlength{\tabcolsep}{18pt}
 
 \begin{document}
   \begin{titlepage}
@@ -135,8 +147,9 @@
     \vspace{\fill}
     
     \begin{center}
-    Москва \\2024 
+    Москва \\Последняя компиляция: \today
     \end{center}
+    
   \end{titlepage}
   \tableofcontents
   \fontsize{14pt}{20pt}\selectfont
@@ -145,7 +158,7 @@
   \section{Система линейных уравнений}
   \subsection{Матрица. Основные понятия}
   \begin{definition}
-    Матрица $A$ размера $m\times n$ это прямоугольная таблица с $m$ строками и $n$ столбцами
+    Матрица $A$ размера $m\times n$ - это прямоугольная таблица с $m$ строками и $n$ столбцами:
     $$ A= \begin{pmatrix}
       a_{11} && a_{12} && \dots && a_{1n}\\
       a_{21} && a_{22} && \dots && a_{2n}\\
@@ -208,7 +221,7 @@
       Если $A$ - размера $m\times n$, $a_{ij} = 0\ \forall i,j$, то $A$ называется нулевой.
     \end{definition}
 
-    \subsection{Система линейных (алгебраческих) уравнений}
+    \subsection{Система линейных (алгебраических) уравнений}
     $(*)
     \begin{cases}
       a_{11}x_1 + ... + a_{1n}x_n = b_1 \\ 
@@ -227,16 +240,16 @@
       b_{n}
     \end{pmatrix}$$
     $A$ - матрица коэффициентов, $a_{ij}$ называется коэффициентом СЛУ.\\
-    $B$ - столбец свобоных членов, $b_{j}$ - свободный член.
+    $B$ - столбец свободных членов, $b_{j}$ - свободный член.
     \begin{definition}
       Расширенная матрица $\underset{m\times (n+1)}{(A|B)}$. Набор чисел $x_1^0,...,x_n^0 \in \R$ называется решением системы $(*)$, если подстановка этих чисел вместо неизвестных в $(*)$ дает тождество в каждом уравнении. $(x_i^0\longleftrightarrow x)$ 
     \end{definition}
     Решить систему - это найти все решения системы. Любое конткретное решение называется частным.
     \begin{definition}
-      Если СЛУ имеет решение, то она называется совместной, иначе несовместной. 
+      Если СЛУ имеет решение, то она называется совместной, иначе - несовместной. 
     \end{definition}  
     \begin{definition}
-      Совместная система, имеющая одно решение, называется определенной, иначе неопределенной (более одного решения).
+      Совместная система, имеющая одно решение, называется определенной, иначе - неопределенной (более одного решения).
     \end{definition}  
 
     \newpage
@@ -265,7 +278,7 @@
         $$\mu a_{i1}x_1 +...+\mu a_{in}x_n = \mu b_i \text{ в } \tilde{A} X = \tilde{B}$$ 
         Выносим $\mu$ из второго уравнения:
         $$\mu (a_{i1}x_1 +...+ a_{in}x_n) = \mu b_i$$
-        Получаем, что ${z_1,...,z_n}$ решение для $\tilde{A} X = \tilde{B}$. Для $III$ типа ЭП очевидно. Теперь рассмотрим $I$ тип, будем к i-ой строчке прибавлять j-ую к коэффициентом $\lambda$, получаем:
+        Получаем, что ${z_1,...,z_n}$ решение для $\tilde{A} X = \tilde{B}$. Для $III$ типа ЭП очевидно. Теперь рассмотрим $I$ тип, будем к $i$-ой строчке прибавлять $j$-ую с коэффициентом $\lambda$, получаем:
         \begin{multline*}
         (a_{i1}+\lambda a_{j1})x_1 +...+(a_{in}+\lambda a_{jn})x_n = \\ = a_{i1}x_1+\lambda a_{j1}x_1 +...+a_{in}x_n+\lambda a_{jn}x_n = \tab[3cm] \\ = a_{i1}x_1 + ... + a_{in}x_n + \lambda (a_{j1}x_1 +...+ a_{jn}x_n) = b_i + \lambda b_j
         \end{multline*}
@@ -307,7 +320,7 @@
     Любую матрицу $A$ размера $m\times n$ за конечное число элементарных преобразований над строками можно привести к ступенчатому виду.
   \end{theorem}
   \begin{proof} Индукция по $n$: \\
-    Если $A$ - нулевая, то $A$ - ступенчатого вида. Если $A \neq 0$ : найдем первый ненулевой столбец (начиная слева). Пусть $j$ - номер первого ненулевого столбца. Пусть $a_{ij} \neq 0$: 
+    Если $A$ - нулевая, то $A$ - ступенчатого вида. Если $A \neq 0$ : найдем первый ненулевой столбец (начиная слева). Пусть $j$ - номер первого ненулевого столбца и $a_{ij} \neq 0$: 
     $$A =\begin{pmatrix}
       0 && 0 && \null && \null  \\
       \vdots && \vdots && \null  \\
@@ -326,7 +339,7 @@
       \vdots && \vdots && \vdots && \null  \\
       0 && 0 && \vdots && \null  \\  
     \end{pmatrix} $$ \\
-    Вычитаем из кажкой $k$-й строки, начиная со 2-ой, 1-ю строку, умноженную на число $\frac{a_{kj}}{a_{1j}}$. Получает вид: 
+    Вычитаем из кажкой $k$-й строки, начиная со 2-ой, 1-ю строку, умноженную на число $\frac{a_{kj}}{a_{1j}}$. Получаем вид: 
     $$\tilde{A} =\begin{pmatrix}
       a_{ij}  && * && \cdots && * \\ \hline
       0 \ \vline&& * && \cdots && *\\
@@ -353,7 +366,7 @@
   \newpage
   %%%%%%%%
   \begin{subtheorem}
-    Решение СЛУ ступенчаного вида.
+    Решение СЛУ ступенчатого вида.
   \end{subtheorem}  
   Пусть $AX=B$ - ступенчатая
   $$(A|B)=\begin{pmatrix}
@@ -400,7 +413,7 @@
     \end{aligned}
     \right.$$
 
-    Такая СЛУ называются строго треугольной
+    Такая СЛУ называется строго треугольной.
 
     Из n-го уравнения однозначно находится $x_n = \frac{b_n}{a_{nn}}$
     Подставляем во все оставшиеся уравнения $x_n = \frac{b_n}{a_{nn}}$ $\Longrightarrow$ исключаем $x_n$. Получаем строго треугольную систему с меньшим количество неизвестных.  \\
@@ -418,7 +431,7 @@
   Оставшиеся неизвестные назовем свободными. \\
   Перекинем в правую часть СЛУ слагаемые, соответствующие свободным неизвестным 
   $\Longrightarrow$ получаем относительно главных неизвестных строго треугольную СЛУ. \\
-  Как в случае 2, однозначно выражается главные неизвестные через свободные
+  Как в случае 2, однозначно выражаются главные неизвестные через свободные
   $\Longrightarrow$ с точностью до нумерации получаем:
   $$\begin{cases}
     x_1 = c_{1,s+1}x_{s+1} + \dots + c_{1n}x_n+d_1 \\
@@ -516,14 +529,14 @@
     \end{enumerate}
     \tab[0.8cm]"$+$": $(a_1,...,a_n)$ + $(b_1,...,b_n)$ = $(a_1+b_1,...,a_n+b_n)$ \\
     \tab[0.8cm]"$\times$": $(a_1,...,a_n) \times \lambda$ = $(a_1\lambda,...,a_n\lambda)$ 
-  \begin{lalala}
+  \begin{Exercise}
     Проверьте, что $\R^n$ (арифметическое пространство строк) с этими операциями является векторным пространством. 
-  \end{lalala}  
+  \end{Exercise}  
   \subsection{Следствия}
   \begin{enumerate}
     \item Нулевой вектор единственный.
     \begin{proof}
-      Пусть существует два $\overline{0}_1,\overline{0}_2 \in V$, тогда: $$\overline{0}_2 = \overline{0}_1 + \overline{0}_2 = \overline{0}_2 + \overline{0}_1 = \overline{0}_1$$   
+      Пусть существуют два $\overline{0}_1,\overline{0}_2 \in V$, тогда: $$\overline{0}_2 = \overline{0}_1 + \overline{0}_2 = \overline{0}_2 + \overline{0}_1 = \overline{0}_1$$   
     \end{proof} 
     \item $\forall x \in V$ противоположный вектор единственный
     \begin{proof}
@@ -566,7 +579,7 @@
     \begin{enumerate} 
       \item $V^3, U$ - множество всех векторов из $V^3$, параллельных фиксированной\\ плоскости.
       \item $\R^n, U=\{(a_1,..., a_n) | a_{2i} = 0\}$ - векторное подпространство \\ $\widetilde{U} = \{(a_1,..., a_n) | a_{2i} = 1\}$ - не векторное подпространство, т.к. множество не замкнуто относительно сложения и умножения.
-      \item В любом векторном простанстве $V$ есть такие подпространства, состоящие только из нулевого вектора. (тривиальное или несобственное подпространство) (Остальное называется собственными)
+      \item В любом векторном простанстве $V$ есть такие подпространства, состоящие только из нулевого вектора. (тривиальное или несобственное подпространство) (Остальные называются собственными)
     \end{enumerate}
   
   \newpage
@@ -577,15 +590,16 @@
     Линейной комбинацией векторов $v_1,...,v_n \in V$ с коэффициентами $\lambda_1,...,\lambda_n \in \R$ называется выражение вида: 
     $$\lambda_1 x_1 + \cdots + \lambda_n x_n$$ 
     Говорят, что вектора $w \in V$ линейно выражаются через $(v_1,...,v_n)$, \\ если $\exists\tab[0.1cm]\lambda_1,...,\lambda_n \in \R: w = \lambda_1 x_1 + \cdots + \lambda_n x_n$   
-  \end{definition}   
+  \end{definition}
   \begin{definition}
-    Линейная комбинация $\lambda_1 x_1 + \cdots + \lambda_n x_n$ называется тривиальной, если $\lambda_1 = 0,...,\lambda_n = 0$. Иначе нетривиальной.
+    Линейная комбинация $\lambda_1 x_1 + \cdots + \lambda_n x_n$ называется тривиальной, если $\lambda_1 = 0,...,\lambda_n = 0$. Иначе - нетривиальной.
   \end{definition}
   \begin{definition}
     Система векторов $v_1,...,v_n$ называется линейно зависимой (ЛЗ), если $\exists$ нетривиальная линейная комбинация равная 0, (т.е. $\exists \tab[0.1cm]\lambda_1,...,\lambda_n \in \R$ не все равные 0) такая, что $\lambda_1 x_1 + \cdots + \lambda_n x_n = 0$. Иначе система называется линейно независимой (ЛНЗ), т.е. из любого такого равенства $\lambda_1 x_1 + \cdots + \lambda_n x_n = 0 \\ \Longrightarrow (\lambda_1,...,\lambda_n) = 0$.
   \end{definition}
   \begin{example}
-    $V^2, v_1 = i + j, v_2 = 2i, v_3 = 3i$ -линейно зависимая система, т.к. $$1 \cdot (i + j) + (- \frac{1}{2}) \cdot (-\frac{1}{3}) \cdot (3i) = 0$$ $$1 \cdot v_1 + (-\frac{1}{2}) \cdot v_2 + (-\frac{1}{3}) \cdot v_3 = 0$$  
+    $V^2, v_1 = i + j, v_2 = 2i, v_3 = 3i$ -линейно зависимая система, т.к. $$1 \cdot (i + j) + (- \frac{1}{2}) \cdot (2i) + (-\frac{1}{3}) \cdot (3i) = 0$$ 
+    $$1 \cdot v_1 + (-\frac{1}{2}) \cdot v_2 + (-\frac{1}{3}) \cdot v_3 = 0$$  
   \end{example}  
   \begin{properties} \end{properties} 
     \begin{enumerate}
@@ -609,7 +623,7 @@
       По определению ЛЗ $\exists \tab[0.1cm] \lambda_1,...,\lambda_n \in \R$ не все нулевые: $\lambda_1 v_1 + \cdots + \lambda_n v_n = 0$. Без ограничения общности можем считать, что $\lambda_1 \neq 0$, тогда $v_1 = \frac{1}{\lambda_1}(-\lambda_2 v_2 - \cdots - \lambda_n v_n)$
       \item[$\underline{\Longleftarrow }$] Пусть один из этих векторов выражается через оставшиеся. Без ограничения общности можем считать, что $v_1$ выражается через оставшиеся \\ $v_1 = \mu_2 v_2 + \cdots + \mu_n v_n$ \\ $1 \cdot v_1 -\mu v_2 - \cdots - \mu_n v_n = 0$ - нетривиальная линейная комбинация, \\ т.к. $\mu_1 (\text{коэф. перед }v_1) \neq 0 \Longrightarrow {v_1,...,v_n}$ - линейно зависимы.
     \end{itemize}  
-  \end{proof} 
+  \end{proof}
   \begin{remark}
     В лемме 1 нельзя <<хотя бы один>> заменить на <<любой>>! \\
     Пусть $v_1 \neq 0, v_2 = 0$ и $v_1, v_2$ - ЛЗ, т.к. $0 \cdot v_1 + 1 \cdot v_2 = 0$
@@ -655,7 +669,7 @@
     \end{enumerate}
   \end{proof} 
   \begin{lemmanum} \textbf{(ОЛЛЗ)}  \\
-    Пусть $v_1,...,v_k \in V, \ w_1,...,w_m \in V$, причем каждый $w_i$ линейно выражается через $v_1,...,v_k$, тогда, если $m>k$, то $\{w_1,...,w_m\}$ - ЛЗ.  
+    Пусть $v_1,...,v_k \in V, \ w_1,...,w_m \in V$, причем каждый $w_i$ линейно выражается через $v_1,...,v_k$, тогда если $m>k$, то $\{w_1,...,w_m\}$ - ЛЗ.  
   \end{lemmanum} 
   \begin{proof}
     Пусть 
@@ -703,10 +717,10 @@
     \end{enumerate}
   \end{example}
   \begin{definition}
-    Если $V=\langle S \rangle$, то $S$ называется порождающим множеством векторного простанства $V$. Говорят векторное пространство $V$ порождается множеством $S$. 
+    Если $V=\langle S \rangle$, то $S$ называется порождающим множеством векторного простанства $V$. Говорят, что векторное пространство $V$ порождается множеством $S$. 
   \end{definition} 
   \begin{definition}
-    Если $\exists$ конечное множество $S$, т.ч. $V=\langle S \rangle$, то $V$ называется конечномерным (конечнопорожденным), иначе бесконечномерным.
+    Если $\exists$ конечное множество $S$, т.ч. $V=\langle S \rangle$, то $V$ называется конечномерным (конечнопорожденным), иначе - бесконечномерным.
   \end{definition} 
   \begin{example1}
     $\R^n = \langle (1,0,...,0),...,(0,...,0,1) \rangle$ 
@@ -793,7 +807,7 @@ $V$- конечномерное векторное простанство над
     \end{enumerate}
     Если $V=\langle S \rangle$, тогда $S$- базис. \\
     Если $V \neq \langle S \rangle$ , то $\exists s_1 \in V \setminus \langle S \rangle$ \\
-    $\Longrightarrow s_1$ линейно невыражается через $S$ $\Longrightarrow \text{(По лемме \ref{lem2}.) } S_1=S \cup \{s_1\}$ - ЛНЗ. \\
+    $\Longrightarrow s_1$ линейно не выражается через $S$ $\Longrightarrow \text{(По лемме \ref{lem2}.) } S_1=S \cup \{s_1\}$ - ЛНЗ. \\
     $\Longrightarrow $ Если $V = \langle S_1 \rangle$, то $S_1$ базис, иначе $\exists S_2 \in V \setminus \langle S_1 \rangle$, и т.д. \\
     Этот процесс прервется на конечном шаге, т.к. пространство $V$- конечное. (Если $\dim V \neq n, \text{то} \not\exists$ ЛНЗ системы с числом векторов $> n$) 
   \end{proof} 
@@ -823,11 +837,11 @@ $V$- конечномерное векторное простанство над
     Рангом матрицы $A \ m\times n$ называется ранг системы её строк. $$\includegraphics[width=4cm]{image/lecture-3.png}$$
   \end{definition} 
   \begin{definition}
-    Две системы векторов $\{v_1,...,v_n\}$ $\{w_1,...,w_n\}$ называются эквивалентными, если каждый вектор $v_i$ линейно выражается через $\{w_1,...,w_n\}$, а $w_i$ через $\{v_1,...,v_n\}$. \\
+    Две системы векторов $\{v_1,...,v_n\}$, $\{w_1,...,w_n\}$ называются эквивалентными, если каждый вектор $v_i$ линейно выражается через $\{w_1,...,w_n\}$, а $w_i$ через $\{v_1,...,v_n\}$. \\
     Это условная эквивалентность: $\langle v_1,...,v_n \rangle = \langle w_1,....,w_n \rangle$ 
   \end{definition} 
   \begin{subtheorem}
-    При элементарных преобразованиях над строками, ранг матрицы $A$  не изменяется.
+    При элементарных преобразованиях над строками ранг матрицы $A$  не изменяется.
   \end{subtheorem} 
   \begin{proof} 
     $$\includegraphics[width=12cm]{image/lecture-4.png}$$
@@ -899,7 +913,7 @@ $V$- конечномерное векторное простанство над
     Ранг системы строк матрицы $A$ совпадает с рангом системы столбцов матрицы $A$.
   \end{theoremnum} 
   \begin{proof}
-    Было доказанно, что ранг системы строк (столбцов) матрицы не изменяется при ЭП над строками и над столбцами. Приведем матрицу $A$ к ступенчатому виду с помощью ЭП над строками. $A_\text{ст}$ имеет вид:
+    Было доказано, что ранг системы строк (столбцов) матрицы не изменяется при ЭП над строками и над столбцами. Приведем матрицу $A$ к ступенчатому виду с помощью ЭП над строками. $A_\text{ст}$ имеет вид:
     $$\includegraphics[width=5cm]{image/lecture-6.pdf}$$
     $$a_{1i_1} \neq 0,...,a_{si_s} \neq 0$$ 
     Используем $i_1$-столбец, вычитая этот столбец из оставшихся с подходящими коэффициентами, получаем:
@@ -1132,13 +1146,13 @@ $V$- конечномерное векторное простанство над
   \end{remark} 
   \section{Операции над матрицами}
   $Mat_{m \times n}(\R)$ - множество всех матриц размера $m \times n$ с коэффициентами из $\R$ \\
-  $A, B \in Mat_{m \times n}(\R), A=(a_{ij}), B=(b_{ij})$ 
+  $A, B \in Mat_{m \times n}(\R), \ A=(a_{ij}), \ B=(b_{ij})$ 
   \begin{enumerate}
     \item Сложение матриц \\
     Суммой матриц $A$ и $B$ называется матрица $C=(c_{ij})$ размера $m \times n$, у которой $c_{ij} = a_{ij} + b_{ij}$. Обозначается: $C = A + B$
     \item Умножение матриц на число $\lambda \in \R$ \\ Произведением матрицы $A=(a_{ij})$ на $\lambda$ называется матрица $C=(c_{ij})$ размера $m \times n$, у которой $c_{ij} = \lambda a_{ij}$. Обозначается: $C = \lambda A$
     \begin{subtheorem}
-      Множество $Mat_{m \times n}(\R)$ относительно этих операций сложения и умножения на число, образует векторное пространство над $\R$. 
+      Множество $Mat_{m \times n}(\R)$, относительно этих операций сложения и умножения на число, образует векторное пространство над $\R$. 
     \end{subtheorem} 
     \begin{proof}
       $A,\tab [0.2cm]B \in Mat_{m \times n}(\R) \Longrightarrow A+B, \tab [0.2cm]\lambda A \in Mat_{m \times n}(\R)$ \\
@@ -1149,7 +1163,7 @@ $V$- конечномерное векторное простанство над
         $\widetilde{C} = B + A \tab[0.5cm] \widetilde{c_{ij}} = b_{ij} + a_{ij}$ \\
         т.к. сложение вещественных чисел из $\R$ - коммутативно, то $c_{ij} = \widetilde{c_{ij}} \Longrightarrow C = \widetilde{C}$ \\
         $\Longrightarrow A + B = B + A$
-        \begin{lalala} Аналогично доказать 2), 5)-8)\end{lalala}
+        \begin{Exercise} Аналогично доказать 2), 5)-8)\end{Exercise}
         \item[3)] $\exists 0 \in Mat_{m \times n}(\R)$
         $\forall A \in Mat_{m \times n}(\R): 0 + A = A$ \\
         В качестве 0 берем нулевую матрицу размера $m \times n$
@@ -1165,9 +1179,9 @@ $V$- конечномерное векторное простанство над
       $E_{st} = (a_{ij})$, $a_{ij} = \begin{cases}
         1, \ i=s, \ j=t \\ 0 \text{, иначе}
       \end{cases}$
-      \begin{lalala}
+      \begin{Exercise}
         Проверить, что это базис.
-      \end{lalala}  
+      \end{Exercise}
     \end{proof} 
     \begin{definition}
       Матрица $E_{st}$ называется матричной единицей. Базис из всех матричных единиц называется стандартным базисом в пространстве $Mat_{m \times n}(\R)$. $A = \sum a_{st} E_{st}$ 
@@ -1253,9 +1267,9 @@ $V$- конечномерное векторное простанство над
     \item $V^2 \cong \R^2 \\ V^3 \cong \R^3$ 
     \item $M_{m \times n}(\R) \cong \R^{mn}$
   \end{enumerate}
-  \begin{lalala}
+  \begin{Exercise}
     $V \cong W \Longleftrightarrow \dim V = \dim W; \tab[0.2cm] V,W - $ конечномерные пространства над $\R$.  
-  \end{lalala}
+  \end{Exercise}
   \subsection{Линейные отображения и матрицы}
   \begin{definition}
     Отображение $\phi: V \to W$ называется линейным, если
@@ -2965,9 +2979,9 @@ $V$- конечномерное векторное простанство над
       \item $2\Z \subseteq \Z$ - подкольцо
     \end{enumerate}
   \end{example} 
-  \begin{lalala}
+  \begin{Exercise}
     В $\Q$ нет подполей, отличных от самого $\Q$.
-  \end{lalala}
+  \end{Exercise}
   \subsection{Характеристика поля}
   \begin{definition}
     Говорят, что поле $P$ имеет характеристику $n$, если $n$ - наименьшее натуральное число, такое, что $\underbrace{1 + 1 + ... + 1}_{n} = 0 $. \\
@@ -3497,7 +3511,7 @@ $V$- конечномерное векторное простанство над
     \textit{Докажем единственность:}  \\
     Допустим, $ f = g \cdot q_1 + r_1$ и $f = g \cdot q_2 + r_2$ $$  \Longrightarrow r_1 - r_2 = g(q_2 - q_1) \Longrightarrow \deg (r_1-r_2) = \deg g + \deg (q_2 - q_1) $$ $$\deg(r_1 - r_2) \geq \deg g$$. С другой стороны $$\deg (r_1-r_2) < \max \{\deg r_1, \deg r_2\} < \deg g$$ - получаем противоречие.   
   \end{proof} 
-  \subsubsection{Мгогочлены как фунции}
+  \subsubsection{Мгогочлены как функции}
   $F$ - поле, \ $f = a_nx^n + a_{n-1}x^{n-1} +...+ a_0$
   \begin{definition}
     Значение многочлена $f$ в точке $c$ называет число, равное: $$a_nc^n + a_{n-1}c^{n-1} +...+ a_0$$
@@ -3558,7 +3572,7 @@ $V$- конечномерное векторное простанство над
     $c \in F$ - корень многочлена $f\in F[x] \Longleftrightarrow (x-c) \ | \ f$.  
   \end{subtheorem}  
   \begin{definition}
-    Если $c$ - корено многочлена $f$ и $(x-c)^2 \nmid f$, то корень $c$ - называется простым, иначе кратным.
+    Если $c$ - корено многочлена $f$ и $(x-c)^2 \nmid f$, то корень $c$ - называется простым, иначе - кратным.
   \end{definition} 
   \begin{definition}
     Если $c$ - корень и $(x-c)^k \ | \ f, (x-c)^{k+1} \nmid f$, то $c$ - корень кратности $k$ \ $(k \in \N)$.     
@@ -3617,7 +3631,7 @@ $V$- конечномерное векторное простанство над
       f^{(k)}(c) \neq 0
     \end{cases}$    
   \end{consequense}    
-  \subsection{Основаня теорема алгебры}
+  \subsection{Основная теорема алгебры}
   \begin{theorem}
     Любой многочлен над полем комплексных числел положительной степени имеет хотя бы один корень.
   \end{theorem}
@@ -4043,11 +4057,145 @@ $V$- конечномерное векторное простанство над
         $LT(f) \succ LT(f_1) \succ LT(f_2) \succ LT(f_3) \succ ...$\\
         Т.к. каждый $LT(f_i)$ - монотонный, то этот процесс прервется на конечном шаге.   
       \end{itemize}
-       
+      \item[$\underline{!}: \ $] (Докажем от противного)\\
+      Допустим у нас $\exists$  2 различных многочлена: $g, \widetilde{g} \in F[y_1,...,y_n]: \ g \neq \widetilde{g}$ 
+      $$g(\sigma_1,...,\sigma_n) = \widetilde{g}(\sigma_1,...,\sigma_n)$$
+      Рассмотрим $h = g - \widetilde{g}, \ h \neq 0, \ h(\sigma_1,...,\sigma_n) = 0$
+      $$h(y_1,...,y_n) = \sum \beta_{e_1,...,e_n} \cdot y_1^{e_1} \cdot ... \cdot y_n^{e_n}$$
+      По лемме (2):
+      $$(e_1,...,e_n) \neq (\widetilde{e_1},...,\widetilde{e_n})\ \Longrightarrow \ LT(\sigma_1^{e_1},...,\sigma_n^{e_n}) \neq LT(\sigma_1^{\widetilde{e}_1},...,\sigma_n^{\widetilde{e}_n})$$
+      $$h(\sigma_1,...,\sigma_n) = \sum \beta_{e_1,...,e_n} \cdot \sigma_1^{e_1} \cdot ... \cdot \sigma_n^{e_n} \ (**)$$
+      Среди всех $LT(\sigma_1^{e_1},...,\sigma_n^{e_n})$ есть тот, который старше остальных. В $(**)$ при приведении подобных этот старший член, который старше остальных, не сможет сократиться $\Longrightarrow h(\sigma_1^{e_1},...,\sigma_n^{e_n}) \neq 0$ - противоречие. 
     \end{itemize}
-    
-   \end{proof} 
+   \end{proof}
+   \subsection{Формулы Виета}
+   $F$ - поле, $\ f \in F[x], \ \deg f = n >0$\\
+   $f(x) = a_0x^n+a_1x^{n-1}+...+a_{n-1}x+a_n$\\
+   $c_1,...,c_n \in F$ - все корни многочлена $f$ с учетом кратности\\
+   $\Longrightarrow$
+   \begin{multline*}
+    f(x) = a_0(x-c_1)(x-c_2)...(x-c_n) = \\
+    = a_0x^n - a_0(c_1+...+c_n)x^{n-1}+a_0(\sum \limits_{i<j}c_ic_j)x^{n-2} +\\
+    + a_0(\sum \limits_{i<j<k}c_ic_jc_k)x^{n-3} + ... + (-1)^nc_1...c_n
+   \end{multline*}
+    $$a_k = (-1)^ka_0\sigma_k(c_1,...,c_k), \ k = \overline{1,n}$$
+    \[\Longrightarrow \sigma_k(c_1,...,c_k) = (-1)^k\frac{a_k}{a_0} - \text{Формулы Виета}\]
+    \section{Теория делимости в Евклидовых кольцах}
+    \begin{definition}
+      Коммутативное, ассоциаивное кольцо с единицей, в котором нет делителя нуля, называется целостным.
+    \end{definition}
+    \begin{example}\tab
+      \begin{enumerate}
+        \item $\Z$
+        \item $F[x]$, где $F$ - поле
+        \item $K[x]$, где $K$ - целостное кольцо     
+      \end{enumerate}
+    \end{example}
+    \begin{definition}
+      Пусть $K$ - целостное кольцо, тогда говорят, что $b$ делит $a$, где $a,b \in K$, если $\exists \ c \in K: \ a = bc$.\\
+      Обозначается: $b|c$ 
+    \end{definition}
+    \begin{definition}
+      Элементы $a$ и $b$ называются ассоциативными, если $a|b$ и $b|a$.\\
+      Обозначается: $a \sim  b$ 
+    \end{definition}
+    \begin{subtheorem}
+      $a\sim b \Longleftrightarrow a = bc$, где $c$ обратим в $K$, $a$ и $b$ не нулевые.   
+    \end{subtheorem}
+    \begin{proof}\tab
+      \begin{itemize}
+        \item[$\underline{\Longrightarrow }: \ $] $\begin{cases}
+          a|b\\
+          b|a
+        \end{cases} \Longrightarrow \ \begin{cases}
+          b = ac_1\\
+          a = bc_2
+        \end{cases} \Longrightarrow a = ac_1c_2 \Longrightarrow c_1c_2 =1 \Longrightarrow c_2$ обратим.
+        \item[$\underline{\Longleftarrow}: \ $] $a=bc \Longrightarrow b|a$, \ с другой стороны, $b = ac^{-1} \Longrightarrow  a|b \Longrightarrow a \sim b$ 
+      \end{itemize}
+    \end{proof}
+    \begin{example}\tab
+      \begin{enumerate}
+        \item $\Z: \ a \sim b \Longleftrightarrow a= \pm  b$
+        \item $F[x]$, где $F$ - поле: \ 
+        $f\sim g \Longleftrightarrow f = cg$, где $c \in F \setminus \{0\}$
+      \end{enumerate}
+    \end{example}
+    \begin{definition}
+      Целостное кольцо $K$, которое не является полем, называется евклидовым, если введена функция:
+      $$N: \ K\setminus \{0\} \to \N \cup \{0\}$$
+      такая, что:
+      \begin{enumerate}
+        \item $N(ab)\geq N(b) \ (\forall a, b \in K\setminus \{0\})$
+        \item $\forall a, b, c \in K, b\neq 0 \ \exists \ q, r \in K :  \ a = bq+r$, где $r=0$ или $N(r)<N(b)$ \\
+        (т.е. возможно деление с остатком)   
+      \end{enumerate}
+      При этом $N$ называют нормой.  
+    \end{definition}
+    \begin{example}\tab
+      \begin{enumerate}
+        \item $\Z: \  N(a) = |a|$
+        \item $F[x]$, где $F$ - поле: \ $N(f) = \deg f$   
+      \end{enumerate}
+    \end{example}
+    \begin{Exercise}
+      $z[i] = \{a+bi \ | \ a, b \in \Z\}, \ N(a + bi) = a^2 + b^2 \Longrightarrow \\
+      z[i]$ c такой нормой - евклидово кольцо. 
+    \end{Exercise}
+    \begin{subtheorem}
+      $N(ab) = N(a) \Longleftrightarrow b$ обратим 
+    \end{subtheorem}
+    \begin{proof}\tab
+      \item[$1)$] Пусть $b$ обратим
+      $$N(ab) \geq N(a) \text{ и } N(a) = N((ab)b^{-1}) \Longrightarrow N(ab) = N(a)$$
+      \item[$2)$] Пусть $b$ необратим\\
+      Поделим $a$ на $ab$ с остатком: 
+      $$a = abq + r$$
+      Если $r =0$, то $a = abq \Longrightarrow bq = 1 \Longrightarrow b$ обратим - противоречие.\\
+      Иначе $N(r)<N(ab)$\\
+      С другой стороны $r = a - abq = a(1-bq) \Longrightarrow N(r) \geq N(a)$\\
+      Значит $N(ab) > N(a)$ 
+    \end{proof}
+    \begin{definition}
+      Наибольшим общим делителем элементов $a,b \in K$ называется элемент $d \in K$ такой, что: 
+      \begin{enumerate}
+        \item[1)] $d|a, \ d|b$
+        \item[2)] Если $d_1|a$ и $d_1|b$, то $d_1|d$     
+      \end{enumerate}
+      Обозначается: НОД($a,b$) 
+    \end{definition}
+    \begin{remark}\tab
+      \begin{enumerate}
+        \item НОД$(a,0) = a$
+        \item НОД может не существовать
+      \end{enumerate}
+    \end{remark}
+    \begin{example1}
+      пока что впадлу
+    \end{example1}
+    \begin{lemma}
+      Если $\exists$ НОД($a,b$), то он определяется однозначно с точностью до ассоциаивности.
+    \end{lemma}
+    \begin{proof}
+      $d_1, d_2$ - это НОД($a,b$) по свойству 2): 
+      $$d_1|d_2, \ \ d_2|d_1 \Longrightarrow d_1 = d_2$$   
+    \end{proof}
+    \begin{theorem}
+      Пусть $K$ - евклидово кольцо. Тогда $\forall a, b \in K \ \exists$ НОД($a,b$) = $d$, причем НОД($a,b$) = $au + bv$ для некоторых $u, v \in K$.     
+    \end{theorem}
+    \begin{proof}\tab
+      \begin{itemize}
+        \item[1)] $b = 0: \ \tab[1.27cm] $ НОД$(a,b) = a = a \cdot 1 + b \cdot 0$
+        \item[2)] $b|a: \ \tab[1.8cm] $ НОД$(a,b) = b = a \cdot 0 + b \cdot 1$
+        \item[3)] $b \neq 0, \ b\not |a: \ $  Делим $a = bq_1 + r_1$, где $N(r_1) < N(b)$   
+      \end{itemize}
+      
+    \end{proof}  
 
+
+    
+         
+   
 
 
   % \textbf{Мораль в том, что я в этот раз почти успел}
