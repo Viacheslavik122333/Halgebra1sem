@@ -4065,24 +4065,23 @@ $V$- конечномерное векторное простанство над
       По лемме (2):
       $$(e_1,...,e_n) \neq (\widetilde{e_1},...,\widetilde{e_n})\ \Longrightarrow \ LT(\sigma_1^{e_1},...,\sigma_n^{e_n}) \neq LT(\sigma_1^{\widetilde{e}_1},...,\sigma_n^{\widetilde{e}_n})$$
       $$h(\sigma_1,...,\sigma_n) = \sum \beta_{e_1,...,e_n} \cdot \sigma_1^{e_1} \cdot ... \cdot \sigma_n^{e_n} \ (**)$$
-      Среди всех $LT(\sigma_1^{e_1},...,\sigma_n^{e_n})$ есть тот, который старше остальных. В $(**)$ при приведении подобных этот старший член, который старше остальных, не сможет сократиться $\Longrightarrow h(\sigma_1^{e_1},...,\sigma_n^{e_n}) \neq 0$ - противоречие. 
+      Среди всех $LT(\sigma_1^{e_1},...,\sigma_n^{e_n})$ есть тот, который старше остальных. В $(**)$ при приведении подобных этот старший член не сможет сократиться $\Longrightarrow h(\sigma_1^{e_1},...,\sigma_n^{e_n}) \neq 0$ - противоречие. 
     \end{itemize}
   \end{proof}
   \subsection{Формулы Виета}
-   $F$ - поле, $\ f \in F[x], \ \deg f = n >0$\\
-   $f(x) = a_0x^n+a_1x^{n-1}+...+a_{n-1}x+a_n$\\
-   $c_1,...,c_n \in F$ - все корни многочлена $f$ с учетом кратности\\
-   $\Longrightarrow$
+   $F$ - поле, $\ f \in F[x], \ \deg f = n >0$
+   $$f(x) = a_0x^n+a_1x^{n-1}+...+a_{n-1}x+a_n$$
+   Пусть $c_1,...,c_n \in F$ - все корни многочлена $f$ с учетом кратности, тогда:
   \begin{multline*}
     f(x) = a_0(x-c_1)(x-c_2)...(x-c_n) = \\
     = a_0x^n - a_0(c_1+...+c_n)x^{n-1}+a_0(\sum \limits_{i<j}c_ic_j)x^{n-2} +\\
     + a_0(\sum \limits_{i<j<k}c_ic_jc_k)x^{n-3} + ... + (-1)^nc_1...c_n
   \end{multline*}
   $$a_k = (-1)^ka_0\sigma_k(c_1,...,c_k), \ k = \overline{1,n}$$
-  \[\Longrightarrow \sigma_k(c_1,...,c_k) = (-1)^k\frac{a_k}{a_0} - \text{Формулы Виета}\]
+  \[\Longrightarrow \sigma_k(c_1,...,c_k) = (-1)^k\frac{a_k}{a_0} \ - \text{\textbf{Формулы Виета} }\]
   \section{Теория делимости в Евклидовых кольцах}
   \begin{definition}
-    Коммутативное, ассоциаивное кольцо с единицей, в котором нет делителя нуля, называется целостным.
+    Коммутативное, ассоциативное кольцо с единицей, в котором нет делителя нуля, называется целостным.
   \end{definition}
   \begin{example}\tab
     \begin{enumerate}
@@ -4093,7 +4092,7 @@ $V$- конечномерное векторное простанство над
   \end{example}
   \begin{definition}
     Пусть $K$ - целостное кольцо, тогда говорят, что $b$ делит $a$, где $a,b \in K$, если $\exists \ c \in K: \ a = bc$.\\
-    Обозначается: $b|c$ 
+    Обозначается: $b|a$ 
   \end{definition}
   \begin{definition}
     Элементы $a$ и $b$ называются ассоциативными, если $a|b$ и $b|a$.\\
@@ -4127,7 +4126,7 @@ $V$- конечномерное векторное простанство над
     такая, что:
     \begin{enumerate}
       \item $N(ab)\geq N(b) \ (\forall a, b \in K\setminus \{0\})$
-      \item $\forall a, b, c \in K, b\neq 0 \ \exists \ q, r \in K :  \ a = bq+r$, где $r=0$ или $N(r)<N(b)$ \\
+      \item $\forall a, b \in K, \ b\neq 0 \ \exists \ q, r \in K :  \ a = bq+r$, где $r=0$ или $N(r)<N(b)$ \\
       (т.е. возможно деление с остатком)   
     \end{enumerate}
     При этом $N$ называют нормой.  
@@ -4174,7 +4173,7 @@ $V$- конечномерное векторное простанство над
     пока что впадлу
   \end{example1}
   \begin{lemma}
-    Если $\exists$ НОД($a,b$), то он определяется однозначно с точностью до ассоциаивности.
+    Если $\exists$ НОД($a,b$), то он определяется однозначно с точностью до ассоциативности.
   \end{lemma}
   \begin{proof}
     $d_1, d_2$ - это НОД($a,b$), \ по свойству 2): 
@@ -4219,7 +4218,7 @@ $V$- конечномерное векторное простанство над
     \end{itemize}
   \end{proof}
   \begin{definition}
-    Процеруда находа НОД($a,b$) в доказательстве теоремы называется алгоритмом Евклида.
+    Процедура находа НОД($a,b$) в доказательстве теоремы называется алгоритмом Евклида.
   \end{definition}
   Пусть $K$ - евклидово колько
   \begin{definition}
@@ -4254,7 +4253,7 @@ $V$- конечномерное векторное простанство над
   \setcounter{lemcount}{0}
   \begin{lemmanum} \textbf{(Важная Лемма)}\\
     Пусть $K$ - евклидово колько, \ $p \in K$ - простой элемент, тогда:
-    $$p|ab, \ \text{НОД}(a,p) = 1 \ \Longrightarrow \ p|a$$ 
+    $$p|ab, \ \text{НОД}(a,p) = 1 \ \Longrightarrow \ p|b$$ 
   \end{lemmanum}
   \begin{proof}
     НОД($a,p$) = 1 $\Longrightarrow \exists \ u, v \in K:$ 
