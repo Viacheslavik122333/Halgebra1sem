@@ -3984,45 +3984,45 @@ $V$- конечномерное векторное простанство над
   \begin{proof}
     $f, g$ - симметрические $\Longrightarrow f+g, \ fg, \ \alpha f$ - симметрические. (непосредственная проверка)
   \end{proof}  
-   \subsection{Элементарные симметрические многочлены от n переменных}
-   \begin{definition}
+  \subsection{Элементарные симметрические многочлены от n переменных}
+  \begin{definition}
     $$\sigma_1 = \sigma_1(x_1,...,x_n) = \sum \limits_{i=1}^n x_i$$
     $$\sigma_2 = \sigma_2(x_1,...,x_n) = \sum \limits_{1\leq i_1 < i_2 \leq n}^n x_{i_1}x_{i_2}$$
     $$\vdots$$ 
     $$\sigma_k = \sigma_k(x_1,...,x_n) = \sum \limits_{1\leq i_1 < i_2<...<i_k \leq n}^n x_{i_1}x_{i_2} \cdot ... \cdot x_{i_k}$$
     $$\vdots$$
     $$\sigma_n = \sigma_n(x_1,...,x_n) = x_{1}x_{2} \cdot ... \cdot x_{n}$$      
-   \end{definition}
-   \begin{theoremnum} (Основная теорема о симметрических многочленах)\\
+  \end{definition}
+  \begin{theoremnum} (Основная теорема о симметрических многочленах)\\
     Любой симметрический многочлен $f \in F[x_1,...,x_n]$ однозначно раскладывается в виде многочлена от элементарных симметрических: 
     $$\exists ! \ g \in F[y_1,...,y_n] : g(\sigma_1,...,\sigma_n) = f$$
-   \end{theoremnum}
-   \begin{example1}
+  \end{theoremnum}
+  \begin{example1}
     $$f(x_1, x_2) = x_1^2 + x_2^2 = x_1^2 + x_2^2 + 2x_1x_2 - x_1x_2 = (x_1+x_2)^2 - 2x_1x_2 = \sigma_1^2 - 2 \sigma_2$$
     $$g(y_1,y_2) = y_1^2 - 2y_2$$  
-   \end{example1}
-   \begin{definition}
+  \end{example1}
+  \begin{definition}
     Одночлен $\alpha x_1^{k_1} \cdot ... \cdot x_n^{k_n}$ называется монотонным, если: 
     $$k_1\geq k_2 \geq ... \geq k_n$$  
-   \end{definition}
-   \begin{example1}
+  \end{definition}
+  \begin{example1}
     $f(x_1,x_2,x_3) = x_1^5x_2^3x_3$ - монотонный \\
     \tab[2.33cm]$g(x_1,x_2,x_3) = x_1^6x_2^7x_3$ - не монотонный.  
-   \end{example1}
-   \setcounter{lemcount}{0}
-   \begin{lemmanum} (О старшем члене симметрического многочлена)\\
+  \end{example1}
+  \setcounter{lemcount}{0}
+  \begin{lemmanum} (О старшем члене симметрического многочлена)\\
     Если $f \in F[x_1,...,x_n]$ - симметрический, то $LT(f)$ - монотонный. 
-   \end{lemmanum}
-   \begin{proof} (От противного)\\
+  \end{lemmanum}
+  \begin{proof} (От противного)\\
     Пусть $LT(f) = \alpha x_1^{k_1} \cdot ... \cdot x_n^{k_n}$ - не монотонный $\Longrightarrow \exists \ i = \overline{1,n-1}: \ k_i<k_{i+1}$\\
     Т.к. $f$ - симметрический, то $\sigma \in S_n: \ \sigma = (i, i+1)$ - транспозиция $\Longrightarrow $ среди одночленов многочлена $f$ должен $\exists \ u = x_1^{k_1} \cdot ... \cdot x_i^{k_{i+1}}x_{i+1}^{k_i} \cdot ... \cdot x_n^{k_n}$\\
     Но $u \succ LT(f)$ - противоречие определению $LT$    
-   \end{proof}
-   \begin{lemmanum}
+  \end{proof}
+  \begin{lemmanum}
     Пусть $f$ - симметрический. $LT(f) = \alpha x_1^{k_1} \cdot ... \cdot x_n^{k_n}$, тогда:
     $$\exists \ e_1,...,e_n: \ LT(\alpha \sigma_1^{e_1},...,\sigma_n^{e_n}) = \alpha x_1^{k_1} \cdot ... \cdot x_n^{k_n}$$  
-   \end{lemmanum}
-   \begin{proof}\tab
+  \end{lemmanum}
+  \begin{proof}\tab
     \begin{multline*}
       LT(\alpha \sigma_1^{e_1},...,\sigma_n^{e_n}) = \alpha LT(\sigma_1^{e_1})LT(\sigma_2^{e_2})\cdot ... \cdot LT(\sigma_n^{e_n}) = \\
       = \alpha x_1^{e_1}(x_1x_2)^{e_2}\cdot ... \cdot (x_1 \cdot ... \cdot x_k)^{e_k} \cdot ... \cdot (x_1x_2 \cdot ... \cdot x_n)^{e_n} = \\
@@ -4042,8 +4042,8 @@ $V$- конечномерное векторное простанство над
       e_n = k_n
     \end{cases}$\\ $\\$  
     Т.к. $f$ - симметрический, то $k_1 \geq k_2 \geq ... \geq k_n$ по Лемме (1) $\Longrightarrow \forall i: \ e_1 \geq 0$    
-   \end{proof}
-   \begin{proof} \textbf{(Теоремы 2)} 
+  \end{proof}
+  \begin{proof} \textbf{(Теоремы 2)} 
     \begin{itemize}
       \item[$\underline{\exists}: \ $] Если $f = 0$, то $g = 0$\\
       Если $f \neq 0$, то $LT(f) = \alpha x_1^{k_1} \cdot ... \cdot x_n^{k_n}$\\
@@ -4067,130 +4067,213 @@ $V$- конечномерное векторное простанство над
       $$h(\sigma_1,...,\sigma_n) = \sum \beta_{e_1,...,e_n} \cdot \sigma_1^{e_1} \cdot ... \cdot \sigma_n^{e_n} \ (**)$$
       Среди всех $LT(\sigma_1^{e_1},...,\sigma_n^{e_n})$ есть тот, который старше остальных. В $(**)$ при приведении подобных этот старший член, который старше остальных, не сможет сократиться $\Longrightarrow h(\sigma_1^{e_1},...,\sigma_n^{e_n}) \neq 0$ - противоречие. 
     \end{itemize}
-   \end{proof}
-   \subsection{Формулы Виета}
+  \end{proof}
+  \subsection{Формулы Виета}
    $F$ - поле, $\ f \in F[x], \ \deg f = n >0$\\
    $f(x) = a_0x^n+a_1x^{n-1}+...+a_{n-1}x+a_n$\\
    $c_1,...,c_n \in F$ - все корни многочлена $f$ с учетом кратности\\
    $\Longrightarrow$
-   \begin{multline*}
+  \begin{multline*}
     f(x) = a_0(x-c_1)(x-c_2)...(x-c_n) = \\
     = a_0x^n - a_0(c_1+...+c_n)x^{n-1}+a_0(\sum \limits_{i<j}c_ic_j)x^{n-2} +\\
     + a_0(\sum \limits_{i<j<k}c_ic_jc_k)x^{n-3} + ... + (-1)^nc_1...c_n
-   \end{multline*}
-    $$a_k = (-1)^ka_0\sigma_k(c_1,...,c_k), \ k = \overline{1,n}$$
-    \[\Longrightarrow \sigma_k(c_1,...,c_k) = (-1)^k\frac{a_k}{a_0} - \text{Формулы Виета}\]
-    \section{Теория делимости в Евклидовых кольцах}
-    \begin{definition}
-      Коммутативное, ассоциаивное кольцо с единицей, в котором нет делителя нуля, называется целостным.
-    \end{definition}
-    \begin{example}\tab
-      \begin{enumerate}
-        \item $\Z$
-        \item $F[x]$, где $F$ - поле
-        \item $K[x]$, где $K$ - целостное кольцо     
-      \end{enumerate}
-    \end{example}
-    \begin{definition}
-      Пусть $K$ - целостное кольцо, тогда говорят, что $b$ делит $a$, где $a,b \in K$, если $\exists \ c \in K: \ a = bc$.\\
-      Обозначается: $b|c$ 
-    \end{definition}
-    \begin{definition}
-      Элементы $a$ и $b$ называются ассоциативными, если $a|b$ и $b|a$.\\
-      Обозначается: $a \sim  b$ 
-    \end{definition}
-    \begin{subtheorem}
-      $a\sim b \Longleftrightarrow a = bc$, где $c$ обратим в $K$, $a$ и $b$ не нулевые.   
-    \end{subtheorem}
-    \begin{proof}\tab
+  \end{multline*}
+  $$a_k = (-1)^ka_0\sigma_k(c_1,...,c_k), \ k = \overline{1,n}$$
+  \[\Longrightarrow \sigma_k(c_1,...,c_k) = (-1)^k\frac{a_k}{a_0} - \text{Формулы Виета}\]
+  \section{Теория делимости в Евклидовых кольцах}
+  \begin{definition}
+    Коммутативное, ассоциаивное кольцо с единицей, в котором нет делителя нуля, называется целостным.
+  \end{definition}
+  \begin{example}\tab
+    \begin{enumerate}
+      \item $\Z$
+      \item $F[x]$, где $F$ - поле
+      \item $K[x]$, где $K$ - целостное кольцо     
+    \end{enumerate}
+  \end{example}
+  \begin{definition}
+    Пусть $K$ - целостное кольцо, тогда говорят, что $b$ делит $a$, где $a,b \in K$, если $\exists \ c \in K: \ a = bc$.\\
+    Обозначается: $b|c$ 
+  \end{definition}
+  \begin{definition}
+    Элементы $a$ и $b$ называются ассоциативными, если $a|b$ и $b|a$.\\
+    Обозначается: $a \sim  b$ 
+  \end{definition}
+  \begin{subtheorem}
+    $a\sim b \Longleftrightarrow a = bc$, где $c$ обратим в $K$, $a$ и $b$ не нулевые.   
+  \end{subtheorem}
+  \begin{proof}\tab
+    \begin{itemize}
+      \item[$\underline{\Longrightarrow }: \ $] $\begin{cases}
+        a|b\\
+        b|a
+      \end{cases} \Longrightarrow \ \begin{cases}
+        b = ac_1\\
+        a = bc_2
+      \end{cases} \Longrightarrow a = ac_1c_2 \Longrightarrow c_1c_2 =1 \Longrightarrow c_2$ обратим.
+      \item[$\underline{\Longleftarrow}: \ $] $a=bc \Longrightarrow b|a$, \ с другой стороны, $b = ac^{-1} \Longrightarrow  a|b \Longrightarrow a \sim b$ 
+    \end{itemize}
+  \end{proof}
+  \begin{example}\tab
+    \begin{enumerate}
+      \item $\Z: \ a \sim b \Longleftrightarrow a= \pm  b$
+      \item $F[x]$, где $F$ - поле: \ 
+      $f\sim g \Longleftrightarrow f = cg$, где $c \in F \setminus \{0\}$
+    \end{enumerate}
+  \end{example}
+  \begin{definition}
+    Целостное кольцо $K$, которое не является полем, называется евклидовым, если введена функция:
+    $$N: \ K\setminus \{0\} \to \N \cup \{0\}$$
+    такая, что:
+    \begin{enumerate}
+      \item $N(ab)\geq N(b) \ (\forall a, b \in K\setminus \{0\})$
+      \item $\forall a, b, c \in K, b\neq 0 \ \exists \ q, r \in K :  \ a = bq+r$, где $r=0$ или $N(r)<N(b)$ \\
+      (т.е. возможно деление с остатком)   
+    \end{enumerate}
+    При этом $N$ называют нормой.  
+  \end{definition}
+  \begin{example}\tab
+    \begin{enumerate}
+      \item $\Z: \  N(a) = |a|$
+      \item $F[x]$, где $F$ - поле: \ $N(f) = \deg f$   
+    \end{enumerate}
+  \end{example}
+  \begin{Exercise}
+    $z[i] = \{a+bi \ | \ a, b \in \Z\}, \ N(a + bi) = a^2 + b^2 \Longrightarrow \\
+    z[i]$ c такой нормой - евклидово кольцо. 
+  \end{Exercise}
+  \begin{subtheorem}
+    $N(ab) = N(a) \Longleftrightarrow b$ обратим 
+  \end{subtheorem}
+  \begin{proof}\tab
+    \item[$1)$] Пусть $b$ обратим
+    $$N(ab) \geq N(a) \text{ и } N(a) = N((ab)b^{-1}) \Longrightarrow N(ab) = N(a)$$
+    \item[$2)$] Пусть $b$ необратим\\
+    Поделим $a$ на $ab$ с остатком: 
+    $$a = abq + r$$
+    Если $r =0$, то $a = abq \Longrightarrow bq = 1 \Longrightarrow b$ обратим - противоречие.\\
+    Иначе $N(r)<N(ab)$\\
+    С другой стороны $r = a - abq = a(1-bq) \Longrightarrow N(r) \geq N(a)$\\
+    Значит $N(ab) > N(a)$ 
+  \end{proof}
+  \begin{definition}
+    Наибольшим общим делителем элементов $a,b \in K$ называется элемент $d \in K$ такой, что: 
+    \begin{enumerate}
+      \item[1)] $d|a, \ d|b$
+      \item[2)] Если $d_1|a$ и $d_1|b$, то $d_1|d$     
+    \end{enumerate}
+    Обозначается: НОД($a,b$) 
+  \end{definition}
+  \begin{remark}\tab
+    \begin{enumerate}
+      \item НОД$(a,0) = a$
+      \item НОД может не существовать
+    \end{enumerate}
+  \end{remark}
+  \begin{example1}
+    пока что впадлу
+  \end{example1}
+  \begin{lemma}
+    Если $\exists$ НОД($a,b$), то он определяется однозначно с точностью до ассоциаивности.
+  \end{lemma}
+  \begin{proof}
+    $d_1, d_2$ - это НОД($a,b$), \ по свойству 2): 
+    $$d_1|d_2, \ \ d_2|d_1 \Longrightarrow d_1 = d_2$$   
+  \end{proof}
+  \begin{theorem}
+    Пусть $K$ - евклидово кольцо. Тогда $\forall a, b \in K \ \exists$ НОД($a,b$) = $d$, причем НОД($a,b$) = $au + bv$ для некоторых $u, v \in K$.     
+  \end{theorem}
+  \begin{proof}\tab
+    \begin{itemize}
+      \item[1.] $b = 0: \ \tab[1.27cm] $ НОД$(a,b) = a = a \cdot 1 + b \cdot 0$
+      \item[2.] $b|a: \ \tab[1.8cm] $ НОД$(a,b) = b = a \cdot 0 + b \cdot 1$
+      \item[3.] $b \neq 0, \ b\nmid a: \ $ Делим: 
       \begin{itemize}
-        \item[$\underline{\Longrightarrow }: \ $] $\begin{cases}
-          a|b\\
-          b|a
-        \end{cases} \Longrightarrow \ \begin{cases}
-          b = ac_1\\
-          a = bc_2
-        \end{cases} \Longrightarrow a = ac_1c_2 \Longrightarrow c_1c_2 =1 \Longrightarrow c_2$ обратим.
-        \item[$\underline{\Longleftarrow}: \ $] $a=bc \Longrightarrow b|a$, \ с другой стороны, $b = ac^{-1} \Longrightarrow  a|b \Longrightarrow a \sim b$ 
+        \item[0)] $a = bq_1 + r_1$, где $N(r_1) < N(b)$
+        \item[1)] $b = r_1q_2 + r_2$, где $N(r_2) < N(r_1)$
+        \item[3)] $r_1 = r_2q_3 + r_3$, где $N(r_3) < N(r_2)$
+        \item[ $\vdots$ ]
+        \item[k)] $r_{k-1} = r_kq_{k+1} + r_{k+1}$, где $N(r_{k+1}) < N(r_k)$
+        \item[k+1)] $r_k = r_{k+1}q_{k+2}$ 
       \end{itemize}
-    \end{proof}
-    \begin{example}\tab
-      \begin{enumerate}
-        \item $\Z: \ a \sim b \Longleftrightarrow a= \pm  b$
-        \item $F[x]$, где $F$ - поле: \ 
-        $f\sim g \Longleftrightarrow f = cg$, где $c \in F \setminus \{0\}$
-      \end{enumerate}
-    \end{example}
-    \begin{definition}
-      Целостное кольцо $K$, которое не является полем, называется евклидовым, если введена функция:
-      $$N: \ K\setminus \{0\} \to \N \cup \{0\}$$
-      такая, что:
-      \begin{enumerate}
-        \item $N(ab)\geq N(b) \ (\forall a, b \in K\setminus \{0\})$
-        \item $\forall a, b, c \in K, b\neq 0 \ \exists \ q, r \in K :  \ a = bq+r$, где $r=0$ или $N(r)<N(b)$ \\
-        (т.е. возможно деление с остатком)   
-      \end{enumerate}
-      При этом $N$ называют нормой.  
-    \end{definition}
-    \begin{example}\tab
-      \begin{enumerate}
-        \item $\Z: \  N(a) = |a|$
-        \item $F[x]$, где $F$ - поле: \ $N(f) = \deg f$   
-      \end{enumerate}
-    \end{example}
-    \begin{Exercise}
-      $z[i] = \{a+bi \ | \ a, b \in \Z\}, \ N(a + bi) = a^2 + b^2 \Longrightarrow \\
-      z[i]$ c такой нормой - евклидово кольцо. 
-    \end{Exercise}
-    \begin{subtheorem}
-      $N(ab) = N(a) \Longleftrightarrow b$ обратим 
-    \end{subtheorem}
-    \begin{proof}\tab
-      \item[$1)$] Пусть $b$ обратим
-      $$N(ab) \geq N(a) \text{ и } N(a) = N((ab)b^{-1}) \Longrightarrow N(ab) = N(a)$$
-      \item[$2)$] Пусть $b$ необратим\\
-      Поделим $a$ на $ab$ с остатком: 
-      $$a = abq + r$$
-      Если $r =0$, то $a = abq \Longrightarrow bq = 1 \Longrightarrow b$ обратим - противоречие.\\
-      Иначе $N(r)<N(ab)$\\
-      С другой стороны $r = a - abq = a(1-bq) \Longrightarrow N(r) \geq N(a)$\\
-      Значит $N(ab) > N(a)$ 
-    \end{proof}
-    \begin{definition}
-      Наибольшим общим делителем элементов $a,b \in K$ называется элемент $d \in K$ такой, что: 
-      \begin{enumerate}
-        \item[1)] $d|a, \ d|b$
-        \item[2)] Если $d_1|a$ и $d_1|b$, то $d_1|d$     
-      \end{enumerate}
-      Обозначается: НОД($a,b$) 
-    \end{definition}
-    \begin{remark}\tab
-      \begin{enumerate}
-        \item НОД$(a,0) = a$
-        \item НОД может не существовать
-      \end{enumerate}
-    \end{remark}
-    \begin{example1}
-      пока что впадлу
-    \end{example1}
-    \begin{lemma}
-      Если $\exists$ НОД($a,b$), то он определяется однозначно с точностью до ассоциаивности.
-    \end{lemma}
-    \begin{proof}
-      $d_1, d_2$ - это НОД($a,b$) по свойству 2): 
-      $$d_1|d_2, \ \ d_2|d_1 \Longrightarrow d_1 = d_2$$   
-    \end{proof}
-    \begin{theorem}
-      Пусть $K$ - евклидово кольцо. Тогда $\forall a, b \in K \ \exists$ НОД($a,b$) = $d$, причем НОД($a,b$) = $au + bv$ для некоторых $u, v \in K$.     
-    \end{theorem}
-    \begin{proof}\tab
+      Докажем, что $r_{k+1}$ = НОД($a,b$) :
+      $$r_{k+1} | a, \ r_{k+1} | b \ ?$$
       \begin{itemize}
-        \item[1)] $b = 0: \ \tab[1.27cm] $ НОД$(a,b) = a = a \cdot 1 + b \cdot 0$
-        \item[2)] $b|a: \ \tab[1.8cm] $ НОД$(a,b) = b = a \cdot 0 + b \cdot 1$
-        \item[3)] $b \neq 0, \ b\not |a: \ $  Делим $a = bq_1 + r_1$, где $N(r_1) < N(b)$   
+        \item[из k+1)] $r_{k+1} | r_k$
+        \item[из k)] $r_{k+1} | r_{k-1}$
+        \item[ $\vdots$ ]
+        \item[из 2)] $r_{k+1} | r_1$
+        \item[из 1)] $r_{k+1} | b$
+        \item[из 0)] $r_{k+1} | a$ 
       \end{itemize}
-      
-    \end{proof}  
+      Что бы доказать 2-е условие, докажем, что $r_{k+1} = au+bv$\\
+      Сверху вниз \  $\forall s: \ r_s = au_s+bv_s$
+      \begin{itemize}
+        \item[0)] $r_{1} = a-bq_1 = au_1+bv_1 \Longrightarrow u_1=1, \ v_1 = -q_1$
+        \item[1)] $r_{2} = b - r_1q_2 = b-(a-bq_1)q_2 = au_2+bv_2$
+        \item[ $\vdots$ ]  
+      \end{itemize}
+      Далее по индукции. Получаем:
+      $$r_s = r_{s-1} - r_{s-2}q_s = (au_{s-1} + bv_{s-1}) - (au_{s-2} + bv_{s-2})q_s = au_s + bv_s$$
+      Так как $r_{k+1} = au+bv$, то если $d|a, \ d| b \Longrightarrow d|(au+bv) \Longrightarrow d|r_{k+1}\\ \Longrightarrow $ НОД($a,b$) = $r_{k+1}$
+    \end{itemize}
+  \end{proof}
+  \begin{definition}
+    Процеруда находа НОД($a,b$) в доказательстве теоремы называется алгоритмом Евклида.
+  \end{definition}
+  Пусть $K$ - евклидово колько
+  \begin{definition}
+    Элементы $K$ называются взаимопростыми, если НОД($a,b$) = 1  
+  \end{definition}
+  \begin{consequense}
+    Пусть $K$ - евклидово колько, $a, b \in K$ - взаимопростые, тогда:
+    $$\exists \ u, v \in K: \ au+bv=1$$  
+  \end{consequense}
+  \subsection{Разложение на простые элементы}
+  Пусть $K$ - евклидово колько
+  \begin{example1}
+    $\forall a \in K: \ a = (ac)c^{-1}$, где $c$ - обратим.  
+  \end{example1}
+  \begin{definition}
+    Элемент $p \in K$ называется простым, если он:
+    \begin{itemize}
+      \item[1)] $p\neq 0$
+      \item[2)] $p$ не является обратимым
+      \item[3)] Равенство $p = ab$, где $a, b \in K$ возможно только при $a$ - обратим или $b$ - обратим    
+    \end{itemize}
+  \end{definition}
+  \begin{example}\tab
+    \begin{enumerate}
+      \item В $\Z$ простые элементы - это $\pm p$, где $p$ - простое число
+      \item В $F[x]$, где $F$ - поле, простые элементы  - это неприводимые множители  
+    \end{enumerate}
+  \end{example}
+  \begin{remark}
+  Простые элементы - это ненулевые, необратимые элементы, которые имеют в ...
+  \end{remark}
+  \setcounter{lemcount}{0}
+  \begin{lemmanum} \textbf{(Важная Лемма)}\\
+    Пусть $K$ - евклидово колько, \ $p \in K$ - простой элемент, тогда:
+    $$p|ab, \ \text{НОД}(a,p) = 1 \ \Longrightarrow \ p|a$$ 
+  \end{lemmanum}
+  \begin{proof}
+    НОД($a,p$) = 1 $\Longrightarrow \exists \ u, v \in K:$ 
+    $$ au+bv = 1 \ | \cdot b \ \Longrightarrow \underbrace{abv}_{\vdots \ p} +\underbrace{bvp}_{\vdots \ p}  = b  \ \Longrightarrow \ p|b$$ 
+  \end{proof}
+  \begin{consequense}
+    Пусть $K$ - евклидово колько, \ $p \in K$ - простой элемент.\\
+    Если $a_i \in K: \ p|(a_1\cdot ... \cdot a_s)$, тогда:
+    $$\exists \ i = \overline{1, s}: \ p|a_i$$  
+  \end{consequense}
+  \begin{proof}
+    Индукция по $s$. База $s=2: \ p|(a_1 \cdot a_2)$ \\
+    Если $p\nmid a$, то НОД($a_1,p$) = 1 $\Longrightarrow p | a_2$ (по важной Лемме)\\
+    Переход: $p|a_1 \cdot (a_2\cdot ... \cdot a_n)$\\
+    Если $p \nmid a_1$, то НОД($a_1,p$) = 1 $\underbrace{\Longrightarrow}_{\text{по Лемме}} p|(a_2\cdot ... \cdot a_n) \underbrace{\Longrightarrow}_{\text{по Инд.}}  \exists \ i = \overline{2, n}: \ p|a_i$  
+  \end{proof} 
+  
+       
+
 
 
     
