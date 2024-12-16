@@ -4270,13 +4270,111 @@ $V$- конечномерное векторное простанство над
     Переход: $p|a_1 \cdot (a_2\cdot ... \cdot a_n)$\\
     Если $p \nmid a_1$, то НОД($a_1,p$) = 1 $\underbrace{\Longrightarrow}_{\text{по Лемме}} p|(a_2\cdot ... \cdot a_n) \underbrace{\Longrightarrow}_{\text{по Инд.}}  \exists \ i = \overline{2, n}: \ p|a_i$  
   \end{proof} 
-  
-       
-
-
-
+    \textbf{понеслася} 
+  \begin{theorem}
+    Пусть $K$ - евклидово кольцо, $a\neq 0 \in K$ - произвольный, необратимый элемент. Тогда $a$ можно разложить:
+    $$a = p_1^{k_s}\cdot ...\cdot p_n^{k_s}$$
+    Причем это разложение единственное с точностью до перестановки множителей.   
+  \end{theorem}
+  \begin{proof}\tab
+    \begin{itemize}
+      \item[ $\exists: \ $ ] От противного:\\
+    Среди всех ненулевых и необратимых элементов кольца $K$ найдем, которые не допускают такие разложения, возьмем наименьший по норме - обозначим его $a$. 
+    \begin{itemize}
+      \item[1 случай: ] $a$ - простой эд=лемент $\Longrightarrow a$ - это и есть разложение на простые
+      \item[2 случай: ] $a$ - не простой $\Longrightarrow \exists \ b, c \in K$ - ненулевые, обратимые: $a = bc$
+      $$N(a)>N(b) \text{ и } N(a)>N(c)$$
+      $\Longrightarrow $ т.к. $a$ - наименьший по норме, который не допускает это разложение на простые, то 
+      $$b = p_1\cdot ... \cdot p_t, \ \ c = q_1\cdot ... \cdot q_s$$
+      Где $p_i, \ q_i$ - простые числа $\Longrightarrow a = p_1\cdot ... \cdot p_t\cdot q_1\cdot ... \cdot q_s$ Противоречие 
+    \end{itemize}
+    \item[ $!: \ $ ] От противного:\\
+    $a = p_1\cdot ... \cdot p_s = q_1\cdot ... \cdot q_s$, где $p_i, a_i$ - простве числа. Индукция по $s$:  
+    $$\Longrightarrow p_1 | (q_1\cdot ... \cdot q_s)$$
+    $\Longrightarrow $  т.к. $p_1$ - простое, то следовательно: 
+    $$\exists \ i = \overline{1,t}: \ p_1 | q_i \Longrightarrow p_1\sim q_i$$
+    Можем считать, что $i =1, p_1 = c_1q_1, \ c_1$ - обратим\\
+    Сокращаем на $p_1 : \ p_2\cdot ... \cdot p_s = cq_2\cdot ...\cdot q_m$\\
+    Далее индукция по $s$: \ $\Longrightarrow s=t, \ p_i \sim q_i$ (при подходящей перестановке)  
+    \end{itemize}
+  \end{proof}
+  \setcounter{concount}{0}
+  \begin{consequensenum}
+    Основная теорема арифметики.
+  \end{consequensenum}
+  \begin{consequensenum}
+    Пусть $F$ - поле, \ $f\in F[x] \ \deg f \geq 1$\\
+    Тогда $f$ раскладывается в простые неприводимые многочлены над $F$ и это разложение единствено с точностью до перестановки множителей и умножения на ненулевые константы из $F$.      
+  \end{consequensenum}
+  \begin{consequensenum}
+    Пусть $K$ - евклидово кольцо,\ $a\in K$, \ $a=p_1^{k_1}\cdot ...\cdot p_s^{k_s}$, где $p_i$ - простые элементы $K$ и $p_i \not \sim p_j$ при $i \neq j$\\
+    Пусть $d|a$ в $K$. Тогда $d = c p_1^{l_1}\cdot ... \cdot p_s^{l_s}$, где $0\leq l_i\leq k_i$, $c$ - обратимый элемент в $K$             
+  \end{consequensenum}
+  \begin{proof}
+    Т.к. $d|a$, то $a = db$. По теореме разложим $d$ и $b$ на простые (если они необратимы, иначе очев) и сравниваем в $a = db$ правую и левую часть. В силу единсвенности разложения на простые получаем следствие.     
+  \end{proof}
+  \subsection{Поле отношения условия кольца}
+  $K$ - целостное кольцо\\
+  Рассмотрим множество пар: 
+  $$\{(a, b) \ | \ a, b \in K, \ b\neq 0\}= M$$
+  Введем отношение эквиватентности:
+  $$(a, b)\sim (c, d) \Longleftrightarrow ad = bc$$
+  \begin{subtheorem}
+    $$\forall c \in K, \ c\neq 0 \Longrightarrow (a, b) \sim (ac, bc)$$
+    Класс эквивалентности пары $(a, b)$ - это: 
+    $$\{(c, d) \in M \ | \ (c, d) \sim (a, b)\}$$
+    называется дробью и обозначается: $\frac{a}{b}$ \\
+    Множество всех таких классов эквивалентности обозначается: $\Q (K)$ \\
+    Операции на $\Q (K)$: 
+    $$\frac{a_1}{b_1} + \frac{a_2}{b_2} = \frac{a_1b_2 + a_2b_1}{b_1b_1}, \ \ \frac{a_1}{b_1} \cdot \frac{a_2}{b_2} = \frac{a_1b_1}{a_1b_1}$$ 
+  \end{subtheorem}
+  \begin{subtheorem}
+    Операции корректны, т.е. не зависят от предствитлей.
+  \end{subtheorem}
+  \begin{proof}
+    % \begin{itemize}
+    %   \item[ $+: \ $ ] $\frac{a_1}{b_1} + \frac{a_2}{b_2} = \frac{a_1b_2 + a_2b_1}{b_1b_1}$ 
+    % \end{itemize}
     
-         
+  \end{proof} 
+   \textbf{Кароче, пока что нет сил, я устал и хочу есть. В течении нескольких дней допишу...} 
+
+   
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  \vspace{1cm}
+  \begin{center}
+    \includegraphics[width=5cm]{daaa.jpg}
+  \end{center}
    
 
 
