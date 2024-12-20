@@ -83,6 +83,7 @@
 \newcounter{thcount}
 \newcounter{offercount}
 \newcounter{concount}
+\newcounter{subthcount}
 \theoremstyle{definition}
 \newtheorem*{definition}{Определение}
 \newtheorem*{theorem}{Теорема}
@@ -102,7 +103,9 @@
 \newtheorem{lemmanum2}[lemcount2]{Лемма}
 \newtheorem{theoremnum}[thcount]{Теорема}
 \newtheorem{offernum}[offercount]{Предложение}
-% \newtheorem{theoremL}{Теорема}[section]
+% \newtheorem{theoremnum}[thcount]{Теорема}
+\newtheorem{subtheoremnum}[subthcount]{Утверждение}
+
 
 
 \begin{document}
@@ -4331,51 +4334,152 @@ $V$- конечномерное векторное простанство над
   \begin{subtheorem}
     Операции корректны, т.е. не зависят от предствитлей.
   \end{subtheorem}
-  \begin{proof}
-    % \begin{itemize}
-    %   \item[ $+: \ $ ] $\frac{a_1}{b_1} + \frac{a_2}{b_2} = \frac{a_1b_2 + a_2b_1}{b_1b_1}$ 
-    % \end{itemize}
-    
+  \begin{proof}\tab
+    \begin{itemize} 
+      \item[$(+): \ $] 
+      $$\frac{a_1}{b_1} = \frac{\widetilde{a_1}}{\widetilde{b_1}}; \ \frac{a_2}{b_2} = \frac{\widetilde{a_2}}{\widetilde{b_2}} \Longrightarrow \frac{a_1}{b_1} + \frac{a_2}{b_2} = \frac{\widetilde{a_1}}{\widetilde{b_1}} + \frac{\widetilde{a_2}}{\widetilde{b_2}}$$
+      Дано: $a_1 \widetilde{b_1} = \widetilde{a_1}b_1, \ a_2 \widetilde{b_2} = \widetilde{a_2}b_2$
+      $$\frac{a_1b_2 + a_2b_1}{b_1b_2} \overset{?}{=}  \frac{\widetilde{a_1} \widetilde{b_2} + \widetilde{a_2} \widetilde{b_1}}{\widetilde{b_1} \widetilde{b_2}}$$
+      $$(a_1b_2 + a_2b_1) \widetilde{b_1} \widetilde{b_2} \overset{?}{=} (\widetilde{a_1} \widetilde{b_2} + \widetilde{a_2} \widetilde{b_1})b_1b_2$$
+      $$a_1b_2 \widetilde{b_1} \widetilde{b_2}+ a_2b_1 \widetilde{b_1} \widetilde{b_2} = \widetilde{a_1} \widetilde{b_2} b_1b_2 + \widetilde{a_2} \widetilde{b_1} b_1b_2 \text{ - это верно}$$
+      \item[ $(\cdot): \ $ ] Д/з
+    \end{itemize}
   \end{proof} 
-   \textbf{Кароче, пока что нет сил, я устал и хочу есть. В течении нескольких дней допишу...} 
-
-   
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-  \vspace{1cm}
-  \begin{center}
-    \includegraphics[width=5cm]{daaa.jpg}
-  \end{center}
-   
+  \begin{subtheorem}
+    $Q(K)$ относительно этих операций - это поле. 
+  \end{subtheorem}
+  \begin{proof}
+    При сложении можем считать, что знаменатель больше, т.е.:\\ 
+    $\frac{a_1}{b} + \frac{a_2}{b} = \frac{a_1+a_2}{b} \Longrightarrow $ коммутативное по сложению, ассоциативное по сложению, $\frac{0}{1}$ - нулевой элемент, $\forall \frac{a}{b} \  \exists \ -\frac{a}{b} = \frac{-a}{b}$\\
+    $\Longrightarrow $ это алгебраическая группа по сложению\\
+    Непосредственно проверяется дистрибутивность, коммутативность и ассоциативность умножения, $\frac{1}{1}$ - единица (нейтральный по умножению),\\ $\forall \frac{a}{b} \in Q(K), \frac{a}{b} \neq 0 \Longrightarrow a \neq 0$, $\exists \frac{b}{a} \in Q(K)$ - обратный к $\frac{a}{b} \Longrightarrow Q(K)$ - поле.        
+  \end{proof} 
+  \begin{definition}
+    Это поле называется полем отношения цолостного кольца $K$ (полем частных, полем дробей).\\ 
+    Рассмотрим множество: 
+    $$\{ \ \frac{a}{1} \ | \ a \in K\ \} \text{ в } Q(K)$$
+    Оно образует подкольцо в $Q(K)$, которое изоморфно кольцу $K$:
+    $$\frac{a}{1} - \text{ отождествлен с } a \in K$$
+  \end{definition}
+  \begin{example1}
+    $Q(\Z) = \Q$
+  \end{example1} 
+  \begin{definition}
+    Пусть $K$ - евклидово кольцо\\
+    $a, b \in K, \ b\neq 0, \ a = a_1d, \ b = b_1d$, где $d = $ НОД$(a, b)\Longrightarrow $
+    $$\frac{a}{b} = \frac{a_1}{b_1}, \  \text{где НОД}(a_1, b_1) = 1$$  
+    Такие дроби называются несократимыми.
+  \end{definition} 
+  \begin{subtheorem}
+    Пусть $K$ - евклидово кольцо, тогда несократимая дробь $\frac{a}{b} \in Q(K)$ определена однозначно с точностью до умножения числителя и знаменателя на обратимый элемент, т.е.:
+    $$\frac{a}{b} = \underbrace{\frac{ca}{cb}}_{\text{несокр}} , \text{ где } c \text{ - обратимый элемент кольца } K$$ 
+  \end{subtheorem}
+  \begin{proof}
+    $$\frac{a}{b} = \frac{\widetilde{a}}{\widetilde{b}} \Longrightarrow \begin{cases}
+      a \widetilde{b} = b \widetilde{a}\\
+      \text{НОД}(a, b) = 1\\
+      \text{НОД}(\widetilde{a}, \widetilde{b}) = 1
+    \end{cases} \underbrace{\Longrightarrow }_{\text{По важной лемме}} \begin{cases}
+      a \ | \ b \widetilde{a}\\
+      \text{НОД}(a, b) = 1
+    \end{cases}$$
+    $\Longrightarrow a \ | \ \widetilde{a}$, аналогично $\widetilde{a} \ | \ a \Longrightarrow a \sim \widetilde{a}$, т.е. $\widetilde{a} = ca$, $c$ - обратим
+    $$\begin{cases}
+      a \widetilde{b} = b \widetilde{a}\\
+      \widetilde{a} = ca
+    \end{cases} \Longrightarrow a \widetilde{b} = cab \Longrightarrow \widetilde{b} = cb$$
+  \end{proof}
+  \subsection{Поле рациональных дробей}
+  $F$ - поле, \ $K = F[x]$
+  \begin{definition}
+    Поле отношения кольца $K = F[x]$ называется полем рациональных дробей.\\
+    Обозначается: $F(x)$\\
+    Элементы этого поля: $\frac{f(x)}{g(x)}$, где $f, g \in f[x], \ g\neq 0$ называются рациональными дробями.    
+  \end{definition}
+  \begin{definition}
+    Дробь $\frac{f}{g} \in F(x)$ называется правильно, если $\deg f < \deg g$. Это определение не зависит от представителей.
+  \end{definition}
+  \begin{subtheoremnum}
+    Сумма и произведение правильных дробей - правильная дробь. произведение - пра
+  \end{subtheoremnum}
+  \begin{subtheoremnum}
+    Произвольная рациональная дробь $\frac{f}{g} \in F(x)$ единственным образом представима в виде суммы многочлена и правильной дроби.
+  \end{subtheoremnum}
+  \begin{proof}\tab
+    \begin{itemize}
+      \item[$\underline{\exists} : \ $ ] Поделим $f$ на $g$ с остатком: $f = gq + r$, где $\left[ \begin{array}{l l}
+        r=0\\
+        \deg r < \deg g
+        \end{array} \right.$, тогда: 
+        $$\frac{f}{g} = p + \frac{r}{g}$$ 
+      \item[$\underline{!} : \ $ ] Пусть $\frac{f}{g} = p + \frac{r}{g} = \widetilde{q} + \frac{\widetilde{r}}{\widetilde{g}}$, тогда: 
+      $$q - \widetilde{q} = \frac{\widetilde{r}}{\widetilde{g}} - \frac{r}{g} \ \Longrightarrow  \ q = \widetilde{q}, \ \frac{\widetilde{r}}{\widetilde{g}} = \frac{r}{g}$$ 
+    \end{itemize}
+  \end{proof} 
+  \begin{subtheoremnum}
+    Любая правильная дробь $\frac{f}{g} \in F(x)$ раскладывается в сумму правильных дробей со знаменателями: $g_1, g_2,...,g_s$, где $g = g_1 \cdot g_2 \cdot ... \cdot g_s$ и НОД$(g_i, g_j) = 1$, при $i \neq j$:
+    $$\frac{f}{g} = \underbrace{\frac{r_1}{g_1} + ... + \frac{r_s}{g_s}}_{ \text{правильнаые}}$$
+  \end{subtheoremnum}
+  \begin{proof}
+    Индукция по $s$:\\
+    $s=2, \ g = g_1g_2, \ $ НОД$(g_1, g_2)=1 \Longrightarrow \exists \ u, v \in F[x]: \ ug_1 + vg_2 = 1$, тогда:
+    $$\frac{f}{g} = \frac{f\cdot 1}{g_1g_2} = \frac{f(ug_1 + vg_2)}{g_1g_2} = \frac{fu}{g_2} + \frac{fv}{g_1} = q_1 + \frac{r_1}{g_1} + q_2 + \frac{r_2}{g_2}$$
+    По утверждению (1): \ $q_1 + q_2$ - правильная дробь. многочлен, который является правильной дробью - нулевой многочлен  $\Longrightarrow q_1 + q_2 = 0 \Longrightarrow$ 
+    $$\frac{f}{g} =\frac{r_1}{g_1} + \frac{r_2}{g_2}$$
+    Переход: $s-1 \ \to \ s: \frac{f}{g_1(g_2\cdot ... \cdot g_s)} = \frac{r_1}{g_1} + \frac{r_2}{g_2\cdot ... \cdot g_s} \underbrace{=}_{\text{По предп. индукции}} \frac{r_1}{g_1} + \frac{r_2}{g_2} + ... + \frac{r_s}{g_s}$
+  \end{proof}
+  \begin{definition}
+    Рациональная дробь $\frac{f}{g}\in F(x)$ называется простейшей,если:
+    \begin{itemize}
+      \item[1) \ ] $\frac{f}{g} \neq 0$
+      \item[2) \ ] $g = p^s$, \ где $p$ - неприводимый множителей над $F$, \ $s \in \N$
+      \item[3) \ ] $\deg f < \deg p$ 
+    \end{itemize}
+  \end{definition}
+  \begin{example}\tab
+    \begin{enumerate}
+      \item $\forall$ поля $F$: $\frac{\alpha}{(x-c)^k}$, \ где $\alpha, c \in F, \ \alpha\neq 0, \ k \in \N$ является простейшей всегда.
+      \item Если $F = \mathbb{C}$, то простейщий другого вида нет.
+      \item $F = \R: \ \frac{\alpha}{(x-c)^k}, \ \frac{\beta x + \gamma}{(x^2+ax+b)^k}$, где $\alpha, \beta, \gamma, a, b, c \in \R, \ \alpha \neq 0, \beta^2 + \gamma^2\neq 0, \ k \in \N$ и у $(x^2+ax+b)$ отрицательный дискриминан.   
+    \end{enumerate}
+  \end{example}
+  \begin{theorem}
+    Любая правильная дробь $\frac{f}{g} \in F(x)$ раскладывается в сумму простейших.\\
+    Более того, если $g = p_1^{s_1}\cdot ... \cdot p_k^{s_k}$, где $p_i$ - неприводимый над $F$ и $\forall i \neq j: \ p_i \not \sim p_j$, тогда $\frac{f}{g}$ раскладывается в сумму простейших со знаменателями: $$p_1, \  p_1^2, \ ... \ , \ p_1^{s_1}, \ ... \ , \ p_k^1, \ p_k^2, \ ... \ , \ p_k^{s_k}$$
+    и это разложение единственно.       
+  \end{theorem}
+  \begin{proof}\tab
+    \begin{itemize}
+      \item[$\underline{\exists}: \ $] $g = p_1^{s_1}\cdot ... \cdot p_k^{s_k}$. По утверждению (3) $\frac{f}{g} = \frac{r_1}{g_1^{s_1}} + ... + \frac{r_k}{g_k^{s_k}}$\\
+      Достаточно рассмотреть правильную дробь вида $\frac{r}{p^s}$.\\
+      Индукция по $s$:\\
+      Поделим $r$ на $p$ с остатком:
+      $$r = pg + \widetilde{r}, \ \text{ где } \left[ \begin{array}{l l}
+      \widetilde{r}=0\\
+      \deg \widetilde{r} < \deg p
+      \end{array} \right.$$
+      $$\Longrightarrow \frac{r}{p^s} = \frac{pq + \widetilde{r}}{p^s} = \frac{q}{p^{s-1}} + \frac{\widetilde{r}}{p^s}$$
+      где $\frac{\widetilde{r}}{p^s}$ - либо 0, либо простейшая.\\
+      Повторяем процесс для $\frac{q}{p^{s-1}}$
+      \item[ $\underline{!}: \  $ ] (От противного)
+      $$\frac{f}{g} = \sum \limits_{i=1}^s \ (\frac{r_{i_1}}{p_i} + \frac{r_{i_2}}{p_i^2} + ... + \frac{r_{i_{s_i}}}{p_i^{s_i}}) = \sum \limits_{i=1}^s \ (\frac{\widetilde{r}_{i_1}}{p_i} + \frac{\widetilde{r}_{i_2}}{p_i^2} + ... + \frac{\widetilde{r}_{i_{s_i}}}{p_i^{s_i}})$$
+      $$\Longrightarrow \sum \limits_{i=1}^s \ (\frac{\widetilde{\widetilde{r}}_{i_1}}{p_i} + \frac{\widetilde{\widetilde{r}}_{i_2}}{p_i^2} + ... + \frac{\widetilde{\widetilde{r}}_{i_{s_i}}}{p_i^{s_i}})=0, \ \text{ где } \widetilde{\widetilde{r}}_{i_j} = r_{i_j} - \widetilde{r}_{i_j}$$
+      Допустим, что $\exists \ \widetilde{\widetilde{r}}_{i_j}\neq 0$\\
+      Рассмотрим $\widetilde{\widetilde{r}}_{i_t}$, где $t$ - максимальный с таким условием (самый правый) и без ограничение общности считаем, что $i=1$.\\
+      Приводим к общему знаменателю и приравниваем числители:
+      $$\widetilde{\widetilde{r}}_{1_t}p_2^{s_k} \cdot ... \cdot p_k^{s_k} + p_1h(x) = 0$$
+      $h(x)$ - собрали все кратные $p_1$ в числителе
+      $$p_1 \not \sim p_i \ (i \neq 1) \Longrightarrow p_1 \ | \ \widetilde{\widetilde{r}}_{1_t} \Longrightarrow \widetilde{\widetilde{r}}_{1_t} = 0$$
+      т.к. иначе $\deg \widetilde{\widetilde{r}}_{1_t} < \deg p_1$ по определению простейших.     
+    \end{itemize}
+  \end{proof}
+  \begin{theorem} \textbf{(Декарта)}\\ 
+    Пусть $f(x) \in \R [x], \ \deg f \geq 1$\\
+    $f(x) = a_nx^n + ... + a_1x + a_0$, где $a_i \in \R.$\\
+    $L(f)$ - число перемен знака в последовательности $a_n, a_{n-1},...,a_1,a_0$ $N(f)$ - число положительных вещественных корней многочлена $f$.\\
+    Тогда число $N(f) \leq L(f)$. При этом $N(f) = L(f) \Longleftrightarrow $ нет мнимых корней.   
+  \end{theorem}  
+  
 
 
   % \textbf{Мораль в том, что я в этот раз почти успел}
