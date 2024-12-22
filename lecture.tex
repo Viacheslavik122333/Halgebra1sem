@@ -247,7 +247,7 @@
     \begin{definition}
       Расширенная матрица $\underset{m\times (n+1)}{(A|B)}$. Набор чисел $x_1^0,...,x_n^0 \in \R$ называется решением системы $(*)$, если подстановка этих чисел вместо неизвестных в $(*)$ дает тождество в каждом уравнении. $(x_i^0\longleftrightarrow x)$ 
     \end{definition}
-    Решить систему - это найти все решения системы. Любое конткретное решение называется частным.
+    Решить систему - это найти все решения системы. Любое конкретное решение называется частным.
     \begin{definition}
       Если СЛУ имеет решение, то она называется совместной, иначе - несовместной. 
     \end{definition}  
@@ -352,10 +352,10 @@
     К правой части матрицы (без 1 столбца и 1 строки) применяем индукцию и проводим матрицу к ступенчатому виду.
   \end{proof}
   \begin{remark}
-    Этот метод называется  методом Гауса.
+    Этот метод называется  методом Гаусса.
   \end{remark}
 
-  \subsection{Решение СЛУ методом Гауса}
+  \subsection{Решение СЛУ методом Гаусса}
   $\begin{cases}
     a_{11}x_1 + ... + a_{1n}x_n = b_1 \\ 
     a_{21}x_2 + ... + a_{2n}x_n = b_2 \\
@@ -416,7 +416,7 @@
     \end{aligned}
     \right.$$
 
-    Такая СЛУ называется строго треугольной.
+    Такая СЛУ называется строготреугольной.
 
     Из n-го уравнения однозначно находится $x_n = \frac{b_n}{a_{nn}}$
     Подставляем во все оставшиеся уравнения $x_n = \frac{b_n}{a_{nn}}$ $\Longrightarrow$ исключаем $x_n$. Получаем строго треугольную систему с меньшим количество неизвестных.  \\
@@ -582,7 +582,7 @@
     \begin{enumerate} 
       \item $V^3, U$ - множество всех векторов из $V^3$, параллельных фиксированной\\ плоскости.
       \item $\R^n, U=\{(a_1,..., a_n) | a_{2i} = 0\}$ - векторное подпространство \\ $\widetilde{U} = \{(a_1,..., a_n) | a_{2i} = 1\}$ - не векторное подпространство, т.к. множество не замкнуто относительно сложения и умножения.
-      \item В любом векторном простанстве $V$ есть такие подпространства, состоящие только из нулевого вектора. (тривиальное или несобственное подпространство) (Остальные называются собственными)
+      \item В любом векторном простанстве $V$ есть такие подпространства, состоящие только из нулевого вектора. (тривиальное или несобственное подпространство) (остальные называются собственными)
     \end{enumerate}
   
   \newpage
@@ -632,7 +632,7 @@
     Пусть $v_1 \neq 0, v_2 = 0$ и $v_1, v_2$ - ЛЗ, т.к. $0 \cdot v_1 + 1 \cdot v_2 = 0$
   \end{remark} 
   \begin{lemmanum} \label{lem2}
-    Пусть $v_1,...,v_n \in V$ - ЛНЗ, тогда $w \in V$ линейно выражается через $v_1,...,v_n \Longleftrightarrow (w,v_1,...,v_n)$ - ЛЗ.   
+    Пусть $v_1,...,v_n \in V$ - ЛНЗ, тогда $w \in V$ линейно выражается через $v_1,...,v_n \Longleftrightarrow (w,v_1,...,v_n)$ - ЛЗ. 
   \end{lemmanum} 
   \begin{proof} $\tab$  
     \begin{itemize}
@@ -646,17 +646,17 @@
   \end{proof}
   %%
   \begin{lemmanum} \label{lem3}
-    Пусть $v_1,...,v_k$ - ЛНЗ и вектор $w$ линейно выражается через $v_1,...,v_k$. Тогда это выражение единственное.   
-  \end{lemmanum} 
+    Если $v_1,...,v_k \in V$ - ЛНЗ и вектор $w \in V$ линейно выражается через $v_1,...,v_k \Longleftrightarrow $ это выражение единственное.
+  \end{lemmanum}
   \begin{proof} $\tab$ 
-    \begin{enumerate}
-      \item Пусть выражается единственно. Допустим, $v_1,..,v_k$ - ЛЗ $\Longrightarrow \exists\{\lambda_1,..,\lambda_k\}$ не все нулевые, т.ч. $\lambda_1v_1 + \cdots + \lambda_kv_k=0$ \\
+    \begin{itemize}
+      \item[ $\underline{\Longleftarrow } \ $  ] Пусть выражается единственно. Допустим, $v_1,..,v_k$ - ЛЗ $\Longrightarrow \exists\{\lambda_1,..,\lambda_k\}$ не все нулевые, т.ч. $\lambda_1v_1 + \cdots + \lambda_kv_k=0$ \\
       Тогда если $w=\mu_1v_1 + \cdots + \mu_kv_k$, то $w + 0 = (\mu_1+\lambda_1)v_1 + \cdots + (\mu_k + \lambda_k)v_k$ другое разложение, противоречие.  
-      \item Пусть $v_1,..,v_k$ - ЛНЗ. Допустим, что существует два разложения: $$w = \mu_1v_1 + \cdots + \mu_kv_k$$  $$w = \widetilde{\mu_1}v_1 + \cdots + \widetilde{\mu_k}v_k$$ 
+      \item[ $\underline{\Longrightarrow} \ $  ] Пусть $v_1,..,v_k$ - ЛНЗ. Допустим, что существует два разложения: $$w = \mu_1v_1 + \cdots + \mu_kv_k$$  $$w = \widetilde{\mu_1}v_1 + \cdots + \widetilde{\mu_k}v_k$$ 
       $$\mu_1v_1 + \cdots + \mu_kv_k = \widetilde{\mu_1}v_1 + \cdots + \widetilde{\mu_k}v_k$$
       $$v_1(\mu_1 - \widetilde{\mu_1}) + \cdots + v_n(\mu_n - \widetilde{\mu_n}) = 0$$  
-      $\Longrightarrow  \{v_1,..,v_k\}$ - ЛЗ $\Longrightarrow $ противоречие.
-    \end{enumerate}
+      Т.к. $v_1,..,v_k$ - ЛНЗ $\Longrightarrow  (\mu_i - \widetilde{\mu_i}) = 0 \ \Longrightarrow \mu_i = \widetilde{\mu_i} \ \ \forall i = \overline{1,k}$ 
+    \end{itemize}
   \end{proof}
   \begin{lemmanum} $\tab$
     \begin{enumerate}
@@ -811,8 +811,8 @@ $V$- конечномерное векторное простанство над
     Если $V=\langle S \rangle$, тогда $S$- базис. \\
     Если $V \neq \langle S \rangle$ , то $\exists s_1 \in V \setminus \langle S \rangle$ \\
     $\Longrightarrow s_1$ линейно не выражается через $S$ $\Longrightarrow \text{(По лемме \ref{lem2}.) } S_1=S \cup \{s_1\}$ - ЛНЗ. \\
-    $\Longrightarrow $ Если $V = \langle S_1 \rangle$, то $S_1$ базис, иначе $\exists S_2 \in V \setminus \langle S_1 \rangle$, и т.д. \\
-    Этот процесс прервется на конечном шаге, т.к. пространство $V$- конечное. (Если $\dim V \neq n, \text{то} \not\exists$ ЛНЗ системы с числом векторов $> n$) 
+    $\Longrightarrow $ Если $V = \langle S_1 \rangle$, то $S_1$ базис, иначе $\exists s_2 \in V \setminus \langle S_1 \rangle$, и т.д. \\
+    Этот процесс прервется на конечном шаге, т.к. пространство $V$- конечное. (Если $\dim V \neq n, \text{то} \not \exists$ ЛНЗ системы с числом векторов $> n$) 
   \end{proof} 
   \begin{consequense} 
     Пусть $V$ конечномерное векторное пространство над $\R$ 
@@ -1305,7 +1305,7 @@ $V$- конечномерное векторное простанство над
   $$\phi(e_n) = w_n = a_{1n}f_1 + \cdots + a_{mn}f_m$$
 
   \begin{definition}
-    Матрица $A$ размера $m \times n$,  составленая из столбцов координат образов векторов $e_i$ в образе $\mathcal{F}$, называется матрицей линейного отображения в базисах $\mathcal{E} $ и $\mathcal{F}$  
+    Матрица $A$ размера $m \times n$,  составленная из столбцов координат образов векторов $e_i$ в базисе $\mathcal{F}$, называется матрицей линейного отображения в базисах $\mathcal{E} $ и $\mathcal{F}$  
   \end{definition} 
   $$A = \begin{pmatrix}
     a_{11} & \cdots & a_{1n} \\
@@ -1805,7 +1805,7 @@ $V$- конечномерное векторное простанство над
     Матрица, состоящая из элементов матрицы $A$, стоящих на пересечении строк с номерами $i_1,...,i_k$ и столбцов с номерами $j_1,...,j_t$, называется подматрицей матрицы $A$\\
     Обозначение: 
     $A \begin{matrix}
-      i_1 & \cdots & i_s \\
+      i_1 & \cdots & i_k \\
       \vdots & \null & \vdots \\
       j_1 & \cdots & j_t
     \end{matrix}$ 
@@ -1903,7 +1903,7 @@ $V$- конечномерное векторное простанство над
       x_1^2 & x_2^2 & x_3^2 & ... & x_n^2 \\
       \vdots & \vdots & \vdots & ... & \vdots \\
       x_1^{n-1} & x_2^{n-1} & x_3^{n-1} & ... & x_n^{n-1}
-    \end{vmatrix} = \prod\limits_{1\leq i \leq j \leq n} (x_i - x_j)$$  
+    \end{vmatrix} = \prod\limits_{1\leq i < j \leq n} (x_i - x_j)$$  
   \end{definition}
   
 
@@ -2010,7 +2010,7 @@ $V$- конечномерное векторное простанство над
       \end{matrix}$$ 
       т.к. $s>r$, то строки матрицы $A$ с номерами $i_1,...,i_s$ ЛЗ $\Longrightarrow $ строки, образующие минор, ЛЗ $\Longrightarrow M=0$ 
       \item Докажем, что $\exists$ хотя бы один ненулевой минор $\widetilde{M}$ порядка $r$. \\
-      Т.к. $rkA = r$, то $\exists \ r$ ЛНЗ строк $\Longrightarrow rkB = r \Longrightarrow $ в $B \ \exists \ r $ ЛНЗ столбцов. Сформируем матрицу $C$ из этих столбцов $\Longrightarrow detC \not = 0$ \\
+      Т.к. $rkA = r$, то $\exists \ r$ ЛНЗ строк $\Longrightarrow rkB = r $ (где $B$  - матрица с $r$  ЛНЗ строк и все столбцы) $ \Longrightarrow $ в $B \ \exists \ r $ ЛНЗ столбцов. Сформируем матрицу $C$ из этих столбцов $\Longrightarrow detC \not = 0$ \\
       $detC$ - это и есть искомый минор $\widetilde{M}$     
     \end{itemize}
   \end{proof} 
