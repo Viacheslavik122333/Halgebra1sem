@@ -84,6 +84,7 @@
 \newcounter{offercount}
 \newcounter{concount}
 \newcounter{subthcount}
+\newcounter{defcount}
 \theoremstyle{definition}
 \newtheorem*{definition}{Определение}
 \newtheorem*{theorem}{Теорема}
@@ -105,6 +106,7 @@
 \newtheorem{offernum}[offercount]{Предложение}
 % \newtheorem{theoremnum}[thcount]{Теорема}
 \newtheorem{subtheoremnum}[subthcount]{Утверждение}
+\newtheorem{definitionnum}[defcount]{Определение}
 
 
 
@@ -258,11 +260,15 @@
     \newpage
     %%%%%%%%
     \subsection{Элементарные преобразования над СЛУ}
-    \begin{enumerate}
-      \item Прибавить к одному уравнению другое уравнение, умноженное на число $\lambda \in \R$
-      \item Поменять местами два уравнения
-      \item Умножить уравнение на ненулевое число $\mu \in \R$
-    \end{enumerate}
+    \begin{definition}
+      Элементарные преобразования над СЛУ:
+      \begin{enumerate}
+        \item Прибавить к одному уравнению другое уравнение, умноженное на число $\lambda \in \R$
+        \item Поменять местами два уравнения
+        \item Умножить уравнение на ненулевое число $\mu \in \R$
+      \end{enumerate}
+    \end{definition} 
+    
     \begin{subtheorem}
       Эти преобразования обратимы.
     \end{subtheorem}
@@ -276,12 +282,12 @@
       \begin{itemize}
         \item[\underline{$\Longrightarrow$}]
         $AX = B$ - исходная система, $\tilde{A} X = \tilde{B}$ преобразованная система. \\
-        Пусть ${z_1,...,z_n}$ некотороое решение $AX = B$. Будем рассматривать $\tilde{A} X = \tilde{B}$, в ней ЭП $II$ типа умножают строку на $\mu$, имеем:
+        Пусть ${z_1,...,z_n}$ некотороое решение $AX = B$. Будем рассматривать $\tilde{A} X = \tilde{B}$, в ней ЭП $III$ типа умножают строку на $\mu$, имеем:
         $$a_{i1}x_1 +...+ a_{in}x_n = b_{i} \text{ в } AX = B$$
         $$\mu a_{i1}x_1 +...+\mu a_{in}x_n = \mu b_i \text{ в } \tilde{A} X = \tilde{B}$$ 
         Выносим $\mu$ из второго уравнения:
         $$\mu (a_{i1}x_1 +...+ a_{in}x_n) = \mu b_i$$
-        Получаем, что ${z_1,...,z_n}$ решение для $\tilde{A} X = \tilde{B}$. Для $III$ типа ЭП очевидно. Теперь рассмотрим $I$ тип, будем к $i$-ой строчке прибавлять $j$-ую с коэффициентом $\lambda$, получаем:
+        Получаем, что ${z_1,...,z_n}$ решение для $\tilde{A} X = \tilde{B}$. Для $II$ типа ЭП очевидно. Теперь рассмотрим $I$ тип, будем к $i$-ой строчке прибавлять $j$-ую с коэффициентом $\lambda$, получаем:
         \begin{multline*}
         (a_{i1}+\lambda a_{j1})x_1 +...+(a_{in}+\lambda a_{jn})x_n = \\ = a_{i1}x_1+\lambda a_{j1}x_1 +...+a_{in}x_n+\lambda a_{jn}x_n = \tab[3cm] \\ = a_{i1}x_1 + ... + a_{in}x_n + \lambda (a_{j1}x_1 +...+ a_{jn}x_n) = b_i + \lambda b_j
         \end{multline*}
@@ -292,9 +298,6 @@
       \end{itemize}
     \end{proof}
     Мораль в том, что мы можем работать с расширенной матрицей $(A|B)$.
-
-    \newpage
-    %%%%%%%%
     \subsection{Элементарные преобразования над матрицами}
     \textbf{Элементарные преобразования над строками:} 
     $$A =\begin{pmatrix}
@@ -331,9 +334,6 @@
       \vdots && \vdots && \null  \\
       0 && 0 && \null && \null  \\
     \end{pmatrix}$$ 
-
-    \newpage
-    %%%%%%%%
     Меняем 1-ю и $i$-ю строку местами и получаем, что $a_{ij}$ стал лидером первой строки. Считаем, что сразу $a_{1j} \neq 0$:
     $$A = \begin{pmatrix}
       0 && 0 && a_{ij} && * \\
@@ -528,7 +528,7 @@
     \begin{enumerate} 
       \item $V^2$ - Геометрические векторы на плоскости.
       \item $V^3$ - Геометрические векторы в пространстве.
-      \item $\R^n$ = $\{ {(a_1,...,a_n) | a_i \in \R} \}$ - арифметические векторы.
+      \item $\R^n$ = $\{ {(a_1,...,a_n) \ | \ a_i \in \R} \}$ - арифметические векторы.
     \end{enumerate}
     \tab[0.8cm]"$+$": $(a_1,...,a_n)$ + $(b_1,...,b_n)$ = $(a_1+b_1,...,a_n+b_n)$ \\
     \tab[0.8cm]"$\times$": $(a_1,...,a_n) \times \lambda$ = $(a_1\lambda,...,a_n\lambda)$ 
@@ -581,7 +581,7 @@
   \begin{example} \end{example}
     \begin{enumerate} 
       \item $V^3, U$ - множество всех векторов из $V^3$, параллельных фиксированной\\ плоскости.
-      \item $\R^n, U=\{(a_1,..., a_n) | a_{2i} = 0\}$ - векторное подпространство \\ $\widetilde{U} = \{(a_1,..., a_n) | a_{2i} = 1\}$ - не векторное подпространство, т.к. множество не замкнуто относительно сложения и умножения.
+      \item $\R^n, U=\{(a_1,..., a_n) \ | \ a_{2i} = 0\}$ - векторное подпространство \\ $\widetilde{U} = \{(a_1,..., a_n) \ | \ a_{2i} = 1\}$ - не векторное подпространство, т.к. множество не замкнуто относительно сложения и умножения.
       \item В любом векторном простанстве $V$ есть такие подпространства, состоящие только из нулевого вектора. (тривиальное или несобственное подпространство) (остальные называются собственными)
     \end{enumerate}
   
@@ -601,7 +601,7 @@
     Система векторов $v_1,...,v_n$ называется линейно зависимой (ЛЗ), если $\exists$ нетривиальная линейная комбинация равная 0, (т.е. $\exists \tab[0.1cm]\lambda_1,...,\lambda_n \in \R$ не все равные 0) такая, что $\lambda_1 x_1 + \cdots + \lambda_n x_n = 0$. Иначе система называется линейно независимой (ЛНЗ), т.е. из любого такого равенства $\lambda_1 x_1 + \cdots + \lambda_n x_n = 0 \\ \Longrightarrow (\lambda_1,...,\lambda_n) = 0$.
   \end{definition}
   \begin{example}
-    $V^2, v_1 = i + j, v_2 = 2i, v_3 = 3i$ -линейно зависимая система, т.к. $$1 \cdot (i + j) + (- \frac{1}{2}) \cdot (2i) + (-\frac{1}{3}) \cdot (3i) = 0$$ 
+    $V^2: \ v_1 = i + j, v_2 = 2i, v_3 = 3i$ - линейно зависимая система, т.к. $$1 \cdot (i + j) + (- \frac{1}{2}) \cdot (2i) + (-\frac{1}{3}) \cdot (3i) = 0$$ 
     $$1 \cdot v_1 + (-\frac{1}{2}) \cdot v_2 + (-\frac{1}{3}) \cdot v_3 = 0$$  
   \end{example}  
   \begin{properties} \end{properties} 
@@ -699,16 +699,16 @@
     $\lambda_1,...,\lambda_m \\ \Longrightarrow \lambda_1w_1+\cdots+\lambda_mw_m = 0$ - это нетривиальная ЛК \\ $\Longrightarrow w_1,...,w_m$ - ЛЗ. 
   \end{proof} 
   \subsection{Линейная оболочка множества S}
-  $V$ - векторное простанство над $\R$ \\
-  $S \subseteq V, S \neq \varnothing $ 
+  $V$ - векторное простанство над $\R$, \
+  $S \subseteq V, \ S \neq \varnothing $ 
   \begin{subtheorem}
     Множество всех ЛК $\lambda_1s_1+\cdots+\lambda_ks_k,\tab[0.1cm] \lambda_i \in \R,\tab[0.1cm] s_i \in S$ образует векторное подпространство в пространстве $V$. 
-  \end{subtheorem}  
+  \end{subtheorem}
   \begin{proof}
     Д/з. 
   \end{proof}
   \begin{definition}
-    Такое векторное подпространство называется линейной оболочкой множества $S$. \\
+    Такое векторное подпространство называется линейной оболочкой множества $S \subseteq V$. \\
     Обозначается: $\langle S \rangle$.
   \end{definition} 
   \begin{example} $\tab$ 
@@ -728,22 +728,22 @@
   \begin{example1}
     $\R^n = \langle (1,0,...,0),...,(0,...,0,1) \rangle$ 
   \end{example1}
-\begin{lemma} (Переформулировка ОЛЛЗ)
+\begin{lemma} \textbf{(Переформулировка ОЛЛЗ)} 
   Пусть векторное пространство $V$ пораждается $k$ векторами. Тогда любые $m>k$ векторов из $V$ - ЛЗ.
 \end{lemma} 
 \subsection{Базис}
-$V$- конечномерное векторное простанство над $\R$ 
-\begin{definition}\tab[-0.1cm]\textbf{1} 
+$V$- конечномерное векторное пространство над $\R$ 
+\begin{definitionnum}
   Система векторов $\{e_1,...,e_n\}\subseteq V$ называется базисом векторного пространства $V$, если:
   \begin{enumerate}
     \item $\{e_1,...,e_n\}$ - ЛНЗ
     \item $V = \langle e_1,...,e_n \rangle$, т.е. $\forall x \in V, \tab[0.1cm] \exists \tab[0.1cm] x_1,...,x_n \in \R: x = x_1e_1+\cdots + x_ne_n$  
   \end{enumerate}
   Эти числа $x_1,...,x_n$ - называются координатами вектора $x$ в базисе $\{e_1,...,e_n\}$ 
-\end{definition} 
-\begin{definition}\tab[-0.1cm]\textbf{2} 
+\end{definitionnum} 
+\begin{definitionnum}
   Система векторов $\{e_1,...,e_n\} \subseteq V$ называется базисом векторного простанства $V$, если любой вектор $x \in V$ выражается через $\{e_1,...,e_n\}$ единственным образом.
-\end{definition} 
+\end{definitionnum} 
   \begin{subtheorem}
     (\textbf{Опр 1}) $\Longleftrightarrow $ (\textbf{Опр 2})
   \end{subtheorem} 
@@ -756,7 +756,7 @@ $V$- конечномерное векторное простанство над
   \begin{proof}
     Пусть $S$ - какое-то порождающее множество векторного пространства $V$. \\
     Если $S$ - ЛНЗ, то $S$ - базис \\
-    Если $S$ - ЛЗ, то по критерию о ЛЗ один из векторов $S_1$ множества $S$ линейно выражается через остальные. \\
+    Если $S$ - ЛЗ, то по критерию о ЛЗ один из векторов $s_1$ множества $S$ линейно выражается через остальные. \\
     Тогда $S_1$ = $S\setminus\{s_1\}$ - конечное порождащее множество. ч.т.д. \\
     Т.к. $S$ - конечное,то этот процесс прервется и мы получим ЛНЗ порожденную систему.
   \end{proof} 
@@ -780,8 +780,10 @@ $V$- конечномерное векторное простанство над
   \begin{remark}
     Если $V={0}$, то $\dim V = 0$ (базис систоит из $\varnothing$ ) 
   \end{remark} 
-   Пусть $V$- векторное пространство над $\R$, $\dim V=n,\tab[0.1cm] S\subseteq V$ Любые $m>n$ векторов в $S$ - ЛЗ. (из ОЛЛЗ) \\
-   $\Longrightarrow $ в $S \ \exists $ максимальная ЛНЗ подсистема (т.е. ничего нельзя добавить к этой подсистеме без нарушения ЛНЗ) 
+   \begin{subtheorem}
+    Пусть $V$- векторное пространство над $\R$, $\dim V=n,\tab[0.1cm] S\subseteq V$ Любые $m>n$ векторов из $S$ - ЛЗ. (по ОЛЛЗ) \\
+   $\Longrightarrow $ в $S \ \exists $ максимальная ЛНЗ подсистема (т.е. ничего нельзя добавить к этой подсистеме без нарушения ЛНЗ)
+   \end{subtheorem}  
   \begin{lemmanum} \label{lem6}
     Пусть $V$ - n-мерное векторное пространство над $\R,\tab[0.1cm] S\subseteq V$. Тогда максимальная ЛНЗ система векторов из $S$ образует базис в лин. оболочке $\langle S \rangle$  
   \end{lemmanum} 
@@ -793,8 +795,8 @@ $V$- конечномерное векторное простанство над
       \item ЛНЗ (очевидно)
       \item $\forall x \in \langle S \rangle\tab[-0.1cm]: x = x_1s_1+\cdots+x_ks_k$ 
     \end{enumerate}
-    По определению линейной оболочки $x$ линейно выражается через вектора из $S$ \\
-    А каждый вектор из $S$ линейно выражается через $\{s_1,...,s_k\}$ 
+    По определению линейной оболочки $x$ линейно выражается через вектора из $S$. \\
+    А каждый вектор из $S$ линейно выражается через $\{s_1,...,s_k\}$. 
   \end{proof}
   \begin{theorem}
     Пусть $V$ конечномерное векторное пространство над $\R$, тогда:
@@ -805,11 +807,11 @@ $V$- конечномерное векторное простанство над
   \end{theorem}  
   \begin{proof} $\tab$ 
     \begin{enumerate}
-      \item По лемме \eqref{lem6}. $S=V$ 
+      \item По лемме \eqref{lem6}. $ \langle S \rangle=V$ 
       \item Пусть $S$ - ЛНЗ система векторов из $V$ 
     \end{enumerate}
-    Если $V=\langle S \rangle$, тогда $S$- базис. \\
-    Если $V \neq \langle S \rangle$ , то $\exists s_1 \in V \setminus \langle S \rangle$ \\
+    Если $V=\langle S \rangle$, тогда $S$ - базис. \\
+    Если $V \neq \langle S \rangle$ , то $\exists \ s_1 \in V \setminus \langle S \rangle$ \\
     $\Longrightarrow s_1$ линейно не выражается через $S$ $\Longrightarrow \text{(По лемме \ref{lem2}.) } S_1=S \cup \{s_1\}$ - ЛНЗ. \\
     $\Longrightarrow $ Если $V = \langle S_1 \rangle$, то $S_1$ базис, иначе $\exists s_2 \in V \setminus \langle S_1 \rangle$, и т.д. \\
     Этот процесс прервется на конечном шаге, т.к. пространство $V$- конечное. (Если $\dim V \neq n, \text{то} \not \exists$ ЛНЗ системы с числом векторов $> n$) 
@@ -822,10 +824,12 @@ $V$- конечномерное векторное простанство над
     \end{enumerate}
   \end{consequense} 
   
+  \newpage
+  %%%%%%%%
   \section{Ранг}
   \subsection{Ранг системы векторного простанства}
   \begin{definition}
-    Рангом системы векторов $S$, назовем $\\dim \langle S \rangle$, т.е. число векторов в максимальной ЛНЗ системе из $S$.  
+    Рангом системы векторов $S$, назовем $\dim \langle S \rangle$, т.е. число векторов в максимальной ЛНЗ системе из $S$.  
   \end{definition} 
   $A$ - матрица $m \times n$ \\ $\\$
   \includegraphics[width=15cm]{image/lecture-2.pdf}
@@ -837,7 +841,7 @@ $V$- конечномерное векторное простанство над
     Ранг системы векторов $\{s_1,...,s_n\}$ называется $\dim \langle s_1,...,s_n \rangle$.
   \end{definition} 
   \begin{definition}
-    Рангом матрицы $A \ m\times n$ называется ранг системы её строк. $$\includegraphics[width=4cm]{image/lecture-3.png}$$
+    Рангом матрицы $A$ размера $m\times n$ называется ранг системы её строк. $$\includegraphics[width=4cm]{image/lecture-3.png}$$
   \end{definition} 
   \begin{definition}
     Две системы векторов $\{v_1,...,v_n\}$, $\{w_1,...,w_n\}$ называются эквивалентными, если каждый вектор $v_i$ линейно выражается через $\{w_1,...,w_n\}$, а $w_i$ через $\{v_1,...,v_n\}$. \\
@@ -873,7 +877,7 @@ $V$- конечномерное векторное простанство над
   \end{offernum}
   \begin{proof} 
     $$A \overset{\text{ЭП строк}}{\longmapsto}\widetilde{A}$$ \vspace{0.35cm} 
-    Пусть $A = (a_{ij}) = (\underbrace{A_1,...,A_n}_{\text{столбцы }A})$, $\widetilde{A} = (\widetilde{a_{ij}}) = (\underbrace{\widetilde{A_1},...,\widetilde{A_n}}_{\text{столбцы }\widetilde{A}})$. \vspace{0.3cm} \\
+    Пусть $A = (a_{ij}) = (\underbrace{A_1,...,A_n}_{\text{столбцы }A})$, \ $\widetilde{A} = (\widetilde{a_{ij}}) = (\underbrace{\widetilde{A_1},...,\widetilde{A_n}}_{\text{столбцы }\widetilde{A}})$. \vspace{0.3cm} \\
     Докажем, что если для некоторых чисел $\lambda_1,...,\lambda_n \in \R$ выполнено:\\ $\lambda_{1}A_1 + \cdots + \lambda_nA_n = 0$, то для этих же чисел  $\lambda_1 \widetilde{A_1} + \cdots + \lambda_n \widetilde{A_n} = 0$ 
     (Верно и обратное, т.к. ЭП обратимы, т.е. если для каких-то чисел $\lambda_i \in \R: \sum \lambda_i \widetilde{A_1} = 0$, то $\sum \lambda_i A_i = 0$). \\
     Дано: $\lambda_1A_1 + \cdots + \lambda_nA_n = \begin{pmatrix}
@@ -926,8 +930,12 @@ $V$- конечномерное векторное простанство над
       \null && \ddots && \null\\
       0 && \null && a_{si_s}
     \end{pmatrix}$$
-    Очев, что у такой матрицы ранг системы строк = рангу системы столбцов.
-  \end{proof} 
+    Очевидно, что у такой матрицы ранг системы строк = рангу системы столбцов.
+  \end{proof}
+  
+  \newpage
+  %%%%%%%%
+  
   \section{Возвращаемся к системе линейных уравнений}
   $\begin{cases}
     a_{11}x_1 + ... + a_{1n}x_n = b_1 \\ 
@@ -942,13 +950,13 @@ $V$- конечномерное векторное простанство над
       \item (Критерий существования нетривиального решения у однородной СЛУ) \\ ОСЛУ $AX = 0$ имеет нетривиальное решение $\Longleftrightarrow rkA<n$ 
     \end{enumerate}
   \end{theorem}
-  \textbf{Однородная СЛУ} \\  
-  $\begin{cases}
+  \textbf{Однородная СЛУ}: 
+  $$\begin{cases}
     a_{11}x_1 + ... + a_{1n}x_n = 0 \\ 
     a_{21}x_1 + ... + a_{2n}x_n = 0 \\
     \vdots \\
     a_{m1}x_1 + ... + a_{mn}x_n = 0
-  \end{cases} (AX = 0)$
+  \end{cases} (AX = 0)$$
   \begin{subtheorem}
     ОСЛУ всегда совместна, т.к. есть тривиальное решение.
   \end{subtheorem} 
@@ -995,7 +1003,7 @@ $V$- конечномерное векторное простанство над
     Любой базис пространства решений ОСЛУ называется \\ Фундаментальной Системой Решений ОСЛУ (ФСР).
   \end{definition} 
   \begin{proof}
-    (Теоремы 2.) \\ Решение СЛУ методом Гаусса: приводим её к ступенчатому виду (число ступенек $r=rkA$), главные неизвестные выражаем через свободные. 
+    \textbf{(Теоремы 2.)}  \\ Решение СЛУ методом Гаусса: приводим её к ступенчатому виду (число ступенек $r=rkA$), главные неизвестные выражаем через свободные. 
     $$\begin{cases}
       x_1=c_{1,1}x_{r+1} + \cdots + c_{1,n-r}x_n \\
       \vdots\\
@@ -1147,9 +1155,14 @@ $V$- конечномерное векторное простанство над
     Общее решение ОСЛУ имеет вид: $$X = \mu_1F_1 + \cdots + \mu_sF_s$$где $F_1,...,F_s$ - ФСР ОСЛУ, $s = n - rkA$  \\
     Общее решение неоднородной СЛУ: $$X = X_0 + \mu_1F_1 + \cdots + \mu_sF_s$$ $X_0$ - частное решение неоднородной СЛУ
   \end{remark} 
+
+  \newpage
+  %%%%%%%%
+  
   \section{Операции над матрицами}
   $Mat_{m \times n}(\R)$ - множество всех матриц размера $m \times n$ с коэффициентами из $\R$ \\
-  $A, B \in Mat_{m \times n}(\R), \ A=(a_{ij}), \ B=(b_{ij})$ 
+  $A, B \in Mat_{m \times n}(\R), \ A=(a_{ij}), \ B=(b_{ij})$ \vspace{0.5cm}\\
+  \textbf{Операции над матрицами:} 
   \begin{enumerate}
     \item Сложение матриц \\
     Суммой матриц $A$ и $B$ называется матрица $C=(c_{ij})$ размера $m \times n$, у которой $c_{ij} = a_{ij} + b_{ij}$. Обозначается: $C = A + B$
@@ -1167,10 +1180,10 @@ $V$- конечномерное векторное простанство над
         т.к. сложение вещественных чисел из $\R$ - коммутативно, то $c_{ij} = \widetilde{c_{ij}} \Longrightarrow C = \widetilde{C}$ \\
         $\Longrightarrow A + B = B + A$
         \begin{Exercise} Аналогично доказать 2), 5)-8)\end{Exercise}
-        \item[3)] $\exists 0 \in Mat_{m \times n}(\R)$
+        \item[3)] $\exists \ 0 \in Mat_{m \times n}(\R)$
         $\forall A \in Mat_{m \times n}(\R): 0 + A = A$ \\
         В качестве 0 берем нулевую матрицу размера $m \times n$
-        \item[4)] $\forall A \in Mat_{m \times n}(\R) \ \exists B \in Mat_{m \times n}(\R): A+B=0$ \\В качестве $B$ берем $b_{ij} = -a_{ij}$ 
+        \item[4)] $\forall A \in Mat_{m \times n}(\R) \ \exists \ B \in Mat_{m \times n}(\R): A+B=0$ \\В качестве $B$ берем $b_{ij} = -a_{ij}$ 
       \end{itemize}
     \end{proof} 
     \begin{subtheorem}
@@ -1224,14 +1237,17 @@ $V$- конечномерное векторное простанство над
     \end{remark} 
   \end{enumerate}
   \begin{example}\end{example}
-    \begin{enumerate}
+  \begin{enumerate}
       \item Проекция \\
       $\phi: V^3 \to V^2, \phi: x_1i+x_2j+x_3k \to x_1i+x_2j$ 
       $$\includegraphics[width=6cm]{image/lecture-8.pdf}$$
       \item Поворот\\
       $\phi: V^2 \to V^2$ Поворот на угол $\alpha$ вокруг точки $O$ 
       $$\includegraphics[width=3.5cm]{image/lecture-9.pdf}$$
-    \end{enumerate}
+  \end{enumerate}
+  
+  \newpage
+    %%%%%%%%
     
   \section{Линейные отображения}
   \subsection{Изоморфизм}
@@ -1244,7 +1260,8 @@ $V$- конечномерное векторное простанство над
       \item $\forall \lambda \in \R \ \forall a \in V: \ \phi(\lambda a) = \lambda \phi(a)$
       \item $\phi$ является биекцией. 
     \end{enumerate}
-    При этом $V, W$ называются изоморфными. Обозначается $V \cong W$ 
+    При этом $V, W$ называются изоморфными.\\ 
+    Обозначается: $V \cong W$ 
   \end{definition} 
   \begin{subtheorem}
     Любое векторное  пространство над $\R$ размерности $n$ изоморфно $\R^n$. 
@@ -1277,8 +1294,8 @@ $V$- конечномерное векторное простанство над
   \begin{definition}
     Отображение $\phi: V \to W$ называется линейным, если
     \begin{enumerate}
-      \item $\forall a,b \in V \tab[0.3cm] \phi(a+b) = \phi(a) + \phi(b)$
-      \item $\forall \lambda \in \R, \forall a \in V \tab[0.3cm] \phi(\lambda a) = \lambda \phi(a)$  
+      \item $\forall a,b \in V: \ \phi(a+b) = \phi(a) + \phi(b)$
+      \item $\forall \lambda \in \R, \forall a \in V: \  \phi(\lambda a) = \lambda \phi(a)$  
     \end{enumerate}
     
   \end{definition} 
@@ -1289,7 +1306,7 @@ $V$- конечномерное векторное простанство над
 
   \begin{proof} \tab
     \begin{enumerate}
-      \item Пусть $\phi: V \to W$ - линейное отображение такое, что \\$\phi(e_i) = w_i \tab[0.2cm] \forall i = \overline{1,n}$. Тогда образ вектора $x$ определяется однозначно по формуле: $$\phi(x) = \phi(x_1e_1 + \cdots + x_ne_n) = x_1 \phi(e_1) + \cdots + x_n \phi(e_n) = x_1 w_1 + \cdots + x_n w_n$$ где $x=x_1e_1 + \cdots + x_ne_n$ \\
+      \item Пусть $\phi: V \to W$ - линейное отображение такое, что \\$\phi(e_i) = w_i \tab[0.2cm] \forall i = \overline{1,n}$. Тогда образ вектора $x$ определяется однозначно по формуле: $$\phi(x) = \phi(x_1e_1 + \cdots + x_ne_n) = x_1 \phi(e_1) + \cdots + x_n \phi(e_n) = x_1 w_1 + \cdots + x_n w_n$$
       $\Longrightarrow$ линейное отображение определяется однозначно.
       \item Докажем, что $\exists$ линейное отображение, которое переводит $e_i$ в $w_i$. Отображение зададим формулой: $$\phi: x = x_1e_1 + \cdots + x_ne_n \to x_1w_1 + \cdots + x_nw_n$$
       $$\phi(a+b) = \phi((a_1+b_1)e_1 + \cdots + (a_n + b_n)e_n) = (a_1+b_1)w_1 + \cdots + (a_n + b_n)w_n$$
@@ -1414,7 +1431,7 @@ $V$- конечномерное векторное простанство над
     \begin{proof}
     $\underset{m \times k}{A} , \tab[0.1cm]\underset{k \times n}{B} , \tab[0.1cm]\underset{n \times l}{C}$ $\vspace{0.1cm}$
 
-    Пусть $\underset{m \times l}{D} = A(BC), \tab[0.1cm]\underset{m \times l}{\widetilde{D}} = (AB)C$. 
+    Пусть $\underset{m \times l}{D} = A(BC), \tab[0.1cm]\underset{m \times l}{\widetilde{D}} = (AB)C$.\\
     Надо проверить, что $\forall i,j: [D]_{ij} = [\widetilde{D}]_{ij}$. 
     $$[D]_{ij} = [A(BC)]_{ij} = \sum \limits_{s=1}^k[A]_{is} \cdot [BC]_{si} = \sum \limits_{s=1}^k[A]_{is}(\sum \limits_{t=1}^n[B]_{st} \cdot [C]_{ti}) = $$ $$  = \sum \limits_{s=1}^k \sum \limits_{t=1}^n[A]_{ij}([B]_{st} \cdot [C]_{ti})$$ 
     $$[\widetilde{D}]_{ij} = [(AB)C]_{ij} = \sum \limits_{t=1}^n[AB]_{it}[C]_{tj} = \sum \limits_{t=1}^n (\sum \limits_{s=1}^k[A]_{is} \cdot [B]_{st})[C]_{tj} = $$
@@ -1462,7 +1479,7 @@ $V$- конечномерное векторное простанство над
   \begin{proof} \tab
     \begin{enumerate} 
       \item Следует из того, что ранг системы строк = рангу системы столбцов, и из определения ранга матрицы.
-      \item Очев. 
+      \item Очевидно. 
       \item Пусть $\overline{a_1},...,\overline{a_m}$ - строки матрицы $A$. $\overline{b_1},..,\overline{b_m}$  - строки матрицы $B$. \\
       $\overline{a_1} + \overline{b_1} ,..., \overline{a_m} + \overline{b_m}$ - строки матрицы $A+B$. 
       $$rkA = \dim \langle \overline{a_1},...,\overline{a_m} \rangle, \ rkB = \dim \langle \overline{b_1},...,\overline{b_m} \rangle$$   
@@ -1493,7 +1510,11 @@ $V$- конечномерное векторное простанство над
       Докажем, что $rkAB \leq rkB$.
       $$rk(AB) = rk(AB)^T = rk(B^TA^T) \leq rkB^T = rkB$$ 
     \end{enumerate}
-  \end{proof} 
+  \end{proof}
+
+  \newpage
+  %%%%%%%%
+  
   \section{Перестановки}
   \begin{definition}
     Упорядоченная последовательность $(k_1,...,k_n)$ чисел $1,2,...,n$, расположенных в некотором порядке, называется перестановкой из $n $ элементов. 
@@ -1510,7 +1531,7 @@ $V$- конечномерное векторное простанство над
   \end{definition} 
   \begin{definition}
     Перестановка называется четной (нечетной), если число инверсий в ней четное (нечетное).\\
-    Знак переставки - $\textrm{sgn}(k_1,...,k_n) = (-1)^s$, где $s$ - число инверсий в перестановке. 
+    Знак переставки $\to \textrm{sgn}(k_1,...,k_n) = (-1)^s$, где $s$ - число инверсий в перестановке. 
   \end{definition} 
   \begin{definition}
     Перемена двух элементов в перестановке называется транспозицией этих элементов.
@@ -1545,10 +1566,13 @@ $V$- конечномерное векторное простанство над
     Пусть выбрали $k_1 \Longrightarrow$ для  $k_2$ вариантов - $n-1$ и т.д. Получаем всего вариантов: $n\cdot(n-1)\cdot ... \cdot 1 = n! $ 
   \end{proof} 
 
+  \newpage
+  %%%%%%%%
+  
   \section{Определители n-го порядка}
   \begin{definition}
     Определителем квадратной матрицы $\underset{n \times n}{A}=(a_{ij})$ порядка $n$ называется число, которое вычисляется по формуле:
-    $$|A|=\det{A}=\sum\limits_{(k_1,\dots,k_n)}\textrm{sgn}(k_1,\dots,k_n)a_{1k_1}a_{2k_2}\dots a_{1k_n}$$
+    $$|A|=\det{A}=\sum\limits_{(k_1,\dots,k_n)}\textrm{sgn}(k_1,\dots,k_n)a_{1k_1}a_{2k_2}\dots a_{nk_n}$$
     Где $\sum\limits_{(k_1,\dots,k_n)}$ - сумма по всем перестановкам из $n$ элементов. Эта формула называется формулой полного разложения или полного развертывания определителя.
   \end{definition}
   \begin{example1}
@@ -1565,7 +1589,7 @@ $V$- конечномерное векторное простанство над
   \end{pmatrix}$$
   Пусть $\overline{a_1}, \overline{a_2}, \dots \overline{a_n}$ - строки матрицы $A$. Тогда определитель можно рассматривать как функцию от строк $\det{A}=\det{(\overline{a_1},\overline{a_2},\dots \overline{a_n})}$
   \begin{definition}
-    Функция $f(v_1,\dots, v_n)$, которая векторам $v_1,\dots, v_n$ в вектроном простанстве $V$ над $\R$ ставит в соответствие число из $\R$, то есть $f:V\times\dots\times V\to \R$
+    Функция $f(v_1,\dots, v_n)$, которая векторам $v_1,\dots, v_n$ в вектроном простанстве $V$ над $\R$ ставит в соответствие число из $\R$, то есть: $$f:V\times\dots\times V\to \R$$
     называется полилинейной, если она линейна по каждому аргументу, т.е. для каждого $i=\overline{1,n}$ выполнено:
     \begin{enumerate}
       \item $f(v_1,\dots, v_i+\widetilde{v_i},\dots, v_n)=f(v_1,\dots, v_i,\dots, v_n)+f(v_1,\dots, \widetilde{v_i},\dots, v_n),\\ \forall v_i, \widetilde{v_i}\in V$.
@@ -1653,12 +1677,12 @@ $V$- конечномерное векторное простанство над
   \end{definition} 
   Можно проследить, как влияют ЭП на определитель:
   \begin{itemize}
-    \item ЭП1 = $\overline{a_i} \to \overline{a_i} + \lambda \overline{a_j}$ \tab[0.3cm] $det$ не изменится. 
-    \item ЭП2 $\overline{a_i} \to \overline{a_j}$ \tab[2.15cm] $det$ умножается на -1. 
-    \item ЭП3 $\overline{a_i} \to \mu \overline{a_i}, \mu \not = 0$ \tab[0.45cm] $det$ умножится на $\mu$. 
+    \item ЭП1: \ $\overline{a_i} \to \overline{a_i} + \lambda \overline{a_j}$ \tab[0.87cm] $\det$ не изменится. 
+    \item ЭП2: \ $\overline{a_i} \leftrightarrow  \overline{a_j}$ \tab[2.15cm] $\det$ умножается на -1. 
+    \item ЭП3: \ $\overline{a_i} \to \mu \overline{a_i}, \mu \not = 0$ \tab[0.45cm] $\det$ умножится на $\mu$. 
   \end{itemize}
   \begin{subtheorem}
-    Определитель верхней треугольной матрицы равен произведению диагональных элементов.
+    Определитель верхнетреугольной матрицы равен произведению диагональных элементов.
   \end{subtheorem} 
   \begin{proof}
     $\begin{vmatrix}
@@ -1666,8 +1690,8 @@ $V$- конечномерное векторное простанство над
       0 & a_{22} & \cdots & a_{2n} \\
       \null & \null & \ddots & \null \\
       0 & 0 & \cdots & a_{nn} 
-    \end{vmatrix} = a_{11}\cdot a_{22}\cdot...\cdot a_{nn}$ \\
-    Рассмотрим любую не тождественную перестановку $(k_1,...,k_n)$, где $k_i \not = i$. Тогда найдется такой множитель $(i>j) \ a_{ij} = 0,  \Longrightarrow $ это слагаемое обнулится. $\Longrightarrow $ Во всей сумме останется только тождественная перестановка. 
+    \end{vmatrix} = a_{11}\cdot a_{22}\cdot...\cdot a_{nn}$ \vspace{0.5cm}\\
+    Рассмотрим любую не тождественную перестановку $(k_1,...,k_n)$, где $k_i \not = i$. Тогда найдется такой множитель $(i>j) \ a_{ij} = 0  \Longrightarrow $ это слагаемое обнулится. $\Longrightarrow $ Во всей сумме останется только тождественная перестановка. 
   \end{proof} 
 
   \begin{theoremnum}
@@ -1696,7 +1720,7 @@ $V$- конечномерное векторное простанство над
 
   \subsection{Элементарные матрицы}
   \begin{definition}
-    Матрица, полученная из единичной матрицы $E$, с помощью одного элементарного преобразования над строками или столбцами, называется элементарной матрицей. \\
+    Матрица $T$ , полученная из единичной матрицы $E$, с помощью одного элементарного преобразования над строками или столбцами, называется элементарной матрицей. \\
     ЭП1: \ $\overline{a_i} \to \overline{a_i} + \lambda \overline{a_j}, \ \ i \not = j$
     $$\includegraphics[width=12cm]{image/lecture-11.pdf}$$
     ЭП2: $\overline{a_i} \leftrightarrow  \overline{a_j}, \ \ i \not = j$ \tab[2.5cm] ЭП3: $\overline{a_i} \leftrightarrow \mu \overline{a_i}, \ \ \mu \not = 0$ \\
@@ -1707,7 +1731,7 @@ $V$- конечномерное векторное простанство над
   \begin{lemmanum2}  \label{lemma1} \tab 
     \begin{itemize}
       \item[\textbf{1.1}] Любые ЭП над строками матрицы $A$ равносильны умножению матрицы $A$ слева на элементарную матрицу, т.е. \\
-      $A \leadsto  \widetilde{A} \Longleftrightarrow \widetilde{A} = T \cdot A$ где $T$ - элементарная матрица, такая что $E \leadsto  T$
+      $A \leadsto  \widetilde{A} \Longleftrightarrow \widetilde{A} = T \cdot A$, где $T$ - элементарная матрица, такая что $E \leadsto  T$
       \item[\textbf{1.2}] Любые ЭП над столбцами матрицы $A$ равносильны умножению матрицы $A$ справа на элементарную матрицу.
     \end{itemize}
   \end{lemmanum2} 
@@ -1806,7 +1830,6 @@ $V$- конечномерное векторное простанство над
     Обозначение: 
     $A \begin{matrix}
       i_1 & \cdots & i_k \\
-      \vdots & \null & \vdots \\
       j_1 & \cdots & j_t
     \end{matrix}$ 
   \end{definition}  
@@ -1903,7 +1926,7 @@ $V$- конечномерное векторное простанство над
       x_1^2 & x_2^2 & x_3^2 & ... & x_n^2 \\
       \vdots & \vdots & \vdots & ... & \vdots \\
       x_1^{n-1} & x_2^{n-1} & x_3^{n-1} & ... & x_n^{n-1}
-    \end{vmatrix} = \prod\limits_{1\leq i < j \leq n} (x_i - x_j)$$  
+    \end{vmatrix} = \prod\limits_{1\leq i < j \leq n} (x_j - x_i)$$  
   \end{definition}
   
 
@@ -1934,16 +1957,16 @@ $V$- конечномерное векторное простанство над
     \end{vmatrix} =
   \end{multline*}
   \begin{multline*}
-    = \prod\limits_{i=2}^{n}(x_i - x_1) \begin{vmatrix}
+    = \prod\limits_{j=2}^{n}(x_j - x_1) \begin{vmatrix}
       1 & 1 & ... & 1\\
       x_2 & x_3 & ... & x_n\\
       \vdots & \vdots & ... & \vdots \\
       x_2^{n-2} & x_3^{n-2} & ... & x_n^{n-2}
       \end{vmatrix} = \\
-      = \prod\limits_{i=2}^{n}(x_i - x_1)\prod\limits_{2\leq i \leq j \leq n} (x_i - x_j) = \prod\limits_{1\leq i \leq j \leq n} (x_i - x_j)
+      = \prod\limits_{j=2}^{n}(x_j - x_1)\prod\limits_{2\leq i < j \leq n} (x_j - x_i) = \prod\limits_{1\leq i < j \leq n} (x_j - x_i)
   \end{multline*}
-  (1) Из каждой строки, начиная с последней, вычитаем предыдущую умноженную на $x_1$ \\
-  (2) По теореме об определителе с уголом нулей \\
+  (1) Из каждой строки, начиная с последней, вычитаем предыдущую, умноженную на $x_1$ \\
+  (2) По теореме об определителе с углом нулей \\
   (3) Выносим $(x_j - x_1)$ 
   \begin{consequense}
     (О фальшивом разложении определителя) \\
@@ -2003,30 +2026,27 @@ $V$- конечномерное векторное простанство над
     Пусть $rkA = r$ 
     \begin{itemize}
       \item Докажем, что все миноры порядка $s$, где $s>r$ равны нулю. \\
-      Рассмотрим произвольный минор $M$ порядка $s$: $$M = det\begin{matrix}
+      Рассмотрим произвольный минор $M$ порядка $s$: $$M = det \ A \begin{matrix}
         i_1 & \cdots & i_s \\
-        \vdots & \null & \vdots \\
         j_1 & \cdots & j_s
       \end{matrix}$$ 
       т.к. $s>r$, то строки матрицы $A$ с номерами $i_1,...,i_s$ ЛЗ $\Longrightarrow $ строки, образующие минор, ЛЗ $\Longrightarrow M=0$ 
       \item Докажем, что $\exists$ хотя бы один ненулевой минор $\widetilde{M}$ порядка $r$. \\
       Т.к. $rkA = r$, то $\exists \ r$ ЛНЗ строк $\Longrightarrow rkB = r $ (где $B$  - матрица с $r$  ЛНЗ строк и все столбцы) $ \Longrightarrow $ в $B \ \exists \ r $ ЛНЗ столбцов. Сформируем матрицу $C$ из этих столбцов $\Longrightarrow detC \not = 0$ \\
-      $detC$ - это и есть искомый минор $\widetilde{M}$     
+      $det \ C$ - это и есть искомый минор $\widetilde{M}$     
     \end{itemize}
   \end{proof} 
   \begin{definition}
-     Пусть $M = detA \ \begin{matrix}
+     Пусть $M = det \ A \ \begin{matrix}
       i_1 & \cdots & i_s \\
-      \vdots & \null & \vdots \\
       j_1 & \cdots & j_s
     \end{matrix}$ - минор порядка $s$ \\
     $i \not \in \{i_1,..,i_s\}, \ j \not \in \{j_1,..,j_s\}$ \vspace{0.3cm}\\
-    $\widetilde{M} = detA \ \begin{matrix}
-      i_1 & \cdots & i_s & i \\
-      \vdots & \null & \null & \vdots \\
-      j_1 & \cdots & j_s & j
+    $\widetilde{M} = det\ A \ \begin{matrix}
+      i_1 & \cdots & i_s \ i \\
+      j_1 & \cdots & j_s \ j
     \end{matrix}$ - минор порядка  $s+1$ \\
-    $\widetilde{M}$ - окаймляющий минор.  
+    $\widetilde{M}$ - окаймляющий минор минора $M$.  
   \end{definition} 
   \begin{example1}
     $$A = \begin{pmatrix}
@@ -2035,13 +2055,13 @@ $V$- конечномерное векторное простанство над
       9 & 1 & 3 & 5 \\
       1 & -1 & 0 & 7
     \end{pmatrix}$$ 
-    $M = detA \ \begin{matrix}
-      1 & 3 \\ 2 & 4
+    $M = det \ A \ \begin{matrix}
+      1\ 3 \\ 2 \ 4
     \end{matrix} = \begin{vmatrix}
       2 & 4 \\ 1 & 5
     \end{vmatrix} = 6$ \vspace{0.3cm}\\
-    $\widetilde{M} = detA \ \begin{matrix}
-      1 & 2 & 3 \\ 2 & 3 & 4
+    $\widetilde{M} = det \ A \ \begin{matrix}
+      1 \ 2 \ 3 \\ 2 \ 3 \ 4
     \end{matrix} = \begin{vmatrix}
       2 & 3 & 4 \\ 6 & 7 & 8 \\ 1 & 3 & 5
     \end{vmatrix} = 0$  
@@ -2057,21 +2077,20 @@ $V$- конечномерное векторное простанство над
   \tab[1.3cm]$...$ \tab[4cm] $...$
   \begin{subtheorem}
     Пусть $A = (a_{ij})$ - матрица размера $m \times n$, $\ \exists \ $ минор $M$ порядка $r$, отличный от нуля, и все миноры, окаймляющие его, равны нулю. \\
-    Тогда $rkA = r$   
+    Тогда $rkA = r$.
   \end{subtheorem} 
   \begin{proof}
-    Пусть $M = detA \ \begin{matrix}
+    Пусть $M = det \ A \ \begin{matrix}
       i_1 & \cdots & i_r \\
-      \vdots & \null & \vdots \\
       j_1 & \cdots & j_r
     \end{matrix}$. \vspace{0.3cm} Т.к. $M \not = 0$, то строки матрицы $A$ с номерами $i_1,...,i_r$ ЛНЗ $\Longrightarrow rkA \geq r$ \\
-    Предположим, что $rkA \geq r+1$. Т.е. $\ \exists \ $ ЛНЗ строка (или больше). Рассмотрим строки $\overline{a_{i_1}},...,\overline{a_{i_r}}$, которые формируют минор $M$. Они ЛНЗ. \\
-    Т.к. $rkA \geq r+1$, то $\ \exists \ i \not \in \{i_1,...,i_r\}: $ не выражаются линейно через \\ $\overline{a_{i_1}},...,\overline{a_{i_r}} \Longrightarrow \overline{a_{i_1}},...,\overline{a_{i_r}}$ - ЛНЗ. \\
+    Предположим, что $rkA \geq r+1$. Рассмотрим строки $\overline{a_{i_1}},...,\overline{a_{i_r}}$, которые формируют минор $M$. Они ЛНЗ. \\
+    Т.к. $rkA \geq r+1$, то $\ \exists \ i \not \in \{i_1,...,i_r\}: \overline{a_i}$ не выражается линейно через \\ $\overline{a_{i_1}},...,\overline{a_{i_r}} \Longrightarrow \overline{a_{i_1}},...,\overline{a_{i_r}}, \overline{a_i}$ - ЛНЗ. \\
     Образуем из этих строк матрицу $B \Longrightarrow rkB = r+1 \Longrightarrow \ \exists \ r+1$ ЛНЗ столбец. \\
     Столбцы с номерами $j_1,...,j_r$ ЛНЗ, т.к. $M \not = 0$ \\
     Т.к. $rkB = r+1$, то $\ \exists \ j \not \in \{j_1,...,j_r\}$: столбец с номером $j$ не выражается через столбцы с номерами $j_1,...,j_r$ \\
-    Расмотрим подматрицу $C$ матрицы $B$, составленную из столбцов с номерами $j_1,...,j_r,j \Longrightarrow C-$ квадратная матрица порядка $r+1$ из ЛНЗ столбцов $\Longrightarrow detC \not = 0$\\
-    $\Longrightarrow $ т.к. $det C $ является окаймляющим минора $M$, то получаем противоречие условию $\Longrightarrow rkA = r$.    
+    Расмотрим подматрицу $C$ матрицы $B$, составленную из столбцов с номерами $j_1,...,j_r,j \Longrightarrow C-$ квадратная матрица порядка $r+1$ из ЛНЗ столбцов $\Longrightarrow det \ C \not = 0$\\
+    $\Longrightarrow $ т.к. $det \ C $ является окаймляющим минором минора $M$, получаем противоречие условию $\Longrightarrow rkA = r$.    
   \end{proof} 
   \subsection{Правила Крамера СЛУ}
   $\begin{cases}
@@ -2098,15 +2117,15 @@ $V$- конечномерное векторное простанство над
       \vdots \\
       x_n = \widetilde{b_n}
     \end{cases}$$
-    $$\frac{\vartriangle_i}{\vartriangle } = \frac{det(A_1,...,B,...,A_n)}{det(A_1,...,A_k,...A_n)} = \frac{det(E_1,...,\widetilde{B},...,E_n)}{det(E_1,...,E_k,...E_n)} = \frac{\widetilde{b_i}}{1} = \widetilde{b_i}$$  
+    $$\frac{\vartriangle_i}{\vartriangle } = \frac{det(A_1,...,B,...,A_n)}{det(A_1,...,A_i,...A_n)} = \frac{det(E_1,...,\widetilde{B},...,E_n)}{det(E_1,...,E_i,...E_n)} = \frac{\widetilde{b_i}}{1} = \widetilde{b_i}$$  
   \end{proof} 
   \subsection{Обратная матрица}
   Пусть $A$ - квадратная матрица порядка $n$ 
   \begin{definition}
     Матрица $B$ - называется обратной матрицей к $A$, если:
     $$\begin{cases}
-      A * B = E \\
-      B * A = E
+      A \cdot B = E \\
+      B \cdot A = E
     \end{cases}$$
     Обозначается $A^{-1}$ 
   \end{definition} 
@@ -2129,9 +2148,9 @@ $V$- конечномерное векторное простанство над
   \end{properties}
   \begin{proof}
     Докажем, что $B^{-1} A^{-1} $ удовлетворяет определению обратной матрицы для $AB$ 
-    $$(A|B)(B^{-1}|A^{-1}) = A(BB^{-1})A^{-1} = AEA^{-1} = AA^{-1} = E$$
-    $$(B^{-1}|A^{-1})(A|B) = B^{-1}(A^{-1}A)B = B^{-1}EB = B^{-1}B=E$$  
-    $$\Longrightarrow (A|B)(B^{-1}|A^{-1}) = (B^{-1}|A^{-1})(A|B)$$ 
+    $$(A\cdot B)(B^{-1}\cdot A^{-1}) = A(BB^{-1})A^{-1} = AEA^{-1} = AA^{-1} = E$$
+    $$(B^{-1}\cdot A^{-1})(A\cdot B) = B^{-1}(A^{-1}A)B = B^{-1}EB = B^{-1}B=E$$  
+    $$\Longrightarrow (A\cdot B)(B^{-1}\cdot A^{-1}) = (B^{-1}\cdot A^{-1})(A\cdot B) = E$$ 
   \end{proof} 
   \begin{remark}
     $A,B$, имеют обратные $\not \Rightarrow A+B$, имеет обратную.
@@ -2143,7 +2162,7 @@ $V$- конечномерное векторное простанство над
     Любая элементарная матрица $T$ имеет обратную, причем она соответствует обратному преобразованию. 
   \end{subtheorem} 
   \begin{proof}
-    Непосредственная проверка
+    Непосредственная проверка.
   \end{proof}
   \begin{theorem}
     (Критерий существования обратной матрицы) \\
@@ -2151,60 +2170,62 @@ $V$- конечномерное векторное простанство над
   \end{theorem} 
   \begin{proof}
     Пусть $A$ - квадратная, порядка $n$ \\
-    Надо доказать, что $EA^{-1} \Longleftrightarrow rkA = n \Longleftrightarrow detA \not = 0$ 
+    Надо доказать, что $\exists A^{-1} \Longleftrightarrow rkA = n \Longleftrightarrow detA \not = 0$ 
     \begin{itemize}
-      \item[\underline{$\Longrightarrow$}] Пусть $\exists \ A^{-1}$. По определению $\exists B: AB = E$ \\
+      \item[\underline{$\Longrightarrow$}] Пусть $\exists \ A^{-1}$. По определению $AA^{-1} = E$ \\
       Вычислим определитель обеих частей равенства:
-      $$detA\cdot detB = det(AB) = detE = 1 \Longrightarrow detA \not = 0$$ 
-      \item[\underline{$\Longleftarrow$}] Пусть $A$ - невырожденная, $detA \not = 0 \Longrightarrow A \leadsto E \Longrightarrow \exists \ $ элементарная матрица \\
-      $T_1,...,T_k: (T_1 \cdot ... \cdot T_k)A = E (*)$ \\
-      По утверждению $\forall i = \overline{1,k} \ T_i$ имеет обратную.\\
+      $$detA\cdot detA^{-1} = det(AA^{-1}) = detE = 1 \Longrightarrow detA \not = 0$$ 
+      \item[\underline{$\Longleftarrow$}] Пусть $A$ - невырожденная, $detA \not = 0 \Longrightarrow A \leadsto E \Longrightarrow \exists $ набор элементарных матриц \\
+      $T_1,...,T_k: (T_1 \cdot ... \cdot T_k)A = E \ \ (*)$ \\
+      По утверждению $\forall i = \overline{1,k} \ \ T_i$ имеет обратную.\\
       По свойству \eqref{pro4} : $T_1 \cdot ... \cdot T_k$ имеет обратную. \\
-      Умножим $(*)$ на обратную к $T_1 \cdot ... \cdot T_k: (T_1 \cdot ... \cdot T_k)^{-1} \cdot (T_1 \cdot ... \cdot T_k) \cdot A = (T_1 \cdot ... \cdot T_k)^{-1}E \Longrightarrow A = (T_1 \cdot ... \cdot T_k)^{-1}E$ \\
-      По свойству \eqref{pro1} : $A$, как обратная к $(T_1 \cdot ... \cdot T_k)$, имеет обратную и $A^{-1} = ((T_1 \cdot ... \cdot T_k)^{-1})^{-1} = (T_1 \cdot ... \cdot T_k)$
+      Умножим $(*)$ на обратную к $(T_1 \cdot ... \cdot T_k): (T_1 \cdot ... \cdot T_k)^{-1} \cdot (T_1 \cdot ... \cdot T_k) \cdot A = (T_1 \cdot ... \cdot T_k)^{-1}E \Longrightarrow A = (T_1 \cdot ... \cdot T_k)^{-1}$ \\
+      По свойству \eqref{pro1} $\exists \ ((T_1 \cdot ... \cdot T_k)^{-1})^{-1} = (T_1 \cdot ... \cdot T_k) \Rightarrow \exists A^{-1} = (T_1 \cdot ... \cdot T_k)$
     \end{itemize}
   \end{proof} 
-  Из докозательства имеем:  
+  Из доказательства имеем:  
   \begin{enumerate}
     \item $A^{-1} = T_1 \cdot ... \cdot T_k = (T_1 \cdot ... \cdot T_k)E$
     \item $(T_1 \cdot ... \cdot T_k)A =E$ 
   \end{enumerate}
   Т.е. $A^{-1}$ получена из $E$ с помощью ЭП над строками, которые приводят $A$ к $E$. \\
-  Что бы производить ЭП над строками матрицы $E$ такие как над строками $A$, преобразования делают над расширенной матрицей:
+  Чтобы производить такие же ЭП над строками матрицы $E$, как над строками $A$, преобразования делают над расширенной матрицей:
   $$(A|E) \leadsto ((T_1 \cdot ... \cdot T_k)A(T_1 \cdot ... \cdot T_k)E) = (E|A^{-1})$$ 
-  Это метод находа обртаной матрицы
+  Это метод нахождения обратной матрицы.
   \begin{theorem}
     (о явном выражении элементов обратной матрицы) \\
-    Пусть $A = (a_{ij})$ - квадратная матрица порядка $n$, тогда обратная матрицв к $A \exists \ $ и её элементы могут найдены по формуле: 
+    Пусть $A = (a_{ij})$ - квадратная невырожденная матрица порядка $n$, тогда $\exists$ обратная матрица к $A \ $ и её элементы могут найдены по формуле: 
     $$b_{ij} = \frac{1}{detA} \cdot A_{ji}$$
-    где $A^{-1} = (b_{ij}), A_{ji}$ - алгебраическое дополнение. 
+    где $A^{-1} = (b_{ij}), \ A_{ji}$ - алгебраическое дополнение. 
     $$A = \begin{pmatrix}
-      a_{11} & a_{12} & \cdots & a_{1n} \\
-      \vdots & \null & \null & \vdots \\
-      a_{n1} & a_{n2} & \cdots & a_{nn} 
-    \end{pmatrix} \ \ \ A^{-1} = \frac{1}{detA} \begin{pmatrix}
+      a_{11} & \cdots & a_{1n} \\
+      \vdots & \null & \vdots \\
+      a_{n1} & \cdots & a_{nn} 
+    \end{pmatrix}; \ \ \ A^{-1} = \frac{1}{detA} \begin{pmatrix}
       A_{11} & \cdots & A_{1n} \\
       \vdots  & \null & \vdots \\
       A_{n1} &  \cdots & A_{nn} 
     \end{pmatrix}$$    
   \end{theorem} 
   \begin{proof}
-    Т.к. $A$ - невырожденная, то $\exists \ A^{-1}$ по предыдущей теореме \\
-    Обратная матрица к $A$ удовлетворяет уравнению: $AX=B$ \\
-    Пусть $X = (X_1,...,X_n), E = (E_1,...,E_n)$ \\
-    Тогда $AX = B$ эквивалентно системе:
+    Т.к. $A$ - невырожденная, то $\exists \ A^{-1}$ по предыдущей теореме. \\
+    Обратная матрица к $A$ $(\text{назовем её } X)$  удовлетворяет уравнению: $AX=E$ \\
+    Пусть $X = (X_1,...,X_n), \ E = (E_1,...,E_n)$, где $X_i, E_i$ - стобцы соответствующих матриц, тогда $AX = E$ эквивалентно системе:
     $$\begin{cases}
       AX_1 = E_1 \\
       AX_2 = E_2 \\
       \vdots \\
       AX_n = E_n
     \end{cases}$$    
-    $\forall k = \overline{1,n}: \ AX_k = E_k $ - квадратная СЛУ с невырожденной матрицей коэффициентов $\Longrightarrow $ Решение единственное и может быть найдено по формулам Крамера:
+    $\forall k = \overline{1,n}$ расмотрим соответствующую СЛУ: $ \ AX_k = E_k $. Она квадратная с невырожденной матрицей коэффициентов $\Longrightarrow $ Решение единственное и может быть найдено по формулам Крамера:
     $$X_k = \begin{pmatrix}
-    X_{1,k} \\ \vdots \\ X_{n,k} \end{pmatrix}, \  \text{ где } \forall i = \overline{1,m}, \ X_{1,k} = \frac{\vartriangle_i}{\vartriangle} = \frac{\vartriangle_i}{detA}$$
-    $\vartriangle_i = det(A_1,...,E_k,...,A_n) = ........ = A_{ki} \Longrightarrow X_{i,k} = \frac{A_{ki}}{detA}$ 
+    X_{1,k} \\ \vdots \\ X_{n,k} \end{pmatrix}, \  \text{ где } \forall i = \overline{1,n}; \ X_{i,k} = \frac{\vartriangle_i}{\vartriangle} = \frac{\vartriangle_i}{detA}$$
+    $$\vartriangle_i = det(A_1,...,\underset{i- \text{ое место}}{E_k} ,...,A_n) = A_{ki} \Longrightarrow X_{i,k} = \frac{A_{ki}}{detA}$$ 
   \end{proof} 
+  
   \newpage
+  %%%%%%%%
+  
   \section{Алебраические структуры}
   $A,B$ -множества. \\
   Декартовое произведение: $A \times B = \{(a,b)\ |\ a \in A, b \in B\}$ 
@@ -2307,9 +2328,9 @@ $V$- конечномерное векторное простанство над
   \begin{definition}
     Множество $A$, на котором задана бинарная операция $(*)$, называется группой, если:
     \begin{enumerate}
-      \item  $\forall a,b,c \in A: a*(b*c)=(a*b)*c$ (ассоциаивность)
-      \item $\exists \ e \in A: \forall a \in A a*e = e*a = a$ (нейтральный элемент)
-      \item $\forall a \in A \ \exists \ b \in A: a*b = b*a = e $ (обратный элемент)
+      \item  $\forall a,b,c \in A: \ a*(b*c)=(a*b)*c$ (ассоциаивность)
+      \item $\exists \ e \in A: \forall a \in A: \ a*e = e*a = a$ (нейтральный элемент)
+      \item $\forall a \in A \ \exists \ b \in A: \ a*b = b*a = e $ (обратный элемент)
     \end{enumerate}
   \end{definition} 
   \vspace{5pt}
@@ -2351,7 +2372,7 @@ $V$- конечномерное векторное простанство над
   \begin{proof} \tab
     \begin{itemize}
       \item[1)] $\forall a \in G_1:$ $$a * e_1 = a$$ 
-      $$\phi(a*e_2) = \phi(a)$$ 
+      $$\phi(a*e_1) = \phi(a)$$ 
       $$\phi(a) \circ \phi(e_1) = \phi(a)$$
       Т.к. $G_2$ - группа, то $\exists \ \phi(a)^{-1}$. Умножение на $\phi(a)^{-1}$ слева: $$\phi(a)^{-1} \circ (\phi(a) \circ \phi(e_1)) = \phi(a)^{-1} \circ \phi(a) = e_2$$
       \item[2)] $$a^{-1} * a = e_1$$
@@ -2606,14 +2627,16 @@ $V$- конечномерное векторное простанство над
      $\textrm{Orb}(i) \subseteq \{1,...,n\} \Longrightarrow \exists \ m_1,m_2 \in \Z: \sigma^{m_1}(i) = \sigma^{m_2}(i)$ \\
      Допустим, что $m_1 > m_2$, тогда $\sigma^{m_1 - m_2}(i)=j \\
      \Longrightarrow $ (т.к. $m_1 - m_2 \in \N)$ $\exists \ $ такое наименьшее $k \in \N^0 \ : \ \sigma^k(i)= j$ 
-    $$\textrm{Orb}(i) = \{i, \sigma(i),...,\sigma^{k-1}(i)\}$$.
+    $$\textrm{Orb}(i) = \{i, \sigma(i),...,\sigma^{k-1}(i)\}$$
     \begin{properties} \tab
       \begin{enumerate}
         \item Различные орбиты не пересекаются. 
         \begin{proof}
-          Пусть $l \in \textrm{Orb}(i) \cap \textrm{Orb}(j) \Longrightarrow \exists \ m_1, m_2 \in \N^0 : \\
-        \sigma^{m_1}(i) = l = \sigma^{m_2}(j) \Longrightarrow \sigma^{m_1-m_2}(i) = j \Longrightarrow \\ \forall m \in \Z: \ 
-        \sigma^{m}(j)= \sigma^{m(m_1-m_2)}(i) \Longrightarrow \textrm{Orb}(j) \subseteq  \textrm{Orb}(i)$ \\
+          Пусть $l \in \textrm{Orb}(i) \cap \textrm{Orb}(j) \Longrightarrow$ 
+          $\exists \ m_1, m_2 \in \N^0 : 
+          \sigma^{m_1}(i) = l = \sigma^{m_2}(j) \Longrightarrow 
+          \sigma^{m_1-m_2}(i) = \sigma^{-m_2}(\sigma^{m_1}(i)) = \sigma^{-m_2}(l) = j \Longrightarrow \\ \forall p \in \Z: \ 
+          \sigma^{p}(j)= \sigma^p(\sigma^{m_1-m_2}(i)) = \sigma^{m_1-m_2+p}(i)  \Longrightarrow \textrm{Orb}(j) \subseteq  \textrm{Orb}(i)$ \\
         Аналогично $\textrm{Orb}(i) \subseteq \textrm{Orb}(j) \Longrightarrow \textrm{Orb}(i) = \textrm{Orb}(j)$
         \end{proof} 
         \item $\{1,...,n\} = \textrm{Orb}(i_1) \cup ... \cup \textrm{Orb}(i_s)$ 
@@ -2622,16 +2645,18 @@ $V$- конечномерное векторное простанство над
         \end{proof} 
       \end{enumerate}
     \end{properties}
-    $\{1,...,n\} = \underset{k_1}{\textrm{Orb}(i_1)} \sqcup ... \sqcup \underset{k_t}{\textrm{Orb}(i_t)}\sqcup \underset{k_{t+1}}{\textrm{Orb}(i_{t+1})} \sqcup ... \sqcup \underset{k_s}{\textrm{Orb}(i_s)}$ \\ $\\$ 
+    Продолжаем доказательство теоремы. Рассмотрим разложение $\{1,...,n\}$ как объединение $\textrm{Orb}$, где $k_i$ - количество элементов в $\textrm{Orb}$:
+    $$\{1,...,n\} = \underset{k_1}{\textrm{Orb}(i_1)} \sqcup ... \sqcup \underset{k_t}{\textrm{Orb}(i_t)}\sqcup \underset{k_{t+1}}{\textrm{Orb}(i_{t+1})} \sqcup ... \sqcup \underset{k_s}{\textrm{Orb}(i_s)}$$ 
     Если $\sigma \neq \textrm{id}$, то $k_1>1,...,k_t>1,k_{t+1}=1,...,k_s=1 \Longrightarrow \\
     \sigma = (i_1 \ \sigma(i_1) \ ... \ \sigma^{k_1-1}(i_1)) \ ... \ (i_t \ \sigma(i_t) \ ... \ \sigma^{k_t-1}(i_t))$. $\exists$ \ доказано.   
     \item[ $!:$ ](От противного)\\
     Допустим, $$\sigma = \pi_1,...,\pi_{\nu}$$ $$\sigma = \tau_1,...,\tau_{\mu}$$  Различные разложения на независимые циклы длины $\geq 2$ \\
-    Т.к. $\sigma \neq id$, то $\exists \ j: \sigma(j) \neq j \Longrightarrow $ с точностью до нумерации $$\pi_1(j) \neq j, \ \tau_1(j) \neq j$$  
+    Т.к. $\sigma \neq id$, то $\exists \ j: \sigma(j) \neq j \Longrightarrow $ с точностью до нумерации: \
+    $$\pi_1(j) \neq j, \ \tau_1(j) \neq j$$  
     $$\begin{matrix}
       \sigma(j) = \pi_1(j) \\
       \sigma(j) = \tau_1(j)
-    \end{matrix} \ \Longrightarrow \forall m \in \Z  \ \ \begin{matrix}
+    \end{matrix} \ \Longrightarrow \forall m \in \N^0: \  \ \ \begin{matrix}
       \sigma^m(j) = \pi_1^m(j) \\
       \sigma^m(j) = \tau_1^m(j)
     \end{matrix}$$ 
@@ -3020,9 +3045,10 @@ $V$- конечномерное векторное простанство над
     \begin{enumerate}
       \item Поле $\R$ содержится в $\mathbb{C} $ в качестве подполя.
       \item В $\mathbb{C} \ \exists$ элемент $i:\  i^2 = -1$
-      \item $\mathbb{C} $ - наименьшее поле, удовлетворяющее условиям 1. и 2.     
+      \item $\mathbb{C} $ - наименьшее поле, удовлетворяющее условиям 1. и 2.\\
+      Т.е. $\forall F\subseteq \mathbb{C}: \ \R \subseteq F, \ i\in F \Longrightarrow  F = \mathbb{C}$
     \end{enumerate}
-    Т.е. $\forall F\subseteq \mathbb{C}: \ \R \subseteq F, \ i\in F \Longrightarrow  F = \mathbb{C}$ 
+     
   \end{definition} 
   \begin{theorem}
     Поле $\mathbb{C}$ комплексных чисел существует, причем оно единсвенно с точностью до изоморфизма, оставляющего все вещественные числа на месте. Кроме того, $\forall z \in \mathbb{C}$ представляется единсвенным образом в виде: $z = a + bi$, где $a, b \in \R$.
@@ -3031,39 +3057,36 @@ $V$- конечномерное векторное простанство над
     \begin{itemize}
       \item[1.)]Предположим, что поле комплексных чисел $\mathbb{C}$ существует, и докажем его единственность. \\
       Для этого исследуем $\mathbb{C}$ \\
-      Рассмотрим в $\mathbb{C}$ подмножество $$F = \{a+bi \ | \ a,b \in \R\} \subseteq \mathbb{C}$$
+      Рассмотрим в $\mathbb{C}$ подмножество $F$: 
+      $$F = \{a+bi \ | \ a,b \in \R\} \subseteq \mathbb{C}$$
       Докажем, что $F$ - подполе:
-      $$(a+bi) + (\widetilde{a}+\widetilde{b}i) = (a + \widetilde{a})+(b+\widetilde{b})i \in F$$ 
-      $$(a+bi)(\widetilde{a}+\widetilde{b}i) = (a \widetilde{a}-b \widetilde{b}) + (a \widetilde{b}+ \widetilde{a} b)i \in F$$ 
       \begin{itemize}
-        \item[$\circ$] $0 = 0 + 0i \in F$
-        \item[$\circ$] $1 = 1 + 0i \in F$
-        \item[$\circ$] $-(a+bi) = (-a) + (-b)i\in F$  
-        \item[$\circ$] $\forall a+bi \in F$ будем искать обратный в виде: $$x+yi: (a+bi)(x+yi)= (a x-b y) + (a y+ x b)$$  
-        $\begin{cases}
-          ax - by =1\\
-          ay+bx=0
-        \end{cases}$
+        \item[1)] $(a+bi) + (\widetilde{a}+\widetilde{b}i) = (a + \widetilde{a})+(b+\widetilde{b})i \in F$
+        \item[2)] $0 = 0 + 0i \in F$
+        \item[3)] $-(a+bi) = (-a) + (-b)i\in F$
+        \item[4)] $(a+bi)(\widetilde{a}+\widetilde{b}i) = (a \widetilde{a}-b \widetilde{b}) + (a \widetilde{b}+ \widetilde{a} b)i \in F$
+        \item[5)] $1 = 1 + 0i \in F$
+        \item[6)] $\forall (a+bi) \in F \ \exists \ (a+bi)^{-1} = \frac{1}{a+bi} = \frac{a-bi}{a^2+b^2} = (\frac{a}{a^2+b^2} + \frac{-b}{a^2+b^2}i) \in F$ 
       \end{itemize}
-      \begin{itemize}
-        \item[1 случай.] $b \neq 0: \ \begin{cases}
-          -\frac{a^2y}{b} - by =1\\
-          x = -\frac{ay}{b}
-        \end{cases}$
-        Т.к. $a+bi \neq 0 \Longrightarrow a^2+b^2 \neq 0$ \\ $\\$ 
-        $\Longrightarrow \exists \ y = -\frac{b}{a^2 + b^2}, \ x = \frac{a}{a^2 + b^2} \in \R$ 
-        \item[2 случай.] homework
-      \end{itemize}
+      % \begin{itemize}
+      %   \item[1 случай.] $b \neq 0: \ \begin{cases}
+      %     -\frac{a^2y}{b} - by =1\\
+      %     x = -\frac{ay}{b}
+      %   \end{cases}$
+      %   Т.к. $a+bi \neq 0 \Longrightarrow a^2+b^2 \neq 0$ \\ $\\$ 
+      %   $\Longrightarrow \exists \ y = -\frac{b}{a^2 + b^2}, \ x = \frac{a}{a^2 + b^2} \in \R$ 
+      %   \item[2 случай.] homework
+      % \end{itemize}
       $\Longrightarrow F$ - подполе поля $\mathbb{C}$ \\
-      $\R \subseteq F$, т.к. $i =0 + 1 \cdot i \in F$\\
+      $\R \subseteq F$, т.к. $\forall a \in \R \ \exists \ (a + 0 \cdot i) \in F$ и $\exists \ i = (0 + 1 \cdot i) \in F$\\
       По третьей аксиоме из определения поле $\mathbb{C}: \ F=\mathbb{C}$\\
-      Мы доказали, что если поле помплексных чисел существует, то любой элемент в нем представляется в виде $z = a =bi$, где $a, b \in \R$.\\
+      Мы доказали, что если поле помплексных чисел существует, то любой элемент в нем представляется в виде $z = a + bi$, где $a, b \in \R$.\\
       Проверим, что это представление единственное. \\
       От противного: 
       $$a+bi = \widetilde{a} + \widetilde{b}, \ \ a, \widetilde{a}, b, \widetilde{b} \in \R$$ 
-      $$a - \widetilde{a} = (\widetilde{b}-b)i$$
-      $$(a-\widetilde{a})^2 = -1 (\widetilde{b}-b) - \text{ это вещественное число}$$ 
-      $$\begin{cases}
+      $$(a - \widetilde{a}) = (\widetilde{b}-b)i$$
+      $$(a-\widetilde{a})^2 = -1\cdot (\widetilde{b}-b)^2 \Longrightarrow $$ 
+      $$\Longrightarrow  \begin{cases}
         (a-\widetilde{a})^2\geq 0\\
         (\widetilde{b}-b)^2\geq 0 
       \end{cases} \Longrightarrow \begin{cases}
@@ -3076,7 +3099,7 @@ $V$- конечномерное векторное простанство над
       Предположим, что есть еще одно поле комплексных чисел $\mathbb{C}$. \\
       Т.к. рассуждения выше верны и для $\mathbb{C}$, то $\forall \widetilde{z} \in \widetilde{\mathbb{C}}$ представляетя единственным образом в виде: 
       $$\widetilde{z} = a+b\widetilde{i}, \text{ где } a, b \in \R, \ (\widetilde{i})^2 = -1$$
-      Рассомтрим отображение: 
+      Рассомотрим отображение: 
       $$\phi: \mathbb{C} \to \widetilde{\mathbb{C}}$$
       $$\phi: a+bi \to a+ b \widetilde{i}$$
       Это отображение - изоморфизм полей, сохраняющий вещественные числа на месте.
@@ -3085,29 +3108,32 @@ $V$- конечномерное векторное простанство над
       $$\Gamma = \{(a, b) \ | \ a, b \in \R\}$$
       Введем операции:
       \begin{itemize}
-        \item[$\circ  $ ] $(a, b) + (\widetilde{a}, \widetilde{b}) = (a+\widetilde{a}, b + \widetilde{b})$
-        \item[ $\circ   $ ] $(a, b)(\widetilde{a}, \widetilde{b}) = (a\widetilde{a} - b \widetilde{b}, a \widetilde{b} + \widetilde{a}b)$
+        \item[$\circ  $ ] $(a, b) + (\widetilde{a}, \widetilde{b}) = (a+\widetilde{a}, \ b + \widetilde{b})$
+        \item[ $\circ   $ ] $(a, b)\cdot(\widetilde{a}, \widetilde{b}) = (a\widetilde{a} - b \widetilde{b}, \ a \widetilde{b} + \widetilde{a}b)$
       \end{itemize}
       \begin{enumerate}
-        \item Это бинарная операция; Выполнены коммутативность,\\ ассоциативность, дистрибутивность (непосредственная проверка).
+        \item Относильно (+) и ( $\cdot$ ) выполнены коммутативность, ассоциативность, дистрибутивность (непосредственная проверка).
         \item $(0,0)$ - ноль
         \item $(-a, -b)$ - противоположный к $(a, b)$
         \item $(1, 0)$ - единица
-        \item $\forall (a, b) \neq (0, 0) \ \exists \ \text{ обратный }: (\frac{a}{a^2+b^2}, \frac{-b}{a^2+b^2})$
+        \item $\forall (a, b) \neq (0, 0) \ \exists \ \text{обратный }: (\frac{a}{a^2+b^2}, \frac{-b}{a^2+b^2})$
       \end{enumerate} $\Longrightarrow \Gamma$ - поле.\\
       Рассмотрим подмножество $\mathsf{L} \subseteq \Gamma: $  
       $$\mathsf{L}  = \{(a, 0) \ | \ a \in \R \}$$   
-      Это поле изоморфное $\R:$
+      Такое поле изоморфно $\R:$
+      $$\begin{cases}
+        \phi: \R \to L \ : \ a \to (a, 0) - \text{биекция}\\
+        \phi(a_1 + a_2) = (a_1 + a_2, 0) = (a_1, 0) + (a_2, 0) = \phi(a_1) + \phi(a_2)\\
+        \phi(a_1 \cdot a_2) = (a_1 \cdot a_2, 0) = (a_1, 0) \cdot (a_2, 0) = \phi(a_1) \cdot \phi(a_2)
+      \end{cases}$$
       \begin{itemize}
-        \item[$\circ$] $a\longleftrightarrow (a, 0)$
         \item[$\circ$] $-1 \longleftrightarrow (-1, 0) = (0, 1)(0, 1)$
         \item[$\circ$] $i = (0, 1) \in \Gamma$
-        \item[$\circ$] $\forall (a, b) \in \Gamma: $
-        $$(a, 0)(1, 0) + (b, 0)(0, 1) = (a, b)$$
-        т.е. $\forall z \in \Gamma:$ 
+        \item[$\circ$] $\forall (a, b) \in \Gamma:$
+        $(a, 0)(1, 0) + (b, 0)(0, 1) = (a, b)$, \ т.е. $\forall z \in \Gamma:$ 
         $$z = a \cdot 1 + b \cdot i$$
       \end{itemize}
-      $\forall F \subseteq \Gamma: \ $
+      $\Longrightarrow \forall F \subseteq \Gamma: \ $
          $\begin{cases}
         \R \subseteq F \\
         i \in F
@@ -3358,6 +3384,10 @@ $V$- конечномерное векторное простанство над
     % \end{asy}
     \includegraphics[width=6.5cm]{image/lecture-21.pdf}
   \end{center}
+
+  \newpage
+  %%%%%%%%
+  
   \section{Алгебра над полем}
   Пусть $F$ - поле 
   \begin{definition}
@@ -3642,8 +3672,8 @@ $V$- конечномерное векторное простанство над
     \begin{properties}\tab
       $\forall z_1, z_2 \in \mathbb{C}$
       \begin{enumerate} 
-        \item $|z_1+z_2|\leq |z_1| + |z_2|$
-        \item $||z_1|-|z_2||\leq |z_1-z_2|$ 
+        \item $|z_1+z_2|\leq |z_1| + |z_2| \tab[0.61cm] (\star)$
+        \item $||z_1|-|z_2||\leq |z_1-z_2| \ \ (*)$ 
       \end{enumerate}
       \begin{proof}
         Из свойств векторов \ ($z = x+iy$ - вектор, $\sqrt{x^2+y^2}$ - длина вектора)
@@ -3651,8 +3681,8 @@ $V$- конечномерное векторное простанство над
     \end{properties}
   \end{subtheorem}
   \begin{definition}
-    Последовательность $\{z_k\}_{k=1}^{\infty} \subseteq \mathbb{C}$ называется сходящейся к $z_0 \in \mathbb{C}$ , если $|z_k-z_0| \to 0, \ k\to \infty$\\
-    Обозначается: $z_k \to z_0, \ k\to \infty$ 
+    Последовательность $\{z_k\}_{k=1}^{\infty} \subseteq \mathbb{C}$ называется сходящейся \\ к $z_0 \in \mathbb{C}$ , если $|z_k-z_0| \to 0, \ k\to \infty$\\
+    Обозначается: $z_k \to z_0 \ \text{при} \ k\to \infty$ 
   \end{definition} 
   \setcounter{lemcount}{0}
   \begin{lemmanum}
@@ -3663,13 +3693,13 @@ $V$- конечномерное векторное простанство над
     \end{cases}$$  
   \end{lemmanum} 
   \begin{proof}
-    Следует из равенства $|z_k-z_0| = \sqrt{x^2+y^2}$ 
+    $$|z_k-z_0|  = |(x_k - x_0) + (y_k - y_0)i| = \sqrt{(x_k - x_0)^2+(y_k - y_0)^2}$$ 
   \end{proof} 
   \begin{lemmanum}
     Если $z_k \to z_0$, то $|z_k| \to |z_0|$  
   \end{lemmanum} 
   \begin{proof}
-    Т.к. $||z_k|-|z_0||\leq |z_k-z_0|$ 
+    $$z_k \to z_0 \Longrightarrow |z_k - z_0| \to 0 \underset{(*)}{\Longrightarrow}  ||z_k|-|z_0|| \to 0 \Longrightarrow |z_k - z_0| \to 0$$ 
   \end{proof} 
   \begin{lemmanum}
     Если $z_k \to z_0, \ w_k \to w_0$, то:
@@ -3678,8 +3708,16 @@ $V$- конечномерное векторное простанство над
       \item $z_k \cdot w_k \to z_0 \cdot w_o$  
     \end{enumerate}
   \end{lemmanum} 
-  \begin{proof}
-    Упражнение.
+  \begin{proof}\tab
+    \begin{enumerate}
+      \item $|z_k+w_k-z_0-w_0| \underset{(\star)}{\leq} |z_k - z_0| + |w_k - w_0| \to 0$
+      \item 
+      \begin{multline*}
+        |z_k w_k-z_0w_0| = |z_k w_k-z_kw_0 + z_k w_0-z_0w_0 | =\\
+        = |z_k(w_k - w_0) + w_0(z_k - z_0)| \underset{(\star)}{\leq}  |z_k(w_k - w_0)| + |w_0(z_k - z_0)| =\\
+        = |z_k||(w_k - w_0)| + |w_0||(z_k - z_0)| \to 0
+      \end{multline*}
+    \end{enumerate}
   \end{proof} 
   \begin{consequense}
     Если $f \in \mathbb{C}[z], \ \deg f >0, \ z_0 \in \mathbb{C}, \ z_k \to z_0$, тогда: 
@@ -3692,8 +3730,10 @@ $V$- конечномерное векторное простанство над
   \begin{proof}
     $f(z) = a_nx^n + ... + a_1x+a_0 \in \mathbb{C}[z] \neq 0$
     \begin{multline*}
-      |f(z_k)| = a_nz_k^n + a_{n-1}z_k^{n-1}... + a_1z_k+a_0 \geq \\
-      \geq |z_k|^n \cdot ||a_n|-\frac{|a_{n-1|}}{|z_k|} - ... - \frac{|a_{1|}}{|z_k|^{n-1}} - \frac{|a_{0|}}{|z_k|^{n}}| \to \infty
+      |f(z_k)| = |a_nz_k^n + a_{n-1}z_k^{n-1}... + a_1z_k+a_0| =\\
+      \tab[-3.5cm]= |z_k^n \cdot (a_n+\frac{a_{n-1}}{z_k} + ... + \frac{a_{1}}{z_k^{n-1}} + \frac{a_{0}}{z_k^{n}})|=\\
+      \tab[1cm]= |z_k^n| \cdot |(a_n - (-\frac{a_{n-1}}{z_k} - ... - \frac{a_{1}}{z_k^{n-1}} - \frac{a_{0}}{z_k^{n}}))| \ \underset{(*)}{\geq}\\
+      \underset{(*)}{\geq} \ |z_k|^n \cdot ||a_n|-\frac{|a_{n-1|}}{|z_k|} - ... - \frac{|a_{1|}}{|z_k|^{n-1}} - \frac{|a_{0|}}{|z_k|^{n}}| \to \infty
     \end{multline*} 
   \end{proof} 
   \begin{lemmanum}\textbf{(Лемма Даламбера)} \\
@@ -3702,9 +3742,9 @@ $V$- конечномерное векторное простанство над
   \end{lemmanum} 
   \begin{proof}
     Разложим $f$ по степеням $(z-z_0)$:
-    $$f(z) = f(z_0) + b_s(z-z_0)^s + ... + b_n(z-z_0), \ \text{ где } b_s \neq 0$$
+    $$f(z) = f(z_0) + b_s(z-z_0)^s + ... + b_n(z-z_0)^n, \ \text{ где } b_s \neq 0$$
     Так как $f(z_0) \neq 0$, то можно поделить на него:
-    $$\frac{f(z)}{f(z_0)} = 1 + c_s(z-z_0)^s + ... + c_n(z-z_0), \ c_i = \frac{b_i}{f(z_0)} \neq 0$$  
+    $$\frac{f(z)}{f(z_0)} = 1 + c_s(z-z_0)^s + ... + c_n(z-z_0)^n, \ c_i = \frac{b_i}{f(z_0)} \neq 0$$  
     Найдем $z_1 \in \mathbb{C}: \ c_sz_1^s = -1$
     \begin{center}
       % \begin{asy}
@@ -3723,16 +3763,16 @@ $V$- конечномерное векторное простанство над
     \end{center}
 
     \begin{center}
-      Рассмотрим $z = z_0 + tz$, где $t \in (0,1)$
+      Рассмотрим $z = z_0 + tz_1$, где $t \in (0,1)$
     \end{center}
     Подставим: 
-    $$\frac{f(z)}{f(z_0)} = 1 - t^s + t^{s+1} g(t), \text{ где } g(t) \in \mathbb{C}, \ \deg g \leq n-(s-1)$$
+    $$\frac{f(z)}{f(z_0)} = 1 - t^s + t^{s+1} g(t), \text{ где } g(t) \in \mathbb{C}, \ \deg g \leq n-(s+1)$$
     $$|g(t)| = |\alpha_0 + \alpha_1t + ... + \alpha_{n-(s+1)}t^{n-(s+1)}|$$ 
     Обозначим $C = \max\{|\alpha_i|\}$, тогда $|g(t)|\leq C(n-s)$
     \begin{multline*}
-      |\frac{f(z)}{f(z_0)}| = |1 - t^s + t^{s+1} g(t)| \leq |1 - t^s| + t^{s+1} |g(t)| \leq \\ \leq 1 - t^s + t^{s+1} C(n-s) = 1 - t^s(1-+ tC(n-s)) \underbrace{<}_{\text{хотим}} 1
+      |\frac{f(z)}{f(z_0)}| = |1 - t^s + t^{s+1} g(t)| \leq |1 - t^s| + t^{s+1} |g(t)| \leq \\ \leq 1 - t^s + t^{s+1} C(n-s) = 1 - t^s(1-tC(n-s)) \underbrace{<}_{\text{хотим}} 1
     \end{multline*} 
-     $$1-tC(n-c)>0 \Longleftrightarrow \frac{1}{C(n-s)}$$
+     $$1-tC(n-c)>0 \Longleftrightarrow t<\frac{1}{C(n-s)}$$
      Выбираем такое $t \in (0,1)$ и получаем:
      $$1-t^s(1-tC(n-s)) < 1$$
      Если $C=0$, то верно и очевидно.   
@@ -3744,23 +3784,23 @@ $V$- конечномерное векторное простанство над
     Рассмотрим $M = \underbrace{\inf}_{z} |f(z)|$
     \begin{itemize}
       \item[\textit{1 шаг.}] Хотим доказать, что $\inf$ достигается, т.е. $\exists \ z_0 \in \mathbb{C}: \ |f(z_0)| = M$\\
-      По определению $\inf \exists$ последовательность $\{z_k\}: \ |f(z_k)| \to M$
+      По определению $\inf \ \exists$ последовательность $\{z_k\}: \ |f(z_k)| \to M$
       \begin{itemize}
-        \item[1 случай.] $\{z_k\}$  - не ограничена, т.е. $\exists \subseteq \{z_{i_k}\}: \ |z_{i_k}| \to \infty$. \\
+        \item[1 случай.] $\{z_k\}$  - не ограничена, т.е. $\exists  \{z_{k_i}\}\subseteq \{z_k\}: \ |z_{k_i}| \to \infty$. \\
         По лемме (4): \ $|f(z_{k_i})| \to \infty$ - противоречие. 
         \item[2 случай.] $\{z_k\}$ - ограничена $\Longrightarrow \exists \ C > 0: \ |z_k | < C \Longrightarrow$   
-        $$\begin{matrix}
+        $$z_k = x_k + iy_k < C \Longrightarrow \begin{cases}
           |x_k|<|z_k|<C \\
           |y_k|<|z_k|<C
-        \end{matrix} \ \ \ \text{ где } z_k = x_k + iy_k$$
+        \end{cases}$$
         Так как $\{x_n\}, \{y_k\}$ - ограничены, то по теореме Больцано-Вейштрасса:
         $$\exists \ \{x_{k_{i}}\}\subseteq \{x_{k}\}: \ \{x_{k_{i}}\} \to x_0$$
         $$\exists \ \{y_{k_{i_l}}\}\subseteq \{y_{k_{i}}\}: \ \{y_{k_{i_l}}\} \to y_0$$
         Значит по Лемме (1):
         $$\{z_{k_{i_l}}\} \to x_0 + iy_0 = z_0 \Longrightarrow |f(\{z_{k_{i_l}}\})| \to |f(z_0)| = M$$  
       \end{itemize}
-      \item[\textit{2 шаг.}] Допустим, что $M>0 \Longrightarrow$ по Лемме (5):
-      $$\exists \ \widetilde{z} \in \mathbb{C}: \ |f(\widetilde{z})|<M = f(z_0) - \text{противоречие, т.к. } M - \inf $$
+      \item[\textit{2 шаг.}] Допустим, что $M>0 \Longrightarrow$ по Лемме Даламбера:
+      $$\exists \ \widetilde{z} \in \mathbb{C}: \ |f(\widetilde{z})|<M = f(z_0) - \text{противоречие, т.к. } M \text{ это } \inf $$
       $$\Longrightarrow M=0 \Longrightarrow f(z_0) =0$$  
     \end{itemize}
   \end{proof} 
@@ -4082,6 +4122,10 @@ $V$- конечномерное векторное простанство над
   \end{multline*}
   $$a_k = (-1)^ka_0\sigma_k(c_1,...,c_k), \ k = \overline{1,n}$$
   \[\Longrightarrow \sigma_k(c_1,...,c_k) = (-1)^k\frac{a_k}{a_0} \ - \text{\textbf{Формулы Виета} }\]
+  
+  \newpage
+  %%%%%%%%
+  
   \section{Теория делимости в Евклидовых кольцах}
   \begin{definition}
     Коммутативное, ассоциативное кольцо с единицей, в котором нет делителя нуля, называется целостным.
