@@ -2260,10 +2260,10 @@ $V$- конечномерное векторное пространство на
   \end{definition} 
   \begin{example}
     \begin{enumerate} \tab
-      \item $(\Z, +)$ $e=0$  
-      \item $(\Z, \cdot)$ $e=1$ 
-      \item $(\Z, -)$ $\not \exists \ e$ 
-      \item $(\N, +)$ $\not \exists \ e$ 
+      \item $(\Z, +)$: \ $e=0$  
+      \item $(\Z, \cdot)$: \ $e=1$ 
+      \item $(\Z, -)$: \ $\not \exists \ e$ 
+      \item $(\N, +)$: \ $\not \exists \ e$ 
     \end{enumerate}
   \end{example}
   \begin{subtheorem}
@@ -2296,7 +2296,7 @@ $V$- конечномерное векторное пространство на
   \begin{example}
     \begin{enumerate} \tab
       \item $(M_{n \times m}(\R), \cdot, E)$ моноид, $\exists \ A^{-1} \Longleftrightarrow detA \not = 0$ 
-      \item $(\Z, \cdot, 1)$ моноид, $1, -1$ обратимы  
+      \item $(\Z, \cdot, 1)$ моноид, $1$ и $-1$ обратимы  
       \item $(\R, \cdot, 1)$ моноид, $\forall a \not =0:  \exists \ a^{-1}$ 
     \end{enumerate}
   \end{example}
@@ -2339,7 +2339,7 @@ $V$- конечномерное векторное пространство на
       \hline \multicolumn{3}{|c|}{\textbf{Терминология} } \\ \hline
       \null & Аддитивность & Мультипликативность \\ \hline
       $*$ & $+$, сложение & $\cdot$ , умножение \\ \hline
-      $e$ & 0, нулевой элемент & 1, единичный элемент \\ \hline
+      $e$ & 0, нулевой элемент & $e$, единичный элемент \\ \hline
       обратный к $a$ & $-a$, противоположный & $a^{-1}$, обратный \\ \hline
     \end{tabular}
   \end{center}
@@ -2384,8 +2384,8 @@ $V$- конечномерное векторное пространство на
   \end{proof} 
   \subsection{Группа подстановок}
   \begin{definition}
-    Подстановкой степени $n$ называется биективное отображение $\sigma$ множества $\{1,...,n\}$ в себя. 
-    $$\{1,...,n\} \to \{1,...,n\} - \text{биективная}$$  
+    Подстановкой степени $n$ называется биективным отображением $\sigma$ множества $\{1,...,n\}$ в себя. 
+    $$\{1,...,n\} \to \{1,...,n\} - \text{биекция}$$  
     Подстановку можно написать в виде таблицы:
     $$\sigma = \begin{pmatrix}
       i_1 & i_2 & \cdots & i_n \\
@@ -2408,7 +2408,7 @@ $V$- конечномерное векторное пространство на
       1 & 2 & \cdots & n \\
       1 & 2 & \cdots & n
     \end{pmatrix}$$  
-    Обозначение: $\Omega = \{1,...,n\}$ 
+    Обозначение: $\Omega = \{1,...,n\}$ (множество, являющееся отрезком натурального ряда)
   \end{definition} 
   \begin{definition}
     Произведение подстановок $\pi$ и $\tau$ степени $n$ - это их композиция $\pi \circ \tau$, \ т.е. $$(\pi \circ \tau)(k)= \pi(\tau(k))$$  
@@ -2750,7 +2750,7 @@ $V$- конечномерное векторное пространство на
       \item[1)] $$\tau = \begin{pmatrix}
         1 & \cdots & i & \cdots & j & \cdots n \\
         1 & \cdots & j & \cdots & i & \cdots n
-      \end{pmatrix} $$$  \Longrightarrow \textrm{sgn} (\tau) = \textrm{sgn}(1,...,j,...,i,...,n) = \textrm{sgn}(1,...,i,...,j,...,n) = -1$  
+      \end{pmatrix} $$$  \Longrightarrow \textrm{sgn} (\tau) = \textrm{sgn}(1,...,j,...,i,...,n) = -\textrm{sgn}(1,...,i,...,j,...,n) = -1$  
       \item[3)] следует из Свойства \eqref{propertie2} и Утверждения \eqref{Ytv1}:
       $$\textrm{sgn}(\sigma) = \textrm{sgn}(\tau_1) \cdot \textrm{sgn}(\tau_2) \cdot ... \cdot \textrm{sgn}(\tau_l) = \underbrace{(-1)\cdot(-1)\cdot ... \cdot(-1)}_{l} = (-1)^{l}$$ 
       \item[2)] $\sigma = (i_1,...,i_k) = (i_1,i_k)(i_1,i_{k-1})...(i_1,i_2) =$ (по Утверждения \eqref{Ytv3}) $= (-1)^{k-1}$ 
@@ -2780,10 +2780,10 @@ $V$- конечномерное векторное пространство на
     Множество $H$ называется подгруппой группы $G$, если:
     \begin{enumerate}
       \item $\forall h_1,h_2 \in H \Longrightarrow h_1 \cdot h_2 \in H$ 
-      \item $1 \in H$
+      \item $e \in H$
       \item $\forall h \in H \Longrightarrow h^{-1} \in H$  
     \end{enumerate}
-    Обозначается: $H\leq G$ 
+    Обозначается: $H \leq G$ 
   \end{definition} 
   \begin{subtheorem}
     Любая подгруппа группы $G$ сама является группой, относительно той же операции.
@@ -2805,7 +2805,7 @@ $V$- конечномерное векторное пространство на
     Множество $K$, на котором введены 2 бинарные операции:\\ $"+"$ - сложение, $"\cdot"$ - умножение, называется кольцом, если выполнены следующие аксиомы:
     \begin{enumerate}
       \item $(K, +)$ - абелева группа
-      \item $\forall a,b,c \in K: \ a(b+c) = ab+ac$ и $(a+b)c = ac+ab$   
+      \item $\forall a,b,c \in K: \ a(b+c) = ab+ac$ и $(a+b)c = ac+bc$
     \end{enumerate}
     Обозначается: $(K, +, \cdot)$
   \end{definition} 
@@ -2823,7 +2823,7 @@ $V$- конечномерное векторное пространство на
   \end{definition}
   \begin{definition}
     Кольцо называется кольцом с единицей, если существует нейтральный элемент по умножению:
-    $$\exists \ 1 \in K: \ \forall a\in K: \ 1 \cdot a = a \cdot 1 = a$$ 
+    $$\exists \ e \in K: \ \forall a\in K: \ e \cdot a = a \cdot e = a$$ 
   \end{definition}
   \begin{subtheorem}
     Если в $K$ есть единица, то она единственная. 
@@ -2847,14 +2847,14 @@ $V$- конечномерное векторное пространство на
       \item $\forall a \in K: \ a \cdot 0=0 \cdot a = 0$
       \item $a\cdot(-b) = (-a)\cdot b = -(a\cdot b)$  
       \item $\forall a, b, c \in K: \ a(b-c) = ab-ac, \ (b-c)a = ba-ca$ 
-      \item Если $K$ - кольцо с 1, то $a(-1) = (-1)a = -a$ 
+      \item Если $K$ - кольцо с 1, то $a(-e) = (-e)a = -a$ 
     \end{enumerate}
   \end{consequenses}
   \begin{remark}
-    Пусть $K$ - кольцо с единицей (1), тогда если $0 = (1) \Longrightarrow K = \{0\}$ 
+    Пусть $K$ - кольцо с единицей ($e$), тогда если $e = 0 \Longrightarrow K = \{0\}$ 
   \end{remark}
   \begin{proof}
-    $\forall a \in K: \ 0 = 0 \cdot a= 1 \cdot a \Longrightarrow a = 0$ 
+    $\forall a \in K: \ 0 = 0 \cdot a= e \cdot a \Longrightarrow a = 0$ 
   \end{proof} 
   Пусть $K$ - кольцо с единицей 
   \begin{definition}
@@ -2882,7 +2882,7 @@ $V$- конечномерное векторное пространство на
     Поле $K$ - коммутативное, ассоциативное кольцо с $1 \neq 0$ , в котором любой ненулевой элемент обратим.
   \end{definition} 
   \begin{remark}
-    $0 = (1) \Longleftrightarrow K = \{0\}$ - не поле.
+    $0 = e \Longleftrightarrow K = \{0\}$ - не поле.
   \end{remark} 
   \begin{example}\tab
     \begin{enumerate}
@@ -2902,11 +2902,8 @@ $V$- конечномерное векторное пространство на
   \end{theorem} 
   \begin{proof}\tab
     \begin{itemize}
-      \item[$\underline{\Longrightarrow}$] Пусть $\Z_n$ - поле, тогда $\forall k \in \Z_n$ имеет обратный $m : \ km=1$.\\ Предположим, что $n$ - не простое, тогда $n = st, $ где $1<s, t<n \\ \Longrightarrow s \neq 0$ в $\Z_n$
-      $\Longrightarrow s $ имеет обратный $\widetilde{s} : \ s \cdot \widetilde{s} = 1$ в $\Z_n$\\
-      $\Longrightarrow t \cdot s \cdot \widetilde{s} = t $ в $
-      \Z_n \Longrightarrow t=0$ в $\Z_n$ - противоречие.
-      \item[$\underline{\Longleftarrow}$] $n$ - простое, то $\forall k \in \Z_n: \ k \neq 0$ в $\Z_n$, т.е. $n \neq k \Longrightarrow (n, k) = 1 \\ \Longrightarrow k$ - обратим.  
+      \item[$\underline{\Longrightarrow}$] Пусть $\Z_n$ - поле, тогда $\forall k \in \Z_n$ имеет обратный $m : \ km=1$.\\ Предположим, что $n$ - не простое, тогда $n = st, $ где $1<s, t<n \\ \Longrightarrow s, t \neq 0$, но $st=n=0$ (в $\Z_n$ ) $\Longrightarrow s$ и $t$ - делители нуля - противоречие (в поле нет делителей нуля, это доказывается чуть ниже).
+      \item[$\underline{\Longleftarrow}$] $n$ - простое, то $\forall k \neq 0 \in \Z_n:$ \ $n \neq k \Longrightarrow (n, k) = 1 \\ \Longrightarrow k$ - обратим (остальные аксиомы поля проверяются непостредственно).  
     \end{itemize}
   \end{proof}
   \begin{definition}
