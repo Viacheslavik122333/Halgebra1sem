@@ -2228,7 +2228,7 @@ $V$- конечномерное векторное пространство на
   
   \section{Алебраические структуры}
   $A,B$ -множества. \\
-  Декартовое произведение: $A \times B = \{(a,b)\ |\ a \in A, b \in B\}$ 
+  Декартово произведение: $A \times B = \{(a,b)\ |\ a \in A, b \in B\}$ 
   \begin{definition}
     Бинарной операцией на множестве $A$ называется отображение: $$\rho:A \times A \to A$$ 
     Обозначается: \begin{enumerate}
@@ -2945,7 +2945,7 @@ $V$- конечномерное векторное пространство на
     \end{cases}$ $ \Longrightarrow b =0$
   \end{proof} 
   \begin{subtheorem}
-    Пусть $K$ - коммутативное, ассоциативное кольцо с 1, тогда: $$x - \text{обратный} \Longleftrightarrow x - \text{не делитель нуля}$$  
+    Пусть $K$ - коммутативное, ассоциативное кольцо с 1, тогда: $$x - \text{обратим} \Longleftrightarrow x - \text{не делитель нуля}$$  
   \end{subtheorem} 
   \begin{proof}
     Упражнение
@@ -2965,7 +2965,7 @@ $V$- конечномерное векторное пространство на
     \begin{enumerate}
       \item $\phi(0) = \widetilde{0}$
       \item $\phi(-a) = -\phi(a)$
-      \item Если $K$ - ассоциативное кольцо с 1, то $\phi(1) = 1$, \\а если $a \in K$ имеет обратный, то $\phi(a^{-1}) = \phi(a)^{-1}$
+      \item Если $K$ - ассоциативное кольцо с 1, то $\phi(e) = e$, \\а если $a \in K$ обратим, то $\phi(a^{-1}) = \phi(a)^{-1}$
     \end{enumerate}
   \end{consequenses} 
   \begin{definition}
@@ -3062,7 +3062,7 @@ $V$- конечномерное векторное пространство на
         \item[2)] $0 = 0 + 0i \in F$
         \item[3)] $-(a+bi) = (-a) + (-b)i\in F$
         \item[4)] $(a+bi)(\widetilde{a}+\widetilde{b}i) = (a \widetilde{a}-b \widetilde{b}) + (a \widetilde{b}+ \widetilde{a} b)i \in F$
-        \item[5)] $1 = 1 + 0i \in F$
+        \item[5)] $e = 1 + 0i \in F$
         \item[6)] $\forall (a+bi) \in F \ \exists \ (a+bi)^{-1} = \frac{1}{a+bi} = \frac{a-bi}{a^2+b^2} = (\frac{a}{a^2+b^2} + \frac{-b}{a^2+b^2}i) \in F$ 
       \end{itemize}
       % \begin{itemize}
@@ -3080,12 +3080,12 @@ $V$- конечномерное векторное пространство на
       Мы доказали, что если поле помплексных чисел существует, то любой элемент в нем представляется в виде $z = a + bi$, где $a, b \in \R$.\\
       Проверим, что это представление единственное. \\
       От противного: 
-      $$a+bi = \widetilde{a} + \widetilde{b}, \ \ a, \widetilde{a}, b, \widetilde{b} \in \R$$ 
+      $$a+bi = \widetilde{a} + \widetilde{b}i, \ \ a, \widetilde{a}, b, \widetilde{b} \in \R$$ 
       $$(a - \widetilde{a}) = (\widetilde{b}-b)i$$
       $$(a-\widetilde{a})^2 = -1\cdot (\widetilde{b}-b)^2 \Longrightarrow $$ 
       $$\Longrightarrow  \begin{cases}
         (a-\widetilde{a})^2\geq 0\\
-        (\widetilde{b}-b)^2\geq 0 
+        -(\widetilde{b}-b)^2\leq 0 
       \end{cases} \Longrightarrow \begin{cases}
         (a-\widetilde{a})^2 =0\\
         (\widetilde{b}-b)^2 =0
@@ -3093,7 +3093,7 @@ $V$- конечномерное векторное пространство на
         a=\widetilde{a} \\
         b = \widetilde{b}
       \end{cases}$$ $\\$ 
-      Предположим, что есть еще одно поле комплексных чисел $\mathbb{C}$. \\
+      Предположим, что $\exists$  еще одно поле комплексных чисел $\mathbb{C}$. \\
       Т.к. рассуждения выше верны и для $\mathbb{C}$, то $\forall \widetilde{z} \in \widetilde{\mathbb{C}}$ представляетя единственным образом в виде: 
       $$\widetilde{z} = a+b\widetilde{i}, \text{ где } a, b \in \R, \ (\widetilde{i})^2 = -1$$
       Рассомотрим отображение: 
@@ -3161,15 +3161,17 @@ $V$- конечномерное векторное пространство на
     \end{center} 
   \end{remark}  
   \begin{definition}
-    Число $\overline{z} = x+iy$ называется комплексно-сопряженным к\\ $z = x+iy$.
+    Число $\overline{z} = x-iy$ называется комплексно-сопряженным к\\ $z = x+iy$.
   \end{definition} 
   \begin{subtheorem}
     Отображеие $\phi: z \to \overline{z}$ является изоморфизмом поля $\mathbb{C}$ в себя (т.е. является автоморфизмом). 
   \end{subtheorem} 
-  \begin{proof}
-    биекция очевидна \\
-    $\overline{z_1+z_2} = (x_1 + x_2)-(y_1+y_2)i$  = $\overline{z_1}+\overline{z_2}$\\
-    $\overline{z_1z_2} = (x_1x_2-y_1y_2)+(x_1y_2+x_2y_1) = \overline{z_1}\cdot \overline{z_2}$  
+  \begin{proof}\tab
+    \begin{itemize}
+      \item[1)] биекция очевидна
+      \item[2)] $\overline{z_1+z_2} = (x_1 + x_2)-(y_1+y_2)i$  = $\overline{z_1}+\overline{z_2}$
+      \item[3)] $\overline{z_1z_2} = (x_1x_2-y_1y_2)+(x_1y_2+x_2y_1) = \overline{z_1}\cdot \overline{z_2}$
+    \end{itemize}
   \end{proof} 
   \begin{properties}\tab
     \begin{enumerate}
@@ -3230,7 +3232,8 @@ $V$- конечномерное векторное пространство на
     \begin{enumerate}
       \item
         $z_1 \cdot z_2 = \rho_1(\cos(\phi_1) + i\sin(\phi_1))\cdot \rho_2(\cos(\phi_2) + i\sin(\phi_2)) = \\ 
-        \tab[4cm]=(\rho_1 \cdot \rho_2)(\cos(\phi_1)\cos(\phi_2) + i\sin(\phi_1)\sin(\phi_2)) = \\ 
+        \tab[2cm]=(\rho_1 \cdot \rho_2)(\cos(\phi_1)\cos(\phi_2)- \sin(\phi_1)\sin(\phi_2) + \\ 
+        \tab[5cm]+ \cos(\phi_1)\sin(\phi_2)i + \cos(\phi_2)\sin(\phi_1)i ) = \\
         \tab[8cm]= (\rho_1 \cdot \rho_2)(\cos(\phi_1+\phi_2) + i\sin(\phi_1+\phi_2))$
       \item Аналогично
     \end{enumerate}
@@ -3388,7 +3391,7 @@ $V$- конечномерное векторное пространство на
   \section{Алгебра над полем}
   Пусть $F$ - поле 
   \begin{definition}
-    Алгеброй над полем $F$ называется множество $A$  с операциями сложения, умножения и умножения на элементы поля, удовлетворяет следующим аксиомам:
+    Алгеброй над полем $F$ называется множество $A$ с операциями сложения, умножения и умножения на элементы поля, удовлетворяющие следующим аксиомам:
     \begin{enumerate}
       \item $(A, +, \cdot)$ - кольцо
       \item $(A, +, \lambda \cdot)$ - векторное пространство над полем $F$
@@ -3442,7 +3445,7 @@ $V$- конечномерное векторное пространство на
   \begin{remark}
     Пусть $V$ - векторное пространство над полем $F$.
   Хотим превратить $V$ в алгебру над полем $F$. \\
-  Пусть $e_{jk}$ - произвольные векторы из $V, \ j,i = \overline{1, n}$ \\
+  Пусть $e_{jk}$ - произвольные векторы из $V, \ j,k = \overline{1, n}$ \\
   Положим $e_j \cdot e_k = e_{jk} \Longrightarrow $ $$\forall a, b\in V: \ a\cdot b=\sum \limits_{j,k=1}^na_jb_ke_{jk}$$
   Это произведение превращает $V$ в алгебру над полем $F$.  
   \end{remark} 
@@ -3465,7 +3468,7 @@ $V$- конечномерное векторное пространство на
     Любоя подалгебра сама является алгеброй относильно тех же оперций и тем же полем.
   \end{subtheorem} 
   \begin{definition}
-    Алгебра $A$ и $\widetilde{A}$ над одним и тем же полем назваются изоморфными, если они изоморфны. 
+    Алгебра $A$ и $\widetilde{A}$ над одним и тем же полем назваются изоморфные, если они изоморфны.
   \end{definition}
 
   \subsection{Алгебра многочленов над полем}
@@ -3484,7 +3487,7 @@ $V$- конечномерное векторное пространство на
     Зададим умножение $e_k \cdot e_l = e_{k+l} \Longrightarrow F^{\infty}$  превращается в алгебру над полем $F$ 
   \end{subtheorem} 
   \begin{remark}
-    Так как $e_l = e_{k+l}$ и в $\Z$ сложение коммутативно и ассоциативно, то $F^{\infty}$ - ассоциативная, коммутативная алгебра над $F$ с единицей: $e_0 = (1, 0, 0, ...)$
+    Так как $e_k \cdot e_l = e_{k+l}$ и в $\Z$ сложение коммутативно и ассоциативно, то $F^{\infty}$ - ассоциативная, коммутативная алгебра над $F$ с единицей: $e_0 = (1, 0, 0, ...)$
   \end{remark} 
   \begin{definition}
     Такая алгебра называется алгеброй многочленов над полем $F$. 
@@ -3527,7 +3530,7 @@ $V$- конечномерное векторное пространство на
   \end{consequense} 
   \subsubsection{Деление с остатком}
   \begin{theorem}
-    Пусть $F$ - поле, \ $f, g \in F,\ g\neq 0 $. Тогда $\exists ! \ q, r$: \ $f = g \cdot q + r$, \\причем либо $r=0$, либо $\deg r < \deg g$       
+    Пусть $F$ - поле, \ $f, g \in F[x],\ g\neq 0 $. Тогда $\exists ! \ q, r$: \ $f = g \cdot q + r$, \\причем либо $r=0$, либо $\deg r < \deg g$       
   \end{theorem}
   \begin{proof}
     Пусть $f, g \neq 0$$$f = a_0 + a_1x+...+a_nx^n, \ a_n \neq 0, \ \deg f = n$$ $$g = b_0 + b_1x+...+b_mx^m, \ b_m \neq 0, \ \deg f = m$$ 
@@ -3544,7 +3547,7 @@ $V$- конечномерное векторное пространство на
   \subsubsection{Мгогочлены как функции}
   $F$ - поле, \ $f = a_nx^n + a_{n-1}x^{n-1} +...+ a_0$
   \begin{definition}
-    Значение многочлена $f$ в точке $c$ называет число, равное: $$a_nc^n + a_{n-1}c^{n-1} +...+ a_0$$
+    Значение многочлена $f$ в точке $c$ называет число, равное: $$f(c) = a_nc^n + a_{n-1}c^{n-1} +...+ a_0$$
      Таким образом, множество $f$ задает отображение $F \to F$
      $$c \to f(c) \Longrightarrow f \text{ задает функцию}$$      
   \end{definition} 
@@ -3556,7 +3559,7 @@ $V$- конечномерное векторное пространство на
     $$f_1(0)=0, \ f_1(1) = 1, \ f_2(0)=0, \ f_2(1) = 1$$ 
   \end{example1}
   \begin{theorem}
-    Пусть $F$ - бесконечное полею. Тогда разные многочлены задают разные функции. 
+    Пусть $F$ - бесконечное поле. Тогда разные многочлены задают разные функции. 
   \end{theorem} 
   \begin{proof}
     Допустим, $f, g \in F[x], \ f \neq g, \ \forall c \in F, \ f(c) = g(c)$ \\
@@ -3575,11 +3578,11 @@ $V$- конечномерное векторное пространство на
       a_nc_n^n + a_{n-1}c_n^{n-1} + ... + a_1c_n+ a_0 = 0
     \end{cases}$$ - квадратная однородная СЛУ относительно неизвестных $a_n, a_{n-1}, ..., a_0$ с матрицей коэффициентов $A:$
     $$A = \begin{pmatrix}
-      c_0^n & \cdots & c_0^1 \\
-      c_1^n & \cdots & c_1^1 \\
-      \vdots & \null & \vdots\\ 
-      c_n^n & \cdots & c_n^1 \\
-    \end{pmatrix}, \ \ \det A = (-1)^2 \cdot \underbrace{V(c_0, c_1,...,c_n)}_{\text{Определитель Вандермонда}}$$
+      c_0^n & \cdots & c_0^1 & 1\\
+      c_1^n & \cdots & c_1^1 & 1\\
+      \vdots & \null & \vdots & \vdots\\ 
+      c_n^n & \cdots & c_n^1 & 1\\
+    \end{pmatrix}, \ \ \det A = (-1)^2 \cdot \underbrace{V(c_0, c_1,...,c_n)}_{\text{Опр. Вандермонда}}$$
     $\Longrightarrow $ по правилу Крамера СЛУ имеет единственное решение и оно тривиальное $\Longrightarrow  \forall i \in \{0, 1,...,n\}: a_i = 0 \Longrightarrow n=0$ противоречие.    
   \end{proof}
   
