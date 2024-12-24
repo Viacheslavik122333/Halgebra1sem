@@ -4194,11 +4194,14 @@ $V$- конечномерное векторное пространство на
     $$N(ab) \geq N(a) \text{ и } N(a) = N((ab)b^{-1}) \geq N(ab) \Longrightarrow N(ab) = N(a)$$
     \item[$2)$] Пусть $b$ необратим\\
     Поделим $a$ на $ab$ с остатком: 
-    $$\frac{a}{ab} = q + r \Longrightarrow a = abq + abr$$
+    $$a = abq + r$$
     Если $r =0$, то $a = abq \Longrightarrow bq = 1 \Longrightarrow b$ обратим - противоречие.\\
     Иначе $N(r)<N(ab)$\\
-    С другой стороны $r = a - abq = a(1-bq) \Longrightarrow N(r) \geq N(a)$\\
-    Значит $N(ab) > N(a)$ 
+    С другой сторон: $$r = a - abq = a(1-bq) \Longrightarrow N(r) = N(a(1-bq)) \geq N(a) \Longrightarrow N(r) \geq N(a)$$
+    $$\begin{cases}
+      N(r)<N(ab) \\
+      N(r) \geq N(a)
+    \end{cases} \Longrightarrow N(ab) > N(a) - \text{ противоречие}$$
   \end{proof}
   \begin{definition}
     Наибольшим общим делителем элементов $a,b \in K$ называется элемент $d \in K$ такой, что: 
@@ -4214,11 +4217,8 @@ $V$- конечномерное векторное пространство на
       \item НОД может не существовать
     \end{enumerate}
   \end{remark}
-  \begin{example1}
-    пока что впадлу
-  \end{example1}
   \begin{lemma}
-    Если $\exists$ НОД($a,b$), то он определяется однозначно с точностью до ассоциативности.
+    Если $\exists$ НОД($a,b$), то он определяется однозначно с точностью до ассоциированности.
   \end{lemma}
   \begin{proof}
     $d_1, d_2$ - это НОД($a,b$), \ по свойству 2): 
@@ -4293,7 +4293,7 @@ $V$- конечномерное векторное пространство на
     \end{enumerate}
   \end{example}
   \begin{remark}
-  Простые элементы - это ненулевые, необратимые элементы, которые имеют в ...
+  Простые элементы - это ненулевые, необратимые элементы, которые имеют в точности два неассоциированных друг с другом элемента.
   \end{remark}
   \setcounter{lemcount}{0}
   \begin{lemmanum} \textbf{(Важная Лемма)}\\
@@ -4302,7 +4302,7 @@ $V$- конечномерное векторное пространство на
   \end{lemmanum}
   \begin{proof}
     НОД($a,p$) = 1 $\Longrightarrow \exists \ u, v \in K:$ 
-    $$ au+bv = 1 \ | \cdot b \ \Longrightarrow \underbrace{abv}_{\vdots \ p} +\underbrace{bvp}_{\vdots \ p}  = b  \ \Longrightarrow \ p|b$$ 
+    $$ au+pv = 1 \ | \cdot b \ \Longrightarrow \underbrace{bau}_{\vdots \ p} +\underbrace{bpv}_{\vdots \ p}  = b  \ \Longrightarrow \ p|b$$ 
   \end{proof}
   \begin{consequense}
     Пусть $K$ - евклидово колько, \ $p \in K$ - простой элемент.\\
@@ -4315,7 +4315,6 @@ $V$- конечномерное векторное пространство на
     Переход: $p|a_1 \cdot (a_2\cdot ... \cdot a_n)$\\
     Если $p \nmid a_1$, то НОД($a_1,p$) = 1 $\underbrace{\Longrightarrow}_{\text{по Лемме}} p|(a_2\cdot ... \cdot a_n) \underbrace{\Longrightarrow}_{\text{по Инд.}}  \exists \ i = \overline{2, n}: \ p|a_i$  
   \end{proof} 
-    \textbf{понеслася} 
   \begin{theorem}
     Пусть $K$ - евклидово кольцо, $a\neq 0 \in K$ - произвольный, необратимый элемент. Тогда $a$ можно разложить:
     $$a = p_1^{k_s}\cdot ...\cdot p_n^{k_s}$$
@@ -4324,17 +4323,17 @@ $V$- конечномерное векторное пространство на
   \begin{proof}\tab
     \begin{itemize}
       \item[ $\exists: \ $ ] От противного:\\
-    Среди всех ненулевых и необратимых элементов кольца $K$ найдем, которые не допускают такие разложения, возьмем наименьший по норме - обозначим его $a$. 
+    Среди всех ненулевых и необратимых элементов кольца $K$ найдем такие, которые не допускают такое разложения, возьмем наименьший по норме - обозначим его $a$. 
     \begin{itemize}
-      \item[1 случай: ] $a$ - простой эд=лемент $\Longrightarrow a$ - это и есть разложение на простые
+      \item[1 случай: ] $a$ - простой элемент $\Longrightarrow a$ - это и есть разложение на простые
       \item[2 случай: ] $a$ - не простой $\Longrightarrow \exists \ b, c \in K$ - ненулевые, обратимые: $a = bc$
       $$N(a)>N(b) \text{ и } N(a)>N(c)$$
       $\Longrightarrow $ т.к. $a$ - наименьший по норме, который не допускает это разложение на простые, то 
       $$b = p_1\cdot ... \cdot p_t, \ \ c = q_1\cdot ... \cdot q_s$$
-      Где $p_i, \ q_i$ - простые числа $\Longrightarrow a = p_1\cdot ... \cdot p_t\cdot q_1\cdot ... \cdot q_s$ Противоречие 
+      Где $p_i, \ q_i$ - простые числа $\Longrightarrow a = p_1\cdot ... \cdot p_t\cdot q_1\cdot ... \cdot q_s$ - противоречие 
     \end{itemize}
     \item[ $!: \ $ ] От противного:\\
-    $a = p_1\cdot ... \cdot p_s = q_1\cdot ... \cdot q_s$, где $p_i, a_i$ - простве числа. Индукция по $s$:  
+    $a = p_1\cdot ... \cdot p_s = q_1\cdot ... \cdot q_s$, где $p_i, a_i$ - простые числа. Индукция по $s$:  
     $$\Longrightarrow p_1 | (q_1\cdot ... \cdot q_s)$$
     $\Longrightarrow $  т.к. $p_1$ - простое, то следовательно: 
     $$\exists \ i = \overline{1,t}: \ p_1 | q_i \Longrightarrow p_1\sim q_i$$
@@ -4348,27 +4347,27 @@ $V$- конечномерное векторное пространство на
     Основная теорема арифметики.
   \end{consequensenum}
   \begin{consequensenum}
-    Пусть $F$ - поле, \ $f\in F[x] \ \deg f \geq 1$\\
-    Тогда $f$ раскладывается в простые неприводимые многочлены над $F$ и это разложение единствено с точностью до перестановки множителей и умножения на ненулевые константы из $F$.      
+    Пусть $F$ - поле, \ $f\in F[x], \ \deg f \geq 1$\\
+    Тогда $f$ раскладывается на простые неприводимые многочлены над $F$ и это разложение единствено с точностью до перестановки множителей и умножения на ненулевые константы из $F$.      
   \end{consequensenum}
   \begin{consequensenum}
     Пусть $K$ - евклидово кольцо,\ $a\in K$, \ $a=p_1^{k_1}\cdot ...\cdot p_s^{k_s}$, где $p_i$ - простые элементы $K$ и $p_i \not \sim p_j$ при $i \neq j$\\
-    Пусть $d|a$ в $K$. Тогда $d = c p_1^{l_1}\cdot ... \cdot p_s^{l_s}$, где $0\leq l_i\leq k_i$, $c$ - обратимый элемент в $K$             
+    Пусть $d\in K, \ d|a$. Тогда $d = c p_1^{l_1}\cdot ... \cdot p_s^{l_s}$, где $0\leq l_i\leq k_i$, \ $c$ - обратимый элемент в $K$             
   \end{consequensenum}
   \begin{proof}
     Т.к. $d|a$, то $a = db$. По теореме разложим $d$ и $b$ на простые (если они необратимы, иначе очев) и сравниваем в $a = db$ правую и левую часть. В силу единсвенности разложения на простые получаем следствие.     
   \end{proof}
-  \subsection{Поле отношения условия кольца}
+  \subsection{Поле отношений целостного кольца}
   $K$ - целостное кольцо\\
   Рассмотрим множество пар: 
-  $$\{(a, b) \ | \ a, b \in K, \ b\neq 0\}= M$$
+  $$M = \{(a, b) \ | \ a, b \in K, \ b\neq 0\}$$
   Введем отношение эквиватентности:
   $$(a, b)\sim (c, d) \Longleftrightarrow ad = bc$$
   \begin{subtheorem}
     $$\forall c \in K, \ c\neq 0 \Longrightarrow (a, b) \sim (ac, bc)$$
     Класс эквивалентности пары $(a, b)$ - это: 
     $$\{(c, d) \in M \ | \ (c, d) \sim (a, b)\}$$
-    называется дробью и обозначается: $\frac{a}{b}$ \\
+    Класс называется дробью и обозначается: $\frac{a}{b}$ \\
     Множество всех таких классов эквивалентности обозначается: $\Q (K)$ \\
     Операции на $\Q (K)$: 
     $$\frac{a_1}{b_1} + \frac{a_2}{b_2} = \frac{a_1b_2 + a_2b_1}{b_1b_1}, \ \ \frac{a_1}{b_1} \cdot \frac{a_2}{b_2} = \frac{a_1b_1}{a_1b_1}$$ 
@@ -4388,7 +4387,7 @@ $V$- конечномерное векторное пространство на
     \end{itemize}
   \end{proof} 
   \begin{subtheorem}
-    $Q(K)$ относительно этих операций - это поле. 
+    $Q(K)$ относительно операций $(+)$ и $(\cdot)$ - это поле. 
   \end{subtheorem}
   \begin{proof}
     При сложении можем считать, что знаменатель больше, т.е.:\\ 
@@ -4397,7 +4396,7 @@ $V$- конечномерное векторное пространство на
     Непосредственно проверяется дистрибутивность, коммутативность и ассоциативность умножения, $\frac{1}{1}$ - единица (нейтральный по умножению),\\ $\forall \frac{a}{b} \in Q(K), \frac{a}{b} \neq 0 \Longrightarrow a \neq 0$, $\exists \frac{b}{a} \in Q(K)$ - обратный к $\frac{a}{b} \Longrightarrow Q(K)$ - поле.        
   \end{proof} 
   \begin{definition}
-    Это поле называется полем отношения цолостного кольца $K$ (полем частных, полем дробей).\\ 
+    Такое поле называется полем отношений целостного кольца $K$ (полем частных, полем дробей).\\ 
     Рассмотрим множество: 
     $$\{ \ \frac{a}{1} \ | \ a \in K\ \} \text{ в } Q(K)$$
     Оно образует подкольцо в $Q(K)$, которое изоморфно кольцу $K$:
@@ -4442,7 +4441,7 @@ $V$- конечномерное векторное пространство на
     Дробь $\frac{f}{g} \in F(x)$ называется правильно, если $\deg f < \deg g$. Это определение не зависит от представителей.
   \end{definition}
   \begin{subtheoremnum}
-    Сумма и произведение правильных дробей - правильная дробь. произведение - пра
+    Сумма и произведение правильных дробей - правильная дробь.
   \end{subtheoremnum}
   \begin{subtheoremnum}
     Произвольная рациональная дробь $\frac{f}{g} \in F(x)$ единственным образом представима в виде суммы многочлена и правильной дроби.
@@ -4460,7 +4459,7 @@ $V$- конечномерное векторное пространство на
   \end{proof} 
   \begin{subtheoremnum}
     Любая правильная дробь $\frac{f}{g} \in F(x)$ раскладывается в сумму правильных дробей со знаменателями: $g_1, g_2,...,g_s$, где $g = g_1 \cdot g_2 \cdot ... \cdot g_s$ и НОД$(g_i, g_j) = 1$, при $i \neq j$:
-    $$\frac{f}{g} = \underbrace{\frac{r_1}{g_1} + ... + \frac{r_s}{g_s}}_{ \text{правильнаые}}$$
+    $$\frac{f}{g} = \underbrace{\frac{r_1}{g_1} + ... + \frac{r_s}{g_s}}_{ \text{правильные}}$$
   \end{subtheoremnum}
   \begin{proof}
     Индукция по $s$:\\
@@ -4474,7 +4473,7 @@ $V$- конечномерное векторное пространство на
     Рациональная дробь $\frac{f}{g}\in F(x)$ называется простейшей,если:
     \begin{itemize}
       \item[1) \ ] $\frac{f}{g} \neq 0$
-      \item[2) \ ] $g = p^s$, \ где $p$ - неприводимый множителей над $F$, \ $s \in \N$
+      \item[2) \ ] $g = p^s$, \ где $p$ - неприводимый множитель над $F$, \ $s \in \N$
       \item[3) \ ] $\deg f < \deg p$ 
     \end{itemize}
   \end{definition}
@@ -4482,7 +4481,7 @@ $V$- конечномерное векторное пространство на
     \begin{enumerate}
       \item $\forall$ поля $F$: $\frac{\alpha}{(x-c)^k}$, \ где $\alpha, c \in F, \ \alpha\neq 0, \ k \in \N$ является простейшей всегда.
       \item Если $F = \mathbb{C}$, то простейщий другого вида нет.
-      \item $F = \R: \ \frac{\alpha}{(x-c)^k}, \ \frac{\beta x + \gamma}{(x^2+ax+b)^k}$, где $\alpha, \beta, \gamma, a, b, c \in \R, \ \alpha \neq 0, \beta^2 + \gamma^2\neq 0, \ k \in \N$ и у $(x^2+ax+b)$ отрицательный дискриминан.   
+      \item $F = \R: \ \frac{\alpha}{(x-c)^k}, \ \frac{\beta x + \gamma}{(x^2+ax+b)^k}$, где $\alpha, \beta, \gamma, a, b, c \in \R, \ \alpha, \beta \neq 0, \ \beta^2 + \gamma^2\neq 0, \ k \in \N$ и у $(x^2+ax+b)$ отрицательный дискриминан.   
     \end{enumerate}
   \end{example}
   \begin{theorem}
