@@ -3572,17 +3572,17 @@ $V$- конечномерное векторное пространство на
       h(c_n) = 0 
     \end{cases} \Longrightarrow \ \ 
     \begin{cases}
-      a_nc_0^n + a_{n-1}c_0^{n-1} + ... + a_1c_0+ a_0 = 0 \\
-      a_nc_1^n + a_{n-1}c_1^{n-1} + ... + a_1c_1+ a_0 = 0 \\
+      a_0 + a_1c_0 + ... + a_{n-1}c_0^{n-1} + a_nc_0^n = 0 \\
+      a_0 + a_1c_1 + ... + a_{n-1}c_1^{n-1} + a_nc_1^n = 0 \\
       \vdots \\
-      a_nc_n^n + a_{n-1}c_n^{n-1} + ... + a_1c_n+ a_0 = 0
-    \end{cases}$$ - квадратная однородная СЛУ относительно неизвестных $a_n, a_{n-1}, ..., a_0$ с матрицей коэффициентов $A:$
+      a_0 + a_1c_n + ... + a_{n-1}c_n^{n-1} + a_nc_n^n = 0
+    \end{cases}$$ - квадратная однородная СЛУ относительно неизвестных $a_0, a_{1}, ..., a_n$ с матрицей коэффициентов $A:$
     $$A = \begin{pmatrix}
-      c_0^n & \cdots & c_0^1 & 1\\
-      c_1^n & \cdots & c_1^1 & 1\\
-      \vdots & \null & \vdots & \vdots\\ 
-      c_n^n & \cdots & c_n^1 & 1\\
-    \end{pmatrix}, \ \ \det A = (-1)^2 \cdot \underbrace{V(c_0, c_1,...,c_n)}_{\text{Опр. Вандермонда}}$$
+      1 & c_0 & \cdots & c_0^n\\
+      1 & c_1 & \cdots & c_1^n\\
+      \vdots  & \vdots & \null & \vdots\\ 
+      1 & c_n & \cdots & c_n^n\\
+    \end{pmatrix}, \ \ \det A = \underbrace{V(c_0, c_1,...,c_n)}_{\text{Опр. Вандермонда}} \neq 0$$
     $\Longrightarrow $ по правилу Крамера СЛУ имеет единственное решение и оно тривиальное $\Longrightarrow  \forall i \in \{0, 1,...,n\}: a_i = 0 \Longrightarrow n=0$ противоречие.    
   \end{proof}
   
