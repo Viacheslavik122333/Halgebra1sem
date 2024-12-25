@@ -2262,7 +2262,7 @@ $V$- конечномерное векторное пространство на
     \begin{enumerate} \tab
       \item $(\Z, +)$: \ $e=0$  
       \item $(\Z, \cdot)$: \ $e=1$ 
-      \item $(\Z, -)$: \ $\not \exists \ e$ 
+      \item $(\Z, -)$: \ $e=0$ 
       \item $(\N, +)$: \ $\not \exists \ e$ 
     \end{enumerate}
   \end{example}
@@ -2832,7 +2832,7 @@ $V$- конечномерное векторное пространство на
     \begin{enumerate}
       \item $(\Z, +, \cdot)$ - коммутативное, ассоциативное кольцо с 1
       \item $(M_n(\R), +, \cdot)$ - НЕ коммутативное, ассоциативное кольцо с 1
-      \item $(V^3,+, x)$, ($x$ - векторное произведение) - НЕ коммутативное, НЕ ассоциативное кольцо без 1
+      \item $(V^3,+, \times)$, ($\times$ - векторное произведение) - НЕ коммутативное, НЕ ассоциативное кольцо без 1
       \item $(2\Z, +, \cdot)$ -  коммутативное, ассоциативное кольцо без 1
     \end{enumerate}
   \end{example}
@@ -2990,7 +2990,7 @@ $V$- конечномерное векторное пространство на
     Подмножество $L$ поля $K$ называется подполем, если:
     \begin{enumerate}
       \item $L$ - подкольцо кольца $K$
-      \item $1 \in L$
+      \item $e \in L$
       \item $\forall a \in L, \ a \neq 0 \Longrightarrow a^{-1} \in L$   
     \end{enumerate}
   \end{definition}
@@ -3094,9 +3094,9 @@ $V$- конечномерное векторное пространство на
         b = \widetilde{b}
       \end{cases}$$ $\\$ 
       Предположим, что $\exists$  еще одно поле комплексных чисел $\mathbb{C}$. \\
-      Т.к. рассуждения выше верны и для $\mathbb{C}$, то $\forall \widetilde{z} \in \widetilde{\mathbb{C}}$ представляетя единственным образом в виде: 
+      Т.к. рассуждения выше верны и для $\widetilde{\mathbb{C}}$, то $\forall \widetilde{z} \in \widetilde{\mathbb{C}}$ представляетя единственным образом в виде: 
       $$\widetilde{z} = a+b\widetilde{i}, \text{ где } a, b \in \R, \ (\widetilde{i})^2 = -1$$
-      Рассомотрим отображение: 
+      Рассмотрим отображение: 
       $$\phi: \mathbb{C} \to \widetilde{\mathbb{C}}$$
       $$\phi: a+bi \to a+ b \widetilde{i}$$
       Это отображение - изоморфизм полей, сохраняющий вещественные числа на месте.
@@ -3130,11 +3130,11 @@ $V$- конечномерное векторное пространство на
         $(a, 0)(1, 0) + (b, 0)(0, 1) = (a, b)$, \ т.е. $\forall z \in \Gamma:$ 
         $$z = a \cdot 1 + b \cdot i$$
       \end{itemize}
-      $\Longrightarrow \forall F \subseteq \Gamma: \ $
+      $\Longrightarrow \forall \ \Gamma \subseteq F: \ $
          $\begin{cases}
         \R \subseteq F \\
         i \in F
-      \end{cases} \Longrightarrow F = \Gamma$
+      \end{cases} \Longrightarrow \Gamma = F$
     \end{itemize}
   \end{proof} 
   \begin{remark}
@@ -3170,7 +3170,7 @@ $V$- конечномерное векторное пространство на
     \begin{itemize}
       \item[1)] биекция очевидна
       \item[2)] $\overline{z_1+z_2} = (x_1 + x_2)-(y_1+y_2)i$  = $\overline{z_1}+\overline{z_2}$
-      \item[3)] $\overline{z_1z_2} = (x_1x_2-y_1y_2)+(x_1y_2+x_2y_1) = \overline{z_1}\cdot \overline{z_2}$
+      \item[3)] $\overline{z_1z_2} = (x_1x_2-y_1y_2)+(x_1y_2+x_2y_1)i = \overline{z_1}\cdot \overline{z_2}$
     \end{itemize}
   \end{proof} 
   \begin{properties}\tab
@@ -3635,7 +3635,7 @@ $V$- конечномерное векторное пространство на
     Формальной производной многочлена 
     $$f = a_nx^n + a_{n-1}x^{n-1} + ... + a_0$$
     называется многочлен:
-    $$f' = a_nnx^n + a_{n-1}(n-1)x^{n-1} + ... + a_1$$  
+    $$f' = a_nnx^{n-1} + a_{n-1}(n-1)x^{n-2} + ... + a_1$$  
   \end{definition}
   \begin{subtheorem}\tab
     \begin{enumerate}
@@ -4517,7 +4517,8 @@ $V$- конечномерное векторное пространство на
   \begin{theorem} \textbf{(Декарта)}\\ 
     Пусть $f(x) \in \R [x], \ \deg f \geq 1$\\
     $f(x) = a_nx^n + ... + a_1x + a_0$, где $a_i \in \R.$\\
-    $L(f)$ - число перемен знака в последовательности $a_n, a_{n-1},...,a_1,a_0$ $N(f)$ - число положительных вещественных корней многочлена $f$.\\
+    $L(f)$ - число перемен знака в последовательности $a_n, a_{n-1},...,a_1,a_0$\\ 
+    $N(f)$ - число положительных вещественных корней многочлена $f$\\
     Тогда число $N(f) \leq L(f)$. При этом $N(f) = L(f) \Longleftrightarrow $ нет мнимых корней.   
   \end{theorem}  
   \textbf{Удалю Копатыча, когда сдам досрок, а пока он посидит тут, на удачу:}
