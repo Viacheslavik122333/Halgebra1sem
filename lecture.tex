@@ -2626,7 +2626,7 @@ $V$- конечномерное векторное пространство на
     \end{definition} 
      $\textrm{Orb}(i) \subseteq \{1,...,n\} \Longrightarrow \exists \ m_1,m_2 \in \Z: \sigma^{m_1}(i) = \sigma^{m_2}(i) = j$ \\
      Допустим, что $m_1 > m_2$, тогда $\sigma^{m_1 - m_2}(i) = \sigma^{-m_2}(\sigma^{m_1}(i)) = \sigma^{-m_2}(j) = i \\
-     \Longrightarrow $ (т.к. $m_1 - m_2 \in \N)$ $\exists \ $ такое наименьшее $k \in \N^0 \ : \ \sigma^k(i)= i$ 
+     \Longrightarrow $ (т.к. $m_1 - m_2 \in \N)$ $\exists \ $ такое наименьшее $k \in \N \ : \ \sigma^k(i)= i$ 
     $$\textrm{Orb}(i) = \{i, \sigma(i),...,\sigma^{k-1}(i)\}$$
     \begin{properties} \tab
       \begin{enumerate}
@@ -2650,7 +2650,8 @@ $V$- конечномерное векторное пространство на
     Если $\sigma \neq \textrm{id}$, то $k_1>1,...,k_t>1,k_{t+1}=1,...,k_s=1 \Longrightarrow \\
     \sigma = (i_1 \ \sigma(i_1) \ ... \ \sigma^{k_1-1}(i_1)) \ ... \ (i_t \ \sigma(i_t) \ ... \ \sigma^{k_t-1}(i_t))$. $\exists$ \ доказано.   
     \item[ $!:$ ](От противного)\\
-    Допустим, $$\sigma = \pi_1,...,\pi_{\nu}$$ $$\sigma = \tau_1,...,\tau_{\mu}$$  Различные разложения на независимые циклы длины $\geq 2$ \\
+    Допустим, $$\sigma = \pi_1\cdot...\cdot \pi_{\nu}$$ $$\sigma = \tau_1\cdot...\cdot \tau_{\mu}$$  
+    Различные разложения на независимые циклы длины $\geq 2$ \\
     Т.к. $\sigma \neq id$, то $\exists \ j: \sigma(j) \neq j \Longrightarrow $ с точностью до нумерации: \
     $$\pi_1(j) \neq j, \ \tau_1(j) \neq j$$  
     $$\begin{matrix}
@@ -3700,7 +3701,7 @@ $V$- конечномерное векторное пространство на
     Если $z_k \to z_0$, то $|z_k| \to |z_0|$  
   \end{lemmanum} 
   \begin{proof}
-    $$z_k \to z_0 \Longrightarrow |z_k - z_0| \to 0 \Longrightarrow ||z_k|-|z_0|| \to 0 \underset{(*)}{\Longrightarrow} |z_k - z_0| \to 0$$ 
+    $$z_k \to z_0 \Longrightarrow |z_k - z_0| \to 0 \Longrightarrow ||z_k|-|z_0|| \to 0 \underset{(*)}{\Longrightarrow} |z_k| - |z_0| \to 0$$ 
   \end{proof} 
   \begin{lemmanum}
     Если $z_k \to z_0, \ w_k \to w_0$, то:
@@ -3794,11 +3795,11 @@ $V$- конечномерное векторное пространство на
           |x_k|<|z_k|<C \\
           |y_k|<|z_k|<C
         \end{cases}$$
-        Так как $\{x_n\}, \{y_k\}$ - ограничены, то по теореме Больцано-Вейштрасса:
+        Так как $\{x_k\}, \{y_k\}$ - ограничены, то по теореме Больцано-Вейштрасса:
         $$\exists \ \{x_{k_{i}}\}\subseteq \{x_{k}\}: \ \{x_{k_{i}}\} \to x_0$$
         $$\exists \ \{y_{k_{i_l}}\}\subseteq \{y_{k_{i}}\}: \ \{y_{k_{i_l}}\} \to y_0$$
         Значит по Лемме (1):
-        $$\{z_{k_{i_l}}\} \to x_0 + iy_0 = z_0 \Longrightarrow |f(\{z_{k_{i_l}}\})| \to |f(z_0)| = M$$  
+        $$\{z_{k_{i_l}}\} \to x_0 + y_0i = z_0 \Longrightarrow |f(\{z_{k_{i_l}}\})| \to |f(z_0)| = M$$  
       \end{itemize}
       \item[\textit{2 шаг.}] Допустим, что $M>0 \Longrightarrow$ по Лемме Даламбера:
       $$\exists \ \widetilde{z} \in \mathbb{C}: \ |f(\widetilde{z})|<M = f(z_0) - \text{противоречие, т.к. } M \text{ это } \inf $$
@@ -3828,12 +3829,12 @@ $V$- конечномерное векторное пространство на
     $c_1,...,c_t \in \mathbb{C}\setminus \R$ - мнимые корни кратности $m_1,...,m_t$\\
     $\overline{c_1},...,\overline{c_t}$ - тоже мнимые корни, той же кратности $(c_1 \to \overline{c_1})$\\
     $\Longrightarrow \alpha_1,..,\alpha_s,c_1,...,c_t,\overline{c_1},...,\overline{c_t}$ - все корни многочлена
-    $$f(x) = a_n \prod\limits_{j=1}^{s}(x-\alpha_j)^{k_j} \cdot \prod\limits_{\nu=1}^{t}(x-c_{\nu})(x-\overline{c_{\nu}})^{m_\nu} = (*)$$
+    $$f(x) = a_n \prod\limits_{j=1}^{s}(x-\alpha_j)^{k_j} \cdot \prod\limits_{\nu=1}^{t}(x-c_{\nu})^{m_\nu}(x-\overline{c_{\nu}})^{m_\nu} = (*)$$
     Если $c=a+bi \in \mathbb{C}\setminus \R$, то:
     $$(x-c)(x-\overline{c}) = x^2 - (c+\overline{c})x + c \overline{c}$$
     $$c+\overline{c} = 2a, \ \ c \overline{c} = a^2 + b^2$$
     $\Longrightarrow $ уравнение с отрицательным дискриминантом    
-    $$(*) = a_n \prod\limits_{j}(x-\alpha_j)^k_j \cdot \prod\limits_{\nu}(\underbrace{x^2+\beta_{\nu}+ \gamma_{\nu}}_{D<0})^{m_\nu} $$    
+    $$(*) = a_n \prod\limits_{j}(x-\alpha_j)^k_j \cdot \prod\limits_{\nu}(\underbrace{x^2+\beta_{\nu}x+ \gamma_{\nu}}_{D<0})^{m_\nu} $$    
   \end{proof}
   \begin{example1}
     $x^4 +1=0, \ x^4 = -1, \ w_k = \cos(\frac{\pi+2\pi k}{4})+ i\sin (\frac{\pi+2\pi k}{4})$
@@ -3955,13 +3956,13 @@ $V$- конечномерное векторное пространство на
   \end{example1}
   \begin{lemma} \textbf{(О старшем члене произведения)} \\
     Пусть $f, g \in F[x_1,...,x_n], \ f, g \neq 0$, тогда:
-    $$LT(fg) = LT(f) \cdot LT(g)$$  
+    $$LT(fg) = LT(f) \cdot LT(g)$$
   \end{lemma}
   \begin{proof}
     $$\begin{matrix}
       f=u_0+...+u_s\\
       g=v_0+...+v_t
-    \end{matrix}, \ \ \text{где} u_i, v_i - \text{одночлены}$$
+    \end{matrix}, \ \ \text{где } u_i, v_i - \text{одночлены}$$
     $$LT(f) = u_s, \ LT(g) = v_t$$
     $$fg = \sum u_iv_i; \ \ u_sv_t \succ u_iv_j, \text{ при } i+j<s+t \Longrightarrow LT(fg) = u_sv_t$$
     (Здесь учитывается, что $F$ - поле, а в поле нет делителей нуля)
@@ -4115,8 +4116,8 @@ $V$- конечномерное векторное пространство на
    Пусть $c_1,...,c_n \in F$ - все корни многочлена $f$ с учетом кратности, тогда:
   \begin{multline*}
     f(x) = a_0(x-c_1)(x-c_2)...(x-c_n) = \\
-    = a_0x^n - a_0(c_1+...+c_n)x^{n-1}+a_0(\sum \limits_{i<j}c_ic_j)x^{n-2} +\\
-    + a_0(\sum \limits_{i<j<k}c_ic_jc_k)x^{n-3} + ... + (-1)^nc_1...c_n
+    = a_0x^n - a_0(c_1+...+c_n)x^{n-1}+a_0(\sum \limits_{i<j}c_ic_j)x^{n-2} -\\
+    - a_0(\sum \limits_{i<j<k}c_ic_jc_k)x^{n-3} + ... + (-1)^nc_1...c_n
   \end{multline*}
   $$a_k = (-1)^ka_0\sigma_k(c_1,...,c_k), \ k = \overline{1,n}$$
   \[\Longrightarrow \sigma_k(c_1,...,c_k) = (-1)^k\frac{a_k}{a_0} \ - \text{\textbf{Формулы Виета} }\]
@@ -4229,13 +4230,13 @@ $V$- конечномерное векторное пространство на
   \end{theorem}
   \begin{proof}\tab
     \begin{itemize}
-      \item[1.] $b = 0: \ \tab[1.27cm] $ НОД$(a,b) = a = a \cdot 1 + b \cdot 0$
+      \item[1.] $b = 0: \ \tab[1.27cm] $ НОД$(a,b) = a = a \cdot 1 + b \cdot v$
       \item[2.] $b|a: \ \tab[1.8cm] $ НОД$(a,b) = b = a \cdot 0 + b \cdot 1$
       \item[3.] $b \neq 0, \ b\nmid a: \ $ Делим: 
       \begin{itemize}
         \item[0)] $a = bq_1 + r_1$, где $N(r_1) < N(b)$
         \item[1)] $b = r_1q_2 + r_2$, где $N(r_2) < N(r_1)$
-        \item[3)] $r_1 = r_2q_3 + r_3$, где $N(r_3) < N(r_2)$
+        \item[2)] $r_1 = r_2q_3 + r_3$, где $N(r_3) < N(r_2)$
         \item[ $\vdots$ ]
         \item[k)] $r_{k-1} = r_kq_{k+1} + r_{k+1}$, где $N(r_{k+1}) < N(r_k)$
         \item[k+1)] $r_k = r_{k+1}q_{k+2}$ 
@@ -4258,8 +4259,8 @@ $V$- конечномерное векторное пространство на
         \item[ $\vdots$ ]  
       \end{itemize}
       Далее по индукции. Получаем:
-      $$r_s = r_{s-1} - r_{s-2}q_s = (au_{s-1} + bv_{s-1}) - (au_{s-2} + bv_{s-2})q_s = au_s + bv_s$$
-      Так как $r_{k+1} = au+bv$, то если $d|a, \ d| b \Longrightarrow d|(au+bv) \Longrightarrow d|r_{k+1}\\ \Longrightarrow $ НОД($a,b$) = $r_{k+1}$
+      $$r_s = r_{s-2} - r_{s-1}q_s = (au_{s-2} + bv_{s-2}) - (au_{s-1} + bv_{s-1})q_s = au_s + bv_s$$
+      Так как $r_{k+1} = au+bv$, то если $d_0|a, \ d_0| b \Longrightarrow d_0|(au+bv) \Longrightarrow d_0|r_{k+1}\\ \Longrightarrow $ НОД($a,b$) = $r_{k+1}$
     \end{itemize}
   \end{proof}
   \begin{definition}
@@ -4317,7 +4318,7 @@ $V$- конечномерное векторное пространство на
   \end{proof} 
   \begin{theorem}
     Пусть $K$ - евклидово кольцо, $a\neq 0 \in K$ - произвольный, необратимый элемент. Тогда $a$ можно разложить:
-    $$a = p_1^{k_s}\cdot ...\cdot p_n^{k_s}$$
+    $$a = p_1^{k_1}\cdot ...\cdot p_n^{k_s}$$
     Причем это разложение единственное с точностью до перестановки множителей.   
   \end{theorem}
   \begin{proof}\tab
@@ -4337,8 +4338,8 @@ $V$- конечномерное векторное пространство на
     $$\Longrightarrow p_1 | (q_1\cdot ... \cdot q_s)$$
     $\Longrightarrow $  т.к. $p_1$ - простое, то следовательно: 
     $$\exists \ i = \overline{1,t}: \ p_1 | q_i \Longrightarrow p_1\sim q_i$$
-    Можем считать, что $i =1, p_1 = c_1q_1, \ c_1$ - обратим\\
-    Сокращаем на $p_1 : \ p_2\cdot ... \cdot p_s = cq_2\cdot ...\cdot q_m$\\
+    Можем считать, что $i =1, \ q_1 = c_1p_1, \ c_1$ - обратим\\
+    Сокращаем на $p_1 : \ \ p_2\cdot ... \cdot p_s = cq_2\cdot ...\cdot q_m$\\
     Далее индукция по $s$: \ $\Longrightarrow s=t, \ p_i \sim q_i$ (при подходящей перестановке)  
     \end{itemize}
   \end{proof}
