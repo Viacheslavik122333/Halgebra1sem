@@ -4290,7 +4290,7 @@ $V$- конечномерное векторное пространство на
   \begin{example}\tab
     \begin{enumerate}
       \item В $\Z$ простые элементы - это $\pm p$, где $p$ - простое число
-      \item В $F[x]$, где $F$ - поле, простые элементы  - это неприводимые множители  
+      \item В $F[x]$, где $F$ - поле, простые элементы  - это неприводимые многочлены  
     \end{enumerate}
   \end{example}
   \begin{remark}
@@ -4319,7 +4319,7 @@ $V$- конечномерное векторное пространство на
   \begin{theorem}
     Пусть $K$ - евклидово кольцо, $a\neq 0 \in K$ - произвольный, необратимый элемент. Тогда $a$ можно разложить:
     $$a = p_1^{k_1}\cdot ...\cdot p_n^{k_s}$$
-    Причем это разложение единственное с точностью до перестановки множителей.   
+    Причем это разложение единственное с точностью до домножения на обратимый и перестановки множителей.   
   \end{theorem}
   \begin{proof}\tab
     \begin{itemize}
@@ -4393,7 +4393,7 @@ $V$- конечномерное векторное пространство на
   \begin{proof}
     При сложении можем считать, что знаменатель больше, т.е.:\\ 
     $\frac{a_1}{b} + \frac{a_2}{b} = \frac{a_1+a_2}{b} \Longrightarrow $ коммутативное по сложению, ассоциативное по сложению, $\frac{0}{1}$ - нулевой элемент, $\forall \frac{a}{b} \  \exists \ -\frac{a}{b} = \frac{-a}{b}$\\
-    $\Longrightarrow $ это алгебраическая группа по сложению\\
+    $\Longrightarrow $ это абелева группа по сложению\\
     Непосредственно проверяется дистрибутивность, коммутативность и ассоциативность умножения, $\frac{1}{1}$ - единица (нейтральный по умножению),\\ $\forall \frac{a}{b} \in Q(K), \frac{a}{b} \neq 0 \Longrightarrow a \neq 0$, $\exists \frac{b}{a} \in Q(K)$ - обратный к $\frac{a}{b} \Longrightarrow Q(K)$ - поле.        
   \end{proof} 
   \begin{definition}
@@ -4421,11 +4421,11 @@ $V$- конечномерное векторное пространство на
       a \widetilde{b} = b \widetilde{a}\\
       \text{НОД}(a, b) = 1\\
       \text{НОД}(\widetilde{a}, \widetilde{b}) = 1
-    \end{cases} \underbrace{\Longrightarrow }_{\text{По важной лемме}} \begin{cases}
+    \end{cases} \Longrightarrow \begin{cases}
       a \ | \ b \widetilde{a}\\
       \text{НОД}(a, b) = 1
-    \end{cases}$$
-    $\Longrightarrow a \ | \ \widetilde{a}$, аналогично $\widetilde{a} \ | \ a \Longrightarrow a \sim \widetilde{a}$, т.е. $\widetilde{a} = ca$, $c$ - обратим
+    \end{cases} \underbrace{\Longrightarrow }_{\text{По важной лемме}} a \ | \ \widetilde{a} $$
+    аналогично $\widetilde{a} \ | \ a \Longrightarrow a \sim \widetilde{a}$, т.е. $\widetilde{a} = ca$, $c$ - обратим
     $$\begin{cases}
       a \widetilde{b} = b \widetilde{a}\\
       \widetilde{a} = ca
@@ -4436,10 +4436,10 @@ $V$- конечномерное векторное пространство на
   \begin{definition}
     Поле отношения кольца $K = F[x]$ называется полем рациональных дробей.\\
     Обозначается: $F(x)$\\
-    Элементы этого поля: $\frac{f(x)}{g(x)}$, где $f, g \in f[x], \ g\neq 0$ называются рациональными дробями.    
+    Элементы этого поля: $\frac{f(x)}{g(x)}$, где $f, g \in F[x], \ g\neq 0$ называются рациональными дробями.    
   \end{definition}
   \begin{definition}
-    Дробь $\frac{f}{g} \in F(x)$ называется правильно, если $\deg f < \deg g$. Это определение не зависит от представителей.
+    Дробь $\frac{f}{g} \in F(x)$ называется правильной, если $\deg f < \deg g$. Это определение не зависит от представителей.
   \end{definition}
   \begin{subtheoremnum}
     Сумма и произведение правильных дробей - правильная дробь.
@@ -4449,12 +4449,12 @@ $V$- конечномерное векторное пространство на
   \end{subtheoremnum}
   \begin{proof}\tab
     \begin{itemize}
-      \item[$\underline{\exists} : \ $ ] Поделим $f$ на $g$ с остатком: $f = gq + r$, где $\left[ \begin{array}{l l}
+      \item[$\underline{\exists} : \ $ ] Поделим $f$ на $g$ с остатком: $f = qg + r$, где $\left[ \begin{array}{l l}
         r=0\\
         \deg r < \deg g
         \end{array} \right.$, тогда: 
-        $$\frac{f}{g} = p + \frac{r}{g}$$ 
-      \item[$\underline{!} : \ $ ] Пусть $\frac{f}{g} = p + \frac{r}{g} = \widetilde{q} + \frac{\widetilde{r}}{\widetilde{g}}$, тогда: 
+        $$\frac{f}{g} = q + \frac{r}{g}$$ 
+      \item[$\underline{!} : \ $ ] Пусть $\frac{f}{g} = q + \frac{r}{g} = \widetilde{q} + \frac{\widetilde{r}}{\widetilde{g}}$, тогда: 
       $$q - \widetilde{q} = \frac{\widetilde{r}}{\widetilde{g}} - \frac{r}{g} \ \Longrightarrow  \ q = \widetilde{q}, \ \frac{\widetilde{r}}{\widetilde{g}} = \frac{r}{g}$$ 
     \end{itemize}
   \end{proof} 
@@ -4504,12 +4504,12 @@ $V$- конечномерное векторное пространство на
       где $\frac{\widetilde{r}}{p^s}$ - либо 0, либо простейшая.\\
       Повторяем процесс для $\frac{q}{p^{s-1}}$
       \item[ $\underline{!}: \  $ ] (От противного)
-      $$\frac{f}{g} = \sum \limits_{i=1}^s \ (\frac{r_{i_1}}{p_i} + \frac{r_{i_2}}{p_i^2} + ... + \frac{r_{i_{s_i}}}{p_i^{s_i}}) = \sum \limits_{i=1}^s \ (\frac{\widetilde{r}_{i_1}}{p_i} + \frac{\widetilde{r}_{i_2}}{p_i^2} + ... + \frac{\widetilde{r}_{i_{s_i}}}{p_i^{s_i}})$$
-      $$\Longrightarrow \sum \limits_{i=1}^s \ (\frac{\widetilde{\widetilde{r}}_{i_1}}{p_i} + \frac{\widetilde{\widetilde{r}}_{i_2}}{p_i^2} + ... + \frac{\widetilde{\widetilde{r}}_{i_{s_i}}}{p_i^{s_i}})=0, \ \text{ где } \widetilde{\widetilde{r}}_{i_j} = r_{i_j} - \widetilde{r}_{i_j}$$
+      $$\frac{f}{g} = \sum \limits_{i=1}^s \ (\frac{r_{i_1}}{p_i} + \frac{r_{i_2}}{p_i^2} + ... + \frac{r_{i_s}}{p_i^{s_i}}) = \sum \limits_{i=1}^s \ (\frac{\widetilde{r}_{i_1}}{p_i} + \frac{\widetilde{r}_{i_2}}{p_i^2} + ... + \frac{\widetilde{r}_{i_s}}{p_i^{s_i}})$$
+      $$\Longrightarrow \sum \limits_{i=1}^s \ (\frac{\widetilde{\widetilde{r}}_{i_1}}{p_i} + \frac{\widetilde{\widetilde{r}}_{i_2}}{p_i^2} + ... + \frac{\widetilde{\widetilde{r}}_{i_s}}{p_i^{s_i}})=0, \ \text{ где } \widetilde{\widetilde{r}}_{i_j} = r_{i_j} - \widetilde{r}_{i_j}$$
       Допустим, что $\exists \ \widetilde{\widetilde{r}}_{i_j}\neq 0$\\
       Рассмотрим $\widetilde{\widetilde{r}}_{i_t}$, где $t$ - максимальный с таким условием (самый правый) и без ограничение общности считаем, что $i=1$.\\
       Приводим к общему знаменателю и приравниваем числители:
-      $$\widetilde{\widetilde{r}}_{1_t}p_2^{s_k} \cdot ... \cdot p_k^{s_k} + p_1h(x) = 0$$
+      $$\widetilde{\widetilde{r}}_{1_t}p_2^{s_2} \cdot ... \cdot p_k^{s_k} + p_1h(x) = 0$$
       $h(x)$ - собрали все кратные $p_1$ в числителе
       $$p_1 \not \sim p_i \ (i \neq 1) \Longrightarrow p_1 \ | \ \widetilde{\widetilde{r}}_{1_t} \Longrightarrow \widetilde{\widetilde{r}}_{1_t} = 0$$
       т.к. иначе $\deg \widetilde{\widetilde{r}}_{1_t} < \deg p_1$ по определению простейших.     
