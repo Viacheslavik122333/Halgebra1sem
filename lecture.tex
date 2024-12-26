@@ -3417,7 +3417,7 @@ $V$- конечномерное векторное пространство на
     \end{enumerate}
   \end{example}
   Пусть $A$ - алгебра над полем $F$, \ $\{e_1,...,e_n\}$ - базис алгебры $A$, как векторного пространства, тогда $$\forall a, b \in A: a = \sum \limits_{j=1}^na_je_j, \ b = \sum \limits_{j=1}^na_je_j$$ 
-  $$\Longrightarrow a \cdot b = (\sum \limits_{j=1}^na_je_j)(\sum \limits_{j=1}^na_je_j) = \sum \limits_{j,k=1}^na_jb_k(e_je_k)$$ 
+  $$\Longrightarrow a \cdot b = (\sum \limits_{j=1}^na_je_j)(\sum \limits_{k=1}^na_ke_k) = \sum \limits_{j,k=1}^na_jb_k(e_je_k)$$ 
   Для умножения произвольных элементов достаточно знать таблицу умножения базисных элементов $(e_j \cdot e_k)$ 
   \begin{subtheorem}
     Для проверки коммутативности $(\cdot)$ в алгебре (ассоциативности и т.д.) достаточно проверить на базисных векторах. 
@@ -3476,7 +3476,7 @@ $V$- конечномерное векторное пространство на
   $F$ - поле
   \begin{definition}
     Бесконечная последовательность $(a_0,a_1, a_2,...)$, где $a_i \in \R$, называется финитной, если только конечное число $a_i$ отлично от нуля. 
-    $$F^{\infty} = \{(a_0,a_1, a_2,...) \ |\ a_i \in \R\}$$ 
+    $$F^{\infty} = \{(a_0,a_1, a_2,...) \ |\ a_i \in F \}$$ 
   \end{definition}  
   \begin{subtheorem}
     Множество $F^{\infty}$ относительно операции сложения: $$(a_0,a_1, a_2,...) + (b_0,b_1, b_2,...) = (a_0+b_0,a_1+b_1, a_2+b_2,...)$$ и умножения на элементы $\lambda \in F$: $$(a_0,a_1, a_2,...) \cdot \lambda = (\lambda a_0,\lambda a_1, \lambda a_2,...)$$
@@ -3548,7 +3548,7 @@ $V$- конечномерное векторное пространство на
   \subsubsection{Мгогочлены как функции}
   $F$ - поле, \ $f = a_nx^n + a_{n-1}x^{n-1} +...+ a_0$
   \begin{definition}
-    Значение многочлена $f$ в точке $c$ называет число, равное: $$f(c) = a_nc^n + a_{n-1}c^{n-1} +...+ a_0$$
+    Значение многочлена $f$ в точке $c$ называется число, равное: $$f(c) = a_nc^n + a_{n-1}c^{n-1} +...+ a_0$$
      Таким образом, множество $f$ задает отображение $F \to F$
      $$c \to f(c) \Longrightarrow f \text{ задает функцию}$$      
   \end{definition} 
@@ -4266,16 +4266,16 @@ $V$- конечномерное векторное пространство на
   \begin{definition}
     Процедура находа НОД($a,b$) в доказательстве теоремы называется алгоритмом Евклида.
   \end{definition}
-  Пусть $K$ - евклидово колько
+  Пусть $K$ - евклидово кольцо
   \begin{definition}
     Элементы $K$ называются взаимопростыми, если НОД($a,b$) = 1  
   \end{definition}
   \begin{consequense}
-    Пусть $K$ - евклидово колько, $a, b \in K$ - взаимопростые, тогда:
+    Пусть $K$ - евклидово кольцо, $a, b \in K$ - взаимопростые, тогда:
     $$\exists \ u, v \in K: \ au+bv=1$$  
   \end{consequense}
   \subsection{Разложение на простые элементы}
-  Пусть $K$ - евклидово колько
+  Пусть $K$ - евклидово кольцо
   \begin{example1}
     $\forall a \in K: \ a = (ac)c^{-1}$, где $c$ - обратим.  
   \end{example1}
@@ -4298,7 +4298,7 @@ $V$- конечномерное векторное пространство на
   \end{remark}
   \setcounter{lemcount}{0}
   \begin{lemmanum} \textbf{(Важная Лемма)}\\
-    Пусть $K$ - евклидово колько, \ $p \in K$ - простой элемент, тогда:
+    Пусть $K$ - евклидово кольцо, \ $p \in K$ - простой элемент, тогда:
     $$p|ab, \ \text{НОД}(a,p) = 1 \ \Longrightarrow \ p|b$$ 
   \end{lemmanum}
   \begin{proof}
@@ -4306,7 +4306,7 @@ $V$- конечномерное векторное пространство на
     $$ au+pv = 1 \ | \cdot b \ \Longrightarrow \underbrace{bau}_{\vdots \ p} +\underbrace{bpv}_{\vdots \ p}  = b  \ \Longrightarrow \ p|b$$ 
   \end{proof}
   \begin{consequense}
-    Пусть $K$ - евклидово колько, \ $p \in K$ - простой элемент.\\
+    Пусть $K$ - евклидово кольцо, \ $p \in K$ - простой элемент.\\
     Если $a_i \in K: \ p|(a_1\cdot ... \cdot a_s)$, тогда:
     $$\exists \ i = \overline{1, s}: \ p|a_i$$  
   \end{consequense}
@@ -4492,7 +4492,7 @@ $V$- конечномерное векторное пространство на
   \end{theorem}
   \begin{proof}\tab
     \begin{itemize}
-      \item[$\underline{\exists}: \ $] $g = p_1^{s_1}\cdot ... \cdot p_k^{s_k}$. По утверждению (3) $\frac{f}{g} = \frac{r_1}{g_1^{s_1}} + ... + \frac{r_k}{g_k^{s_k}}$\\
+      \item[$\underline{\exists}: \ $] $g = p_1^{s_1}\cdot ... \cdot p_k^{s_k}$. По утверждению (3) $\frac{f}{g} = \frac{r_1}{p_1^{s_1}} + ... + \frac{r_k}{p_k^{s_k}}$\\
       Достаточно рассмотреть правильную дробь вида $\frac{r}{p^s}$.\\
       Индукция по $s$:\\
       Поделим $r$ на $p$ с остатком:
@@ -4512,7 +4512,8 @@ $V$- конечномерное векторное пространство на
       $$\widetilde{\widetilde{r}}_{1_t}p_2^{s_2} \cdot ... \cdot p_k^{s_k} + p_1h(x) = 0$$
       $h(x)$ - собрали все кратные $p_1$ в числителе
       $$p_1 \not \sim p_i \ (i \neq 1) \Longrightarrow p_1 \ | \ \widetilde{\widetilde{r}}_{1_t} \Longrightarrow \widetilde{\widetilde{r}}_{1_t} = 0$$
-      т.к. иначе $\deg \widetilde{\widetilde{r}}_{1_t} < \deg p_1$ по определению простейших.     
+      т.к. иначе $\deg \widetilde{\widetilde{r}}_{1_t} \geq \deg p_1$, что противоречит определению простейших. 
+      % т.к. иначе $\deg \widetilde{\widetilde{r}}_{1_t} < \deg p_1$ по определению простейших.     
     \end{itemize}
   \end{proof}
   \begin{theorem} \textbf{(Декарта)}\\ 
