@@ -1,5 +1,5 @@
-
 \documentclass[a4paper, 12pt]{article}
+
 \usepackage{import}
 
 % Корректность отображения всех шрифтов, кодировок и мат. символов
@@ -13,9 +13,9 @@
 
 % Вставка картинок
 \usepackage{graphicx}
-\usepackage{asymptote}
 \usepackage{tikz}
 \usepackage{tkz-euclide}
+\usepackage{asymptote}
 
 
 \usepackage{wrapfig}        % Огибание картинок текстом
@@ -85,6 +85,7 @@
 \newcounter{concount}
 \newcounter{subthcount}
 \newcounter{defcount}
+
 \theoremstyle{definition}
 \newtheorem*{definition}{Определение}
 \newtheorem*{theorem}{Теорема}
@@ -104,7 +105,6 @@
 \newtheorem{lemmanum2}[lemcount2]{Лемма}
 \newtheorem{theoremnum}[thcount]{Теорема}
 \newtheorem{offernum}[offercount]{Предложение}
-% \newtheorem{theoremnum}[thcount]{Теорема}
 \newtheorem{subtheoremnum}[subthcount]{Утверждение}
 \newtheorem{definitionnum}[defcount]{Определение}
 
@@ -113,26 +113,20 @@
 \begin{document}
   \begin{titlepage}
     \newpage
-    
     \begin{center}
     \includegraphics[width=4cm]{image/image.png}
     \end{center}
-    
     \vspace{4em}
     
     \begin{center}
     \Large Механико-математический факультет  
     \end{center}
-    
     \vspace{2em}
     
     \begin{center}
     \large{\textsc{\textbf{Алгебра, 1 семестр, 2 поток}}}
     \end{center}
-    
     \vspace{6em}
-    
-
     
     \newbox{\lbox}
     \savebox{\lbox}{\hbox{Молчанов Вячеслав Вадимович}}
@@ -140,17 +134,16 @@
     \setlength{\maxl}{\wd\lbox}
     \hfill\parbox{11cm}
     {
-    \hspace*{5cm}\hspace*{-5cm}Преподаватель:\hfill\hbox to\maxl{Куликова Ольга Викторовна\\} \\
-
-    \hspace*{5cm}\hspace*{-5cm}Студент:\hfill\hbox to\maxl{Молчанов Вячеслав\\}\\
-
-    \hspace*{5cm}\hspace*{-5cm}Группа:\hfill\hbox to\maxl{108} \\
+    Преподаватель:\hfill\hbox to\maxl{Куликова Ольга Викторовна\\}\vspace{0.5cm}
     
-    \hspace*{5cm}\hspace*{-5cm}Контакт:\hfill\hbox to\maxl {\href{https://t.me/Slavikvaxye}{Мой телеграм для связи \\}}
+    Студент:\hfill\hbox to\maxl{Молчанов Вячеслав\\}\vspace{0.5cm}
+
+    Группа:\hfill\hbox to\maxl{108\\}\vspace{0.5cm}
+    
+    Контакт:\hfill\hbox to\maxl {\href{https://t.me/Slavikvaxye}{Мой телеграм для связи\\}}\vspace{0.5cm}
     }
 
     \vspace{\fill}
-    
     \begin{center}
     Москва \\Последняя компиляция: \today
     \end{center}
@@ -196,7 +189,7 @@
       0 && \null && \null && a_{nn} 
     \end{pmatrix} $$
 
-    Если $A$ - диагональноая и $a_{ii}$ = 1, то $A$ называется единичной.
+    Если $A$ - диагональная и $a_{ii}$ = 1, то $A$ называется единичной.
     $$ A =
     \begin{pmatrix}
       1 && \null && \null && 0 \\
@@ -217,7 +210,7 @@
       \item $ A =
       \begin{pmatrix}
         \null && \null && a_{1n} \\
-        \null && \dots && \null \\
+        \null && \reflectbox{$\ddots$} && \null \\
         a_{n1}  && \null && \null
       \end{pmatrix} $ побочная диагональ
     \end{itemize}
@@ -229,10 +222,10 @@
     \subsection{Система линейных (алгебраических) уравнений}
     $(*)
     \begin{cases}
-      a_{11}x_1 + ... + a_{1n}x_n = b_1 \\ 
-      a_{21}x_2 + ... + a_{2n}x_n = b_2 \\
+      a_{11}x_1 + ... + a_{1n}x_n = b_1, \\ 
+      a_{21}x_1 + ... + a_{2n}x_n = b_2, \\
       \vdots \\
-      a_{n1}x_1 + ... + a_{nn}x_n = b_n
+      a_{n1}x_1 + ... + a_{nn}x_n = b_n.
     \end{cases}$ $\\$$\\$
     где $a_{ij}, b \in \R, x_1,... ,x_n$ - неизвестные.
     $$A = \begin{pmatrix}
@@ -263,9 +256,9 @@
     \begin{definition}
       Элементарные преобразования над СЛУ:
       \begin{enumerate}
-        \item Прибавить к одному уравнению другое уравнение, умноженное на число $\lambda \in \R$
-        \item Поменять местами два уравнения
-        \item Умножить уравнение на ненулевое число $\mu \in \R$
+        \item Прибавить к одному уравнению другое уравнение, умноженное на число $\lambda \in \R$;
+        \item Поменять местами два уравнения;
+        \item Умножить уравнение на ненулевое число $\mu \in \R$.
       \end{enumerate}
     \end{definition} 
     
@@ -281,13 +274,13 @@
     \begin{proof} \tab
       \begin{itemize}
         \item[\underline{$\Longrightarrow$}]
-        $AX = B$ - исходная система, $\tilde{A} X = \tilde{B}$ преобразованная система. \\
-        Пусть ${z_1,...,z_n}$ некотороое решение $AX = B$. Будем рассматривать $\tilde{A} X = \tilde{B}$, в ней ЭП $III$ типа умножают строку на $\mu$, имеем:
+        $AX = B$ - исходная система, $\tilde{A} X = \tilde{B}$ - преобразованная система. \\
+        Пусть ${z_1,...,z_n}$ - некоторое решение $AX = B$. Будем рассматривать $\tilde{A} X = \tilde{B}$, в ней ЭП $III$ типа умножают строку на $\mu$, имеем:
         $$a_{i1}x_1 +...+ a_{in}x_n = b_{i} \text{ в } AX = B$$
         $$\mu a_{i1}x_1 +...+\mu a_{in}x_n = \mu b_i \text{ в } \tilde{A} X = \tilde{B}$$ 
         Выносим $\mu$ из второго уравнения:
         $$\mu (a_{i1}x_1 +...+ a_{in}x_n) = \mu b_i$$
-        Получаем, что ${z_1,...,z_n}$ решение для $\tilde{A} X = \tilde{B}$. Для $II$ типа ЭП очевидно. Теперь рассмотрим $I$ тип, будем к $i$-ой строчке прибавлять $j$-ую с коэффициентом $\lambda$, получаем:
+        Получаем, что ${z_1,...,z_n}$ - решение для $\tilde{A} X = \tilde{B}$. Для $II$ типа ЭП очевидно. Теперь рассмотрим $I$ тип, будем к $i$-ой строчке прибавлять $j$-ую с коэффициентом $\lambda$, получаем:
         \begin{multline*}
         (a_{i1}+\lambda a_{j1})x_1 +...+(a_{in}+\lambda a_{jn})x_n = \\ = a_{i1}x_1+\lambda a_{j1}x_1 +...+a_{in}x_n+\lambda a_{jn}x_n = \tab[3cm] \\ = a_{i1}x_1 + ... + a_{in}x_n + \lambda (a_{j1}x_1 +...+ a_{jn}x_n) = b_i + \lambda b_j
         \end{multline*}
@@ -304,10 +297,10 @@
       \overline{a_1} \\
       \overline{a_2} \\
       \vdots \\
-      \overline{a_i}
+      \overline{a_n}
     \end{pmatrix}, \text{ где } \overline{a_i} - \text{строка}$$
     \begin{itemize}
-      \item ЭП1: $\overline{a_i} \to \overline{a_i} + \lambda \overline{a_i}$
+      \item ЭП1: $\overline{a_i} \to \overline{a_i} + \lambda \overline{a_j}$
       \item ЭП2: $\overline{a_i} \longleftrightarrow   \overline{a_j}$
       \item ЭП3: $\overline{a_i} \to \mu \overline{a_i},\ \mu \neq 0$
   \end{itemize}
@@ -316,9 +309,9 @@
     \textbf{Пример:} $(0, 0, \underbrace{3}_{\text{лидер}}, 4, 5, 0, 0, 7)$
   \end{definition}
   \begin{definition}
-    Матрица $A$ размера $m\times n$ называется ступенчатой, если 
+    Матрица $A$ размера $m\times n$ называется ступенчатой, если:
     \begin{enumerate}
-      \item Номера лидеров ненулевых строк строго возрастают с увеличением номера строки.
+      \item Номера лидеров ненулевых строк строго возрастают с увеличением номера строки;
       \item Все нулевые строки стоят внизу (в конце).
     \end{enumerate}
   \end{definition}
@@ -342,14 +335,14 @@
       \vdots && \vdots && \vdots && \null  \\
       0 && 0 && \vdots && \null  \\  
     \end{pmatrix} $$ \\
-    Вычитаем из кажкой $k$-й строки, начиная со 2-ой, 1-ю строку, умноженную на число $\frac{a_{kj}}{a_{1j}}$. Получаем вид: 
+    Вычитаем из каждой $k$-й строки, начиная со 2-ой, 1-ю строку, умноженную на число $\frac{a_{kj}}{a_{1j}}$. Получаем вид: 
     $$\tilde{A} =\begin{pmatrix}
       a_{ij}  && * && \cdots && * \\ \hline
       0 \ \vline&& * && \cdots && *\\
       \vdots \tab[0.27cm] \vline&& * && \cdots && * \\
       0 \ \vline&& * && \cdots && *  \\
     \end{pmatrix}$$
-    К правой части матрицы (без 1 столбца и 1 строки) применяем индукцию и проводим матрицу к ступенчатому виду.
+    К правой части матрицы (без 1 столбца и 1 строки) применяем индукцию и приводим матрицу к ступенчатому виду.
   \end{proof}
   \begin{remark}
     Этот метод называется  методом Гаусса.
@@ -357,10 +350,10 @@
 
   \subsection{Решение СЛУ методом Гаусса}
   $\begin{cases}
-    a_{11}x_1 + ... + a_{1n}x_n = b_1 \\ 
-    a_{21}x_2 + ... + a_{2n}x_n = b_2 \\
+    a_{11}x_1 + ... + a_{1n}x_n = b_1, \\ 
+    a_{21}x_1 + ... + a_{2n}x_n = b_2 ,\\
     \vdots \\
-    a_{m1}x_1 + ... + a_{mn}x_n = b_m
+    a_{m1}x_1 + ... + a_{mn}x_n = b_m.
   \end{cases}$ \\$\\$
   Элементарные преобразования над $AX=B$ $\Longleftrightarrow$ элементарные преобразования над $(A|B)$. 
 
@@ -419,7 +412,7 @@
     Такая СЛУ называется строготреугольной.
 
     Из n-го уравнения однозначно находится $x_n = \frac{b_n}{a_{nn}}$
-    Подставляем во все оставшиеся уравнения $x_n = \frac{b_n}{a_{nn}}$ $\Longrightarrow$ исключаем $x_n$. Получаем строго треугольную систему с меньшим количество неизвестных.  \\
+    Подставляем во все оставшиеся уравнения $x_n = \frac{b_n}{a_{nn}}$ $\Longrightarrow$ исключаем $x_n$. Получаем строго треугольную систему с меньшим количеством неизвестных.  \\
     Далее из (n-1)-го уравнения  находим $x_{n-1}$ и т.д. $\Longrightarrow$ СЛУ имеет единственное решение т.е. является определенной.
 
     \item[3 случай:] $\widetilde{s}\underbrace{<}_{\text{хотим}} n$ 
@@ -453,7 +446,7 @@
     \null &&& \text{несовместна} && \null && \text{совместна} \\
     \null && \null && \null && \swarrow \null && \searrow \\
     \null && \null && \null && \widetilde{s} = s = n \null && \widetilde{s} = s \leq n \\
-    \null && \null && \null && \text{определенна} \null && \text{не определенна}
+    \null && \null && \null && \text{определена} \null && \text{не определена}
   \end{matrix}$$
   \begin{algorithm}
     $AX=B \longmapsto (A|B) \thicksim (A_{c}|B_{c})\longmapsto A_cX=B_c$
@@ -493,7 +486,7 @@
   \begin{proof}
     (в обозначениях из метода Гаусса)\\
     Т.к. система совместна (т.к. $B=0$), то $s=\widetilde{s}$ \\
-    С другой стороны $s=\overline{s} \leq$ число исходных уравнений $<$ n $\Longrightarrow s=\widetilde{s} < n \Longrightarrow$ СЛУ неопределена $\Longrightarrow \exists$ более одного решения $\Longrightarrow \exists$ нетривиальное решение.     
+    С другой стороны $s=\overline{s} \leq$ число исходных уравнений $<$ n $\Longrightarrow s=\widetilde{s} < n \Longrightarrow$ СЛУ не определена $\Longrightarrow \exists$ более одного решения $\Longrightarrow \exists$ нетривиальное решение.     
   \end{proof} 
 
   \newpage
@@ -541,17 +534,21 @@
     \begin{proof}
       Пусть существуют два $\overline{0}_1,\overline{0}_2 \in V$, тогда: $$\overline{0}_2 = \overline{0}_1 + \overline{0}_2 = \overline{0}_2 + \overline{0}_1 = \overline{0}_1$$   
     \end{proof} 
-    \item $\forall x \in V$ противоположный вектор единственный
+    \item $\forall x \in V$ противоположный вектор единственный.
     \begin{proof}
       Пусть существуют два $x_1,x_2$ - различные элементы,  являющиеся противоположными к вектору $x$, тогда:
       $$\overline{0} + x_2 = (x_1 + x) + x_2 = x_1 + (x + x_2) = x_1 + \overline{0}$$    
     \end{proof} 
-    \item $\forall \lambda \in \R: \lambda \cdot \overline{0} = \overline{0}$ 
+    \item $\forall \lambda \in \R: \lambda \cdot \overline{0} = \overline{0}$.
       \begin{proof}
       $$\lambda \cdot \overline{0} = \lambda \cdot (\overline{0}+\overline{0}) = \lambda \cdot \overline{0} + \lambda \cdot \overline{0}$$ Прибавим к обеим частям уравнения $\lambda \cdot \overline{0} = \lambda \cdot \overline{0} + \lambda \cdot \overline{0}$  противоположный к $\lambda \cdot \overline{0}$, тогда: $$\lambda \cdot \overline{0} + (-\lambda \cdot \overline{0})= \lambda \cdot \overline{0} + \lambda \cdot \overline{0} + (-\lambda \cdot \overline{0})$$ $$\overline{0} = \lambda \cdot \overline{0}$$ 
       \end{proof} 
     \item $\lambda \cdot (-x) = -\lambda \cdot x$
+    \begin{remark}
+      $x - y := x + (-y)$.
+    \end{remark}
     \item $\lambda \cdot (x-y) = \lambda x - \lambda y$ 
+    \item $0 \cdot x = \overline{0}$
     \item $(-1) \cdot x = -x$
     \item $(\lambda - \mu)\cdot x = \lambda x - \mu x$  
   \end{enumerate}
@@ -582,7 +579,8 @@
     \begin{enumerate} 
       \item $V^3, U$ - множество всех векторов из $V^3$, параллельных фиксированной\\ плоскости.
       \item $\R^n, U=\{(a_1,..., a_n) \ | \ a_{2i} = 0\}$ - векторное подпространство \\ $\widetilde{U} = \{(a_1,..., a_n) \ | \ a_{2i} = 1\}$ - не векторное подпространство, т.к. множество не замкнуто относительно сложения и умножения.
-      \item В любом векторном простанстве $V$ есть такие подпространства, состоящие только из нулевого вектора. (тривиальное или несобственное подпространство) (остальные называются собственными)
+      \item В любом векторном пространстве $V$ есть такие подпространства, состоящие только из нулевого вектора. Такие подпространства и само пространство $V$ называются несобственными подпространствами $V$ (остальные называются собственными).
+      %(тривиальное или несобственное подпространство) (остальные называются собственными)
     \end{enumerate}
   
   \newpage
@@ -677,10 +675,10 @@
   \begin{proof}
     Пусть 
     $$\begin{cases}
-      w_1 = c_{11}v_1+\cdots+c_{1k}v_k \\
-      w_2 = c_{21}v_1+\cdots+c_{2k}v_k \\
+      w_1 = c_{11}v_1+\cdots+c_{1k}v_k, \\
+      w_2 = c_{21}v_1+\cdots+c_{2k}v_k, \\
       \vdots \\
-      w_m = c_{m1}v_1+\cdots+c_{mk}v_k
+      w_m = c_{m1}v_1+\cdots+c_{mk}v_k,
     \end{cases}
     \text{где } c_{ij} \in \R
     $$
@@ -691,15 +689,15 @@
     \end{multline*}
     Рассмотрим СЛУ с неизвестными $\lambda_1,...,\lambda_m$ из $k$ уравнений:
     $$\begin{cases}
-      c_{11}\lambda_1+\cdots+c_{m1}\lambda_m=0 \\
+      c_{11}\lambda_1+\cdots+c_{m1}\lambda_m=0, \\
       \vdots \\
-      c_{1k}\lambda_1+\cdots+c_{mk}\lambda_m=0
+      c_{1k}\lambda_1+\cdots+c_{mk}\lambda_m=0.
     \end{cases}$$ 
     Т.к. $m>k$ и это ОСЛУ, в которой число уравнений $<$ числа неизвестных, то эта система имеет нетривиальное решение 
     $\lambda_1,...,\lambda_m \\ \Longrightarrow \lambda_1w_1+\cdots+\lambda_mw_m = 0$ - это нетривиальная ЛК \\ $\Longrightarrow w_1,...,w_m$ - ЛЗ. 
   \end{proof} 
   \subsection{Линейная оболочка множества S}
-  $V$ - векторное простанство над $\R$, \
+  $V$ - векторное пространство над $\R$, $S$ - подмножество:
   $S \subseteq V, \ S \neq \varnothing $ 
   \begin{subtheorem}
     Множество всех ЛК $\lambda_1s_1+\cdots+\lambda_ks_k,\tab[0.1cm] \lambda_i \in \R,\tab[0.1cm] s_i \in S$ образует векторное подпространство в пространстве $V$. 
@@ -720,7 +718,7 @@
     \end{enumerate}
   \end{example}
   \begin{definition}
-    Если $V=\langle S \rangle$, то $S$ называется порождающим множеством векторного простанства $V$. Говорят, что векторное пространство $V$ порождается множеством $S$. 
+    Если $V=\langle S \rangle$, то $S$ называется порождающим множеством векторного пространства $V$. Говорят, что векторное пространство $V$ порождается множеством $S$. 
   \end{definition} 
   \begin{definition}
     Если $\exists$ конечное множество $S$, т.ч. $V=\langle S \rangle$, то $V$ называется конечномерным (конечнопорожденным), иначе - бесконечномерным.
@@ -742,34 +740,41 @@ $V$- конечномерное векторное пространство на
   Эти числа $x_1,...,x_n$ - называются координатами вектора $x$ в базисе $\{e_1,...,e_n\}$ 
 \end{definitionnum} 
 \begin{definitionnum}
-  Система векторов $\{e_1,...,e_n\} \subseteq V$ называется базисом векторного простанства $V$, если любой вектор $x \in V$ выражается через $\{e_1,...,e_n\}$ единственным образом.
+  Система векторов $\{e_1,...,e_n\} \subseteq V$ называется базисом векторного пространства $V$, если любой вектор $x \in V$ выражается через $\{e_1,...,e_n\}$ единственным образом.
 \end{definitionnum} 
   \begin{subtheorem}
     (\textbf{Опр 1}) $\Longleftrightarrow $ (\textbf{Опр 2})
   \end{subtheorem} 
   \begin{proof}
-    По лемме \eqref{lem3}.
+    По лемме \eqref{lem3}. \\
+    \textit{Дополнение:} $\underline{\Longrightarrow}$
+    $\forall x \in V \ \exists x_1, \dots, x_n \in \R: x = x_1 e_1 + \dots + x_n e_n$ - дано, где $\{e_1, \dots, e_n\}$ - ЛНЗ.
+    Допустим, существует два различных разложения:
+    $x = x_1 e_1 + \dots + x_n e_n = x'_1 e_1 + \dots + x'_n e_n$, тогда
+    $(x_1 - x'_1) e_1 + \dots + (x_n - x'_n) e_n = 0$ - нетривиальная линейная комбинация $\Rightarrow \{e_1, \dots, e_n\}$ - ЛЗ - противоречие.
+
+    $\underline{\Longleftarrow}$ Пусть существует единственное разложение для $x$ и $\{e_1, \dots, e_n\}$ - ЛЗ. Тогда $\exists \lambda_1, \dots, \lambda_n$ (не все равны нулю): $\lambda_1 e_1 + \dots + \lambda_n e_n = 0$. Но при этом существует единственное разложение $x = x_1 e_1 + \dots + x_n e_n$, тогда $x + 0 = (x_1 + \lambda_1) e_1 + \dots + (x_n + \lambda_n) e_n$ - другое разложение - противоречие.
   \end{proof}
   \begin{theorem}
-    Всякое конечномерное векторное пространство над $\R$ обладает базисом. Более того, из любого конечного порожденного множества можно выбрать базис.
+    Всякое конечномерное векторное пространство над $\R$ обладает базисом. Более того, из любого конечного порождающего множества можно выбрать базис.
   \end{theorem} 
   \begin{proof}
     Пусть $S$ - какое-то порождающее множество векторного пространства $V$. \\
-    Если $S$ - ЛНЗ, то $S$ - базис \\
+    Если $S$ - ЛНЗ, то $S$ - базис. \\
     Если $S$ - ЛЗ, то по критерию о ЛЗ один из векторов $s_1$ множества $S$ линейно выражается через остальные. \\
-    Тогда $S_1$ = $S\setminus\{s_1\}$ - конечное порождащее множество. ч.т.д. \\
-    Т.к. $S$ - конечное,то этот процесс прервется и мы получим ЛНЗ порожденную систему.
+    Тогда $S_1$ = $S\setminus\{s_1\}$ - конечное порождающее множество. \\
+    Т.к. $S$ - конечное, то этот процесс прервется и мы получим ЛНЗ порождающую систему.
   \end{proof} 
   \begin{theorem}
-    В любом базисе конечномерного векторного пространства $V$ над $\R$ одно и тоже число векторов.
+    В любом базисе конечномерного векторного пространства $V$ над $\R$ одно и то же число векторов.
   \end{theorem} 
   \begin{proof}
-    Пусть есть два базиса $\{e_1,...,e_n\}$ и $\{f_1,...,f_m\}$ векторного пространства $V$. 
+    Пусть есть два базиса $\{e_1,...,e_n\}$ и $\{f_1,...,f_m\}$ векторного пространства $V$ и $m > n$. 
     Тогда каждый вектор $f_i$ выражается через $e_1,...,e_n$. \\
     По ОЛЛЗ: $\{f_1,...,f_m\}$ - ЛЗ $\Longrightarrow \{f_1,...,f_m\}$ - не базис $\Longrightarrow $ противоречие.  
   \end{proof} 
   \begin{definition}
-    Число векторов в базисе конечномерного векторного пространства $V$ называется размерностью векторного простанства и обозначается: $\dim V$ 
+    Число векторов в базисе конечномерного векторного пространства $V$ называется размерностью векторного пространства и обозначается: $\dim V$ 
   \end{definition} 
   \begin{example} $\tab$ 
     \begin{enumerate}
@@ -778,7 +783,7 @@ $V$- конечномерное векторное пространство на
     \end{enumerate}
   \end{example}
   \begin{remark}
-    Если $V={0}$, то $\dim V = 0$ (базис систоит из $\varnothing$ ) 
+    Если $V=\{0\}$, то $\dim V = 0$ (базис систоит из $\varnothing$ ) 
   \end{remark} 
    \begin{subtheorem}
     Пусть $V$- векторное пространство над $\R$, $\dim V=n,\tab[0.1cm] S\subseteq V$ Любые $m>n$ векторов из $S$ - ЛЗ. (по ОЛЛЗ) \\
@@ -799,9 +804,9 @@ $V$- конечномерное векторное пространство на
     А каждый вектор из $S$ линейно выражается через $\{s_1,...,s_k\}$. 
   \end{proof}
   \begin{theorem}
-    Пусть $V$ конечномерное векторное пространство над $\R$, тогда:
+    Пусть $V$ - конечномерное векторное пространство над $\R$, тогда:
     \begin{enumerate}
-      \item Любая максимальная ЛНЗ система векторов из $V$ - базис $V$.
+      \item Любая максимальная ЛНЗ система векторов из $V$ - базис $V$;
       \item Любую ЛНЗ систему векторов из $V$ можно дополнить до базиса векторного пространства $V$. 
     \end{enumerate}
   \end{theorem}  
@@ -813,13 +818,13 @@ $V$- конечномерное векторное пространство на
     Если $V=\langle S \rangle$, тогда $S$ - базис. \\
     Если $V \neq \langle S \rangle$ , то $\exists \ s_1 \in V \setminus \langle S \rangle$ \\
     $\Longrightarrow s_1$ линейно не выражается через $S$ $\Longrightarrow \text{(По лемме \ref{lem2}.) } S_1=S \cup \{s_1\}$ - ЛНЗ. \\
-    $\Longrightarrow $ Если $V = \langle S_1 \rangle$, то $S_1$ базис, иначе $\exists s_2 \in V \setminus \langle S_1 \rangle$, и т.д. \\
+    $\Longrightarrow $ Если $V = \langle S_1 \rangle$, то $S_1$ - базис, иначе $\exists s_2 \in V \setminus \langle S_1 \rangle$, и т.д. \\
     Этот процесс прервется на конечном шаге, т.к. пространство $V$- конечное. (Если $\dim V \neq n, \text{то} \not \exists$ ЛНЗ системы с числом векторов $> n$) 
   \end{proof} 
   \begin{consequense} 
-    Пусть $V$ конечномерное векторное пространство над $\R$ 
+    Пусть $V$ - конечномерное векторное пространство над $\R$, тогда:
     \begin{enumerate}
-      \item Любой ненулевой вектор можно дополнить до базиса.
+      \item Любой ненулевой вектор можно дополнить до базиса;
       \item Любые $n$ ЛНЗ вектора в $n$-мерном пространстве $V$ образуют базис.
     \end{enumerate}
   \end{consequense} 
@@ -827,7 +832,7 @@ $V$- конечномерное векторное пространство на
   \newpage
   %%%%%%%%
   \section{Ранг}
-  \subsection{Ранг системы векторного простанства}
+  \subsection{Ранг системы векторного пространства}
   \begin{definition}
     Рангом системы векторов $S$, назовем $\dim \langle S \rangle$, т.е. число векторов в максимальной ЛНЗ системе из $S$.  
   \end{definition} 
@@ -938,24 +943,24 @@ $V$- конечномерное векторное пространство на
   
   \section{Возвращаемся к системе линейных уравнений}
   $\begin{cases}
-    a_{11}x_1 + ... + a_{1n}x_n = b_1 \\ 
-    a_{21}x_2 + ... + a_{2n}x_n = b_2 \\
+    a_{11}x_1 + ... + a_{1n}x_n = b_1, \\ 
+    a_{21}x_1 + ... + a_{2n}x_n = b_2, \\
     \vdots \\
-    a_{m1}x_1 + ... + a_{mn}x_n = b_m
+    a_{m1}x_1 + ... + a_{mn}x_n = b_m.
   \end{cases} (AX = B)$
   \begin{theorem} (Кронекера-Капелли)
     \begin{enumerate}
-      \item (Критерий совместимости СЛУ) \\ CЛУ $AX = B$ совместна $\Longleftrightarrow rk(A|B) = rkA$ 
+      \item (Критерий совместности СЛУ) \\ CЛУ $AX = B$ совместна $\Longleftrightarrow rk(A|B) = rkA$ 
       \item (Критерий определенности СЛУ) \\ Совместная СЛУ $AX =B$ - определена $\Longleftrightarrow rk(A|B) = rkA = n$ 
       \item (Критерий существования нетривиального решения у однородной СЛУ) \\ ОСЛУ $AX = 0$ имеет нетривиальное решение $\Longleftrightarrow rkA<n$ 
     \end{enumerate}
   \end{theorem}
   \textbf{Однородная СЛУ}: 
   $$\begin{cases}
-    a_{11}x_1 + ... + a_{1n}x_n = 0 \\ 
-    a_{21}x_1 + ... + a_{2n}x_n = 0 \\
+    a_{11}x_1 + ... + a_{1n}x_n = 0, \\ 
+    a_{21}x_1 + ... + a_{2n}x_n = 0, \\
     \vdots \\
-    a_{m1}x_1 + ... + a_{mn}x_n = 0
+    a_{m1}x_1 + ... + a_{mn}x_n = 0.
   \end{cases} (AX = 0)$$
   \begin{subtheorem}
     ОСЛУ всегда совместна, т.к. есть тривиальное решение.
@@ -970,11 +975,11 @@ $V$- конечномерное векторное пространство на
         \widetilde{x_1^0}\\
         \vdots\\
         \widetilde{x_n^0} 
-      \end{pmatrix}$ - решение ОСЛУ, \\ \tab[9cm] тогда $X^0 + \widetilde{X^0}$ = $\begin{pmatrix}
+      \end{pmatrix}$ - решение ОСЛУ, \\ \tab[6cm] тогда $X^0 + \widetilde{X^0}$ = $\begin{pmatrix}
         X_1^0 + \widetilde{X_1^0} \\
         \vdots\\
         X_n^0 + \widetilde{X_n^0}
-      \end{pmatrix}$
+      \end{pmatrix}$ - тоже решение.
       \item Если $X^0$ = $\begin{pmatrix}
         x_1^0\\
         \vdots\\
@@ -999,7 +1004,7 @@ $V$- конечномерное векторное пространство на
     Пространство решений ОСЛУ $AX = 0$ имеет базис из $n-r$ векторов, где $n$ - число неизвестных, а $r=rkA$.
   \end{theoremnum} 
   \subsection{Фундаментальная система решений}
-  \begin{definition}і
+  \begin{definition}
     Любой базис пространства решений ОСЛУ называется \\ Фундаментальной Системой Решений ОСЛУ (ФСР).
   \end{definition} 
   \begin{proof}
@@ -1050,7 +1055,7 @@ $V$- конечномерное векторное пространство на
       \end{pmatrix} \Longrightarrow \lambda_1 = 0,...,\lambda_{n-r}=0$ 
       \item Надо доказать, что любое решение выражено через $F_1,...,F_{n-r}$ \\ $\\$ 
       $X^0 = \begin{pmatrix}
-        c_{11} \\ \vdots \\ c_{r1} \\ \hline \mu_{r+1} \\ \vdots \\ \mu_n
+        * \\ \vdots \\ * \\ \hline \mu_{r+1} \\ \vdots \\ \mu_n
       \end{pmatrix} = \mu_{r+1}F_1 + \cdots + \mu_nF_{n-r}$ 
     \end{enumerate}
   \end{proof}
@@ -1081,7 +1086,7 @@ $V$- конечномерное векторное пространство на
   \end{pmatrix}, \tab[0.5cm] F_2 = \begin{pmatrix}
     -9 \\ 4 \\ \hline 0 \\ 1 \\ 0
   \end{pmatrix}, \tab[0.5cm] F_3 = \begin{pmatrix}
-    3 \\ -3 \\ \hline 0 \\ 0 \\ 1
+    3 \\ -2 \\ \hline 0 \\ 0 \\ 1
   \end{pmatrix} \tab[0.1cm] \text{ - три частных решения ОСЛУ}$$ 
   Проверим, что $\{F_1,F_2, F_3\}$- базис пространства решений ОСЛУ \\ $\\$ 
   $\begin{pmatrix}
@@ -1105,17 +1110,17 @@ $V$- конечномерное векторное пространство на
   Такой базис называется нормальной ФСР. 
   \subsection{Неоднородная СЛУ}
   $\begin{cases}
-    a_{11}x_1 + ... + a_{1n}x_n = b_1 \\ 
-    a_{21}x_2 + ... + a_{2n}x_n = b_2 \\
+    a_{11}x_1 + ... + a_{1n}x_n = b_1, \\ 
+    a_{21}x_1 + ... + a_{2n}x_n = b_2, \\
     \vdots \\
-    a_{m1}x_1 + ... + a_{mn}x_n = b_m
+    a_{m1}x_1 + ... + a_{mn}x_n = b_m.
   \end{cases} (AX=B)$ \\ $\\$ 
   Рассмотрим соответствующую (ассоциированную) к ней ОСЛУ \\ $\\$ 
   $\begin{cases}
-    a_{11}x_1 + ... + a_{1n}x_n = 0 \\ 
-    a_{21}x_2 + ... + a_{2n}x_n = 0 \\
+    a_{11}x_1 + ... + a_{1n}x_n = 0, \\ 
+    a_{21}x_1 + ... + a_{2n}x_n = 0, \\
     \vdots \\
-    a_{m1}x_1 + ... + a_{mn}x_n = 0
+    a_{m1}x_1 + ... + a_{mn}x_n = 0.
   \end{cases} (AX=0)$ 
   \begin{theorem}
     Пусть СЛУ $AX=B$ - совместна. $X_0$ - произвольное частное решение. Тогда множество $M$ всех решений неоднородной СЛУ: $AX=B$ равно сумме частного решения $X_0$ и множеству $M_{\text{одн}}$ всех решений соответствующей однородной СЛУ: $AX=0$ 
@@ -1142,7 +1147,7 @@ $V$- конечномерное векторное пространство на
     $M \subseteq X_0 + M_{\text{одн}}$ \\
     Рассмотрим произвольное решение $Z = \begin{pmatrix}
       z_1 \\ \vdots \\ z_n 
-    \end{pmatrix}$ - неоднородная СЛУ. \\
+    \end{pmatrix}$ неоднородной СЛУ. \\
     Докажем, что $Z - X_0 = \begin{pmatrix}
       z_1 - x_1^0 \\ \vdots \\ z_n - x_n^0
     \end{pmatrix}
@@ -1198,6 +1203,15 @@ $V$- конечномерное векторное пространство на
       \begin{Exercise}
         Проверить, что это базис.
       \end{Exercise}
+      \begin{example1}
+        $M_{2 \times 3} (\R):$
+        $E_{11} = \begin{pmatrix} 1&0&0 \\ 0&0&0 \end{pmatrix},
+        E_{12} = \begin{pmatrix} 0&1&0 \\ 0&0&0 \end{pmatrix},
+        E_{13} = \begin{pmatrix} 0&0&1 \\ 0&0&0 \end{pmatrix}, \\
+       \tab[4.6cm] E_{21} = \begin{pmatrix} 0&0&0 \\ 1&0&0 \end{pmatrix},
+        E_{22} = \begin{pmatrix} 0&0&0 \\ 0&1&0 \end{pmatrix},
+        E_{23} = \begin{pmatrix} 0&0&0 \\ 0&0&1 \end{pmatrix}.$
+      \end{example1}
     \end{proof} 
     \begin{definition}
       Матрица $E_{st}$ называется матричной единицей. Базис из всех матричных единиц называется стандартным базисом в пространстве $Mat_{m \times n}(\R)$. $A = \sum a_{st} E_{st}$ 
@@ -1311,11 +1325,15 @@ $V$- конечномерное векторное пространство на
       \item Докажем, что $\exists$ линейное отображение, которое переводит $e_i$ в $w_i$. Отображение зададим формулой: $$\phi: x = x_1e_1 + \cdots + x_ne_n \to x_1w_1 + \cdots + x_nw_n$$
       $$\phi(a+b) = \phi((a_1+b_1)e_1 + \cdots + (a_n + b_n)e_n) = (a_1+b_1)w_1 + \cdots + (a_n + b_n)w_n$$
       $$\phi(a) + \phi(b) = \phi(a_1e_1 + \cdots a_ne_n) + \phi(b_1e_1 + \cdots b_ne_n) = $$ $$= a_1w_1 + \cdots + a_nw_n + b_1w_1 + \cdots + b_nw_n = w_1(a_1 + b_1) + \cdots + w_n(a_n + b_n)$$
-      $\Longrightarrow \phi(a+b) = \phi(a) + \phi(b)$\\
-      Проверить, что $\phi(\lambda a) = \lambda \phi(a)$ - ДЗ
+      $\Longrightarrow \phi(a+b) = \phi(a) + \phi(b).$\\
+      Проверить, что $\phi(\lambda a) = \lambda \phi(a)$ - ДЗ. \\
+      \textit{Дополнение:}
+      $$\phi(\lambda a) = \phi(\lambda a_1 e_1 + \cdots + \lambda a_n e_n) = \lambda a_1 w_1 + \cdots \lambda a_n w_n,$$
+      $$\lambda \phi(a) = \lambda \phi(a_1 e_1 + \cdots + a_n e_n) = \lambda a_1 w_1 + \cdots + \lambda a_n w_n$$
+      $\Longrightarrow \phi(\lambda a) = \lambda \phi(a).$
     \end{enumerate}
   \end{proof} 
-  Пусть $\phi: V \to W$ - линейное отображение $V$- $n$-мерное, $W - m$-мерное пространство.  \\
+  Пусть $\phi: V \to W$ - линейное отображение, $V$- $n$-мерное, $W$ - $m$-мерное пространство.  \\
   Фиксируем базис 
   $\mathcal{E}  = \{e_1,...,e_n\}$ - базис в $V$; $\mathcal{F}  = \{f_1,...,f_m\}$ - базис в $W$
   $$\phi(e_1) = w_1 = a_{11}f_1 + \cdots + a_{m1}f_m$$ $$\vdots$$
@@ -1369,7 +1387,7 @@ $V$- конечномерное векторное пространство на
       Т.к. разложение по базису единственное, то
       $$b_{1i} = a_{1i} + \widetilde{a_{1i}} ,..., b_{mi} = a_{mi} + \widetilde{a_{mi}} \Longrightarrow b_{ij} = a_{ij} + \widetilde{a_{ij}} \Longrightarrow B = A_1 + A_2$$ 
     \end{proof} 
-    \item[2)] Умножение линейного отображение на число. \\
+    \item[2)] Умножение линейного отображения на число. \\
     $\phi: V \to W$ - линейное отображение, $\mu \in \R$ - произвольное число. \\
     Зададим отображение по правилу: $(\mu \phi)(x) = \mu \phi(x)$ $\tab[0.2cm] \forall x \in V$ 
     \begin{subtheorem}
@@ -1388,7 +1406,7 @@ $V$- конечномерное векторное пространство на
       Видимо дз(
     \end{proof} 
     \item[3)] Композиция (произведение) линейных отображений. \\
-    Пусть $V, W, U$ - векторные простанства над $\R$
+    Пусть $V, W, U$ - векторные пространства над $\R$
     $$\phi: V \to W \tab[0.5cm] \psi: W \to U$$
     $$\includegraphics[width=5.5cm]{image/lecture-10.pdf}$$
     Зададим отображение по правилу: 
@@ -2226,7 +2244,7 @@ $V$- конечномерное векторное пространство на
   \newpage
   %%%%%%%%
   
-  \section{Алебраические структуры}
+  \section{Алгебраические структуры}
   $A,B$ - множества. \\
   Декартово произведение: $A \times B = \{(a,b)\ |\ a \in A, b \in B\}$ 
   \begin{definition}
@@ -2275,7 +2293,7 @@ $V$- конечномерное векторное пространство на
   \end{proof} 
   \begin{definition}
     Группоид - это множество $A$, на котором введена бинарная операция $(*)$. \\
-    Обозначается: $(A,*)$  
+    Обозначение: $(A,*)$  
   \end{definition} 
   \begin{definition}
     Полугруппа - группоид с ассоциативной бинарной операцией.
@@ -2349,7 +2367,7 @@ $V$- конечномерное векторное пространство на
   \begin{definition}
     Группы $G_1, G_2$ называются изоморфными, если $\exists $ отображение $\phi: G_1 \to G_2: $
     \begin{enumerate}
-      \item $\phi - $ биекция. 
+      \item $\phi - $ биекция
       \item $\forall a,b \in G_1: \ \phi(a*b) = \phi(a)\circ\phi(b)$  
     \end{enumerate}
   Обозначение: $G_1\cong G_2$ \\
@@ -4526,7 +4544,7 @@ $V$- конечномерное векторное пространство на
   \newpage
 
   \section*{Заключение}
-  В заключение выражаю благодарность главным редакторам конспекта: \\Егору Соколову (108 группа), Кириллу Яковлеву (108 группа), Ярославу Светлакову (108 группа), а также Марии Свириной (111 группа) за рукописные конспекты.\\
+  В заключение выражаю благодарность главным редакторам конспекта: \\Егору Соколову (108 группа), Кириллу Яковлеву (108 группа), Ярославу Светлакову (108 группа), Егору Цыбулину (108 группа), а также Марии Свириной (111 группа) за рукописные конспекты.\\
   Автор успешно сдал экзамен досрочно, но остается на связи, если будут очепятки пишите, поправим. \\
   Всем удачной сессии $\heartsuit$ 
 
