@@ -682,7 +682,7 @@
     \end{cases}
     \text{где } c_{ij} \in \R
     $$
-    Докажем, что $\exists$ нетривиальная ЛК $w_1,...,w_m=0$ \\
+    Докажем, что $\exists$ нетривиальная ЛК $w_1,...,w_m=0$. \\
     Для произвольных $\lambda_1,...,\lambda_m$ рассмотрим выражение: 
     \begin{multline*}
       \lambda_1w_1 +\cdots+\lambda_mw_m = \\ = \lambda_1(c_{11}v_1+\cdots+c_{1k}v_k) + \cdots + \lambda_m(c_{m1}v_1+\cdots+c_{mk}v_k) = \\ = (\lambda_1c_{11}+\cdots+\lambda_mc_{m1})v_1+\cdots+(\lambda_1c_{1k}+\cdots+\lambda_mc_{mk})v_k 
@@ -1370,7 +1370,7 @@ $V$- конечномерное векторное пространство на
       \end{proof} 
     \end{subtheorem} 
 
-    Фиксируем базисы $\mathcal{E}  = \{e_1,...,e_n\}$ - в $V$ и $\mathcal{F}  = \{f_1,...,f_n\}$ - в $W$
+    Фиксируем базисы $\mathcal{E}  = \{e_1,...,e_n\}$ - в $V$ и $\mathcal{F}  = \{f_1,...,f_m\}$ - в $W$
 
     $A_1$ - матрица линейного отображения $\phi_1$ относильно $\mathcal{E}$ и $\mathcal{F}$. \\
     $A_2$ - матрица линейного отображения $\phi_2$ относильно $\mathcal{E}$ и $\mathcal{F}$. \\
@@ -1438,7 +1438,7 @@ $V$- конечномерное векторное пространство на
       По определению композиции:
       $$(\psi \circ \phi)(e_i) = \psi(\phi(e_i)) = \psi(\sum \limits_{s=1}^ma_{si}f_s) = \sum \limits_{s=1}^ma_{si}\psi(f_s) =\tab[4cm]$$ $$\tab[7cm]= \sum \limits_{s=1}^ma_{si}(\sum \limits_{t=1}^kb_{ts}g_t) = \sum \limits_{t=1}^k(\sum \limits_{s=1}^mb_{ts}a_{si})g_t \tab[0.3cm](\star)$$
       $\Longrightarrow $$(\ast) = (\star)$.\\
-      Т.к. координаты определены однозначно $\Rightarrow c_{it} = \sum \limits_{s=1}^mb_{ts}a_{si} \Rightarrow C =B \cdot C$  
+      Т.к. координаты определены однозначно $\Rightarrow c_{it} = \sum \limits_{s=1}^mb_{ts}a_{si} \Rightarrow C =B \cdot A$  
     \end{proof} 
   \end{itemize}
   \subsection{Свойства операций над матрицами}
@@ -1451,7 +1451,7 @@ $V$- конечномерное векторное пространство на
 
     Пусть $\underset{m \times l}{D} = A(BC), \tab[0.1cm]\underset{m \times l}{\widetilde{D}} = (AB)C$.\\
     Надо проверить, что $\forall i,j: [D]_{ij} = [\widetilde{D}]_{ij}$. 
-    $$[D]_{ij} = [A(BC)]_{ij} = \sum \limits_{s=1}^k[A]_{is} \cdot [BC]_{si} = \sum \limits_{s=1}^k[A]_{is}(\sum \limits_{t=1}^n[B]_{st} \cdot [C]_{ti}) = $$ $$  = \sum \limits_{s=1}^k \sum \limits_{t=1}^n[A]_{ij}([B]_{st} \cdot [C]_{ti})$$ 
+    $$[D]_{ij} = [A(BC)]_{ij} = \sum \limits_{s=1}^k[A]_{is} \cdot [BC]_{sj} = \sum \limits_{s=1}^k[A]_{is}(\sum \limits_{t=1}^n[B]_{st} \cdot [C]_{tj}) = $$ $$  = \sum \limits_{s=1}^k \sum \limits_{t=1}^n[A]_{is}([B]_{st} \cdot [C]_{tj})$$ 
     $$[\widetilde{D}]_{ij} = [(AB)C]_{ij} = \sum \limits_{t=1}^n[AB]_{it}[C]_{tj} = \sum \limits_{t=1}^n (\sum \limits_{s=1}^k[A]_{is} \cdot [B]_{st})[C]_{tj} = $$
     $$ = \sum \limits_{t=1}^n \sum \limits_{s=1}^k ([A]_{is} \cdot [B]_{st}) \cdot [C]_{tj}$$  
     По свойствам операций над $\R$ результаты преобразований равны.
@@ -1477,7 +1477,7 @@ $V$- конечномерное векторное пространство на
       4. $\underset{m \times k}{A}, \underset{k \times n}{B} \Longrightarrow \underset{n \times k}{B^T}, \underset{k \times m}{A^T}$ (размеры совпадают) \\
       Проверим равенство $D = (AB)^T \text{ и } \widetilde{D} = B^TA^T$.
       $$[D]_{ij} = [(AB)^T]_{ij} = [(AB)]_{ji} = \sum \limits_{s=1}^k[A]_{js}[B]_{si}$$ 
-      $$[\widetilde{D}]_{ij} = B^TA^T = \sum \limits_{s=1}^k[B]_{is}[A]_{sj} = \sum \limits_{s=1}^k[A]_{js}[B]_{si}$$ 
+      $$[\widetilde{D}]_{ij} = B^TA^T = \sum \limits_{s=1}^k[B^T]_{is}[A^T]_{sj} = \sum \limits_{s=1}^k[A]_{js}[B]_{si}$$ 
     \end{proof} 
   \end{enumerate}
   \subsection{О ранге и операциях над матрицами}
@@ -1496,7 +1496,7 @@ $V$- конечномерное векторное пространство на
     
   \begin{proof} \tab
     \begin{enumerate} 
-      \item Следует из того, что ранг системы строк = рангу системы столбцов, и из определения ранга матрицы.
+      \item Следует из того, что ранг системы строк равен рангу системы столбцов, и из определения ранга матрицы.
       \item Очевидно. 
       \item Пусть $\overline{a_1},...,\overline{a_m}$ - строки матрицы $A$. $\overline{b_1},..,\overline{b_m}$  - строки матрицы $B$. \\
       $\overline{a_1} + \overline{b_1} ,..., \overline{a_m} + \overline{b_m}$ - строки матрицы $A+B$. 
@@ -1517,7 +1517,7 @@ $V$- конечномерное векторное пространство на
       $$\dim\langle \overline{a_1} + \overline{b_1} ,..., \overline{a_m} + \overline{b_m} \rangle \leq \dim\langle \overline{a_1},...,\overline{a_m}, \overline{b_1},...,\overline{b_m} \rangle$$ 
       Т.к. объединение базисов линейной оболочки $\overline{a_1},...,\overline{a_m}$ и $\overline{b_1},..,\overline{b_m}$ является конечной порождающей системой линейной оболочки $\langle \overline{a_1},...,\overline{a_m}, \overline{b_1},...,\overline{b_m} \rangle$, а из любой конечной порождающей системы можно выбрать базис, значит: $$\dim\langle \overline{a_1} + \overline{b_1} ,..., \overline{a_m} + \overline{b_m} \rangle \leq \dim\langle \overline{a_1},...,\overline{a_m} \rangle + \dim\langle \overline{b_1},...,\overline{b_m} \rangle$$ $$\Longrightarrow  rk(A+B) \leq rkA + rkB$$
       \item Докажем, что $rkAB \leq rkA$. Пусть $C =AB$, $\underset{m \times k}{A}, \underset{k \times n}{B}$ \\
-      $A_1,...,A_n$ - столбцы матрицы $A$ \\
+      $A_1,...,A_k$ - столбцы матрицы $A$ \\
       $B_1,...,B_n$ - столбцы матрицы $B$ \\
       $C_1,...,C_n$ - столбцы матрицы $C$
       $$C_1 = AB_1 = A_1b_{11} + \cdots + A_kb_{k1}$$ 
@@ -2789,7 +2789,7 @@ $V$- конечномерное векторное пространство на
   \subsection{Подгруппа}
   $(A,*)$ - множество с бинарной операцией. \ $B \subseteq A$ 
   \begin{definition}
-    Говорят, что $B$ замкнуто относительно бинарной опериции $*$, если: $$\forall b_1,b_2 \in B: \ b_1 * b_2 \in B$$
+    Говорят, что $B$ замкнуто относительно бинарной операции $*$, если: $$\forall b_1,b_2 \in B: \ b_1 * b_2 \in B$$
     В этом случае $B$ превращается в алгебраическую структуру.   
   \end{definition}  
   \begin{example1}
@@ -2838,7 +2838,7 @@ $V$- конечномерное векторное пространство на
     Кольцо называется ассоциативным, если умножение ассоциативно.
   \end{definition}
   \begin{definition}
-    Кольцо называется коммутативным, если умножение коммутативное.
+    Кольцо называется коммутативным, если умножение коммутативно.
   \end{definition}
   \begin{definition}
     Кольцо называется кольцом с единицей, если существует нейтральный элемент по умножению:
@@ -2993,7 +2993,7 @@ $V$- конечномерное векторное пространство на
   \begin{definition}
     Подмножество $L$ кольца $K$ называется подкольцом, если:
     \begin{enumerate}
-      \item $L$ - подгруппа адитивной группы кольца $K$, т.е.
+      \item $L$ - подгруппа аддитивной группы кольца $K$, т.е.
       \begin{itemize}
         \item $\forall a, b \subset L : \ a + b \in L$ 
         \item $0 \in L$ 
@@ -3051,7 +3051,7 @@ $V$- конечномерное векторное пространство на
     В поле нет делителей нуля $\Longrightarrow \underbrace{1+1+...+1}_{m} = 0$. Противоречие.
   \end{proof}
   \begin{remark}
-    Теория решения СЛУ (метод Гаусса, правила Крамера, ...), теория определителей, утверждения о векторных пространсвах (в частности о матрицах), которые мы рассматривали раннее, переносятся с $\R$ на произвольные поля. \\
+    Теория решения СЛУ (метод Гаусса, правила Крамера, ...), теория определителей, утверждения о векторных пространствах (в частности, о матрицах), которые мы рассматривали раннее, переносятся с $\R$ на произвольные поля. \\
     \textbf{Исключение}  - поле характеристики 2: в определении кососимметричной и полилинейной функции надо требовать, чтобы при 2 совпадающих аргументах \\ $f(...,v,...,v,...)=0$. Отсюда получаем, что $f(...,v,...,w,...) = -f(...,w,...,v,...)$ (при $\textrm{char}P = 2$ получаем: $1 = -1$)  
   \end{remark}
   \subsection{Поле комплексных чисел}
@@ -3434,8 +3434,8 @@ $V$- конечномерное векторное пространство на
       \end{example1}
     \end{enumerate}
   \end{example}
-  Пусть $A$ - алгебра над полем $F$, \ $\{e_1,...,e_n\}$ - базис алгебры $A$, как векторного пространства, тогда $$\forall a, b \in A: a = \sum \limits_{j=1}^na_je_j, \ b = \sum \limits_{j=1}^na_je_j$$ 
-  $$\Longrightarrow a \cdot b = (\sum \limits_{j=1}^na_je_j)(\sum \limits_{k=1}^na_ke_k) = \sum \limits_{j,k=1}^na_jb_k(e_je_k)$$ 
+  Пусть $A$ - алгебра над полем $F$, \ $\{e_1,...,e_n\}$ - базис алгебры $A$, как векторного пространства, тогда $$\forall a, b \in A: a = \sum \limits_{j=1}^na_je_j, \ b = \sum \limits_{j=1}^nb_je_j$$ 
+  $$\Longrightarrow a \cdot b = (\sum \limits_{j=1}^na_je_j)(\sum \limits_{k=1}^nb_ke_k) = \sum \limits_{j,k=1}^na_jb_k(e_je_k)$$ 
   Для умножения произвольных элементов достаточно знать таблицу умножения базисных элементов $(e_j \cdot e_k)$ 
   \begin{subtheorem}
     Для проверки коммутативности $(\cdot)$ в алгебре (ассоциативности и т.д.) достаточно проверить на базисных векторах. 
@@ -3484,7 +3484,7 @@ $V$- конечномерное векторное пространство на
     Подмножество $B$ алгебры $A$ назвается подалгеброй $A$, если $B$ - подпространство $A$, как кольца, и подпространства $A$, как пространства.      
   \end{definition} 
   \begin{subtheorem}
-    Любоя подалгебра сама является алгеброй относильно тех же оперций и тем же полем.
+    Любая подалгебра сама является алгеброй относильно тех же операций и тем же полем.
   \end{subtheorem} 
   \begin{definition}
     Алгебры $A$ и $\widetilde{A}$ над одним и тем же полем называются изоморфными, если они изоморфны как кольца и векторные пространства.
@@ -3561,9 +3561,9 @@ $V$- конечномерное векторное пространство на
       Иначе продолжаем процесс с $f_1$ (заметим, что $\deg f_1 < \deg f$): находим $f_2 $ и т.д. Процесс закончится на конечном шаге.  
     \end{enumerate}
     \textit{Докажем единственность:}  \\
-    Допустим, $ f = g \cdot q_1 + r_1$ и $f = g \cdot q_2 + r_2$ $$  \Longrightarrow r_1 - r_2 = g(q_2 - q_1) \Longrightarrow \deg (r_1-r_2) = \deg g + \deg (q_2 - q_1) $$ $$\deg(r_1 - r_2) \geq \deg g$$. С другой стороны $$\deg (r_1-r_2) < \max \{\deg r_1, \deg r_2\} < \deg g$$ - получаем противоречие.   
+    Допустим, $ f = g \cdot q_1 + r_1$ и $f = g \cdot q_2 + r_2$ $$  \Longrightarrow r_1 - r_2 = g(q_2 - q_1) \Longrightarrow \deg (r_1-r_2) = \deg g + \deg (q_2 - q_1) $$ $$\deg(r_1 - r_2) \geq \deg g.$$ С другой стороны, $$\deg (r_1-r_2) < \max \{\deg r_1, \deg r_2\} < \deg g$$ - получаем противоречие.   
   \end{proof} 
-  \subsubsection{Мгогочлены как функции}
+  \subsubsection{Многочлены как функции}
   $F$ - поле, \ $f = a_nx^n + a_{n-1}x^{n-1} +...+ a_0$
   \begin{definition}
     Значение многочлена $f$ в точке $c$ называется число, равное: $$f(c) = a_nc^n + a_{n-1}c^{n-1} +...+ a_0$$
@@ -3583,6 +3583,7 @@ $V$- конечномерное векторное пространство на
   \begin{proof}
     Допустим, $f, g \in F[x], \ f \neq g, \ \forall c \in F, \ f(c) = g(c)$ \\
     Введем $h = f - g \in F[x], \ h \neq 0, \ \forall c \in F, \  h(c)=0$\\
+    $h = a_n x^n + ... + a_0$ - среди $a_i$ есть ненулевые. \\
     Т.к. поле $F$ - бесконечное, то $\exists \ c_0, c_1,...,c_n \in F$ - различные числа, такие что:
     $$\begin{cases}
       h(c_0) = 0 \\
@@ -3602,7 +3603,7 @@ $V$- конечномерное векторное пространство на
       \vdots  & \vdots & \null & \vdots\\ 
       1 & c_n & \cdots & c_n^n\\
     \end{pmatrix}, \ \ \det A = \underbrace{V(c_0, c_1,...,c_n)}_{\text{Опр. Вандермонда}} \neq 0$$
-    $\Longrightarrow $ по правилу Крамера СЛУ имеет единственное решение и оно тривиальное $\Longrightarrow  \forall i \in \{0, 1,...,n\}: a_i = 0 \Longrightarrow n=0$ противоречие.    
+    $\Longrightarrow $ по правилу Крамера СЛУ имеет единственное решение и оно тривиальное $\Longrightarrow  \forall i \in \{0, 1,...,n\}: a_i = 0 \Longrightarrow h=0$ - противоречие.    
   \end{proof}
   
   \begin{theorem}\textbf{(Безу)} 
@@ -3611,7 +3612,7 @@ $V$- конечномерное векторное пространство на
   \end{theorem}
   \begin{proof}
     Пусть $f(x) = (x-c)g(x) + r(x)\  (*)$
-    $$\deg r(x) < \deg (x-c) = 1 \Longrightarrow  r(x) - const$$
+    $$\deg r(x) < \deg (x-c) = 1 \Longrightarrow  r(x) = const$$
     $\Longrightarrow $ Либо $r(x) = 0$, либо $r(x)=r \in F$\\
     Подставим в $(*) \ x = c$:
     $$f(c) = (c-c)\cdot q(c) + r(c) = r$$
@@ -3646,7 +3647,7 @@ $V$- конечномерное векторное пространство на
     где $g$ не имеет корней. То есть $c_1,...,c_k$ - корни многочлена $f$, при этом среди них могут быть одинаковые.
     $$\Longrightarrow f = (x-\widetilde{c_1})^{k_1}(x-\widetilde{c_2})^{k_2}...(x-\widetilde{c_s})^{k_s}g$$
     где $\widetilde{c_1},...,\widetilde{c_s}$ - все различные корни.\\ 
-    Т.к. $$f = (x-\widetilde{c_l})h$$ 
+    Т.к. $$f = (x-\widetilde{c_l})^{k_l} h$$ 
     где $h(\widetilde{c_l}) \neq 0 \Longrightarrow \widetilde{c_l}$ - корень кратности $k_l$ $$\Longrightarrow \deg f = k_1 +...+k_s + \deg g \Longrightarrow k = k_1+...+k_s \leq n$$
     При этом: $$k=n \Longleftrightarrow \deg g =0 \Longleftrightarrow f = \prod\limits_{l=1}^{s}(x-\widetilde{c_l})^{k_l}$$       
   \end{proof}
@@ -3686,7 +3687,7 @@ $V$- конечномерное векторное пространство на
   \end{consequense}    
   \subsection{Основная теорема алгебры}
   \begin{theorem}
-    Любой многочлен над полем комплексных числел положительной степени имеет хотя бы один корень.
+    Любой многочлен над полем комплексных чисел положительной степени имеет хотя бы один корень.
   \end{theorem}
   \begin{subtheorem}\tab
     \begin{properties}\tab
@@ -3719,7 +3720,7 @@ $V$- конечномерное векторное пространство на
     Если $z_k \to z_0$, то $|z_k| \to |z_0|$  
   \end{lemmanum} 
   \begin{proof}
-    $$z_k \to z_0 \Longrightarrow |z_k - z_0| \to 0 \Longrightarrow ||z_k|-|z_0|| \to 0 \underset{(*)}{\Longrightarrow} |z_k| - |z_0| \to 0$$ 
+    $$z_k \to z_0 \Longrightarrow |z_k - z_0| \to 0 \underset{(*)}{\Longrightarrow} ||z_k|-|z_0|| \to 0 \Longrightarrow |z_k| \to |z_0|$$ 
   \end{proof} 
   \begin{lemmanum}
     Если $z_k \to z_0, \ w_k \to w_0$, то:
@@ -3748,12 +3749,12 @@ $V$- конечномерное векторное пространство на
     $$|f(z_k)| \to \infty$$        
   \end{lemmanum} 
   \begin{proof}
-    $f(z) = a_nx^n + ... + a_1x+a_0 \in \mathbb{C}[z] \neq 0$
+    $f(z) = a_nz^n + ... + a_1z+a_0 \in \mathbb{C}[z] \neq 0$
     \begin{multline*}
       |f(z_k)| = |a_nz_k^n + a_{n-1}z_k^{n-1}... + a_1z_k+a_0| =\\
       \tab[-4cm]= |z_k^n \cdot (a_n+\frac{a_{n-1}}{z_k} + ... + \frac{a_{1}}{z_k^{n-1}} + \frac{a_{0}}{z_k^{n}})|=\\
-      \tab[1cm]= |z_k^n| \cdot |(a_n - (-\frac{a_{n-1}}{z_k} - ... - \frac{a_{1}}{z_k^{n-1}} - \frac{a_{0}}{z_k^{n}}))| \ \underset{(*)}{\geq}\\
-      \underset{(*)}{\geq} \ |z_k|^n \cdot ||a_n|-\frac{|a_{n-1|}}{|z_k|} - ... - \frac{|a_{1|}}{|z_k|^{n-1}} - \frac{|a_{0|}}{|z_k|^{n}}| \to \infty
+      \tab[1cm]= |z_k^n| \cdot \left|(a_n - (-\frac{a_{n-1}}{z_k} - ... - \frac{a_{1}}{z_k^{n-1}} - \frac{a_{0}}{z_k^{n}}))\right| \ \underset{(*)}{\geq}\\
+      \underset{(*)}{\geq} \ |z_k|^n \cdot \left||a_n|-\frac{|a_{n-1}|}{|z_k|} - ... - \frac{|a_{1}|}{|z_k|^{n-1}} - \frac{|a_{0}|}{|z_k|^{n}}\right| \to \infty
     \end{multline*} 
   \end{proof} 
   \begin{lemmanum}\textbf{(Лемма Даламбера)} \\
@@ -3790,7 +3791,7 @@ $V$- конечномерное векторное пространство на
     $$|g(t)| = |\alpha_0 + \alpha_1t + ... + \alpha_{n-(s+1)}t^{n-(s+1)}|$$ 
     Обозначим $C = \max\{|\alpha_i|\}$, тогда $|g(t)|\leq C(n-s)$
     \begin{multline*}
-      |\frac{f(z)}{f(z_0)}| = |1 - t^s + t^{s+1} g(t)| \leq |1 - t^s| + t^{s+1} |g(t)| \leq \\ \leq 1 - t^s + t^{s+1} C(n-s) = 1 - t^s(1-tC(n-s)) \underbrace{<}_{\text{хотим}} 1
+      \left|\frac{f(z)}{f(z_0)}\right| = |1 - t^s + t^{s+1} g(t)| \leq |1 - t^s| + t^{s+1} |g(t)| \leq \\ \leq 1 - t^s + t^{s+1} C(n-s) = 1 - t^s(1-tC(n-s)) \underbrace{<}_{\text{хотим}} 1
     \end{multline*} 
      $$1-tC(n-c)>0 \Longleftrightarrow t<\frac{1}{C(n-s)}$$
      Выбираем такое $t \in (0,1)$ и получаем:
@@ -3813,7 +3814,7 @@ $V$- конечномерное векторное пространство на
           |x_k|<|z_k|<C \\
           |y_k|<|z_k|<C
         \end{cases}$$
-        Так как $\{x_k\}, \{y_k\}$ - ограничены, то по теореме Больцано-Вейштрасса:
+        Так как $\{x_k\}, \{y_k\}$ - ограничены, то по теореме Больцано-Вейерштрасса:
         $$\exists \ \{x_{k_{i}}\}\subseteq \{x_{k}\}: \ \{x_{k_{i}}\} \to x_0$$
         $$\exists \ \{y_{k_{i_l}}\}\subseteq \{y_{k_{i}}\}: \ \{y_{k_{i_l}}\} \to y_0$$
         Значит по Лемме (1):
