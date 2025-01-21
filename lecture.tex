@@ -1607,7 +1607,7 @@ $V$- конечномерное векторное пространство на
   \end{pmatrix}$$
   Пусть $\overline{a_1}, \overline{a_2}, \dots \overline{a_n}$ - строки матрицы $A$. Тогда определитель можно рассматривать как функцию от строк $\det{A}=\det{(\overline{a_1},\overline{a_2},\dots \overline{a_n})}$
   \begin{definition}
-    Функция $f(v_1,\dots, v_n)$, которая векторам $v_1,\dots, v_n$ в вектроном простанстве $V$ над $\R$ ставит в соответствие число из $\R$, то есть: $$f:V\times\dots\times V\to \R$$
+    Функция $f(v_1,\dots, v_n)$, которая векторам $v_1,\dots, v_n$ в векторном пространстве $V$ над $\R$ ставит в соответствие число из $\R$, то есть: $$f:V\times\dots\times V\to \R$$
     называется полилинейной, если она линейна по каждому аргументу, т.е. для каждого $i=\overline{1,n}$ выполнено:
     \begin{enumerate}
       \item $f(v_1,\dots, v_i+\widetilde{v_i},\dots, v_n)=f(v_1,\dots, v_i,\dots, v_n)+f(v_1,\dots, \widetilde{v_i},\dots, v_n),\\ \forall v_i, \widetilde{v_i}\in V$.
@@ -1636,7 +1636,7 @@ $V$- конечномерное векторное пространство на
       \null & \vdots & \null\\
       \null & \overline{a_n} & \null
     \end{pmatrix}=(a_{ij}),\ \overline{a_i}=(a_{i1},\dots, a_{in})$$
-    $$\det{A}=\det{(\overline{a_1},\dots \overline{a_n})}=\sum\limits_{(k_1,\dots k_n)}\textrm{sgn}(k_1,\dots k_n)a_{1k_1}\dots a_{nk_n}$$
+    $$\det{A}=\det{(\overline{a_1},\dots, \overline{a_n})}=\sum\limits_{(k_1,\dots, k_n)}\textrm{sgn}(k_1,\dots, k_n)a_{1k_1}\dots, a_{nk_n}$$
     Докажем, что $\det{A}$ линеен по $i$-му аргументу.
     $$\det{A}=\sum\limits_{k=1}^na_{ik}u_k$$
     где $u_k$ - число, не зависящее от элементов строки $\overline{a_i}$
@@ -1782,10 +1782,10 @@ $V$- конечномерное векторное пространство на
     Пусть $A, B$ - квадратные матрицы порядка $n$, тогда: $$detAB = detA \cdot detB$$ 
   \end{theoremnum} 
   \begin{proof}
-    Из ассоциативности умножения $T(AB) = (TA)B$, где $T$ элементарная матрица, получаем, что элементраное преобразование над строками матрицы $A$ соответствует элементарному преобразованию строк матрицы $AB$.  
+    Из ассоциативности умножения $T(AB) = (TA)B$, где $T$ элементарная матрица, получаем, что элементарное преобразование над строками матрицы $A$ соответствует элементарному преобразованию строк матрицы $AB$.  
     \begin{itemize}
       \item[1 случай.] $detA = 0$ (по лемме \eqref{lemma1}, пункт 2)$\Longrightarrow A\leadsto \widetilde{A}$( с нулевой строкой) \\
-      $\Longrightarrow \widetilde{A} = \cdot(T_1 \cdot ... \cdot T_k)\cdot A, \ $ где $T_i$ - матрицы элементарных преобразований. \\
+      $\Longrightarrow \widetilde{A} = (T_1 \cdot ... \cdot T_k)\cdot A, \ $ где $T_i$ - матрицы элементарных преобразований. \\
       $\Longrightarrow (T_1 \cdot ... \cdot T_k)(AB) = ((T_1 \cdot ... \cdot T_k)A)B = \widetilde{A}B$ $\Longrightarrow det AB =0$, т.к. $AB \leadsto \widetilde{A}B$ 
       \item[2 случай.] $detA \not =$ 0 (по лемме \eqref{lemma1}, пункт 1) $\Longrightarrow A\leadsto E \Longrightarrow E=(T_1 \cdot ... \cdot T_k)A$, \ где $T_i$ - матрицы элементарных преобразований. \\
       $(T_1 \cdot ... \cdot T_k)(AB) = ((T_1 \cdot ... \cdot T_k)A)B = EB = B$ \\
@@ -1873,13 +1873,13 @@ $V$- конечномерное векторное пространство на
     $$\begin{matrix}
       \includegraphics[width=3cm]{image/lecture-15.pdf}
     \end{matrix}
-    \Longrightarrow M_{12} = \begin{vmatrix}
+    \Longrightarrow M_{21} = \begin{vmatrix}
       2 && 3 \\ 8 && 9
     \end{vmatrix} = -6$$ 
   \end{example1}
   
   \begin{definition}
-    Алгебраческое дополнение к элементу $a_{ij}$ - это число: $$A_{ij} = (-1)^{i+j} \cdot M_{ij}$$ 
+    Алгебраическое дополнение к элементу $a_{ij}$ - это число: $$A_{ij} = (-1)^{i+j} \cdot M_{ij}$$ 
   \end{definition} 
   \begin{example1}
     (к прошлому примеру) $A_{21} = (-1)^{2+1}(-6) = 6$  
@@ -1893,6 +1893,7 @@ $V$- конечномерное векторное пространство на
       \null & \null & \vdots & \null & \null \end{pmatrix} = a_{ij} \cdot A_{ij}$$  
   \end{lemma} 
   \begin{proof}
+    Последовательно переставляем $i$ строку со всеми сверху и $j$ столбец со всеми слева:
     $$\begin{vmatrix}
       a_{11} & ... & ... & ... & a_{1n} \\
       \vdots & \null & \null & \null & \vdots & \\
@@ -1903,7 +1904,7 @@ $V$- конечномерное векторное пространство на
       a_{ij} \vline &  0 \\
       \hline 
       * \ \ \vline & B
-    \end{vmatrix} = $$ $$ =(-1)^{i+j} \cdot a_{ij}\cdot detB = (-1)^{i+j} \cdot a_{ij} \cdot M_{ij} = a_{ij}\cdot A_{ij}$$
+    \end{vmatrix} = $$ $$ =(-1)^{i+j} \cdot a_{ij}\cdot detB = (-1)^{i+j} \cdot a_{ij} \cdot M_{ij} = a_{ij}\cdot A_{ij},$$
     где $B$ - подматрица $A$, из которой вычеркнули $i-$ую строку и $j-$ый столбец.
   \end{proof} 
   \begin{theoremnum}
@@ -1994,7 +1995,7 @@ $V$- конечномерное векторное пространство на
     $(*)$ - Т.е. алгебраическое дополнение берем из другой строки
   \end{consequense} 
   \begin{proof}
-    Для сторок (для столбцов аналогично) 
+    Для строк (для столбцов аналогично) 
     $$A = \begin{pmatrix}
       \null && \overline{a_1} && \null \\
       \null && \overline{a_2} && \null \\
@@ -2050,7 +2051,7 @@ $V$- конечномерное векторное пространство на
       \end{matrix}$$ 
       т.к. $s>r$, то строки матрицы $A$ с номерами $i_1,...,i_s$ ЛЗ $\Longrightarrow $ строки, образующие минор, ЛЗ $\Longrightarrow M=0$ 
       \item Докажем, что $\exists$ хотя бы один ненулевой минор $\widetilde{M}$ порядка $r$. \\
-      Т.к. $rkA = r$, то $\exists \ r$ ЛНЗ строк $\Longrightarrow rkB = r $ (где $B$  - матрица с $r$  ЛНЗ строк и все столбцы) $ \Longrightarrow $ в $B \ \exists \ r $ ЛНЗ столбцов. Сформируем матрицу $C$ из этих столбцов $\Longrightarrow detC \not = 0$ \\
+      Т.к. $rkA = r$, то $\exists \ r$ ЛНЗ строк $\Longrightarrow rkB = r $ (где $B$  - матрица из $r$  ЛНЗ строк) $ \Longrightarrow $ в $B \ \exists \ r $ ЛНЗ столбцов. Сформируем матрицу $C$ из этих столбцов $\Longrightarrow detC \not = 0$ \\
       $det \ C$ - это и есть искомый минор $\widetilde{M}$     
     \end{itemize}
   \end{proof} 
@@ -2208,7 +2209,7 @@ $V$- конечномерное векторное пространство на
   \end{enumerate}
   Т.е. $A^{-1}$ получена из $E$ с помощью ЭП над строками, которые приводят $A$ к $E$. \\
   Чтобы производить такие же ЭП над строками матрицы $E$, как над строками $A$, преобразования делают над расширенной матрицей:
-  $$(A|E) \leadsto ((T_1 \cdot ... \cdot T_k)A(T_1 \cdot ... \cdot T_k)E) = (E|A^{-1})$$ 
+  $$(A|E) \leadsto ((T_1 \cdot ... \cdot T_k)A | (T_1 \cdot ... \cdot T_k)E) = (E|A^{-1})$$ 
   Это метод нахождения обратной матрицы.
   \begin{theorem}
     (о явном выражении элементов обратной матрицы) \\
@@ -2228,7 +2229,7 @@ $V$- конечномерное векторное пространство на
   \begin{proof}
     Т.к. $A$ - невырожденная, то $\exists \ A^{-1}$ по предыдущей теореме. \\
     Обратная матрица к $A$ $(\text{назовем её } X)$  удовлетворяет уравнению: $AX=E$ \\
-    Пусть $X = (X_1,...,X_n), \ E = (E_1,...,E_n)$, где $X_i, E_i$ - стобцы соответствующих матриц, тогда $AX = E$ эквивалентно системе:
+    Пусть $X = (X_1,...,X_n), \ E = (E_1,...,E_n)$, где $X_i, E_i$ - столбцы соответствующих матриц, тогда $AX = E$ эквивалентно системе:
     $$\begin{cases}
       AX_1 = E_1 \\
       AX_2 = E_2 \\
@@ -2320,8 +2321,8 @@ $V$- конечномерное векторное пространство на
   \end{example}
   \begin{properties}
     \begin{itemize} \tab
-      \item[1)] Если элемент $a$  имеет обратный $b$ , то элемент $b$ имеет обратный и этот обратный равен $a$
-      \item[2)] Если $a_1$ имеет обратный $b_1$, $a_2$ имеет обратный $b_2$, то: $(a_1*a_2)^{-1} = b_2*b_1$ 
+      \item[1)] Если элемент $a$  имеет обратный $b$ , то элемент $b$ имеет обратный и этот обратный равен $a$.
+      \item[2)] Если $a_1$ имеет обратный $b_1$, $a_2$ имеет обратный $b_2$, то: $(a_1*a_2)^{-1} = b_2*b_1$.
     \end{itemize}
   \end{properties}
   \begin{definition}
@@ -2964,7 +2965,7 @@ $V$- конечномерное векторное пространство на
     \end{cases}$ $ \Longrightarrow b =0$
   \end{proof} 
   \begin{subtheorem}
-    Пусть $K$ - коммутативное, ассоциативное кольцо с 1, тогда: $$x - \text{обратим} \Longleftrightarrow x - \text{не делитель нуля}$$  
+    Пусть $K$ - коммутативное, ассоциативное кольцо с 1, тогда: $$x - \text{обратим} \Longrightarrow x - \text{не делитель нуля}$$  
   \end{subtheorem} 
   \begin{proof}
     Упражнение
@@ -3231,7 +3232,7 @@ $V$- конечномерное векторное пространство на
     $$0\leq Arg(z)\leq2\pi - \text{главный аргумент}$$
     $$Arg(z) = \begin{cases}
       arctg(\frac{y}{x}), \tab[1.3cm] x>0 \\
-      arctg(\frac{y}{x}+\pi), \tab[0.4cm] x<0
+      arctg(\frac{y}{x})+\pi, \tab[0.4cm] x<0
     \end{cases}$$ 
     Если $z = 0$, то аргумент не определяется (либо угол любой, либо $|z| = 0$)
     $$z_1 = z_2 \Longleftrightarrow \begin{cases}
@@ -3362,7 +3363,7 @@ $V$- конечномерное векторное пространство на
     $$z = \rho(\cos(\phi) + i\sin(\phi)) = r^n(\cos(n\psi) + i\sin(n\psi)) = w^n$$
     $\Longrightarrow \begin{cases}
       r^n = \rho\\
-      n \phi = \phi + 2 \pi k, k\in \Z
+      n \psi = \phi + 2 \pi k, k\in \Z
     \end{cases} \Longrightarrow w = \sqrt[n]{\rho}\cdot (\cos(\frac{\phi+2\pi k}{n})+i\sin(\frac{\phi+2\pi k}{n})), \ k \in \Z$\\ $\\$ 
     при $ k = \{0,1,...,k-1\}$ - $w$ принимает все различные значения.  
   \end{proof} 
@@ -3918,7 +3919,7 @@ $V$- конечномерное векторное пространство на
   $F$ - поле, \ $n \in \N$ - фиксированная. \\
   Рассмотрим бесконечномерную алгебру над полем $F$ с базисом \\ $\{e_{k_1},...,e_{k_n} \ | \ k_i \in \N \cup \{0\} \} $ и умножением:
   $$e_{k_1},...,e_{k_n} \cdot \ e_{m_1},...,e_{m_n} = e_{k_1 + m_1},...,e_{k_n + m_n} \ (*)$$
-  Такая алгебра называется алгеброй множеств от $n$ переменных над полем $F$. \\
+  Такая алгебра называется алгеброй многочленов от $n$ переменных над полем $F$. \\
   Обозначается: $F[x_1,...,x_n]$\\
   Из правила $(*)$ $\Longrightarrow $ что алгебра коммутативна, ассоциативна, с единицей: $e_{0,...,0}$\\
   Отождествляем: \ $\alpha \in F \longleftrightarrow \alpha \cdot e_{0,...,0}$
@@ -3939,7 +3940,7 @@ $V$- конечномерное векторное пространство на
     Как и для $n=1$, многочлен $f \in F[x_1,...,x_n]$ задает функцию из $F^n = F \times ... \times F$.      
   \end{example1} 
   \begin{theorem}
-    Если поле $F$ - бесконечно, то разные многочлены из $F[x_1,...,x_n]$ задает разные функции.
+    Если поле $F$ - бесконечно, то разные многочлены из $F[x_1,...,x_n]$ задают разные функции.
   \end{theorem}
   \begin{proof}
     Идея: индукция по $n$. База: $n=1$ - было доказано.\\
@@ -4059,7 +4060,7 @@ $V$- конечномерное векторное пространство на
     $$\exists ! \ g \in F[y_1,...,y_n] : g(\sigma_1,...,\sigma_n) = f$$
   \end{theoremnum}
   \begin{example1}
-    $$f(x_1, x_2) = x_1^2 + x_2^2 = x_1^2 + x_2^2 + 2x_1x_2 - x_1x_2 = (x_1+x_2)^2 - 2x_1x_2 = \sigma_1^2 - 2 \sigma_2$$
+    $$f(x_1, x_2) = x_1^2 + x_2^2 = x_1^2 + x_2^2 + 2x_1x_2 - 2x_1x_2 = (x_1+x_2)^2 - 2x_1x_2 = \sigma_1^2 - 2 \sigma_2$$
     $$g(y_1,y_2) = y_1^2 - 2y_2$$  
   \end{example1}
   \begin{definition}
@@ -4217,7 +4218,7 @@ $V$- конечномерное векторное пространство на
     $$a = abq + r$$
     Если $r =0$, то $a = abq \Longrightarrow bq = 1 \Longrightarrow b$ обратим - противоречие.\\
     Иначе $N(r)<N(ab)$\\
-    С другой сторон: $$r = a - abq = a(1-bq) \Longrightarrow N(r) = N(a(1-bq)) \geq N(a) \Longrightarrow N(r) \geq N(a)$$
+    С другой стороны: $$r = a - abq = a(1-bq) \Longrightarrow N(r) = N(a(1-bq)) \geq N(a) \Longrightarrow N(r) \geq N(a)$$
     $$\begin{cases}
       N(r)<N(ab) \\
       N(r) \geq N(a)
@@ -4381,7 +4382,7 @@ $V$- конечномерное векторное пространство на
   $K$ - целостное кольцо\\
   Рассмотрим множество пар: 
   $$M = \{(a, b) \ | \ a, b \in K, \ b\neq 0\}$$
-  Введем отношение эквиватентности:
+  Введем отношение эквивалентности:
   $$(a, b)\sim (c, d) \Longleftrightarrow ad = bc$$
   \begin{subtheorem}
     $$\forall c \in K, \ c\neq 0 \Longrightarrow (a, b) \sim (ac, bc)$$
@@ -4393,7 +4394,7 @@ $V$- конечномерное векторное пространство на
     $$\frac{a_1}{b_1} + \frac{a_2}{b_2} = \frac{a_1b_2 + a_2b_1}{b_1b_1}, \ \ \frac{a_1}{b_1} \cdot \frac{a_2}{b_2} = \frac{a_1b_1}{a_1b_1}$$ 
   \end{subtheorem}
   \begin{subtheorem}
-    Операции корректны, т.е. не зависят от предствитлей.
+    Операции корректны, т.е. не зависят от предствителей.
   \end{subtheorem}
   \begin{proof}\tab
     \begin{itemize} 
@@ -4500,8 +4501,8 @@ $V$- конечномерное векторное пространство на
   \begin{example}\tab
     \begin{enumerate}
       \item $\forall$ поля $F$: $\frac{\alpha}{(x-c)^k}$, \ где $\alpha, c \in F, \ \alpha\neq 0, \ k \in \N$ является простейшей всегда.
-      \item Если $F = \mathbb{C}$, то простейщий другого вида нет.
-      \item $F = \R: \ \frac{\alpha}{(x-c)^k}, \ \frac{\beta x + \gamma}{(x^2+ax+b)^k}$, где $\alpha, \beta, \gamma, a, b, c \in \R, \ \alpha, \beta \neq 0, \ \beta^2 + \gamma^2\neq 0, \ k \in \N$ и у $(x^2+ax+b)$ отрицательный дискриминан.   
+      \item Если $F = \mathbb{C}$, то простейших другого вида нет.
+      \item $F = \R: \ \frac{\alpha}{(x-c)^k}, \ \frac{\beta x + \gamma}{(x^2+ax+b)^k}$, где $\alpha, \beta, \gamma, a, b, c \in \R, \ \alpha, \beta \neq 0, \ \beta^2 + \gamma^2\neq 0, \ k \in \N$ и у $(x^2+ax+b)$ отрицательный дискриминант.   
     \end{enumerate}
   \end{example}
   \begin{theorem}
@@ -4526,7 +4527,7 @@ $V$- конечномерное векторное пространство на
       $$\frac{f}{g} = \sum \limits_{i=1}^s \ (\frac{r_{i_1}}{p_i} + \frac{r_{i_2}}{p_i^2} + ... + \frac{r_{i_s}}{p_i^{s_i}}) = \sum \limits_{i=1}^s \ (\frac{\widetilde{r}_{i_1}}{p_i} + \frac{\widetilde{r}_{i_2}}{p_i^2} + ... + \frac{\widetilde{r}_{i_s}}{p_i^{s_i}})$$
       $$\Longrightarrow \sum \limits_{i=1}^s \ (\frac{\widetilde{\widetilde{r}}_{i_1}}{p_i} + \frac{\widetilde{\widetilde{r}}_{i_2}}{p_i^2} + ... + \frac{\widetilde{\widetilde{r}}_{i_s}}{p_i^{s_i}})=0, \ \text{ где } \widetilde{\widetilde{r}}_{i_j} = r_{i_j} - \widetilde{r}_{i_j}$$
       Допустим, что $\exists \ \widetilde{\widetilde{r}}_{i_j}\neq 0$\\
-      Рассмотрим $\widetilde{\widetilde{r}}_{i_t}$, где $t$ - максимальный с таким условием (самый правый) и без ограничение общности считаем, что $i=1$.\\
+      Рассмотрим $\widetilde{\widetilde{r}}_{i_t}$, где $t$ - максимальный с таким условием (самый правый) и без ограничения общности считаем, что $i=1$.\\
       Приводим к общему знаменателю и приравниваем числители:
       $$\widetilde{\widetilde{r}}_{1_t}p_2^{s_2} \cdot ... \cdot p_k^{s_k} + p_1h(x) = 0$$
       $h(x)$ - собрали все кратные $p_1$ в числителе
@@ -4554,6 +4555,7 @@ $V$- конечномерное векторное пространство на
     \includegraphics[width=4cm]{kotik.jpg}
   \end{center}
 
+  
   % \textbf{Мораль в том, что я в этот раз почти успел}
   % \textbf{Мораль в том, что в этот раз я вообще не успел}
 
