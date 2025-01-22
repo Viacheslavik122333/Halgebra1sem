@@ -2115,7 +2115,7 @@ $V$- конечномерное векторное пространство на
   $\begin{cases}
     a_{11}x_1 + \cdots + a_{1n}x_n = b_1 \\
     \vdots \\ 
-    a_{m1}x_1 + \cdots + a_{mn}x_n = b_n 
+    a_{m1}x_1 + \cdots + a_{mn}x_n = b_m 
   \end{cases}$
   Матричная форма $AX=B$ \vspace{0.5cm}\\ 
   СЛУ называется квадратной, если $m=n$ \\
@@ -3068,7 +3068,7 @@ $V$- конечномерное векторное пространство на
      
   \end{definition} 
   \begin{theorem}
-    Поле $\mathbb{C}$ комплексных чисел существует, причем оно единсвенно с точностью до изоморфизма, оставляющего все вещественные числа на месте. Кроме того, $\forall z \in \mathbb{C}$ представляется единсвенным образом в виде: $z = a + bi$, где $a, b \in \R$.
+    Поле $\mathbb{C}$ комплексных чисел существует, причем оно единственно с точностью до изоморфизма, оставляющего все вещественные числа на месте. Кроме того, $\forall z \in \mathbb{C}$ представляется единственным образом в виде: $z = a + bi$, где $a, b \in \R$.
   \end{theorem} 
   \begin{proof}\tab
     \begin{itemize}
@@ -3455,9 +3455,9 @@ $V$- конечномерное векторное пространство на
       \item $(V^3, +, \times, \lambda \cdot); \  \ V^3$ c базисом $\{i, j, k\}$
       $$\begin{tabular}{c|c|c|c}
         x & i & j & k \\ \hline
-        i & 0 & k & j \\ \hline
+        i & 0 & k & -j \\ \hline
         j & -k & 0 & i \\ \hline
-        k & -j & -i & 0
+        k & j & -i & 0
       \end{tabular}$$
       \item $M_n(F)$
     \end{enumerate}
@@ -3485,7 +3485,7 @@ $V$- конечномерное векторное пространство на
     Подмножество $B$ алгебры $A$ назвается подалгеброй $A$, если $B$ - подпространство $A$, как кольца, и подпространства $A$, как пространства.      
   \end{definition} 
   \begin{subtheorem}
-    Любая подалгебра сама является алгеброй относильно тех же операций и тем же полем.
+    Любая подалгебра сама является алгеброй относильно тех же операций и над тем же полем.
   \end{subtheorem} 
   \begin{definition}
     Алгебры $A$ и $\widetilde{A}$ над одним и тем же полем называются изоморфными, если они изоморфны как кольца и векторные пространства.
@@ -3516,14 +3516,14 @@ $V$- конечномерное векторное пространство на
   Получаем привычный вид многочлена: 
   $\forall a \in F: \ a\cdot e_0$ отожествим с элементом $a$, а вектор $e_1$ обозначим через $x$:
   $$e_k = \underbrace{e_1 \cdot e_1 \cdot ... \cdot e_1}_{k}  = x^k$$     
-  Рассмотрим произвольный $(a_0,a_1, a_2,...) \in F^{\infty}$. Так как она финитная, то: 
+  Рассмотрим произвольную $(a_0,a_1, a_2,...) \in F^{\infty}$. Так как она финитная, то: 
   $$(a_0,a_1, ..., a_n,0, 0,...) = a_0e_0 + a_1e_1+...+a_ne_n = a_0 + a_1x+...+a_nx^n$$
   $a_i$ называется коэффициентом многочлена.
   \begin{definition}
     Если $f = a_0 + a_1x+...+a_nx^n$, где $a_n \neq 0$, $a_k = 0,  \ \forall k>n$, то $a_n$ называется старшим членом, а число $\deg f = n$  называется степенью многочлена.  
   \end{definition} 
   \begin{remark}
-    $\deg 0 = -\infty$ (или неопределена)\\
+    $\deg 0 = -\infty$ (или не определена)\\
     $f\neq 0, \ \deg f \in \N \cup \{0\}$  
   \end{remark} 
   \begin{properties}\tab
@@ -3567,7 +3567,7 @@ $V$- конечномерное векторное пространство на
   \subsubsection{Многочлены как функции}
   $F$ - поле, \ $f = a_nx^n + a_{n-1}x^{n-1} +...+ a_0$
   \begin{definition}
-    Значение многочлена $f$ в точке $c$ называется число, равное: $$f(c) = a_nc^n + a_{n-1}c^{n-1} +...+ a_0$$
+    Значением многочлена $f \in F[x]$ в точке $c \in F$ называется число, равное: $$f(c) = a_nc^n + a_{n-1}c^{n-1} +...+ a_0$$
      Таким образом, множество $f$ задает отображение $F \to F$
      $$c \to f(c) \Longrightarrow f \text{ задает функцию}$$      
   \end{definition} 
@@ -3811,18 +3811,18 @@ $V$- конечномерное векторное пространство на
         \item[1 случай.] $\{z_k\}$  - не ограничена, т.е. $\exists  \{z_{k_i}\}\subseteq \{z_k\}: \ |z_{k_i}| \to \infty$. \\
         По лемме (4): \ $|f(z_{k_i})| \to \infty$ - противоречие. 
         \item[2 случай.] $\{z_k\}$ - ограничена $\Longrightarrow \exists \ C > 0: \ |z_k | < C \Longrightarrow$   
-        $$z_k = x_k + iy_k < C \Longrightarrow \begin{cases}
+        $$|z_k| = |x_k + iy_k| < C \Longrightarrow \begin{cases}
           |x_k|<|z_k|<C \\
           |y_k|<|z_k|<C
         \end{cases}$$
         Так как $\{x_k\}, \{y_k\}$ - ограничены, то по теореме Больцано-Вейерштрасса:
         $$\exists \ \{x_{k_{i}}\}\subseteq \{x_{k}\}: \ \{x_{k_{i}}\} \to x_0$$
         $$\exists \ \{y_{k_{i_l}}\}\subseteq \{y_{k_{i}}\}: \ \{y_{k_{i_l}}\} \to y_0$$
-        Значит по Лемме (1):
+        Значит, по Лемме (1):
         $$\{z_{k_{i_l}}\} \to x_0 + y_0i = z_0 \Longrightarrow |f(\{z_{k_{i_l}}\})| \to |f(z_0)| = M$$  
       \end{itemize}
       \item[\textit{2 шаг.}] Допустим, что $M>0 \Longrightarrow$ по Лемме Даламбера:
-      $$\exists \ \widetilde{z} \in \mathbb{C}: \ |f(\widetilde{z})|<M = f(z_0) - \text{противоречие, т.к. } M \text{ это } \inf $$
+      $$\exists \ \widetilde{z} \in \mathbb{C}: \ |f(\widetilde{z})|<M = |f(z_0)| - \text{противоречие, т.к. } M - \text{ это } \inf $$
       $$\Longrightarrow M=0 \Longrightarrow f(z_0) =0$$  
     \end{itemize}
   \end{proof} 
@@ -3841,7 +3841,7 @@ $V$- конечномерное векторное пространство на
     Кратность одинаковая, т.к. $f^{(s)}(c)=0 \Longleftrightarrow f^{(s)}( \overline{c})=0$ 
   \end{proof}
   \begin{theorem}
-    Любой многочлен над $\R$ положительной степени раскладывается на линейные множители и квадратные множители с отрицательным дискриминантом.
+    Любой многочлен над $\R$ положительной степени раскладывается на линейные множители и квадратичные множители с отрицательным дискриминантом.
   \end{theorem}
   \begin{proof}
     $f\in \R[x] \subseteq \mathbb{C}[x] \Longrightarrow $ (по следствию 1 и ОТА) \\
@@ -3917,8 +3917,8 @@ $V$- конечномерное векторное пространство на
   \end{remark}   
   \subsection{Многочлены от нескольких переменных}
   $F$ - поле, \ $n \in \N$ - фиксированная. \\
-  Рассмотрим бесконечномерную алгебру над полем $F$ с базисом \\ $\{e_{k_1},...,e_{k_n} \ | \ k_i \in \N \cup \{0\} \} $ и умножением:
-  $$e_{k_1},...,e_{k_n} \cdot \ e_{m_1},...,e_{m_n} = e_{k_1 + m_1},...,e_{k_n + m_n} \ (*)$$
+  Рассмотрим бесконечномерную алгебру над полем $F$ с базисом \\ $\{e_{k_1,...,k_n} \ | \ k_i \in \N \cup \{0\} \} $ и умножением:
+  $$e_{k_1,...,k_n} \cdot \ e_{m_1,...,m_n} = e_{k_1 + m_1,...,k_n + m_n} \ (*)$$
   Такая алгебра называется алгеброй многочленов от $n$ переменных над полем $F$. \\
   Обозначается: $F[x_1,...,x_n]$\\
   Из правила $(*)$ $\Longrightarrow $ что алгебра коммутативна, ассоциативна, с единицей: $e_{0,...,0}$\\
@@ -3937,7 +3937,7 @@ $V$- конечномерное векторное пространство на
     Любой многочлен $f \in F[x_1,...,x_n]$ можно предствить в виде:
     $$(**) \ f = \sum \limits_{k=0}^sf_k(x_2,...,x_n)x_1^k \Longrightarrow $$
     $\Longrightarrow$ кольцо $F[x_1,...,x_n]$ можно рассматривать, как кольцо многочленов от $x_1$ с коэффициентами из кольца $F[x_2,...,x_n]$.\\
-    Как и для $n=1$, многочлен $f \in F[x_1,...,x_n]$ задает функцию из $F^n = F \times ... \times F$.      
+    Как и для $n=1$, многочлен $f \in F[x_1,...,x_n]$ задает функцию из $F^n \to F$.      
   \end{example1} 
   \begin{theorem}
     Если поле $F$ - бесконечно, то разные многочлены из $F[x_1,...,x_n]$ задают разные функции.
@@ -4024,7 +4024,7 @@ $V$- конечномерное векторное пространство на
           g = g_0+...+g_t
         \end{matrix} \neq 0 \ - \text{различные однородные компоненты}$$
         $$\deg f = \deg f_s, \ \deg g = \deg g_t$$
-        $$fg = \sum f_ig_i, \ \deg (f_sg_t) > \deg (f_ig_i), \text{ где } s+t > i+j \Longrightarrow $$
+        $$fg = \sum f_ig_j, \ \deg (f_sg_t) > \deg (f_ig_j), \text{ где } s+t > i+j \Longrightarrow $$
         $$\Longrightarrow \deg (fg) = \deg (f_sg_t) = s+t$$    
     \end{enumerate}
   \end{proof}
@@ -4082,11 +4082,11 @@ $V$- конечномерное векторное пространство на
   \end{proof}
   \begin{lemmanum}
     Пусть $f$ - симметрический. $LT(f) = \alpha x_1^{k_1} \cdot ... \cdot x_n^{k_n}$, тогда:
-    $$\exists \ e_1,...,e_n \geq 0: \ LT(\alpha \sigma_1^{e_1},...,\sigma_n^{e_n}) = \alpha x_1^{k_1} \cdot ... \cdot x_n^{k_n}$$  
+    $$\exists \ e_1,...,e_n \geq 0: \ LT(\alpha \sigma_1^{e_1}\cdot...\cdot \sigma_n^{e_n}) = \alpha x_1^{k_1} \cdot ... \cdot x_n^{k_n}$$  
   \end{lemmanum}
   \begin{proof}\tab
     \begin{multline*}
-      LT(\alpha \sigma_1^{e_1},...,\sigma_n^{e_n}) = \alpha LT(\sigma_1^{e_1})LT(\sigma_2^{e_2})\cdot ... \cdot LT(\sigma_n^{e_n}) = \\
+      LT(\alpha \sigma_1^{e_1}\cdot...\cdot \sigma_n^{e_n}) = \alpha LT(\sigma_1^{e_1})LT(\sigma_2^{e_2})\cdot ... \cdot LT(\sigma_n^{e_n}) = \\
       = \alpha x_1^{e_1}(x_1x_2)^{e_2}\cdot ... \cdot (x_1 \cdot ... \cdot x_k)^{e_k} \cdot ... \cdot (x_1x_2 \cdot ... \cdot x_n)^{e_n} = \\
       = \alpha x_1^{e_1+...+e_n}x_2^{e_2+...+e_n} \cdot ... \cdot x_n ^{e_n} = \alpha x_1^{k_1} \cdot ... \cdot x_n^{k_n} \Longrightarrow 
     \end{multline*}
@@ -4110,10 +4110,10 @@ $V$- конечномерное векторное пространство на
       \item[$\underline{\exists}: \ $] Если $f = 0$, то $g = 0$\\
       Если $f \neq 0$, то $LT(f) = \alpha x_1^{k_1} \cdot ... \cdot x_n^{k_n}$\\
       По Лемме (2): 
-      $$\exists \ e_1,...,e_n \geq 0: \ LT(\alpha \sigma_1^{e_1},...,\sigma_n^{e_n}) = \alpha x_1^{k_1} \cdot ... \cdot x_n^{k_n}$$
-      $$f_1 = f - \alpha \sigma_1^{e_1},...,\sigma_n^{e_n}$$
+      $$\exists \ e_1,...,e_n \geq 0: \ LT(\alpha \sigma_1^{e_1} \cdot ...\cdot \sigma_n^{e_n}) = \alpha x_1^{k_1} \cdot ... \cdot x_n^{k_n}$$
+      $$f_1 = f - \alpha \sigma_1^{e_1}\cdot ...\cdot \sigma_n^{e_n}$$
       \begin{itemize}
-        \item[$f_1 = 0:$] $f = \alpha \sigma_1^{e_1},...,\sigma_n^{e_n} \Longrightarrow g = \alpha y_1^{e_1},...,y_n^{e_n}$
+        \item[$f_1 = 0:$] $f = \alpha \sigma_1^{e_1}\cdot ...\cdot \sigma_n^{e_n} \Longrightarrow g = \alpha y_1^{e_1}\cdot...\cdot y_n^{e_n}$
         \item[$f_1 \neq 0:$] $LT(f) \succ LT(f_1)$, \ $f_1$ - симметрический.\\
         Повторяем процесс для $f_1 \Longrightarrow f_1,f_2,f_3,...$ - симметрические и\\
         $LT(f) \succ LT(f_1) \succ LT(f_2) \succ LT(f_3) \succ ...$\\
@@ -4125,9 +4125,9 @@ $V$- конечномерное векторное пространство на
       Рассмотрим $h = g - \widetilde{g}, \ h \neq 0, \ h(\sigma_1,...,\sigma_n) = 0$
       $$h(y_1,...,y_n) = \sum \beta_{e_1,...,e_n} \cdot y_1^{e_1} \cdot ... \cdot y_n^{e_n}$$
       По лемме (2):
-      $$(e_1,...,e_n) \neq (\widetilde{e_1},...,\widetilde{e_n})\ \Longrightarrow \ LT(\sigma_1^{e_1},...,\sigma_n^{e_n}) \neq LT(\sigma_1^{\widetilde{e}_1},...,\sigma_n^{\widetilde{e}_n})$$
+      $$(e_1,...,e_n) \neq (\widetilde{e_1},...,\widetilde{e_n})\ \Longrightarrow \ LT(\sigma_1^{e_1} \cdot ...\cdot \sigma_n^{e_n}) \neq LT(\sigma_1^{\widetilde{e}_1}\cdot ...\cdot \sigma_n^{\widetilde{e}_n})$$
       $$h(\sigma_1,...,\sigma_n) = \sum \beta_{e_1,...,e_n} \cdot \sigma_1^{e_1} \cdot ... \cdot \sigma_n^{e_n} \ (**)$$
-      Среди всех $LT(\sigma_1^{e_1},...,\sigma_n^{e_n})$ есть тот, который старше остальных. В $(**)$ при приведении подобных этот старший член не сможет сократиться $\Longrightarrow h(\sigma_1^{e_1},...,\sigma_n^{e_n}) \neq 0$ - противоречие. 
+      Среди всех $LT(\sigma_1^{e_1}\cdot ...\cdot \sigma_n^{e_n})$ есть тот, который старше остальных. В $(**)$ при приведении подобных этот старший член не сможет сократиться $\Longrightarrow h(\sigma_1^{e_1},...,\sigma_n^{e_n}) \neq 0$ - противоречие. 
     \end{itemize}
   \end{proof}
   \subsection{Формулы Виета}
@@ -4243,7 +4243,7 @@ $V$- конечномерное векторное пространство на
   \end{lemma}
   \begin{proof}
     $d_1, d_2$ - это НОД($a,b$), \ по свойству 2): 
-    $$d_1|d_2, \ \ d_2|d_1 \Longrightarrow d_1 = d_2$$   
+    $$d_1|d_2, \ \ d_2|d_1 \Longrightarrow d_1 \sim d_2$$   
   \end{proof}
   \begin{theorem}
     Пусть $K$ - евклидово кольцо. Тогда $\forall a, b \in K \ \exists$ НОД($a,b$) = $d$, причем НОД($a,b$) = $au + bv$ для некоторых $u, v \in K$.     
@@ -4284,7 +4284,7 @@ $V$- конечномерное векторное пространство на
     \end{itemize}
   \end{proof}
   \begin{definition}
-    Процедура находа НОД($a,b$) в доказательстве теоремы называется алгоритмом Евклида.
+    Процедура нахождения НОД($a,b$) в доказательстве теоремы называется алгоритмом Евклида.
   \end{definition}
   Пусть $K$ - евклидово кольцо
   \begin{definition}
@@ -4314,7 +4314,7 @@ $V$- конечномерное векторное пространство на
     \end{enumerate}
   \end{example}
   \begin{remark}
-  Простые элементы - это ненулевые, необратимые элементы, которые имеют в точности два неассоциированных друг с другом элемента.
+  Простые элементы - это ненулевые, необратимые элементы, которые имеют в точности два неассоциированных друг с другом делителя.
   \end{remark}
   \setcounter{lemcount}{0}
   \begin{lemmanum} \textbf{(Важная Лемма)}\\
@@ -4332,7 +4332,7 @@ $V$- конечномерное векторное пространство на
   \end{consequense}
   \begin{proof}
     Индукция по $s$. База $s=2: \ p|(a_1 \cdot a_2)$ \\
-    Если $p\nmid a$, то НОД($a_1,p$) = 1 $\Longrightarrow p | a_2$ (по важной Лемме)\\
+    Если $p\nmid a_1$, то НОД($a_1,p$) = 1 $\Longrightarrow p | a_2$ (по важной Лемме)\\
     Переход: $p|a_1 \cdot (a_2\cdot ... \cdot a_n)$\\
     Если $p \nmid a_1$, то НОД($a_1,p$) = 1 $\underbrace{\Longrightarrow}_{\text{по Лемме}} p|(a_2\cdot ... \cdot a_n) \underbrace{\Longrightarrow}_{\text{по Инд.}}  \exists \ i = \overline{2, n}: \ p|a_i$  
   \end{proof} 
@@ -4347,7 +4347,7 @@ $V$- конечномерное векторное пространство на
     Среди всех ненулевых и необратимых элементов кольца $K$ найдем такие, которые не допускают такое разложения, возьмем наименьший по норме - обозначим его $a$. 
     \begin{itemize}
       \item[1 случай: ] $a$ - простой элемент $\Longrightarrow a$ - это и есть разложение на простые
-      \item[2 случай: ] $a$ - не простой $\Longrightarrow \exists \ b, c \in K$ - ненулевые, обратимые: $a = bc$
+      \item[2 случай: ] $a$ - не простой $\Longrightarrow \exists \ b, c \in K$ - ненулевые, необратимые: $a = bc$
       $$N(a)>N(b) \text{ и } N(a)>N(c)$$
       $\Longrightarrow $ т.к. $a$ - наименьший по норме, который не допускает это разложение на простые, то 
       $$b = p_1\cdot ... \cdot p_t, \ \ c = q_1\cdot ... \cdot q_s$$
@@ -4394,7 +4394,7 @@ $V$- конечномерное векторное пространство на
     $$\frac{a_1}{b_1} + \frac{a_2}{b_2} = \frac{a_1b_2 + a_2b_1}{b_1b_1}, \ \ \frac{a_1}{b_1} \cdot \frac{a_2}{b_2} = \frac{a_1b_1}{a_1b_1}$$ 
   \end{subtheorem}
   \begin{subtheorem}
-    Операции корректны, т.е. не зависят от предствителей.
+    Операции корректны, т.е. не зависят от представителей.
   \end{subtheorem}
   \begin{proof}\tab
     \begin{itemize} 
@@ -4411,7 +4411,7 @@ $V$- конечномерное векторное пространство на
     $Q(K)$ относительно операций $(+)$ и $(\cdot)$ - это поле. 
   \end{subtheorem}
   \begin{proof}
-    При сложении можем считать, что знаменатель больше, т.е.:\\ 
+    При сложении можем считать, что знаменатель общий, т.е.:\\ 
     $\frac{a_1}{b} + \frac{a_2}{b} = \frac{a_1+a_2}{b} \Longrightarrow $ коммутативное по сложению, ассоциативное по сложению, $\frac{0}{1}$ - нулевой элемент, $\forall \frac{a}{b} \  \exists \ -\frac{a}{b} = \frac{-a}{b}$\\
     $\Longrightarrow $ это абелева группа по сложению\\
     Непосредственно проверяется дистрибутивность, коммутативность и ассоциативность умножения, $\frac{1}{1}$ - единица (нейтральный по умножению),\\ $\forall \frac{a}{b} \in Q(K), \frac{a}{b} \neq 0 \Longrightarrow a \neq 0$, $\exists \frac{b}{a} \in Q(K)$ - обратный к $\frac{a}{b} \Longrightarrow Q(K)$ - поле.        
