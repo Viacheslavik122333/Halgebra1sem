@@ -329,7 +329,7 @@
     \end{pmatrix}$$ 
     Меняем 1-ю и $i$-ю строку местами и получаем, что $a_{ij}$ стал лидером первой строки. Считаем, что сразу $a_{1j} \neq 0$:
     $$A = \begin{pmatrix}
-      0 && 0 && a_{ij} && * \\
+      0 && 0 && a_{1j} && * \\
       \vdots && \vdots && * && *  \\
       \null && \null && \vdots && \null \\
       \vdots && \vdots && \vdots && \null  \\
@@ -348,6 +348,7 @@
     Этот метод называется  методом Гаусса.
   \end{remark}
 
+  
   \subsection{Решение СЛУ методом Гаусса}
   $\begin{cases}
     a_{11}x_1 + ... + a_{1n}x_n = b_1, \\ 
@@ -436,7 +437,7 @@
   \end{cases}$$   
   
   Это выражение называется общим решением системы. Подставляя вместо свободных неизвестных конкретное число из $\R$, получаем значение для главных. \\
-  $\Longrightarrow$ получаем все решения СЛУ\\
+  $\Longrightarrow$ получаем все решения СЛУ.\\
   Если СЛУ имеет более одного решения - такая СЛУ называется неопределенной. 
   \end{itemize}
   $$\begin{matrix}
@@ -468,7 +469,7 @@
   \end{subtheorem} 
   \begin{proof}
     Т.к. любую матрицу можно привести к ступенчатому виду $\Longrightarrow$ будем считать, что $A$ - ступенчатая. \\
-    Рассмотрим последний лидер $a_{sk_s}$. Если $a_{sk_s} \neq 1$, то s-ю строку делим на $a_{sk_s}$ и получаем, что $\widetilde{a_{sk_s}}=1$. \\ Далее из всех строк вычитаем первую, умноженную на $a_{ik_s} \Longrightarrow \widetilde{a_{ik_s}}  =0$ и т.д. 
+    Рассмотрим последний лидер $a_{sk_s}$. Если $a_{sk_s} \neq 1$, то s-ю строку делим на $a_{sk_s}$ и получаем, что $\widetilde{a_{sk_s}}=1$. \\ Далее из всех строк вычитаем $s$ строку, умноженную на $a_{ik_s} \Longrightarrow \widetilde{a_{ik_s}}  =0$ и т.д. Это обратный ход метода Гаусса.
   \end{proof} 
 
   \begin{definition}
@@ -562,7 +563,7 @@
     \end{enumerate}
   \end{definition} 
   \begin{remark}
-    3 условие заменить на условие: $0 \in  U$
+    3 условие можно заменить на условие: $0 \in  U$
     \begin{itemize}
       \item [$\underline{\Longleftarrow}$] очевидно.
       \item [$\underline{\Longrightarrow}$] если $U \neq \varnothing$, то $\exists \tab[0.1cm] x \in U \Longrightarrow$ по $2.: (-1) \cdot x \in U \Longrightarrow -x \in U  \Longrightarrow \\ x + (-x) \in U \Longrightarrow 0 \in U$ 
@@ -589,14 +590,14 @@
   $V$ - векторное пространство над полем $\R$
   \begin{definition}
     Линейной комбинацией векторов $v_1,...,v_n \in V$ с коэффициентами $\lambda_1,...,\lambda_n \in \R$ называется выражение вида: 
-    $$\lambda_1 x_1 + \cdots + \lambda_n x_n$$ 
-    Говорят, что вектора $w \in V$ линейно выражаются через $(v_1,...,v_n)$, \\ если $\exists\tab[0.1cm]\lambda_1,...,\lambda_n \in \R: w = \lambda_1 x_1 + \cdots + \lambda_n x_n$   
+    $$\lambda_1 v_1 + \cdots + \lambda_n v_n$$ 
+    Говорят, что вектора $w \in V$ линейно выражаются через $(v_1,...,v_n)$, \\ если $\exists\tab[0.1cm]\lambda_1,...,\lambda_n \in \R: w = \lambda_1 v_1 + \cdots + \lambda_n v_n$   
   \end{definition}
   \begin{definition}
     Линейная комбинация $\lambda_1 x_1 + \cdots + \lambda_n x_n$ называется тривиальной, если $\lambda_1 = 0,...,\lambda_n = 0$. Иначе - нетривиальной.
   \end{definition}
   \begin{definition}
-    Система векторов $v_1,...,v_n$ называется линейно зависимой (ЛЗ), если $\exists$ нетривиальная линейная комбинация равная 0, (т.е. $\exists \tab[0.1cm]\lambda_1,...,\lambda_n \in \R$ не все равные 0) такая, что $\lambda_1 x_1 + \cdots + \lambda_n x_n = 0$. Иначе система называется линейно независимой (ЛНЗ), т.е. из любого такого равенства $\lambda_1 x_1 + \cdots + \lambda_n x_n = 0 \\ \Longrightarrow (\lambda_1,...,\lambda_n) = 0$.
+    Система векторов $v_1,...,v_n$ называется линейно зависимой (ЛЗ), если $\exists$ нетривиальная линейная комбинация равная 0, (т.е. $\exists \tab[0.1cm]\lambda_1,...,\lambda_n \in \R$ не все равные 0) такая, что $\lambda_1 v_1 + \cdots + \lambda_n v_n = 0$. Иначе система называется линейно независимой (ЛНЗ), т.е. из любого такого равенства $\lambda_1 v_1 + \cdots + \lambda_n v_n = 0 \\ \Longrightarrow (\lambda_1,...,\lambda_n) = 0$.
   \end{definition}
   \begin{example}
     $V^2: \ v_1 = i + j, v_2 = 2i, v_3 = 3i$ - линейно зависимая система, т.к. $$1 \cdot (i + j) + (- \frac{1}{2}) \cdot (2i) + (-\frac{1}{3}) \cdot (3i) = 0$$ 
@@ -648,12 +649,12 @@
   \end{lemmanum}
   \begin{proof} $\tab$ 
     \begin{itemize}
-      \item[ $\underline{\Longleftarrow } \ $  ] Пусть выражается единственно. Допустим, $v_1,..,v_k$ - ЛЗ $\Longrightarrow \exists\{\lambda_1,..,\lambda_k\}$ не все нулевые, т.ч. $\lambda_1v_1 + \cdots + \lambda_kv_k=0$ \\
+      \item[ $\underline{\Longleftarrow } \ $  ] Пусть выражается единственно. Допустим, $v_1,...,v_k$ - ЛЗ $\Longrightarrow \exists\{\lambda_1,...,\lambda_k\}$ не все нулевые, т.ч. $\lambda_1v_1 + \cdots + \lambda_kv_k=0$ \\
       Тогда если $w=\mu_1v_1 + \cdots + \mu_kv_k$, то $w + 0 = (\mu_1+\lambda_1)v_1 + \cdots + (\mu_k + \lambda_k)v_k$ другое разложение, противоречие.  
-      \item[ $\underline{\Longrightarrow} \ $  ] Пусть $v_1,..,v_k$ - ЛНЗ. Допустим, что существует два разложения: $$w = \mu_1v_1 + \cdots + \mu_kv_k$$  $$w = \widetilde{\mu_1}v_1 + \cdots + \widetilde{\mu_k}v_k$$ 
+      \item[ $\underline{\Longrightarrow} \ $  ] Пусть $v_1,...,v_k$ - ЛНЗ. Допустим, что существует два разложения: $$w = \mu_1v_1 + \cdots + \mu_kv_k$$  $$w = \widetilde{\mu_1}v_1 + \cdots + \widetilde{\mu_k}v_k$$ 
       $$\mu_1v_1 + \cdots + \mu_kv_k = \widetilde{\mu_1}v_1 + \cdots + \widetilde{\mu_k}v_k$$
       $$v_1(\mu_1 - \widetilde{\mu_1}) + \cdots + v_n(\mu_n - \widetilde{\mu_n}) = 0$$  
-      Т.к. $v_1,..,v_k$ - ЛНЗ $\Longrightarrow  (\mu_i - \widetilde{\mu_i}) = 0 \ \Longrightarrow \mu_i = \widetilde{\mu_i} \ \ \forall i = \overline{1,k}$ 
+      Т.к. $v_1,...,v_k$ - ЛНЗ $\Longrightarrow  (\mu_i - \widetilde{\mu_i}) = 0 \ \Longrightarrow \mu_i = \widetilde{\mu_i} \ \ \forall i = \overline{1,k}$ 
     \end{itemize}
   \end{proof}
   \begin{lemmanum} $\tab$
@@ -664,8 +665,8 @@
   \end{lemmanum}  
   \begin{proof} $\tab$ 
     \begin{enumerate}
-      \item Пусть подсистема $v_1,..,v_k$ системы $v_1,..,v_k,...,v_m$ - ЛЗ $\Longrightarrow \exists \lambda_1,...,\lambda_k$ не все равные нулю, т.ч. $\lambda_1v_1 + \cdots + \lambda_kv_k=0$ Положим $\lambda_{k+1}=0,...,\lambda_m=0$ 
-      Тогда $\lambda_1v_1,..,\lambda_kv_k,...,\lambda_mv_m=0$ - нетривиальная ЛК $\Longrightarrow \{v_1,...,v_k,v_{k+1},...,v_m\}$ - ЛЗ. 
+      \item Пусть подсистема $v_1,...,v_k$ системы $v_1,...,v_k,...,v_m$ - ЛЗ $\Longrightarrow \exists \lambda_1,...,\lambda_k$ не все равные нулю, т.ч. $\lambda_1v_1 + \cdots + \lambda_kv_k=0$ Положим $\lambda_{k+1}=0,...,\lambda_m=0$ 
+      Тогда $\lambda_1v_1,...,\lambda_kv_k,...,\lambda_mv_m=0$ - нетривиальная ЛК $\Longrightarrow \{v_1,...,v_k,v_{k+1},...,v_m\}$ - ЛЗ. 
       \item Следует из 1.
     \end{enumerate}
   \end{proof} 
@@ -678,7 +679,7 @@
       w_1 = c_{11}v_1+\cdots+c_{1k}v_k, \\
       w_2 = c_{21}v_1+\cdots+c_{2k}v_k, \\
       \vdots \\
-      w_m = c_{m1}v_1+\cdots+c_{mk}v_k,
+      w_m = c_{m1}v_1+\cdots+c_{mk}v_k.
     \end{cases}
     \text{где } c_{ij} \in \R
     $$
@@ -1238,7 +1239,7 @@ $V$- конечномерное векторное пространство на
       $\begin{cases}
         a_{11}x_1 + \cdots + a_{1n}x_n = b_1 \\
         \vdots \\
-        a_{m1}x_1 + \cdots + a_{mn}x_n = b_n
+        a_{m1}x_1 + \cdots + a_{mn}x_n = b_m
       \end{cases} \Longleftrightarrow \begin{pmatrix}
         a_{11} & \cdots & a_{1n} \\
         \vdots & \null & \vdots \\
@@ -1286,7 +1287,7 @@ $V$- конечномерное векторное пространство на
       \item $\forall x \in V$ однозначно раскладывается по базису $x = \sum \limits_{i=1}^{n} x_ie_i$. 
     Зададим отображение  $\phi: V \to \R^n$ по правилу:
     $$\phi: x = x_1e_1 + \cdots + x_ne_n \to (x_1,...,x_n)$$
-    Т.к. координаты вектора определены однозначно, то $\phi$ инъективно, сюрьективность очевидна $\Longrightarrow $ $\phi$ - биекция.
+    Т.к. координаты вектора определены однозначно, то $\phi$ инъективно, сюръективность очевидна $\Longrightarrow $ $\phi$ - биекция.
     \item $\forall x,y \in V$
     $$x = \sum \limits_{i=1}^{n} x_ie_i \tab[0.5cm] y = \sum \limits_{i=1}^{n} y_ie_i \tab[0.5cm]
     x + y = \sum \limits_{i=1}^{n} (x_i + y_i)e_i$$ 
@@ -1588,6 +1589,7 @@ $V$- конечномерное векторное пространство на
   %%%%%%%%
   
   \section{Определители n-го порядка}
+  \subsection{Определитель квадратной матрицы}
   \begin{definition}
     Определителем квадратной матрицы $\underset{n \times n}{A}=(a_{ij})$ порядка $n$ называется число, которое вычисляется по формуле:
     $$|A|=\det{A}=\sum\limits_{(k_1,\dots,k_n)}\textrm{sgn}(k_1,\dots,k_n)a_{1k_1}a_{2k_2}\dots a_{nk_n}$$
@@ -1774,7 +1776,7 @@ $V$- конечномерное векторное пространство на
     Итак, 
     $$detA =0 \Longleftrightarrow  det \widetilde{A} = 0 \Longleftrightarrow \widetilde{a_{11}} \cdot ... \cdot \widetilde{a_{nn}} =0$$ 
     \begin{enumerate}
-      \item Если $detA \not = 0$, то $a_{11} \not = 0,...,a_{nn} \not = 0$ - лидеры матрицы $A$ \\ $\Longrightarrow \widetilde{A}$  приводится к улучшенному ступенчатому виду обратным ходом Гаусса и этот улучшенный ступенчатый вид совпадает с $E$
+      \item Если $detA \not = 0$, то $a_{11} \not = 0,...,a_{nn} \not = 0$ - лидеры матрицы $A$ \\ $\Longrightarrow \widetilde{A}$  приводится к улучшенному ступенчатому виду обратным ходом метода Гаусса и этот улучшенный ступенчатый вид совпадает с $E$
       \item Если $detA = 0$, то $a_{11} \cdot...\cdot a_{nn} = 0$ $\Longrightarrow  \exists k: a_{kk} = 0$. По определению ступенчатого вида $\forall i > k: \widetilde{a_{ii}} = 0 \Longrightarrow \widetilde{a_{nn}} = 0 \Longrightarrow$ последняя строка в $\widetilde{A}$ нулевая.  
     \end{enumerate}
   \end{proof} 
@@ -2152,7 +2154,7 @@ $V$- конечномерное векторное пространство на
     Если квадратная матрица $A$ имеет обратную матрицу, то она одна. 
   \end{subtheorem} 
   \begin{proof}
-    Пусть $\exists $ две обратной матрицы $B_1, B_2$ , тогда: 
+    Пусть $\exists $ две обратные матрицы $B_1, B_2$ , тогда: 
     $$B_1(AB_2) = (B_1A)B_2$$ 
     $$B_1 E = E B_2$$
     $$B_1 = B_2$$  
@@ -2246,6 +2248,7 @@ $V$- конечномерное векторное пространство на
   %%%%%%%%
   
   \section{Алгебраические структуры}
+  \subsection{Группоиды}
   $A,B$ - множества. \\
   Декартово произведение: $A \times B = \{(a,b)\ |\ a \in A, b \in B\}$ 
   \begin{definition}
@@ -2820,7 +2823,7 @@ $V$- конечномерное векторное пространство на
       $A_n \leq S_n$. (для нечетных неверно)    
     \end{itemize}
   \end{example}
-  \subsection{Кольца и поля}
+  \subsection{Кольца}
   \begin{definition}
     Множество $K$, на котором введены 2 бинарные операции:\\ $"+"$ - сложение, $"\cdot"$ - умножение, называется кольцом, если выполнены следующие аксиомы:
     \begin{enumerate}
@@ -2898,6 +2901,7 @@ $V$- конечномерное векторное пространство на
   \begin{example1}
     $\Z^* = \{1, -1\}$
   \end{example1}
+  \subsection{Поля}
   \begin{definition}
     Поле $K$ - коммутативное, ассоциативное кольцо с $1 \neq 0$ , в котором любой ненулевой элемент обратим.
   \end{definition} 
@@ -2944,7 +2948,7 @@ $V$- конечномерное векторное пространство на
     \end{enumerate}
   \end{example}
   \begin{subtheorem}
-    Если в кольце $K$ нет делителя нуля, то возможно сокращение, если $a \cdot c = b \cdot c, $ и $c \neq 0, $ то $a = b$  
+    Если в кольце $K$ нет делителя нуля, то возможно сокращение, т.е. если $a \cdot c = b \cdot c, $ и $c \neq 0, $ то $a = b$.  
   \end{subtheorem}
   \begin{proof}
     $a \cdot c = b \cdot c \Longrightarrow a \cdot c - b \cdot c =0 \Longrightarrow (a-b) \cdot c =0$\\
@@ -2991,12 +2995,13 @@ $V$- конечномерное векторное пространство на
   \begin{definition}
     Поля $P$ и $\widetilde{P}$  изоморфны, если они изоморфны как кольца.
   \end{definition} 
+  \subsection{Подкольца и подполя}
   \begin{definition}
     Подмножество $L$ кольца $K$ называется подкольцом, если:
     \begin{enumerate}
       \item $L$ - подгруппа аддитивной группы кольца $K$, т.е.
       \begin{itemize}
-        \item $\forall a, b \subset L : \ a + b \in L$ 
+        \item $\forall a, b \in L : \ a + b \in L$ 
         \item $0 \in L$ 
         \item $\forall a \in L: (-a) \in L$
       \end{itemize}
@@ -3096,7 +3101,7 @@ $V$- конечномерное векторное пространство на
       % \end{itemize}
       $\Longrightarrow F$ - подполе поля $\mathbb{C}$ \\
       $\R \subseteq F$, т.к. $\forall a \in \R \ \exists \ (a + 0 \cdot i) \in F$ и $\exists \ i = (0 + 1 \cdot i) \in F$\\
-      По третьей аксиоме из определения поле $\mathbb{C}: \ F=\mathbb{C}$\\
+      По третьей аксиоме из определения поля $\mathbb{C}: \ F=\mathbb{C}$\\
       Мы доказали, что если поле комплексных чисел существует, то любой элемент в нем представляется в виде $z = a + bi$, где $a, b \in \R$.\\
       Проверим, что это представление единственное. \\
       От противного: 
@@ -3910,7 +3915,7 @@ $V$- конечномерное векторное пространство на
     Неприводимые многочлены над $\mathbb{C}$ - это линейные многочлены и только они. 
   \end{subtheorem}
   \begin{subtheorem}\textbf{(2)}
-    Неприводимые многочлены над $\R$ - это все линейные многочлены и все квадратные многочлены с отрицательным дискриминантом и только такие.  
+    Неприводимые многочлены над $\R$ - это все линейные многочлены и все квадратичные многочлены с отрицательным дискриминантом и только такие.  
   \end{subtheorem}
   \begin{remark}
     Над любым полем $\exists$ бесконечное число непропорциональных\\ неприводимых многочленов.
@@ -3984,7 +3989,7 @@ $V$- конечномерное векторное пространство на
       g=v_0+...+v_t
     \end{matrix}, \ \ \text{где } u_i, v_i - \text{одночлены}$$
     $$LT(f) = u_s, \ LT(g) = v_t$$
-    $$fg = \sum u_iv_i; \ \ u_sv_t \succ u_iv_j, \text{ при } i+j<s+t \Longrightarrow LT(fg) = u_sv_t$$
+    $$fg = \sum u_iv_j; \ \ u_sv_t \succ u_iv_j, \text{ при } i+j<s+t \Longrightarrow LT(fg) = u_sv_t$$
     (Здесь учитывается, что $F$ - поле, а в поле нет делителей нуля)
   \end{proof}
   \begin{consequense}
@@ -4145,7 +4150,8 @@ $V$- конечномерное векторное пространство на
   \newpage
   %%%%%%%%
   
-  \section{Теория делимости в Евклидовых кольцах}
+  \section{Теория делимости в евклидовых кольцах}
+  \subsection{Целостные и евклидовы кольца}
   \begin{definition}
     Коммутативное, ассоциативное кольцо с единицей, в котором нет делителя нуля, называется целостным.
   \end{definition}
@@ -4204,8 +4210,8 @@ $V$- конечномерное векторное пространство на
     \end{enumerate}
   \end{example}
   \begin{Exercise}
-    $z[i] = \{a+bi \ | \ a, b \in \Z\}, \ N(a + bi) = a^2 + b^2 \Longrightarrow \\
-    z[i]$ c такой нормой - евклидово кольцо. 
+    $\Z[i] = \{a+bi \ | \ a, b \in \Z\}, \ N(a + bi) = a^2 + b^2 \Longrightarrow \\
+    \Z[i]$ c такой нормой - евклидово кольцо. 
   \end{Exercise}
   \begin{subtheorem}
     $N(ab) = N(a) \Longleftrightarrow b$ обратим 
@@ -4337,26 +4343,26 @@ $V$- конечномерное векторное пространство на
     Если $p \nmid a_1$, то НОД($a_1,p$) = 1 $\underbrace{\Longrightarrow}_{\text{по Лемме}} p|(a_2\cdot ... \cdot a_n) \underbrace{\Longrightarrow}_{\text{по Инд.}}  \exists \ i = \overline{2, n}: \ p|a_i$  
   \end{proof} 
   \begin{theorem}
-    Пусть $K$ - евклидово кольцо, $a\neq 0 \in K$ - произвольный, необратимый элемент. Тогда $a$ можно разложить:
+    Пусть $K$ - евклидово кольцо, $(a\neq 0) \in K$ - произвольный, необратимый элемент. Тогда $a$ можно разложить:
     $$a = p_1^{k_1}\cdot ...\cdot p_n^{k_s}$$
     Причем это разложение единственное с точностью до домножения на обратимый и перестановки множителей.   
   \end{theorem}
   \begin{proof}\tab
     \begin{itemize}
       \item[ $\exists: \ $ ] От противного:\\
-    Среди всех ненулевых и необратимых элементов кольца $K$ найдем такие, которые не допускают такое разложения, возьмем наименьший по норме - обозначим его $a$. 
+    Среди всех ненулевых и необратимых элементов кольца $K$ найдем такие, которые не допускают такого разложения, возьмем наименьший по норме - обозначим его $a$. 
     \begin{itemize}
       \item[1 случай: ] $a$ - простой элемент $\Longrightarrow a$ - это и есть разложение на простые
       \item[2 случай: ] $a$ - не простой $\Longrightarrow \exists \ b, c \in K$ - ненулевые, необратимые: $a = bc$
       $$N(a)>N(b) \text{ и } N(a)>N(c)$$
       $\Longrightarrow $ т.к. $a$ - наименьший по норме, который не допускает это разложение на простые, то 
       $$b = p_1\cdot ... \cdot p_t, \ \ c = q_1\cdot ... \cdot q_s$$
-      Где $p_i, \ q_i$ - простые числа $\Longrightarrow a = p_1\cdot ... \cdot p_t\cdot q_1\cdot ... \cdot q_s$ - противоречие 
+      Где $p_i, \ q_i$ - простые элементы $\Longrightarrow a = p_1\cdot ... \cdot p_t\cdot q_1\cdot ... \cdot q_s$ - противоречие 
     \end{itemize}
     \item[ $!: \ $ ] От противного:\\
-    $a = p_1\cdot ... \cdot p_s = q_1\cdot ... \cdot q_s$, где $p_i, a_i$ - простые числа. Индукция по $s$:  
+    $a = p_1\cdot ... \cdot p_s = q_1\cdot ... \cdot q_t$, где $p_i, a_i$ - простые элементы. Индукция по $s$:  
     $$\Longrightarrow p_1 | (q_1\cdot ... \cdot q_s)$$
-    $\Longrightarrow $  т.к. $p_1$ - простое, то следовательно: 
+    $\Longrightarrow $  т.к. $p_1$ - простое, следовательно: 
     $$\exists \ i = \overline{1,t}: \ p_1 | q_i \Longrightarrow p_1\sim q_i$$
     Можем считать, что $i =1, \ q_1 = c_1p_1, \ c_1$ - обратим\\
     Сокращаем на $p_1 : \ \ p_2\cdot ... \cdot p_s = cq_2\cdot ...\cdot q_m$\\
@@ -4486,12 +4492,12 @@ $V$- конечномерное векторное пространство на
     Индукция по $s$:\\
     $s=2, \ g = g_1g_2, \ $ НОД$(g_1, g_2)=1 \Longrightarrow \exists \ u, v \in F[x]: \ ug_1 + vg_2 = 1$, тогда:
     $$\frac{f}{g} = \frac{f\cdot 1}{g_1g_2} = \frac{f(ug_1 + vg_2)}{g_1g_2} = \frac{fu}{g_2} + \frac{fv}{g_1} = q_1 + \frac{r_1}{g_1} + q_2 + \frac{r_2}{g_2}$$
-    По утверждению (1): \ $q_1 + q_2$ - правильная дробь. многочлен, который является правильной дробью - нулевой многочлен  $\Longrightarrow q_1 + q_2 = 0 \Longrightarrow$ 
+    По утверждению (1): \ $q_1 + q_2$ - правильная дробь. Многочлен, который является правильной дробью - нулевой многочлен  $\Longrightarrow q_1 + q_2 = 0 \Longrightarrow$ 
     $$\frac{f}{g} =\frac{r_1}{g_1} + \frac{r_2}{g_2}$$
     Переход: $s-1 \ \to \ s: \frac{f}{g_1(g_2\cdot ... \cdot g_s)} = \frac{r_1}{g_1} + \frac{r_2}{g_2\cdot ... \cdot g_s} \underbrace{=}_{\text{По предп. индукции}} \frac{r_1}{g_1} + \frac{r_2}{g_2} + ... + \frac{r_s}{g_s}$
   \end{proof}
   \begin{definition}
-    Рациональная дробь $\frac{f}{g}\in F(x)$ называется простейшей,если:
+    Рациональная дробь $\frac{f}{g}\in F(x)$ называется простейшей, если:
     \begin{itemize}
       \item[1) \ ] $\frac{f}{g} \neq 0$
       \item[2) \ ] $g = p^s$, \ где $p$ - неприводимый множитель над $F$, \ $s \in \N$
@@ -4555,7 +4561,6 @@ $V$- конечномерное векторное пространство на
     \includegraphics[width=4cm]{kotik.jpg}
   \end{center}
 
-  
   % \textbf{Мораль в том, что я в этот раз почти успел}
   % \textbf{Мораль в том, что в этот раз я вообще не успел}
 
